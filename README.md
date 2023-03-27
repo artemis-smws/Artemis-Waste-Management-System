@@ -1,2 +1,3 @@
-# GAIA-Watse-Management-System
-GAIA-MIS: Waste Management System.
+# ArteMIS Waste Management System (Web)
+ArteMIS Waste Management System (Web)
+
