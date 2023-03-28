@@ -1,2 +1,22 @@
 @import "bootstrap/scss/bootstrap";
 @import "./assets/variables";
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navbar {
+  color: $text-color-primary;
+  background-color: $primary-red;
+  display: grid;
+  grid-template-columns: 1fr 50% 1fr;
+}
+.navbar-brand img {
+  width: 20px;
+  height: 20px;
+}
