@@ -1,12 +1,12 @@
 import './App.scss'
-import LoginCard from './components/loginCard'
+import LandingPage from './components/landingPage'
 import Navbar from './components/navbar'
 
 export function App() {
   return (
     <div className='position-relative'>
       <Navbar />
-      <LoginCard />
+      <LandingPage />
     </div>
   )
 }
