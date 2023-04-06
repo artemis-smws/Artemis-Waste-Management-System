@@ -10,9 +10,37 @@
   justify-content: space-evenly;
 }
 
+body{
+  overflow-x: hidden;
+  @include flex-column();
+}
+
 .navbar {
-  color: $text-color-primary;
-  background-color: $primary-red;
+  font-weight: bold;
+  background-color: transparent;
   display: grid;
   grid-template-columns: 1fr 50% 1fr;
+}
+.navbar-toggler{
+  border: none;
+  font-weight: bold;
+}
+
+
+.artemis-logo {
+  height: 55%;
+  width: 25%;
+  background-image:url("./placeholder-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  // background-color: red;
+}
+#login-forms {
+  background-color: $primary-red;
+  border-radius: 30px;
+}
+#home {
+  background-image: url("./tempBackdrop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
