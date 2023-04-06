@@ -1,4 +1,4 @@
-@import "bootstrap/scss/bootstrap";
+// pass constant variables used 
 @import "./assets/variables";
 
 @mixin flex-column {
@@ -15,8 +15,4 @@
   background-color: $primary-red;
   display: grid;
   grid-template-columns: 1fr 50% 1fr;
-}
-.navbar-brand img {
-  width: 20px;
-  height: 20px;
 }
