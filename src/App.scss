@@ -10,9 +10,20 @@
   justify-content: space-evenly;
 }
 
+body {
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow-x: hidden;
+  @include flex-column()
+}
+
 .navbar {
-  color: $text-color-primary;
-  background-color: $primary-red;
+  font-weight: bold;
+  background-color: transparent;
   display: grid;
   grid-template-columns: 1fr 50% 1fr;
+}
+.navbar-toggler{
+  border: none;
+  font-weight: bold;
 }
