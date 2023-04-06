@@ -10,11 +10,9 @@
   justify-content: space-evenly;
 }
 
-body {
-  max-width: 100vw;
-  max-height: 100vh;
+body{
   overflow-x: hidden;
-  @include flex-column()
+  @include flex-column();
 }
 
 .navbar {
@@ -26,4 +24,23 @@ body {
 .navbar-toggler{
   border: none;
   font-weight: bold;
+}
+
+
+.artemis-logo {
+  height: 55%;
+  width: 25%;
+  background-image:url("./placeholder-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  // background-color: red;
+}
+#login-forms {
+  background-color: $primary-red;
+  border-radius: 30px;
+}
+#home {
+  background-image: url("./tempBackdrop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 export default function Navbar() {
   return (
-    <nav className="d-flex sticky-top navbar navbar-expand-lg justify-content-between px-5 pt-4">
+    <nav className="d-flex position-absolute top-0 start-0 end-0 navbar navbar-expand-lg justify-content-between px-5 pt-4">
         <div className="navbar-brand align-text-center">
         <i className="bi bi-bootstrap-fill align-text-center me-2 fs-3"></i>
             ArteMIS
