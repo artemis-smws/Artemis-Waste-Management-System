@@ -1,0 +1,74 @@
+@import "../../context/variables";
+
+#background {
+  @include background-img("./parallax/background.png");
+}
+#jungle1 {
+  @include background-img("./parallax/jungle1.png");
+}
+#jungle2 {
+  @include background-img("./parallax/jungle2.png");
+}
+#jungle3 {
+  @include background-img("./parallax/jungle3.png");
+}
+#jungle4 {
+  @include background-img("./parallax/jungle4.png");
+}
+#jungle5 {
+  @include background-img("./parallax/jungle5.png");
+}
+#logoland {
+  height: 50%;
+  width: auto;
+  margin-bottom: 100px;
+}
+#manonmountain {
+  @include background-img("./parallax/man_on_mountain.png");
+}
+#mountain {
+  @include background-img("./parallax/mountain.png");
+}
+#spinwheel {
+  @include background-img("./parallax/spinningwheel-bg.png");
+  background-size: 50%;
+  background-position: bottom left;
+}
+#about {
+  background-color: RGB(33, 0, 2);
+  @include background-img("./parallax/spinningwheel-bg.png");
+  background-size: 50%;
+  background-position: bottom left;
+  color: white;
+}
+#features {
+  background-color: white;
+  color: $text-color-secondary;
+}
+#contact {
+  background-color: $primary-green;
+  color: $text-color-primary;
+}
+
+.animation,
+.animation_layer {
+  height: 1000px;
+}
+
+.animation {
+  display: block;
+  position: relative;
+  z-index: 10;
+}
+
+.animation_layer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-position: bottom center;
+  background-size: contain;
+  background-repeat: repeat-x;
+  width: 100%;
+  position: fixed;
+}

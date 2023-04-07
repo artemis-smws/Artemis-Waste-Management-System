@@ -6,6 +6,7 @@
 body{
   overflow-x: hidden;
   @include flex-column();
+  scroll-behavior: smooth;
 }
 
 .navbar {
@@ -18,6 +19,10 @@ body{
   border: none;
   font-weight: bold;
 }
+.nav-link,
+.navbar-brand {
+  color: $text-color-primary;
+}
 
 
 .artemis-logo {
@@ -26,7 +31,6 @@ body{
   background-image:url("./placeholder-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
-  // background-color: red;
 }
 #login-forms {
   background-color: $primary-red;
@@ -37,58 +41,6 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
-// parallax effect css
-#background {
-  @include background-img('./parallax/background.png')
-}
-#jungle1 {
-  @include background-img('./parallax/jungle1.png')
-}
-#jungle2 {
-  @include background-img('./parallax/jungle2.png')
-}
-#jungle3 {
-  @include background-img('./parallax/jungle3.png')
-}
-#jungle4 {
-  @include background-img('./parallax/jungle4.png')
-}
-#jungle5 {
-  @include background-img('./parallax/jungle5.png')
-}
-#logoland {
-  height: 50%;
-  width: auto;
-  margin-bottom: 100px;
-}
-#manonmountain {
-  @include background-img('./parallax/man_on_mountain.png')
-}
-#mountain {
-  @include background-img('./parallax/mountain.png')
-}
-
-.animation, .animation_layer {
-	height: 1000px;
-}
-
-.animation {
-  display: block;
-	position: relative;
-	z-index: 10;
-}
-
-.animation_layer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-	background-position: bottom center;
-	background-size: auto 1038px;
-	background-repeat: repeat-x;
-	width: 100%;
-	position: absolute;
-}
-.animation_layer.parallax {
-	position: fixed;
+#inline-text-style {
+  color: $secondary-green;
 }
