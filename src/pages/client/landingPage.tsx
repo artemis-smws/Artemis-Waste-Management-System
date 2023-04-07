@@ -1,12 +1,9 @@
-import Navbar from "../navbar";
+import { auto } from "@popperjs/core";
+import Navbar from "../../components/layout/navbar";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 export default function LandingPage() {
-  const style = {
-    height: "100vh",
-    width: "100vw",
-    zIndex: "-1",
-  };
+ 
   return (
     <>
       <Navbar />
