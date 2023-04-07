@@ -1,10 +1,24 @@
-
 // Landing page - Color Scheme
-$primary-red: #7A0000;
-$secondary-red: #7A0000;
-$primary-green: #002A26;
-$secondary-green: #00CB6A;
-$tertiary-gren: #9EAFA2;
+$primary-red: #7a0000;
+$secondary-red: #7a0000;
+$primary-green: #002a26;
+$secondary-green: #00cb6a;
+$tertiary-gren: #9eafa2;
 
 $text-color-primary: white;
 $text-color-secondary: $primary-green;
+
+@mixin background-img($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-row {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -1,14 +1,7 @@
 // pass constant variables used 
 @import "./assets/variables";
 
-@mixin flex-column {
-  display: flex;
-  flex-direction: column;
-}
-@mixin flex-row {
-  display: flex;
-  justify-content: space-evenly;
-}
+
 
 body{
   overflow-x: hidden;
@@ -43,4 +36,59 @@ body{
   background-image: url("./tempBackdrop.png");
   background-repeat: no-repeat;
   background-size: cover;
+}
+// parallax effect css
+#background {
+  @include background-img('./parallax/background.png')
+}
+#jungle1 {
+  @include background-img('./parallax/jungle1.png')
+}
+#jungle2 {
+  @include background-img('./parallax/jungle2.png')
+}
+#jungle3 {
+  @include background-img('./parallax/jungle3.png')
+}
+#jungle4 {
+  @include background-img('./parallax/jungle4.png')
+}
+#jungle5 {
+  @include background-img('./parallax/jungle5.png')
+}
+#logoland {
+  height: 50%;
+  width: auto;
+  margin-bottom: 100px;
+}
+#manonmountain {
+  @include background-img('./parallax/man_on_mountain.png')
+}
+#mountain {
+  @include background-img('./parallax/mountain.png')
+}
+
+.animation, .animation_layer {
+	height: 1000px;
+}
+
+.animation {
+  display: block;
+	position: relative;
+	z-index: 10;
+}
+
+.animation_layer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+	background-position: bottom center;
+	background-size: auto 1038px;
+	background-repeat: repeat-x;
+	width: 100%;
+	position: absolute;
+}
+.animation_layer.parallax {
+	position: fixed;
 }
