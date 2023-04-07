@@ -12,7 +12,6 @@ export function App() {
           <Route path='/admin' element={<h1>Test Admin</h1>} />
         </Routes>
       </BrowserRouter>
-      
     </div>
   )
 }
