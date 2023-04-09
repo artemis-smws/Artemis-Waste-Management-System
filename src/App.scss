@@ -1,40 +1,31 @@
-// pass constant variables used 
-@import "./assets/variables";
-
-@mixin flex-column {
-  display: flex;
-  flex-direction: column;
-}
-@mixin flex-row {
-  display: flex;
-  justify-content: space-evenly;
-}
+@import "./context/variables";
 
 body{
   overflow-x: hidden;
   @include flex-column();
+  scroll-behavior: smooth;
+  background-color: $background-white
 }
 
+// navbar styling 
 .navbar {
   font-weight: bold;
-  background-color: transparent;
   display: grid;
   grid-template-columns: 1fr 50% 1fr;
+  background-color: $background-black;
+  max-height: 100px !important;
+  align-items: center;
+  padding: 1px 25px !important;
 }
 .navbar-toggler{
   border: none;
   font-weight: bold;
 }
-
-
-.artemis-logo {
-  height: 55%;
-  width: 25%;
-  background-image:url("./placeholder-icon.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  // background-color: red;
+.nav-link,
+.navbar-brand {
+  color: $text-color-primary;
 }
+
 #login-forms {
   background-color: $primary-red;
   border-radius: 30px;
@@ -43,4 +34,78 @@ body{
   background-image: url("./tempBackdrop.png");
   background-repeat: no-repeat;
   background-size: cover;
+}
+#inline-text-style {
+  color: $secondary-green;
+}
+
+
+@mixin card-img-format {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.card-img-bg {
+  background-color: $background-white;
+  object-fit: fill;
+  padding: 0;
+  margin: 9;
+}
+
+.landingPageCard {
+  max-width: 20em;
+  background-color: $primary-green;
+  color: $text-color-primary;
+}
+
+.landingPageCard img{
+   @include card-img-format;
+   
+}
+
+.contactCard {
+  width: 230px;
+  max-width: 250px;
+  height: 100%;
+  background-color: $primary-red;
+  color: $text-color-primary;
+}
+.contactCard img {
+  @include card-img-format;
+  height: auto;
+  max-width: 150px;
+  object-fit: contain;
+}
+.bg-green {
+  background-color: $primary-green;
+  color: $text-color-primary;
+}
+.bg-tertiary-grey {
+  background-color: $tertiary-grey;
+  color: $text-color-primary;
+}
+.bg-red {
+  background-color: $primary-red;
+  color: $text-color-primary;
+}
+.bg-white {
+  background-color: $background-white;
+  color: $background-black;
+}
+
+
+
+
+//will remove later
+.bg-temp-color {
+  background-color: $temp-color;
+  color: $text-color-primary;
+}
+.bg-temp-color2 {
+  background-color: rgb(138, 94, 94);
+  color: $text-color-secondary;
 }
