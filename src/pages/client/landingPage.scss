@@ -18,31 +18,23 @@
 #jungle5 {
   @include background-img("./parallax/jungle5.png");
 }
-#logoland {
+#logo {
   height: 50%;
   width: auto;
   margin-bottom: 100px;
 }
-#manonmountain {
-  @include background-img("./parallax/man_on_mountain.png");
-}
 #mountain {
   @include background-img("./parallax/mountain.png");
 }
-#spinwheel {
-  @include background-img("./parallax/spinningwheel-bg.png");
-  background-size: 50%;
-  background-position: bottom left;
-}
 #about {
-  background-color: RGB(33, 0, 2);
+  background-color: $temp-color;
   @include background-img("./parallax/spinningwheel-bg.png");
   background-size: 50%;
   background-position: bottom left;
-  color: white;
+  color: $background-white;
 }
 #features {
-  background-color: white;
+  background-color: $background-white;
   color: $text-color-secondary;
 }
 #contact {
@@ -50,25 +42,22 @@
   color: $text-color-primary;
 }
 
-.animation,
-.animation_layer {
-  height: 1000px;
-}
-
-.animation {
-  display: block;
-  position: relative;
-  z-index: 10;
-}
-
-.animation_layer {
+.home_parallax_layer {
+  height: inherit;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-position: bottom center;
   background-size: contain;
-  background-repeat: repeat-x;
+}
+.other_parallax_layer {
+  height: 115vh;
   width: 100%;
-  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-position: bottom center;
+  background-size: contain;
 }

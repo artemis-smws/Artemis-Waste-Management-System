@@ -6,12 +6,12 @@ export default function About({ className }: Props) {
   const style: React.CSSProperties = {
     display: "grid",
     gridTemplateColumns: "50% 25% 25%",
-    padding: "200px 10px",
+    padding: "10px 10px",
   };
   return (
     <div id="about" style={style} className={className}>
       <div className="d-flex flex-column justify-content-start h-100 mt-5 px-5 ">
-        <h1 style={{ fontSize: "60px" }} className="text-wrap">
+        <h1 style={{ fontSize: "60px", paddingTop: '100px' }} className="text-wrap">
           Sustainable <span id="inline-text-style"> environment </span> for a
           better world
         </h1>
