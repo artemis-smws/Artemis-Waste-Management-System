@@ -5,16 +5,19 @@ import About from "../../components/pages/about";
 import { useRef } from "react";
 import Features from "../../components/pages/features";
 import Contact from "../../components/pages/contact";
+import NewFeatures from "../../components/pages/newFeatures";
 
 export default function LandingPage() {
   const layer: React.CSSProperties = {
     height: "1000px",
   };
-  const ref = useRef();
+
+  const ref: any = useRef()
+
   return (
     <>
       {/* first page */}
-      <Parallax pages={4} style={{ top: "0", left: "0" }}>
+      <Parallax pages={4} style={{ top: "0", left: "0" }} ref={ref}>
         <ParallaxLayer offset={0} speed={0.25} factor={1} style={layer}>
           <div id="background" className="home_parallax_layer" />
         </ParallaxLayer>
@@ -24,6 +27,7 @@ export default function LandingPage() {
         <ParallaxLayer offset={0} speed={-0.1} factor={1} style={layer}>
           <div className="home_parallax_layer">
             <img
+
               src="./placeholder-icon.png"
               id="logo"
               style={{ marginBottom: "250px" }}
@@ -46,17 +50,19 @@ export default function LandingPage() {
           <div id="jungle5" className="home_parallax_layer"></div>
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0} style={layer}>
-          <Navbar />
+          <Navbar handleFeature={() => ref.current.scrollTo(2)} 
+            handleAbout={() => ref.current.scrollTo(1)}
+            handleContact={() => ref.current.scrollTo(3)}
+          />
         </ParallaxLayer>
         {/* second page */}
-        <ParallaxLayer
-          offset={1}
-          speed={0}
-          factor={3}
-          style={{ height: "100%" }}
-        >
+        <ParallaxLayer offset={1} speed={0}>
           <About className="other_parallax_layer" />
+        </ParallaxLayer>
+        <ParallaxLayer offset={2} speed={0}>
           <Features className="other_parallax_layer" />
+        </ParallaxLayer>
+        <ParallaxLayer offset={3} speed={0}>
           <Contact className="other_parallax_layer" />
         </ParallaxLayer>
       </Parallax>
@@ -64,23 +70,4 @@ export default function LandingPage() {
   );
 }
 
-const Footer = () => {
-  const style: React.CSSProperties = {
-    width: "100%",
-    height: "100px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    backgroundColor: 'black',
-    color: "grey",
-  };
-  return (
-    <div style={style}>
-      <img src="./bsu_logo.png" alt="batangas state university logo" />
-      <p>Batangas State University</p>
-      <p>BatStateU General Service Office</p>
-      <img src="./emu_logo.png" alt="EMU Logo" />
-      <p>BatStateU Environmental Management Unit</p>
-    </div>
-  );
-};
+

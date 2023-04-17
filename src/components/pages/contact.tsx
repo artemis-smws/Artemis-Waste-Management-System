@@ -1,4 +1,5 @@
 import Card from "../card";
+import Footer from "../layout/footer";
 
 interface Props {
   className?: string;
@@ -29,7 +30,7 @@ export default function Contact({ className }: Props) {
         style={{ borderRadius: "0 30px 30px 0" }}
       >
         <section className="d-flex flex-column justify-content-evenly align-items-center h-100 w-100">
-          <h1>ArteMIS Team</h1>
+          <h1>Arte<span style={{color: "#00cb6a"}}>MIS</span> Team</h1>
           <div style={divStyle}>
             <Card
               img="./profile-placeholder.png"
@@ -37,6 +38,7 @@ export default function Contact({ className }: Props) {
               cardHeader="Kairus Noah E. Tecson"
             >
               <p style={bodyTextStyle}>Project Leader</p>
+              <p style={bodyTextStyle}>Lead Programmer</p>
             </Card>
             <Card
               img="./profile-placeholder.png"
@@ -62,6 +64,7 @@ export default function Contact({ className }: Props) {
               cardHeader="John Carlo Endaya"
             >
               <p style={bodyTextStyle}>Documentation</p>
+              <p style={bodyTextStyle}>IoT Engineer</p>
             </Card>
             <Card
               img="./profile-placeholder.png"
@@ -83,7 +86,9 @@ export default function Contact({ className }: Props) {
         </section>
       </div>
 
-      <aside className="h-100"></aside>
+      <aside className="h-100">
+        <Footer />
+      </aside>
     </section>
   );
 }
