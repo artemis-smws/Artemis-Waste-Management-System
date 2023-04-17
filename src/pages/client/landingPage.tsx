@@ -42,16 +42,16 @@ export default function LandingPage() {
         <ParallaxLayer offset={0} speed={0.27} factor={1} style={layer}>
           <div id="jungle4" className="home_parallax_layer" />
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.25} factor={1} style={layer}>
-          <Navbar />
-
+        <ParallaxLayer offset={-0.25} speed={0} factor={1} style={layer}>
           <div id="jungle5" className="home_parallax_layer"></div>
         </ParallaxLayer>
-
+        <ParallaxLayer offset={0} speed={0} style={layer}>
+          <Navbar />
+        </ParallaxLayer>
         {/* second page */}
         <ParallaxLayer
           offset={1}
-          speed={0.25}
+          speed={0}
           factor={3}
           style={{ height: "100%" }}
         >
@@ -71,6 +71,7 @@ const Footer = () => {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
+    backgroundColor: 'black',
     color: "grey",
   };
   return (
