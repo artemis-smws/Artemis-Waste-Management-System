@@ -1,4 +1,5 @@
 import Card from "../card";
+import Footer from "../layout/footer";
 
 interface Props {
   className?: string;
@@ -85,7 +86,9 @@ export default function Contact({ className }: Props) {
         </section>
       </div>
 
-      <aside className="h-100"></aside>
+      <aside className="h-100">
+        <Footer />
+      </aside>
     </section>
   );
 }

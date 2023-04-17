@@ -69,23 +69,4 @@ export default function LandingPage() {
   );
 }
 
-const Footer = () => {
-  const style: React.CSSProperties = {
-    width: "100%",
-    height: "100px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    backgroundColor: 'black',
-    color: "grey",
-  };
-  return (
-    <div style={style}>
-      <img src="./bsu_logo.png" alt="batangas state university logo" />
-      <p>Batangas State University</p>
-      <p>BatStateU General Service Office</p>
-      <img src="./emu_logo.png" alt="EMU Logo" />
-      <p>BatStateU Environmental Management Unit</p>
-    </div>
-  );
-};
+

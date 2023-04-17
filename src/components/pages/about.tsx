@@ -17,23 +17,27 @@ export default function About({ className }: Props) {
         </h1>
       </div>
       <div className="d-flex flex-column justify-content-evenly h-100">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut nibh
-          et tellus lobortis volutpat at in elit. Aenean sed neque sapien.
-          Pellentesque vulputate ipsum vitae ante mollis, vel pulvinar dui
-          egestas. Fusce ipsum est, ornare ac purus vel, rutrum auctor sem.
-          Aliquam erat volutpat
+        <p style={{fontSize: '20px'}}>
+          ArteMIS is a Management Information System focusing on Waste. ArteMIS aims 
+          to bring efficiency on delivering waste management in the environment through 
+          utilizing modern technologies. It also aims to bridge newer generations to 
+          waste management, showing the status of the environment and actively monitor it.
+          ArteMIS initialy focuses on being a Waste Management System but aims to progress
+          towards the owning the purpose from it, offering sustainability for healthier 
+          environment
         </p>
+        <img src="./about-img.png" alt="about img" />
+      </div>
+      <div className="d-flex flex-column justify-content-evenly h-100 px-5 ">
+        <img src="./about-img.png" alt="about img" />
         <h2>
           GAIA -{" "}
           <span id="inline-text-style"> Management Information System </span>
         </h2>
-      </div>
-      <div className="d-flex flex-column justify-content-evenly h-100 px-5 ">
-        <img src="./about-img.png" alt="about img" />
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut nibh
-          et tellus lobortis volutpat at in elit. Aenean sed neque sapien.{" "}
+          ArteMIS is initialy based in Batangas State Univesity - Alangilan Campus, with the 
+          help of said partners which handles the regulation of environmental sustainability 
+          of the campus. (General Office Unit, Enviromental Management Unit)
         </p>
       </div>
     </div>
