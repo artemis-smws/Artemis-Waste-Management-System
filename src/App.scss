@@ -58,7 +58,8 @@ body{
 }
 
 .featureCard {
-  max-width: 80%;
+  max-width: 20rem;
+  height: 80%;
   background-color: $temp-color;
   color: $text-color-primary;
   border: 0;
@@ -66,7 +67,7 @@ body{
 }
 
 .featureCard img{
-   @include card-img-format;
+  @include card-img-format()
 }
 
 .contactCard {
