@@ -1,16 +1,16 @@
 @import "./context/variables";
-@import url('https://fonts.cdnfonts.com/css/inter');
+@import url("https://fonts.cdnfonts.com/css/inter");
 
-body{
+body {
   overflow-x: hidden;
   @include flex-column();
   scroll-behavior: smooth;
-  background-color: $background-white
+  background-color: $background-white;
 }
 p {
   color: $text-color-primary;
 }
-// navbar styling 
+// navbar styling
 .navbar {
   font-weight: bold;
   display: grid;
@@ -20,7 +20,7 @@ p {
   align-items: center;
   padding: 1px 25px !important;
 }
-.navbar-toggler{
+.navbar-toggler {
   border: none;
   font-weight: bold;
 }
@@ -42,7 +42,6 @@ p {
   color: $secondary-green;
 }
 
-
 @mixin card-img-format {
   max-width: 100%;
   max-height: 180px;
@@ -54,22 +53,27 @@ p {
 
 .card-img-bg {
   background-color: $background-white;
-  object-fit: fill;
-  padding: 0;
-  margin: 9;
+  object-fit: cover;
 }
 
 .featureCard {
-  max-width: 20rem;
-  height: 80%;
+  width: 30rem;
+  height: 85%;
   background-color: $temp-color;
   color: $text-color-primary;
   border: 0;
-  box-shadow: 0 1px 10px rgba(128, 128, 128, 0.568)
+  box-shadow: 0 1px 10px rgba(128, 128, 128, 0.705);
 }
 
-.featureCard img{
-  @include card-img-format()
+.featureCard{
+  h5 {
+    font-size: 30px
+  }
+}
+
+.featureCard img {
+  @include card-img-format();
+  max-height: 100%;
 }
 
 .contactCard {
@@ -102,9 +106,6 @@ p {
   color: $background-black;
 }
 
-
-
-
 //will remove later
 .bg-temp-color {
   background-color: $temp-color;
@@ -115,20 +116,20 @@ p {
   color: $text-color-secondary;
 }
 
-#Sidebar{
+#Sidebar {
   background-color: $primary-red;
   margin: 0;
   height: 100vh;
   width: 321px;
-  padding: 50px
+  padding: 50px;
 }
 
-#Project-Logo a{
+#Project-Logo a {
   text-decoration: none;
 }
 
-#Project-Logo h1{
-  font-family: 'Inter';
+#Project-Logo h1 {
+  font-family: "Inter";
   font-style: normal;
   font-weight: 800;
   font-size: 24px;
@@ -138,23 +139,21 @@ p {
   text-align: center;
 }
 
-
-
-#Lists button{
-  font-family: 'Inter';
+#Lists button {
+  font-family: "Inter";
   font-style: normal;
   font-weight: 300;
   font-size: 24px;
   line-height: 29px;
 }
 
-#Lists li{
+#Lists li {
   margin: 10px;
 }
 
-#sign-out{
+#sign-out {
   padding: 13px 30px;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
@@ -164,6 +163,6 @@ p {
   color: $primary-red;
 }
 
-.active{
+.active {
   background-color: white;
 }

@@ -36,8 +36,9 @@ export default function Features({ className }: Props) {
         >
           Access ArteMIS not only through the Web but also through the access of your phones.
           Monitor and analyze ArteMIS with ease of access. If you're a volunteer, easily 
-          send waste information and get notification about the ArteMIS bin updates. 
-          <button className="btn btn-success my-3">Download ArteMIS - Mobile now!</button>
+          send waste information and get notification about the ArteMIS bin updates. <a className="link-success">
+            Download ArteMIS Mobile now...
+          </a>
         </Card>
         <Card
           cardHeader="IoT ArteMIS trash bin"
