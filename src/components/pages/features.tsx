@@ -12,7 +12,7 @@ export default function Features({ className }: Props) {
     gridTemplateColumns: "33% 33% 33%",
     padding: "10px 10px",
   };
-  const cardBodyClassStyle = "bg-green"
+  const cardBodyClassStyle = "bg-green";
 
   return (
     <div id="features" className={className + " py-5"}>
@@ -21,13 +21,14 @@ export default function Features({ className }: Props) {
         {/* row 1 */}
         <section className="d-flex flex-column align-items-center justify-content-center h-100">
           <Card
-            cardHeader="REAL TIME MAPPING"
+            cardHeader="WEB ADMIN  DASHBOARD"
             img="./dashboard-card-img.png"
-            className="landingPageCard w-100 h-100"
+            className="featureCard w-100 h-75"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut
-            nibh et tellus lobortis volutpat at in elit. Aenean sed neque
-            sapien.t
+            The web admin dashboard is the central hub for managing and
+            monitoring all aspects of your waste management system. From
+            tracking waste production rate to monitoring ArteMIS Trash bins
+            status.
           </Card>
         </section>
         {/* row 2 */}
@@ -35,7 +36,7 @@ export default function Features({ className }: Props) {
           <Card
             cardHeader="REAL TIME MAPPING"
             img="./map-card-img.png"
-            className="landingPageCard"
+            className="featureCard"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut
             nibh et tellus lobortis volutpat at in elit. Aenean sed neque
@@ -44,7 +45,7 @@ export default function Features({ className }: Props) {
           <Card
             cardHeader="REAL TIME MAPPING"
             img="./mobile-card-img.png"
-            className="landingPageCard"
+            className="featureCard"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut
             nibh et tellus lobortis volutpat at in elit. Aenean sed neque
@@ -56,7 +57,7 @@ export default function Features({ className }: Props) {
           <Card
             cardHeader="REAL TIME MAPPING"
             img="./iot-card-img.png"
-            className="landingPageCard"
+            className="featureCard"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut
             nibh et tellus lobortis volutpat at in elit. Aenean sed neque
@@ -65,7 +66,7 @@ export default function Features({ className }: Props) {
           <Card
             cardHeader="REAL TIME MAPPING"
             img="./web-card-img.png"
-            className="landingPageCard"
+            className="featureCard"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut
             nibh et tellus lobortis volutpat at in elit. Aenean sed neque

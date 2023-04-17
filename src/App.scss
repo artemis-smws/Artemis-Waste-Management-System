@@ -57,15 +57,16 @@ body{
   margin: 9;
 }
 
-.landingPageCard {
-  max-width: 20em;
-  background-color: $primary-green;
+.featureCard {
+  max-width: 80%;
+  background-color: $temp-color;
   color: $text-color-primary;
+  border: 0;
+  box-shadow: 0 1px 10px rgba(128, 128, 128, 0.568)
 }
 
-.landingPageCard img{
+.featureCard img{
    @include card-img-format;
-   
 }
 
 .contactCard {

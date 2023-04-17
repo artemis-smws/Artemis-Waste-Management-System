@@ -4,7 +4,6 @@ interface Props {
   className?: string;
 }
 export default function Contact({ className }: Props) {
-
   const sectionStyle: React.CSSProperties = {
     display: "grid",
     gridTemplateColumns: "75% 30%",
@@ -15,21 +14,20 @@ export default function Contact({ className }: Props) {
     justifyContent: "space-evenly",
     alignItems: "center",
     width: "100%",
-    padding: '10px'
+    padding: "10px",
   };
   const bodyTextStyle: React.CSSProperties = {
     margin: "0",
   };
 
-
-  const cardBodyClassStyle = "bg-red"
-
-
-
+  const cardBodyClassStyle = "bg-red";
 
   return (
     <section style={sectionStyle} className={"bg-temp-color2 " + className}>
-      <div className="bg-temp-color h-100" style={{ borderRadius: "0 30px 30px 0" }}>
+      <div
+        className="bg-temp-color h-100"
+        style={{ borderRadius: "0 30px 30px 0" }}
+      >
         <section className="d-flex flex-column justify-content-evenly align-items-center h-100 w-100">
           <h1>ArteMIS Team</h1>
           <div style={divStyle}>
