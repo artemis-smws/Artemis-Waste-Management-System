@@ -3,7 +3,7 @@ export default function Footer() {
     <div className="h-100 w-100 d-flex flex-column justify-content-end p-3  text-wrap">
       <div className="d-flex align-items-center">
         <img
-          src="./bsu_logo.png"
+          src="./assets/img/bsu_logo.png"
           style={{ width: "50px", paddingRight: "10px" }}
           alt="batangas state university logo"
         />
@@ -11,7 +11,7 @@ export default function Footer() {
       </div>
       <div className="d-flex align-items-center mt-3">
         <img
-          src="./bsu_logo.png"
+          src="./assets/img/bsu_logo.png"
           style={{ width: "50px", paddingRight: "10px" }}
           alt="EMU Logo"
         />
@@ -19,7 +19,7 @@ export default function Footer() {
       </div>
       <div className="d-flex align-items-center text-wrap mt-3">
         <img
-          src="./emu_logo.png"
+          src="./assets/img/emu_logo.png"
           style={{ width: "50px", paddingRight: "10px" }}
           alt="EMU Logo"
         />

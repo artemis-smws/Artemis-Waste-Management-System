@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { Router } from 'react-router-dom'
 // CSS 
 import 'bootstrap/dist/css/bootstrap.css'
-import './index.css'
 // Components
 import { App } from './App'
 

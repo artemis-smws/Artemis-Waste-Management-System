@@ -26,10 +26,10 @@ export default function About({ className }: Props) {
           towards the owning the purpose from it, offering sustainability for healthier 
           environment
         </p>
-        <img src="./about-img2.png" alt="about img" />
+        <img src="./assets/img/about-img2.png" alt="about img" />
       </div>
       <div className="d-flex flex-column justify-content-evenly h-100 px-5 ">
-        <img src="./about-img1.png" alt="about img" />
+        <img src="./assets/img/about-img1.png" alt="about img" />
         <h2>
           GAIA -{" "}
           <span id="inline-text-style"> Management Information System </span>

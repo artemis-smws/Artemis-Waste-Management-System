@@ -14,7 +14,7 @@ export default function Features({ className }: Props) {
       <section className="w-100 h-100 d-flex align-items-center justify-content-evenly">
         <Card
           cardHeader="Website Admin Dashboard"
-          img="./dashboard-card-img.png"
+          img="./assets/img/dashboard-card-img.png"
           className="featureCard mx-1"
         >
           The web admin dashboard is the central hub for managing and monitoring
@@ -23,7 +23,7 @@ export default function Features({ className }: Props) {
         </Card>
         <Card
           cardHeader="Real Time Mapping"
-          img="./map-card-img.png"
+          img="./assets/img/map-card-img.png"
           className="featureCard mx-1"
         >
           Look on where your ArteMIS is located in our Real-time maps. Monitor your ArteMIS 
@@ -31,7 +31,7 @@ export default function Features({ className }: Props) {
         </Card>
         <Card
           cardHeader="ArteMIS is now in Mobile!"
-          img="./mobile-card-img.png"
+          img="./assets/img/mobile-card-img.png"
           className="featureCard mx-1"
         >
           Access ArteMIS not only through the Web but also through the access of your phones.
@@ -42,7 +42,7 @@ export default function Features({ className }: Props) {
         </Card>
         <Card
           cardHeader="IoT ArteMIS trash bin"
-          img="./iot-card-img.png"
+          img="./assets/img/iot-card-img.png"
           className="featureCard mx-1"
         >
           Throw your waste in a modern way. ArteMIS trash bin easily monitors capacity 
@@ -51,7 +51,7 @@ export default function Features({ className }: Props) {
         </Card>
         <Card
           cardHeader="ArteMIS Website"
-          img="./web-card-img.png"
+          img="./assets/img/web-card-img.png"
           className="featureCard mx-1"
         >
           Access ArteMIS through your favorite browser. You can now also monitor the status 

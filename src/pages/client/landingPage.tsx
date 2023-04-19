@@ -28,7 +28,7 @@ export default function LandingPage() {
           <div className="home_parallax_layer">
             <img
 
-              src="./placeholder-icon.png"
+              src="./assets/img/placeholder-icon.png"
               id="logo"
               style={{ marginBottom: "250px" }}
             />

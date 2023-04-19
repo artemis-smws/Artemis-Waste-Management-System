@@ -33,7 +33,7 @@ export default function Contact({ className }: Props) {
           <h1>Arte<span style={{color: "#00cb6a"}}>MIS</span> Team</h1>
           <div style={divStyle}>
             <Card
-              img="./profile-placeholder.png"
+              img="./assets/img/profile-placeholder.png"
               className="contactCard"
               cardHeader="Kairus Noah E. Tecson"
             >
@@ -41,7 +41,7 @@ export default function Contact({ className }: Props) {
               <p style={bodyTextStyle}>Lead Programmer</p>
             </Card>
             <Card
-              img="./profile-placeholder.png"
+              img="./assets/img/profile-placeholder.png"
               className="contactCard"
               cardHeader="John Luis Gomez"
             >
@@ -49,7 +49,7 @@ export default function Contact({ className }: Props) {
               <p style={bodyTextStyle}>IoT Engineer</p>
             </Card>
             <Card
-              img="./profile-placeholder.png"
+              img="./assets/img/profile-placeholder.png"
               className="contactCard"
               cardHeader="Nino Andrey Amboy"
             >
@@ -59,7 +59,7 @@ export default function Contact({ className }: Props) {
           </div>
           <div style={divStyle}>
             <Card
-              img="./profile-placeholder.png"
+              img="./assets/img/profile-placeholder.png"
               className="contactCard"
               cardHeader="John Carlo Endaya"
             >
@@ -67,7 +67,7 @@ export default function Contact({ className }: Props) {
               <p style={bodyTextStyle}>IoT Engineer</p>
             </Card>
             <Card
-              img="./profile-placeholder.png"
+              img="./assets/img/profile-placeholder.png"
               className="contactCard"
               cardHeader="Joshua Clemente"
             >
@@ -75,7 +75,7 @@ export default function Contact({ className }: Props) {
               <p style={bodyTextStyle}>Web Developer</p>
             </Card>
             <Card
-              img="./profile-placeholder.png"
+              img="./assets/img/profile-placeholder.png"
               className="contactCard"
               cardHeader="Mark Angelo Maligalig"
             >
