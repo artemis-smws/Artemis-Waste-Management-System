@@ -14,11 +14,6 @@ $text-color-secondary: $primary-green;
 // temporary variable - will remove later 
 $temp-color: RGB(33, 0, 2);
 
-@mixin background-img($url) {
-  background-image: url($url);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 @mixin flex-column {
   display: flex;

@@ -8,8 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "emulator": "tsc && vite build && firebase emulators:start",
-    "deploy": "firebase deploy --only hosting",
-    "commit": "git add * && git commit -m \"auto commit\""
+    "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.7",
