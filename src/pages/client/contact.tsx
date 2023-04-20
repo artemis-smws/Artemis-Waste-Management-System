@@ -1,5 +1,5 @@
-import Card from "../card";
-import Footer from "../layout/footer";
+import Card from "../../components/card";
+import Footer from "../../components/layout/footer";
 
 interface Props {
   className?: string;

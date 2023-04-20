@@ -7,9 +7,10 @@ export default function About({ className }: Props) {
     display: "grid",
     gridTemplateColumns: "50% 25% 25%",
     padding: "10px 10px",
+    backgroundRepeat: "no-repeat"
   };
   return (
-    <div id="about" style={style} className={className}>
+    <div id="about" style={{...style, backgroundImage: "url(./assets/img/spinningwheel-bg.png)"}} className={className}>
       <div className="d-flex flex-column justify-content-start h-100 mt-5 px-5 ">
         <h1 style={{ fontSize: "60px", paddingTop: '100px' }} className="text-wrap">
           Sustainable <span id="inline-text-style"> environment </span> for a

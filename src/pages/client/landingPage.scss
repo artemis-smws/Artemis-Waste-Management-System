@@ -1,34 +1,13 @@
 @import "../../context/variables";
 
-#background {
-  @include background-img("./img/background.png");
-}
-#jungle1 {
-  @include background-img("./img/jungle1.png");
-}
-#jungle2 {
-  @include background-img("./img/jungle2.png");
-}
-#jungle3 {
-  @include background-img("./img/jungle3.png");
-}
-#jungle4 {
-  @include background-img("./img/jungle4.png");
-}
-#jungle5 {
-  @include background-img("./img/jungle5.png");
-}
 #logo {
   height: 50%;
   width: auto;
   margin-bottom: 100px;
 }
-#mountain {
-  @include background-img("./img/mountain.png");
-}
+
 #about {
   background-color: $temp-color;
-  @include background-img("./img/spinningwheel-bg.png");
   background-size: 50%;
   background-position: bottom left;
   color: $background-white;
