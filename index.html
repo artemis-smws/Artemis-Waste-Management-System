@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./assets/styles/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
     <title>ArteMIS</title>
 
     <!-- update the version number as needed -->
@@ -17,13 +20,34 @@
     <!-- <script defer src="/__/firebase/9.20.0/firebase-messaging-compat.js"></script> -->
     <!-- <script defer src="/__/firebase/9.20.0/firebase-storage-compat.js"></script> -->
     <!-- <script defer src="/__/firebase/9.20.0/firebase-analytics-compat.js"></script> -->
-    <script defer src="/__/firebase/9.20.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.20.0/firebase-performance-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/9.20.0/firebase-remote-config-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.20.0/firebase-performance-compat.js"
+    ></script>
     <!-- 
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LR7D6YK4F5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LR7D6YK4F5");
+    </script>
   </head>
   <body>
     <div id="root"></div>
