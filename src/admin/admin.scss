@@ -1,0 +1,61 @@
+@import url("https://fonts.cdnfonts.com/css/inter");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+input[type=text], input[type=password] {
+    height: 58px;
+    width: 484px;
+    padding: 12px 20px;
+    margin: 13px 0;
+    border-radius: 20px;
+    box-sizing: border-box;    
+}
+
+body{
+    background-color: pink;
+}
+
+#admin-login{
+    padding-top: 70px;
+}
+
+#login-card{
+    width: 550px;
+    height: 335px;
+    background-color: #7A0000;
+    border-radius: 30px;
+}
+
+#lgn-btn{
+    padding: 12px 20px;
+    margin: 13px 0;
+    width: 484px;
+    height: 57px;
+    border-radius: 15px;
+    background-color: #AE4642;
+    color: white;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+footer{
+    padding-top: 25px;
+}
+
+#f-lists h1{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 45px;
+
+    color: black;
+}
+
+#f-lists img{
+    height: 45px;
+    width: 45px;
+}

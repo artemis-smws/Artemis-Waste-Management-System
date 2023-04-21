@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Sidebar from "./components/layout/sidebar";
 import Admin from "./admin";
 
+
 export function App() {
 
   const router = createBrowserRouter([
