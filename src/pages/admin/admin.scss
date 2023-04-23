@@ -14,12 +14,8 @@ body{
     background-color: pink;
 }
 
-#admin-login{
-    padding-top: 70px;
-}
-
 #login-card{
-    width: 550px;
+    width: 594px;
     height: 335px;
     background-color: #7A0000;
     border-radius: 30px;
@@ -42,14 +38,19 @@ body{
 }
 
 footer{
-    padding-top: 25px;
+    position: absolute;
+    bottom: 0;
+}
+
+footer ul{
+    padding: 0;
 }
 
 #f-lists h1{
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 45px;
 
     color: black;
