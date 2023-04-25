@@ -3,7 +3,7 @@ import LandingPage from "./pages/client/landingPage";
 import Navbar from "./components/layout/navbar";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Sidebar from "./components/layout/sidebar";
-import Admin from "./admin";
+import Admin from "./pages/admin/admin";
 
 
 export function App() {
