@@ -1,5 +1,4 @@
-import "./pages/admin/admin.scss";
-
+import './admin.scss'
 
 export default function Admin() {
 
