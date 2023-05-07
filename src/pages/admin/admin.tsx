@@ -1,11 +1,13 @@
 import './admin.scss'
 
+
 export default function Admin() {
 
     return(
 
-        <div>
-            <div className="d-flex align-items-center justify-content-evenly vw-100 vh-100" id="admin-login">
+        <div id="bg">
+
+          <div className="d-flex align-items-center justify-content-center vw-100 vh-100" id="admin-login">
                 <div className="d-flex justify-content-center align-items-center" id="login-logo">
                     <img src="./assets/img/artemis-logo.png" />
                 </div>
@@ -34,5 +36,5 @@ export default function Admin() {
         </div>
 
     )
-    
+
 }

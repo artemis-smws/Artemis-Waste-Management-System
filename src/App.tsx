@@ -1,9 +1,13 @@
 import "./App.scss";
 import LandingPage from "./pages/client/landingPage";
-import Navbar from "./components/layout/navbar";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Sidebar from "./components/layout/sidebar";
 import Admin from "./pages/admin/admin";
+import Maps from "./pages/admin/maps";
+
+
+
+
+
 
 
 export function App() {
@@ -15,7 +19,11 @@ export function App() {
     },
     {
       path: '/admin',
-      element: <Admin />
+      element: <Admin/>
+    },
+    {
+      path: '/maps',
+      element: <Maps/>
     }
   ])
 
