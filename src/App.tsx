@@ -5,11 +5,6 @@ import Admin from "./pages/admin/admin";
 import Maps from "./pages/admin/maps";
 
 
-
-
-
-
-
 export function App() {
 
   const router = createBrowserRouter([
