@@ -1,5 +1,4 @@
-import background from "./assets/img/tempBackdrop.png"
-import "./admin.scss"
+import './admin.scss'
 
 
 export default function Admin() {
