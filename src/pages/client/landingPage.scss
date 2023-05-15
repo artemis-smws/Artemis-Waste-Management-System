@@ -7,18 +7,14 @@
 }
 
 #about {
-  background-color: $temp-color;
+  background-color: $primary-green;
   background-size: 50%;
   background-position: bottom left;
   color: $background-white;
 }
 #features {
-  background-color: $background-white;
+  background-color: $tertiary-grey;
   color: $text-color-secondary;
-}
-#contact {
-  background-color: $primary-green;
-  color: $text-color-primary;
 }
 
 .home_parallax_layer {

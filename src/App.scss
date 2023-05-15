@@ -56,65 +56,21 @@ p {
   object-fit: cover;
 }
 
-.featureCard {
-  width: 30rem;
-  height: 85%;
-  background-color: $temp-color;
+.contactCard {
+  width: 200px;
+  max-width: 250px;
+  min-height: 240px;
+  background-color: $primary-red;
   color: $text-color-primary;
-  border: 0;
-  box-shadow: 0 1px 10px rgba(128, 128, 128, 0.705);
-}
-
-.featureCard{
-  h5 {
-    font-size: 30px
+  img {
+    @include card-img-format;
+    height: auto;
+    max-width: 50%;
+    object-fit: contain;
   }
 }
 
-.featureCard img {
-  @include card-img-format();
-  max-height: 100%;
-}
-
-.contactCard {
-  width: 230px;
-  max-width: 250px;
-  height: 100%;
-  background-color: $primary-red;
-  color: $text-color-primary;
-}
-.contactCard img {
-  @include card-img-format;
-  height: auto;
-  max-width: 150px;
-  object-fit: contain;
-}
-.bg-green {
-  background-color: $primary-green;
-  color: $text-color-primary;
-}
-.bg-tertiary-grey {
-  background-color: $tertiary-grey;
-  color: $text-color-primary;
-}
-.bg-red {
-  background-color: $primary-red;
-  color: $text-color-primary;
-}
-.bg-white {
-  background-color: $background-white;
-  color: $background-black;
-}
-
-//will remove later
-.bg-temp-color {
-  background-color: $temp-color;
-  color: $text-color-primary;
-}
-.bg-temp-color2 {
-  background-color: rgb(138, 94, 94);
-  color: $text-color-secondary;
-}
+//bg colors
 
 #Sidebar {
   background-color: $primary-red;
