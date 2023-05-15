@@ -27,16 +27,7 @@ export default function LandingPage() {
           <div
             style={{
               ...styles,
-              backgroundImage: "url(./assets/img/background.png)",
-            }}
-            className="home_parallax_layer"
-          />
-        </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.3} factor={1} style={layer}>
-          <div
-            style={{
-              ...styles,
-              backgroundImage: "url(./assets/img/mountain.png)",
+              backgroundImage: "url(./assets/img/background.svg)",
             }}
             className="home_parallax_layer"
           />
@@ -54,7 +45,7 @@ export default function LandingPage() {
           <div
             style={{
               ...styles,
-              backgroundImage: "url(./assets/img/jungle1.png)",
+              backgroundImage: "url(./assets/img/jungle1.webp)",
             }}
             className="home_parallax_layer"
           />
@@ -63,7 +54,7 @@ export default function LandingPage() {
           <div
             style={{
               ...styles,
-              backgroundImage: "url(./assets/img/jungle2.png)",
+              backgroundImage: "url(./assets/img/jungle2.webp)",
             }}
             className="home_parallax_layer"
           />
@@ -72,7 +63,7 @@ export default function LandingPage() {
           <div
             style={{
               ...styles,
-              backgroundImage: "url(./assets/img/jungle3.png)",
+              backgroundImage: "url(./assets/img/jungle3.webp)",
             }}
             className="home_parallax_layer"
           />
@@ -81,7 +72,7 @@ export default function LandingPage() {
           <div
             style={{
               ...styles,
-              backgroundImage: "url(./assets/img/jungle4.png)",
+              backgroundImage: "url(./assets/img/jungle4.webp)",
             }}
             className="home_parallax_layer"
           />
@@ -90,7 +81,7 @@ export default function LandingPage() {
           <div
             style={{
               ...styles,
-              backgroundImage: "url(./assets/img/jungle5.png)",
+              backgroundImage: "url(./assets/img/jungle5.webp)",
             }}
             className="home_parallax_layer"
           ></div>

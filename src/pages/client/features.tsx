@@ -1,64 +1,121 @@
 import Card from "../../components/card";
+import SimpleCard from "../../components/simpleCard";
 
 interface Props {
-  className: string
+  className: string;
 }
 
 export default function Features({ className }: Props) {
-
-  const cardBodyClassStyle = "bg-green";
+  const divStyle: React.CSSProperties = {
+    minHeight: "250px",
+    maxHeight: "80%",
+    minWidth: "80%",
+  };
 
   return (
-    <div id="features" className={className + " py-5 "}>
-      <h1 style={{ fontWeight: "bold" }}>KEY FEATURES</h1>
-      <section className="w-100 h-100 d-flex align-items-center justify-content-evenly">
-        <Card
-          cardHeader="Website Admin Dashboard"
-          img="./assets/img/dashboard-card-img.png"
-          className="featureCard mx-1"
-        >
-          The web admin dashboard is the central hub for managing and monitoring
-          all aspects of your waste management system. From tracking waste
-          production rate to monitoring ArteMIS Trash bins status.
-        </Card>
-        <Card
-          cardHeader="Real Time Mapping"
-          img="./assets/img/map-card-img.png"
-          className="featureCard mx-1"
-        >
-          Look on where your ArteMIS is located in our Real-time maps. Monitor your ArteMIS 
-          trash bin's status at the same time be informed on it's activity
-        </Card>
-        <Card
-          cardHeader="ArteMIS is now in Mobile!"
-          img="./assets/img/mobile-card-img.png"
-          className="featureCard mx-1"
-        >
-          Access ArteMIS not only through the Web but also through the access of your phones.
-          Monitor and analyze ArteMIS with ease of access. If you're a volunteer, easily 
-          send waste information and get notification about the ArteMIS bin updates. <a className="link-success">
-            Download ArteMIS Mobile now...
-          </a>
-        </Card>
-        <Card
-          cardHeader="IoT ArteMIS trash bin"
-          img="./assets/img/iot-card-img.png"
-          className="featureCard mx-1"
-        >
-          Throw your waste in a modern way. ArteMIS trash bin easily monitors capacity 
-          of the bin and alerts the ArteMIS System about its status in real-time. Track
-          where your bin is placed through its built-in GPS.
-        </Card>
-        <Card
-          cardHeader="ArteMIS Website"
-          img="./assets/img/web-card-img.png"
-          className="featureCard mx-1"
-        >
-          Access ArteMIS through your favorite browser. You can now also monitor the status 
-          of the ArteMIS trash bins installed within the environment. Get to monitor 
-          the status of your environment covered by the ArteMIS ecosystem. 
-        </Card>
-      </section>
+    <div
+      id="features"
+      style={{
+        backgroundImage: "url(./assets/img/layered-peaks-border.svg)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "top center",
+      }}
+      className={className + " py-5 bg-tertiary-grey"}
+    >
+      <h1 className="text-white" style={{ fontWeight: "bold" }}>
+        KEY FEATURES
+      </h1>
+      <div className="row row-cols-3 w-100 h-100">
+        <div className="d-flex flex-column justify-content-evenly align-items-center col h-100">
+          <SimpleCard>
+            <img
+              className="mb-3"
+              src="./assets/img/bsu-logo.png"
+              alt="bsu logo"
+              style={{ maxHeight: "20%" }}
+            />
+            <h4>Web Dashboard</h4>
+            <p className="w-75">
+              Analyze waste management data through charts. Easily monitor waste
+              management status through out the environment at the same time
+              easily track reports.{" "}
+            </p>
+          </SimpleCard>
+          <SimpleCard>
+            <img
+              className="mb-3"
+              src="./assets/img/bsu-logo.png"
+              alt="bsu logo"
+              style={{ maxHeight: "20%" }}
+            />
+            <h4>Public Website</h4>
+            <p className="w-75">
+              Available for all to monitor the current waste management status
+              of the campus.
+            </p>
+          </SimpleCard>
+        </div>
+        <div className="d-flex flex-column justify-content-evenly align-items-center col h-100">
+          <SimpleCard>
+            <img
+              className="mb-3"
+              src="./assets/img/bsu-logo.png"
+              alt="bsu logo"
+              style={{ maxHeight: "20%" }}
+            />
+            <h4>ArteMIS: Mobile</h4>
+            <p className="w-75">
+              Also accessible for everyone with ease. Send real-time reports to
+              facility personals about ongoing problems in the environment. As
+              an admin, easily input your data through the mobile's user
+              interface.
+            </p>
+          </SimpleCard>
+          <SimpleCard>
+            <img
+              className="mb-3"
+              src="./assets/img/bsu-logo.png"
+              alt="bsu logo"
+              style={{ maxHeight: "20%" }}
+            />
+            <h4>ArteMIS: IoT Trashbin</h4>
+            <p className="w-75">
+              Trash bin that is connected to the ArteMIS ecosystem. The trashbin
+              can gather information on its current status and send it realtime.
+            </p>
+          </SimpleCard>
+        </div>
+        <div className="d-flex flex-column justify-content-evenly align-items-center col h-100">
+          <SimpleCard>
+            <img
+              className="mb-3"
+              src="./assets/img/bsu-logo.png"
+              alt="bsu logo"
+              style={{ maxHeight: "20%" }}
+            />
+            <h4>Realtime Data Stream</h4>
+            <p className="w-75">
+              Monitor certain data realtime within the web dashboard or the
+              mobile dashboard. Never bother calculating and checking on the
+              daily logs again.
+            </p>
+          </SimpleCard>
+          <SimpleCard>
+            <img
+              className="mb-3"
+              src="./assets/img/bsu-logo.png"
+              alt="bsu logo"
+              style={{ maxHeight: "20%" }}
+            />
+            <h4>Maps View</h4>
+            <p className="w-75">
+              See the ArteMIS ecosystem implemented within the surroundings.
+              Overlook status of the trash bins in the area and interact with it physically.
+            </p>
+          </SimpleCard>
+        </div>
+      </div>
     </div>
   );
 }

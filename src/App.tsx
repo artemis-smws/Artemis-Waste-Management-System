@@ -7,7 +7,7 @@ import Admin from "./pages/admin/admin";
 
 
 export function App() {
-
+  
   const router = createBrowserRouter([
     {
       path: '/',
