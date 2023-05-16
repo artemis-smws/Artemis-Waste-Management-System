@@ -3,7 +3,7 @@ interface Props {
   cardHeader?: string;
   className?: string;
   style?: any;
-  children: any;
+  children ?: any;
 }
 
 export default function Card({

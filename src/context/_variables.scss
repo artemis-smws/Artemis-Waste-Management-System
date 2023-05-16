@@ -1,7 +1,7 @@
 // Landing page - Color Scheme
 $primary-red: #7a0000;
 $secondary-red: #7a0000;
-$primary-green: #002a26;
+$primary-green: #001B19;
 $secondary-green: #00cb6a;
 $tertiary-grey: #9eafa2;
 $background-white: #fafafa;
@@ -22,4 +22,27 @@ $temp-color: RGB(33, 0, 2);
 @mixin flex-row {
   display: flex;
   justify-content: space-evenly;
+}
+
+.bg-green {
+  background-color: $primary-green;
+  color: $text-color-primary;
+}
+.bg-tertiary-grey {
+  background-color: $tertiary-grey;
+  color: $text-color-primary;
+}
+.bg-red {
+  background-color: $primary-red;
+  color: $text-color-primary;
+}
+.bg-white {
+  background-color: $background-white;
+  color: $background-black;
+}
+.text-white {
+  color: $text-color-primary;
+}
+.text-green {
+  color: $primary-green;
 }

@@ -5,10 +5,6 @@ interface Props {
   className?: string;
 }
 export default function Contact({ className }: Props) {
-  const sectionStyle: React.CSSProperties = {
-    display: "grid",
-    gridTemplateColumns: "75% 30%",
-  };
   const divStyle: React.CSSProperties = {
     display: "flex",
     flexDirection: "row",
@@ -21,16 +17,20 @@ export default function Contact({ className }: Props) {
     margin: "0",
   };
 
-  const cardBodyClassStyle = "bg-red";
-
   return (
-    <section style={sectionStyle} className={"bg-temp-color2 " + className}>
-      <div
-        className="bg-temp-color h-100"
-        style={{ borderRadius: "0 30px 30px 0" }}
-      >
-        <section className="d-flex flex-column justify-content-evenly align-items-center h-100 w-100">
-          <h1>Arte<span style={{color: "#00cb6a"}}>MIS</span> Team</h1>
+    <section
+      style={{ display: "grid", gridTemplateColumns: "75% 30%" }}
+      className={
+        "justify-content-end align-items-end bg-tertiary-grey " + className
+      }
+    >
+      <div className="h-100 d-flex flex-column justify-content-end align-items-center ">
+        <h1 className="py-3">
+          Arte<span className="text-green">MIS</span> Team
+        </h1>
+        <section
+          style={{ borderRadius: "0 30px 30px 0" }}
+          className="h-100 p-3 bg-green d-flex flex-column justify-content-evenly align-items-center w-100">
           <div style={divStyle}>
             <Card
               img="./assets/img/profile-placeholder.png"
