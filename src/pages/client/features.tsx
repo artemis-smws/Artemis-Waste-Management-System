@@ -26,12 +26,12 @@ export default function Features({ className }: Props) {
       <h1 className="text-white" style={{ fontWeight: "bold" }}>
         KEY FEATURES
       </h1>
-      <div className="row row-cols-3 w-100 h-100">
+      <div className="row row-cols-3 g-3 w-100 h-100">
         <div className="d-flex flex-column justify-content-evenly align-items-center col h-100">
           <SimpleCard>
             <img
               className="mb-3"
-              src="./assets/img/bsu-logo.png"
+              src="./assets/img/dashboard-icon.png"
               alt="bsu logo"
               style={{ maxHeight: "20%" }}
             />
@@ -45,7 +45,7 @@ export default function Features({ className }: Props) {
           <SimpleCard>
             <img
               className="mb-3"
-              src="./assets/img/bsu-logo.png"
+              src="./assets/img/website-icon.png"
               alt="bsu logo"
               style={{ maxHeight: "20%" }}
             />
@@ -60,7 +60,7 @@ export default function Features({ className }: Props) {
           <SimpleCard>
             <img
               className="mb-3"
-              src="./assets/img/bsu-logo.png"
+              src="./assets/img/playstore-icon.png"
               alt="bsu logo"
               style={{ maxHeight: "20%" }}
             />
@@ -75,7 +75,7 @@ export default function Features({ className }: Props) {
           <SimpleCard>
             <img
               className="mb-3"
-              src="./assets/img/bsu-logo.png"
+              src="./assets/img/trash-bin-icon.png"
               alt="bsu logo"
               style={{ maxHeight: "20%" }}
             />
@@ -90,7 +90,7 @@ export default function Features({ className }: Props) {
           <SimpleCard>
             <img
               className="mb-3"
-              src="./assets/img/bsu-logo.png"
+              src="./assets/img/realtime-data-icon.png"
               alt="bsu logo"
               style={{ maxHeight: "20%" }}
             />
@@ -104,7 +104,7 @@ export default function Features({ className }: Props) {
           <SimpleCard>
             <img
               className="mb-3"
-              src="./assets/img/bsu-logo.png"
+              src="./assets/img/maps-icon.png"
               alt="bsu logo"
               style={{ maxHeight: "20%" }}
             />
