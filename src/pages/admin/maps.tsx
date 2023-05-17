@@ -22,6 +22,8 @@ export default function Maps(){
         <div>
             <MapContainer center = {[13.78428, 121.0743]} zoom={25} scrollWheelZoom={false}>
                 <TileLayer
+                    maxNativeZoom={19}
+                    maxZoom={20}
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
