@@ -5,7 +5,6 @@ import About from "./about";
 import { useRef } from "react";
 import Features from "./features";
 import Contact from "./contact";
-import NewFeatures from "./newFeatures";
 
 export default function LandingPage() {
   const layer: React.CSSProperties = {

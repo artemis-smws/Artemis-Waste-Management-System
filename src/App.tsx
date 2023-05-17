@@ -1,30 +1,21 @@
 import "./App.scss";
 import LandingPage from "./pages/client/landingPage";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Admin from "./pages/admin/login";
 import Maps from "./pages/admin/maps";
+import Navbar from "./components/layout/navbar";
 
 
-export function App() {
-  
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <LandingPage />
-    },
-    {
-      path: '/admin',
-      element: <Admin/>
-    },
-    {
-      path: '/maps',
-      element: <Maps/>
-    }
-  ])
+export function App() { 
 
   return (
     <div>
-      <RouterProvider router={router} />
+      <Routes>
+        <Route path="/" element={<LandingPage/>} />
+        <Route path="/admin" element={<Admin/>} />
+        <Route path="/maps" element={<Maps/>} />
+        <Route path="*" element={<LandingPage/>} />
+      </Routes>
     </div>
   );
 }

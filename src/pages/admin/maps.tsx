@@ -20,7 +20,7 @@ export default function Maps(){
     return(
 
         <div>
-            <MapContainer center = {[13.78428, 121.0743]} zoom={25} scrollWheelZoom={false}>
+            <MapContainer center = {[13.78428, 121.0743]} zoom={25} scrollWheelZoom={true}>
                 <TileLayer
                     maxNativeZoom={19}
                     maxZoom={20}

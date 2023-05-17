@@ -1,16 +1,20 @@
+import {NavLink, Link} from 'react-router-dom'
+
+// linked to single page references using useRef
 interface Props {
   handleFeature ?: () => void,
   handleAbout ?: () => void,
   handleContact ?: () => void,
 }
 
+
+
 export default function Navbar({handleFeature, handleAbout, handleContact} : Props) {
   return (
     <nav className="d-flex fixed-top navbar navbar-expand-lg  justify-content-between px-5 pt-4">
-      <a className="navbar-brand align-text-center">
-        <i className="bi bi-bootstrap-fill align-text-center me-2 fs-3"></i>
+      <Link to='/' reloadDocument className="navbar-brand align-text-center">
         ArteMIS
-      </a>
+      </Link>
       <button className="navbar-toggler" type="button">
         Menu
       </button>
@@ -25,12 +29,12 @@ export default function Navbar({handleFeature, handleAbout, handleContact} : Pro
           <a onClick={handleContact} className="nav-link mx-2">
             CONTACTS
           </a>
-          <a className="nav-link mx-2">
+          <NavLink  to='/admin' className="nav-link mx-2">
             MAP
-          </a>
-          <a href="#" className="nav-link mx-2">
+          </NavLink>
+          <NavLink to='/admin' className="nav-link mx-2">
             ANALYTICS
-          </a>
+          </NavLink>
         </div>
       </div>
     </nav>
