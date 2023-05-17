@@ -39,7 +39,7 @@ export default function Features({ className }: Props) {
             <p className="w-75">
               Analyze waste management data through charts. Easily monitor waste
               management status through out the environment at the same time
-              easily track reports.{" "}
+              easily track reports.
             </p>
           </SimpleCard>
           <SimpleCard>
