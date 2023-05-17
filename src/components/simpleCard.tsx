@@ -11,10 +11,10 @@ export default function SimpleCard({ style, children }: Props) {
         objectFit: "contain",
         marginLeft: "auto",
         marginRight: "auto",
-        height: '300px',
+        height: '270px',
         width: '400px',
       }}
-      className="d-flex py-3 bg-green flex-column justify-content-center align-items-center"
+      className="d-flex rounded py-3 bg-green flex-column justify-content-center align-items-center"
     >
       {children}
     </div>
