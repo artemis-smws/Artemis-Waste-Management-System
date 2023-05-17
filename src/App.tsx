@@ -1,7 +1,7 @@
 import "./App.scss";
 import LandingPage from "./pages/client/landingPage";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Admin from "./pages/admin/admin";
+import Admin from "./pages/admin/login";
 import Maps from "./pages/admin/maps";
 
 
