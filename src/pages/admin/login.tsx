@@ -2,9 +2,10 @@ import "./admin.scss";
 import { Parallax, ParallaxLayer, ParallaxProps } from "@react-spring/parallax";
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-import auth from '../../firebase/firebase'
+import auth from "../../firebase/firebase";
+import { handleSigninWithEmail } from "../../modules/handleAuthentication";
 
 export default function Admin() {
   const layer: React.CSSProperties = {
@@ -16,24 +17,26 @@ export default function Admin() {
     backgroundSize: "cover",
   };
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const isValid = (password.length > 7 && email.includes('@gmail.com')) ? true : false
 
   const handleAuthenticate = async () => {
-    await fetch("https://us-central1-artemis-b18ae.cloudfunctions.net/server", {
-      method: "POST",
-      mode : 'cors',
-      credentials: "same-origin",
+    const response = await handleSigninWithEmail({
+      email: email,
+      password: password,
     });
+    console.log(response)
+    navigate('/maps')
   };
 
-  const handleGoogleAuthenticate = async() => {
-    const provider = await new GoogleAuthProvider()
+  const handleGoogleAuthenticate = async () => {
+    const provider = await new GoogleAuthProvider();
     provider.setCustomParameters({
-      prompt : 'select_account'
-    })
-    return signInWithPopup(auth, provider)
-  }
+      prompt: "select_account",
+    });
+    return signInWithPopup(auth, provider);
+  };
 
   const navigate = useNavigate();
   const ref: any = useRef();
@@ -97,7 +100,7 @@ export default function Admin() {
 
       <div
         className="d-flex align-items-center justify-content-center w-100 h-100"
-        id="admin-login" 
+        id="admin-login"
       >
         <Link
           to="/"
@@ -113,43 +116,71 @@ export default function Admin() {
           style={{ zIndex: "10" }}
         >
           <div className="d-flex flex-column align-items-center justify-content-center">
-            <input onChange={e => setEmail(e.target.value)} value={email} type="text" placeholder="Email" name="email" />
-            <input onChange={e => setPassword(e.target.value)} value={password} type="password" placeholder="Password" name="password" />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              type="text"
+              placeholder="Email"
+              name="email"
+            />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              type="password"
+              placeholder="Password"
+              name="password"
+            />
             {/* change to authentication  */}
             <button
-              onClick={() => {
-                navigate("/maps");
-              }}
+              onClick={handleAuthenticate}
               type="button"
               className="btn"
               id="lgn-btn"
+              disabled={(isValid)? false : true}
             >
               LOGIN
             </button>
-            <button onClick={handleGoogleAuthenticate} className="btn bg-red mt-1 d-flex align-items-center">
-              <img height='35px' width='auto' src="./assets/img/google-icon.svg" alt="google icon" />
+            <button
+              onClick={handleGoogleAuthenticate}
+              className="btn bg-red mt-1 d-flex align-items-center"
+            >
+              <img
+                height="35px"
+                width="auto"
+                src="./assets/img/google-icon.svg"
+                alt="google icon"
+              />
               <div className="ms-2">Signin with Google</div>
             </button>
           </div>
         </div>
       </div>
 
-      <footer className="vw-100">
-        <ul className="d-flex justify-content-evenly" id="f-lists">
-          <li className="d-flex">
-            <img className="me-1" src="./assets/img/bsu-logo.png" />
-            <h1>Batangas State University</h1>
-          </li>
-          <li className="d-flex">
-            <img className="me-1" src="./assets/img/bsu-logo.png" />
-            <h1>BatState-U General Service Office</h1>
-          </li>
-          <li className="d-flex">
-            <img className="me-1" src="./assets/img/emu_logo.png" />
-            <h1>BatState-U Environmental Management Unit</h1>
-          </li>
-        </ul>
-      </footer>
+      <CustomFooter />
     </Parallax>
+  );
+}
+
+
+
+
+function CustomFooter() {
+  return (
+    <footer className="vw-100" style={{maxHeight : '70px'}}>
+      <ul className="d-flex justify-content-evenly w-100" id="f-lists">
+        <li className="d-flex">
+          <img className="me-1 w-auto" src="./assets/img/bsu-logo.png" />
+          <h1>Batangas State University</h1>
+        </li>
+        <li className="d-flex">
+          <img className="me-1 w-auto" src="./assets/img/bsu-logo.png" />
+          <h1>BatState-U General Service Office</h1>
+        </li>
+        <li className="d-flex">
+          <img className="me-1 w-auto" src="./assets/img/emu_logo.png" />
+          <h1>BatState-U Environmental Management Unit</h1>
+        </li>
+      </ul>
+    </footer>
   );
 }
