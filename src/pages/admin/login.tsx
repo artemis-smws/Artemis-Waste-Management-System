@@ -27,7 +27,7 @@ export default function Admin() {
       password: password,
     });
     console.log(response)
-    navigate('/maps')
+    navigate('/dashboard')
   };
 
   const handleGoogleAuthenticate = async () => {
