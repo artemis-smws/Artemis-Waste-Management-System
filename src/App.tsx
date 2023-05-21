@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Admin from "./pages/admin/login";
 import Maps from "./pages/admin/maps";
 import Navbar from "./components/layout/navbar";
+import Dashboard from "./pages/admin/dashboard";
+import Bin from "./pages/admin/bin";
 
 
 export function App() { 
@@ -15,6 +17,8 @@ export function App() {
         <Route path="/admin" element={<Admin/>} />
         <Route path="/maps" element={<Maps/>} />
         <Route path="*" element={<LandingPage/>} />
+        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/bin" element={<Bin/>}/>
       </Routes>
     </div>
   );

@@ -11,8 +11,8 @@ function Sidebar(){
 
                 <div className="justify-content-center" id='Project-Logo'>
                     <a href="#" className="d-flex align-items-center justify-content-center">
-                        <img src="./assets/img/bsu-logo.png" width="49px" height="49px" />
-                        <h1>PROJECT <br/> TITLE</h1>
+                        <img src="./assets/img/artemis-logo.png" width="55px" height="55px" />
+                        <h1>ArteMIS</h1>
                     </a>
                 </div>
 
@@ -26,7 +26,7 @@ function Sidebar(){
                                 <img src="./assets/img/maps.png" width="35px" height="35px"/><button className="nav-link w-100 d-flex align-content-center" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
                             </li>
                             <li className="d-flex">
-                                <img src="./assets/img/logs.png" width="35px" height="35px"/><button className="nav-link w-100 d-flex align-content-center" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
+                                <img src="./assets/img/bin.png" width="35px" height="35px"/><button className="nav-link w-100 d-flex align-content-center" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Bin</button>
                             </li>    
                         </ul>
                     </div>
