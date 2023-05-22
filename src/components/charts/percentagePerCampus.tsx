@@ -1,5 +1,6 @@
 import React from "react";
-import PieChart from "./chart.js/PieChart";
+import PieChart from "../layout/chart.js/PieChart";
+import { ChartOptions } from "chart.js";
 
 const data = {
   labels: ["Alangilan", "Pablo Borbon", "Nasugbu"],
@@ -12,20 +13,21 @@ const data = {
   ],
 };
 
-const options = {
+const options : ChartOptions = {
   title: {
     display: true,
   },
+  responsive : true,
   maintainAspectRatio: false,
   layout: {
     padding: {
       bottom: 35,
     },
-  },
+  }
 };
 
-const DisplayPieChart: React.FC = () => {
+const PercentagePerCampus: React.FC = () => {
   return <PieChart data={data} options={options}/>;
 };
 
-export default DisplayPieChart;
+export default PercentagePerCampus;

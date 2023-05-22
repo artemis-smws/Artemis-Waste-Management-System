@@ -1,5 +1,5 @@
 import React from "react";
-import LineChart from "./chart.js/LineChart";
+import LineChart from "../layout/chart.js/LineChart";
 
 const data = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -28,8 +28,8 @@ const options = {
   maintainAspectRatio: false 
 };
 
-const DisplayLineChart: React.FC = () => {
-  return <LineChart data={data} options={options}/>;
+const WasteGenerated: React.FC = () => {
+  return <LineChart  data={data} options={options}/>;
 };
 
-export default DisplayLineChart;
+export default WasteGenerated;
