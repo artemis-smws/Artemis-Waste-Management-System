@@ -73,15 +73,15 @@ export default function Maps({ handleDashboard, handleBin }: Props) {
           <Popup>
           <Popup className="custom-popup">
             <div id="popup-content" className="d-flex justify-content-around align-items-center">
-              <div id="popup-left">
-                <div className="d-flex justify-content-around">
-                    <div id="trashbin-id">
-                        <h1>Trash bin:</h1>
-                        <h1>2123</h1>
-                    </div>
+                <div id="popup-left">
+                    <div className="d-flex justify-content-around">
+                        <div id="trashbin-id">
+                            <h1>Trash bin:</h1>
+                            <h1>2123</h1>
+                        </div>
                     <div id="trashbin-location">
-                        <h1>Canteen - Near Door</h1>
-                        <h1>X: 204 Y: 102</h1>
+                            <h1>Canteen - Near Door</h1>
+                            <h1>X: 204 Y: 102</h1>
                     </div>
                 </div>
               
@@ -96,16 +96,16 @@ export default function Maps({ handleDashboard, handleBin }: Props) {
               </div>  
 
               <div>
-                <div id="trashbin-activity">
-                    <div>
-                        <h1>Trashbin Activity</h1>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <div id="trashbin-activity-chart">
-                          <WasteGenerated/>
-                        </div>
-                    </div>
-                </div>
+                  <div id="trashbin-activity">
+                      <div>
+                          <h1>Trashbin Activity</h1>
+                      </div>
+                      <div className="d-flex justify-content-center">
+                          <div id="trashbin-activity-chart">
+                              <WasteGenerated/>
+                          </div>
+                      </div>
+                  </div>
               </div>
             </div>
           </Popup>
