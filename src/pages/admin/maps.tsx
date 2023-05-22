@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import DropdownSelectDate from '../../components/layout/dropdownDate';
 import SelectSchool from '../../components/layout/selectSchool';
 import DisplayLineChart from '../../components/charts/wasteGenerated';
-
+import {Link} from 'react-router-dom'
 
 // Define a custom icon for the marker
 const customIcon = L.divIcon({
@@ -52,12 +52,12 @@ export default function Maps({ handleDashboard, handleBin }: Props) {
         <div className="navbar" id="maps-navbar">
           <img src="./assets/img/artemis-favicon.webp" width="45px" height="44px" />
           <div className="d-flex justify-content-around align-items-center" id="map-navbar-list">
-            <a onClick={handleDashboard} className="nav-link mx-2">
+            <Link to='/dashboard' className="nav-link mx-2">
               Dashboard
-            </a>
-            <a onClick={handleBin} className="nav-link mx-2">
+            </Link>
+            <Link to='/bin' onClick={handleBin} className="nav-link mx-2">
               Bin
-            </a>
+            </Link>
             <input type="text" placeholder="Search" id="search-location"/>
           </div>
         </div>
