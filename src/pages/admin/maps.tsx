@@ -131,6 +131,7 @@ export default function Maps() {
                   </div>
                 </div>
 
+              <div>
                 <div id="trashbin-activity">
                   <div>
                     <h1>Trashbin Activity</h1>
