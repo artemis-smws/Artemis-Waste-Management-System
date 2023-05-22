@@ -36,7 +36,7 @@ export default function Features({ className }: Props) {
               style={{ maxHeight: "20%" }}
             />
             <h4>Web Dashboard</h4>
-            <p className="w-75">
+            <p className="text-white w-75">
               Analyze waste management data through charts. Easily monitor waste
               management status through out the environment at the same time
               easily track reports.
@@ -50,7 +50,7 @@ export default function Features({ className }: Props) {
               style={{ maxHeight: "20%" }}
             />
             <h4>Public Website</h4>
-            <p className="w-75">
+            <p className="text-white w-75">
               Available for all to monitor the current waste management status
               of the campus.
             </p>
@@ -65,12 +65,11 @@ export default function Features({ className }: Props) {
               style={{ maxHeight: "20%" }}
             />
             <h4>ArteMIS: Mobile</h4>
-            <p className="w-75">
-              Also accessible for everyone with ease. Send real-time reports to
-              facility personals about ongoing problems in the environment. As
-              an admin, easily input your data through the mobile's user
-              interface.
+            <p className="text-white w-75">
+              Discover the potential of waste management with ease through
+              ArteMIS: Mobile.
             </p>
+            <button className="btn bg-tertiary-grey">Download now!</button>
           </SimpleCard>
           <SimpleCard>
             <img
@@ -80,7 +79,7 @@ export default function Features({ className }: Props) {
               style={{ maxHeight: "20%" }}
             />
             <h4>ArteMIS: IoT Trashbin</h4>
-            <p className="w-75">
+            <p className="text-white w-75">
               Trash bin that is connected to the ArteMIS ecosystem. The trashbin
               can gather information on its current status and send it realtime.
             </p>
@@ -95,7 +94,7 @@ export default function Features({ className }: Props) {
               style={{ maxHeight: "20%" }}
             />
             <h4>Realtime Data Stream</h4>
-            <p className="w-75">
+            <p className="text-white w-75">
               Monitor certain data realtime within the web dashboard or the
               mobile dashboard. Never bother calculating and checking on the
               daily logs again.
@@ -109,9 +108,10 @@ export default function Features({ className }: Props) {
               style={{ maxHeight: "20%" }}
             />
             <h4>Maps View</h4>
-            <p className="w-75">
+            <p className="text-white w-75">
               See the ArteMIS ecosystem implemented within the surroundings.
-              Overlook status of the trash bins in the area and interact with it physically.
+              Overlook status of the trash bins in the area and interact with it
+              physically.
             </p>
           </SimpleCard>
         </div>
