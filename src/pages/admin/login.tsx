@@ -27,7 +27,7 @@ export default function Admin() {
       password: password,
     });
     console.log(response)
-    navigate('/maps')
+    navigate('/dashboard')
   };
 
   const handleGoogleAuthenticate = async () => {
@@ -35,7 +35,8 @@ export default function Admin() {
     provider.setCustomParameters({
       prompt: "select_account",
     });
-    return signInWithPopup(auth, provider);
+    await signInWithPopup(auth, provider);
+    navigate('/dashboard')
   };
 
   const navigate = useNavigate();

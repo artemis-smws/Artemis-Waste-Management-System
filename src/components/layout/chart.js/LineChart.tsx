@@ -17,7 +17,7 @@ const LineChart: React.FC<LineChartProps> = ({ data, options = {}}) => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    new Chart(ctx, {
+    new Chart(ctx,  {
       type: "line",
       data,
       options,

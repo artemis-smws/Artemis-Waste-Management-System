@@ -1,7 +1,4 @@
 @import "../../context/variables";
-@import url("https://fonts.cdnfonts.com/css/inter");
-@import url("https://fonts.googleapis.com/css?family=Roboto");
-@import url("https://fonts.googleapis.com/css?family=Inria Sans");
 
 input[type=text], input[type=password] {
     height: 58px;
@@ -148,29 +145,8 @@ footer li{
     line-height: 38px;
 }
 
-#print{
-    padding: 13px 30px;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 19px;
-    background-color: white;
-    border-radius: 37px;
-    color: black;
-
-    box-shadow: 0 6px 10px -2px gray;
-}
-
-#trash-stats{
-    margin-top: 20px;
-    width: 1155px;
-    height: 137px;
-    border-radius: 10px;
-
-
-    box-shadow: 0 1px 10px -2px gray;
-    
+.cstm-shadow{
+    box-shadow: 1px 5px 7px rgba(44, 44, 44, 0.63);
 }
 
 #highest{
@@ -204,32 +180,26 @@ footer li{
     border-bottom-right-radius: 15px;
 }
 
-#highest h1, #lowest h1, #average h1{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 23px;
-    line-height: 27px;
-}
-
 #waste-generated{
-    width: 750px;
-    height: 354px;
+    max-width: 750px;
+    max-height: 354px;
     border-radius: 15px;
 
     box-shadow: 0 6px 10px -2px gray;
 }
 
 #percentage-per-campus{
-    height: 354px;
-    width: 353px;
+    max-height: 354px;
+    max-width: 353px;
     border-radius: 15px;
 
     box-shadow: 0 6px 10px -2px gray;
 }
 
-#chart{
-    margin-top: 30px;
+.chart-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 100%;
 }
 
 #nav-bar1{
