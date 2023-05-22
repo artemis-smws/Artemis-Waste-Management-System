@@ -5,11 +5,14 @@ import { GraphDownArrow, GraphUpArrow } from "react-bootstrap-icons";
 import { useState } from "react";
 import AdminChartCard from "../../components/adminChartCard";
 import WasteComposition from "../../components/charts/wasteComposition";
+import WasteGenerationBuilding from "../../components/charts/wasteGenerationBuilding";
 
 export default function Dashboard() {
   const [highest_weight, setHighest] = useState({ weight: 0, day: "" });
   const [lowest_weight, setLowest] = useState({ weight: 0, day: "" });
   const [average, setAverage] = useState(0.0);
+
+  const date = new Date();
 
   return (
     <div>
@@ -80,41 +83,65 @@ export default function Dashboard() {
                   <WasteComposition />
                 </div>
                 <div className="d-flex flex-column w-50 justify-content-center">
-                    <div className="d-flex w-100 justify-content-between px-4">Food Waste <div>30%</div></div>
-                    <div className="d-flex w-100 justify-content-between px-4">Residual <div>50%</div></div>
-                    <div className="d-flex w-100 justify-content-between px-4">Recyclable <div>10%</div></div>
+                  <div className="d-flex w-100 justify-content-between px-4">
+                    Food Waste <div>30%</div>
+                  </div>
+                  <div className="d-flex w-100 justify-content-between px-4">
+                    Residual <div>50%</div>
+                  </div>
+                  <div className="d-flex w-100 justify-content-between px-4">
+                    Recyclable <div>10%</div>
+                  </div>
                 </div>
               </AdminChartCard>
               <AdminChartCard width="28%" header="Contribution percentage">
                 <body className="w-100 h-100 d-flex flex-column justify-content-evenly align-items-center p-3">
-                  <p className="m-0">Percentage to overall waste production in the Philippines</p>
+                  <p className="m-0">
+                    Percentage to overall waste production in the Philippines
+                  </p>
                   <h1>{"0.0004%"}</h1>
-                  <p className="m-0">Based on 2.7M tons average of the Philippines in 2022</p>
+                  <p className="m-0">
+                    Based on 2.7M tons average of the Philippines in 2022
+                  </p>
                 </body>
               </AdminChartCard>
               <AdminChartCard width="30%" header="Summary report">
-                  <body className="w-100 h-100 p-3" style={{overflowY : 'scroll'}}>
-                    {/* generate whole div on dynamic display */}
-                    <div className="bg-red border border-0 rounded p-2 mb-3">This is a sample message</div>
-                    <div className="bg-red border border-0 rounded p-2 mb-3">This is a sample message</div>
-                    <div className="bg-red border border-0 rounded p-2 mb-3">This is a sample message</div>
-                    <div className="bg-red border border-0 rounded p-2 mb-3">This is a sample message</div>
-                    <div className="bg-red border border-0 rounded p-2 mb-3">This is a sample message</div>
-                    <div className="bg-red border border-0 rounded p-2 mb-3">This is a sample message</div>
-                    <div className="bg-red border border-0 rounded p-2 mb-3">This is a sample message</div>
-                  </body>
+                <body
+                  className="w-100 h-100 p-3"
+                  style={{ overflowY: "scroll" }}
+                >
+                  {/* generate whole div on dynamic display */}
+                  <div className="bg-red border border-0 rounded px-2 py-4 mb-3">
+                    The total solid waste generation of Batangas State
+                    University for the month of {date.toUTCString().slice(8,16)} is {'0kg'}. The peak day during
+                    the month is {'N/A'} while the lowest day is in {'N/A'}.
+                  </div>
+                </body>
               </AdminChartCard>
             </section>
             {/* chart row 3 */}
             <section className="w-100 d-flex justify-content-between mt-4">
-              <AdminChartCard width="68%" header="Waste generation per building">
-                <PercentagePerCampus />
+              <AdminChartCard
+                width="68%"
+                header="Waste generation per building"
+              >
+                <WasteGenerationBuilding />
               </AdminChartCard>
               <AdminChartCard width="30%" header="Ranking per building">
-                <PercentagePerCampus />
+                <body
+                  className="w-100 h-100 p-3"
+                  style={{ overflowY: "scroll" }}
+                >
+                  <ol className="list-group list-group-numbered">
+                    <li className="d-flex justify-content-between list-group-item">
+                      <div>CICS Building</div>
+                      <div>90kg</div>
+                    </li>
+                  </ol>
+                </body>
               </AdminChartCard>
             </section>
-            <section className="w-100" style={{minHeight : '90px'}}></section>
+            <section className="w-100" style={{ minHeight: "90px" }}></section>
           </div>
         </div>
       </div>
