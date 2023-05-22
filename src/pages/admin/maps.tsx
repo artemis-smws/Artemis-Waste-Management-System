@@ -5,7 +5,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import DropdownSelectDate from '../../components/layout/dropdownDate';
 import SelectSchool from '../../components/layout/selectSchool';
-import DisplayLineChart from '../../components/layout/displayLineChart';
+import WasteGenerated from '../../components/charts/wasteGenerated';
 
 
 // Define a custom icon for the marker
@@ -72,8 +72,9 @@ export default function Maps({ handleDashboard, handleBin }: Props) {
         <Marker position={[13.78409, 121.07486]} icon={customIcon}>
           <Popup>
           <Popup className="custom-popup">
-            <div id="popup-content">
-                <div className="d-flex justify-content-between">
+            <div id="popup-content" className="d-flex justify-content-around align-items-center">
+              <div id="popup-left">
+                <div className="d-flex justify-content-around">
                     <div id="trashbin-id">
                         <h1>Trash bin:</h1>
                         <h1>2123</h1>
@@ -83,25 +84,29 @@ export default function Maps({ handleDashboard, handleBin }: Props) {
                         <h1>X: 204 Y: 102</h1>
                     </div>
                 </div>
+              
                 <div className="d-flex justify-content-around" id="trash-weight">
                     <div className="d-flex align-items-center">
-                        <button type="button" className="btn d-flex justify-content-center align-items-center" id="trash-status">60%</button><h1 style={{ fontFamily: 'Inria Sans', fontSize: '16px', margin: '0'}}>Trashbin almost full</h1>
+                        <button type="button" className="btn d-flex justify-content-center align-items-center" id="trash-status">60%</button><h1 style={{ fontFamily: 'Inria Sans', fontSize: '14px', margin: '0'}}>Trashbin almost full</h1>
                     </div>
                     <div className="d-flex align-items-center">
-                        <img src="./assets/img/weight.png" width="30px" height="30px"/><h1 style={{ fontFamily: 'Inria Sans', fontSize: '16px', margin: '0'}}>(weight) 64kg</h1>
+                        <img src="./assets/img/weight.png" width="30px" height="30px"/><h1 style={{ fontFamily: 'Inria Sans', fontSize: '14px', margin: '0'}}>(weight) 64kg</h1>
                     </div>
                 </div>
+              </div>  
 
+              <div>
                 <div id="trashbin-activity">
                     <div>
                         <h1>Trashbin Activity</h1>
                     </div>
                     <div className="d-flex justify-content-center">
                         <div id="trashbin-activity-chart">
-                            <DisplayLineChart/>
+                          <WasteGenerated/>
                         </div>
                     </div>
                 </div>
+              </div>
             </div>
           </Popup>
           </Popup>
