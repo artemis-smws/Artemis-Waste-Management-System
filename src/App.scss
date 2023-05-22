@@ -124,8 +124,8 @@ p {
 
 #select-day, #select-month, #select-year{
   box-sizing: border-box;
-  width: 123.82px;
-  height: 41.45px;
+  width: 95.59px;
+  height: 32px;
 
   background: #FFFFFF;
   mix-blend-mode: normal;
@@ -144,3 +144,16 @@ p {
   color: #000000;
 }
 
+#select-school{
+  border-radius: 5px;
+  height: 32px;
+  width: 486px;
+  margin-top: 23px;
+  
+  text-align: center;
+  font-family: 'Inria Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+}

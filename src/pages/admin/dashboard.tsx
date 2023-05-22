@@ -82,6 +82,7 @@ export default function Dashboard() {
                 <div className="w-50 h-100">
                   <WasteComposition />
                 </div>
+
                 <div className="d-flex flex-column w-50 justify-content-center">
                   <div className="d-flex w-100 justify-content-between px-4">
                     Food Waste <div>30%</div>

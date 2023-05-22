@@ -1,46 +1,148 @@
-/*
-install dependencies on terminal(for map display):
+import React from 'react';
+import { MapContainer, Marker, Popup } from 'react-leaflet';
+import { TileLayer } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import DropdownSelectDate from '../../components/layout/dropdownDate';
+import SelectSchool from '../../components/layout/selectSchool';
+import DisplayLineChart from '../../components/layout/displayLineChart';
 
-npm install react react-dom leaflet
-npm install react-leaflet
-npm install -D @types/leaflet
-*/
 
+// Define a custom icon for the marker
+const customIcon = L.divIcon({
+  className: 'round-button',
+  html: '<button type="button" className="btn" id="trash-status">60%</button>',
+});
 
-import { MapContainer } from 'react-leaflet'
-import { TileLayer } from 'react-leaflet'
-import { useMap } from 'react-leaflet'
-import { Marker } from 'react-leaflet'
-import { Popup } from 'react-leaflet'
+const customIcon1 = L.divIcon({
+  className: 'round-button',
+  html: '<button type="button" className="btn" id="trash-status1">20%</button>',
+});
 
-import 'leaflet/dist/leaflet.css'
+const customIcon2 = L.divIcon({
+  className: 'round-button',
+  html: '<button type="button" className="btn" id="trash-status2">90%</button>',
+});
 
-export default function Maps(){
+interface Props {
+  handleDashboard?: () => void;
+  handleBin?: () => void;
+}
 
-    return(
+export default function Maps({ handleDashboard, handleBin }: Props) {
+  const handleButtonClick = () => {
+    console.log('Button clicked!');
+  };
 
-        <div>
-            <MapContainer center = {[13.78428, 121.0743]} zoom={25} scrollWheelZoom={true}>
-                <TileLayer
-                    maxNativeZoom={19}
-                    maxZoom={20}
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[13.78428, 121.0743]}>
-                    <Popup>
-                    Trash Bin 1. <br /> 80%
-                    </Popup>
-                </Marker>
+  function myFunction(): void {
+    const popup = document.getElementById('myPopup');
+    if (popup) {
+      popup.classList.toggle('show');
+    }
+  }
 
-                <Marker position={[13.78409, 121.07486]}>
-                    <Popup>
-                    Trash Bin 2. <br /> 40%
-                    </Popup>
-                </Marker>
-            </MapContainer>
+  function handlePopupClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
+    event.stopPropagation();
+  }
+
+  return (
+    <div>
+      <MapContainer center={[13.78428, 121.0743]} zoom={19} scrollWheelZoom={true} zoomControl={false}>
+
+        <div className="navbar" id="maps-navbar">
+          <img src="./assets/img/artemis-favicon.webp" width="45px" height="44px" />
+          <div className="d-flex justify-content-around align-items-center" id="map-navbar-list">
+            <a onClick={handleDashboard} className="nav-link mx-2">
+              Dashboard
+            </a>
+            <a onClick={handleBin} className="nav-link mx-2">
+              Bin
+            </a>
+            <input type="text" placeholder="Search" id="search-location"/>
+          </div>
         </div>
-        
-    )
 
+        <TileLayer
+          maxNativeZoom={19}
+          maxZoom={20}
+          attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        <Marker position={[13.78409, 121.07486]} icon={customIcon}>
+          <Popup>
+          <Popup className="custom-popup">
+            <div id="popup-content">
+                <div className="d-flex justify-content-between">
+                    <div id="trashbin-id">
+                        <h1>Trash bin:</h1>
+                        <h1>2123</h1>
+                    </div>
+                    <div id="trashbin-location">
+                        <h1>Canteen - Near Door</h1>
+                        <h1>X: 204 Y: 102</h1>
+                    </div>
+                </div>
+                <div className="d-flex justify-content-around" id="trash-weight">
+                    <div className="d-flex align-items-center">
+                        <button type="button" className="btn d-flex justify-content-center align-items-center" id="trash-status">60%</button><h1 style={{ fontFamily: 'Inria Sans', fontSize: '16px', margin: '0'}}>Trashbin almost full</h1>
+                    </div>
+                    <div className="d-flex align-items-center">
+                        <img src="./assets/img/weight.png" width="30px" height="30px"/><h1 style={{ fontFamily: 'Inria Sans', fontSize: '16px', margin: '0'}}>(weight) 64kg</h1>
+                    </div>
+                </div>
+
+                <div id="trashbin-activity">
+                    <div>
+                        <h1>Trashbin Activity</h1>
+                    </div>
+                    <div className="d-flex justify-content-center">
+                        <div id="trashbin-activity-chart">
+                            <DisplayLineChart/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </Popup>
+          </Popup>
+        </Marker>
+
+        <Marker position={[13.78428, 121.0743]} icon={customIcon1}>
+         <Popup>
+            Ano to?
+         </Popup>
+        </Marker>
+
+        <Marker position={[13.78504, 121.07391]} icon={customIcon2}>
+          <Popup>
+            Halo
+          </Popup>
+        </Marker>
+
+        <button type="button" className="btn" id="legend" onClick={myFunction}>
+          Legend
+          <span className="popuptext" id="myPopup" onClick={handlePopupClick}>
+            <div className="d-flex justify-content-center" id="trash-percentage">
+              <div className="d-flex justify-content-center align-items-center" id="t-percentage" style={{ backgroundColor: 'green' }}>
+                <h1>0-30%</h1>
+              </div>
+              <div className="d-flex justify-content-center align-items-center" id="t-percentage" style={{ backgroundColor: 'yellow' }}>
+                <h1>31%-60%</h1>
+              </div>
+              <div className="d-flex justify-content-center align-items-center" id="t-percentage" style={{ backgroundColor: '$primary-red' }}>
+                <h1>61%-100%</h1>
+              </div>
+            </div>
+            <div className = "d-flex justify-content-center align-items-center">
+                <SelectSchool/>
+            </div>
+            <div className="d-flex">
+              <DropdownSelectDate />
+            </div>
+          </span>
+        </button>
+
+      </MapContainer>
+    </div>
+  );
 }
