@@ -40,12 +40,25 @@ function Header() {
 
 function BinTable() {
   return (
-    <div className="w-100 d-flex justify-content-center">
-      <ul
-        className="d-flex py-2 border rounded-top bg-red w-100 justify-content-around align-items-center"
-      >
-        tesing
-      </ul>
-    </div>
+    <table className="table table-bordered">
+      <thead className="bg-red">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Location</th>
+          <th scope="col">Capacity (%)</th>
+          <th scope="col">Type</th>
+          <th scope="col">Collected</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>artemis.a1</td>
+            <td>CICS</td>
+            <td>98</td>
+            <td>Residual</td>
+            <td>Collected</td>
+          </tr>
+      </tbody>
+    </table>
   );
 }
