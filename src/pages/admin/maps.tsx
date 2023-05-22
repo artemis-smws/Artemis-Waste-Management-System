@@ -3,8 +3,6 @@ import { MapContainer, Marker, Popup } from 'react-leaflet';
 import { TileLayer } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet-control-geocoder/dist/Control.Geocoder.js';
-import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
 import DropdownSelectDate from '../../components/layout/dropdownDate';
 import SelectSchool from '../../components/layout/selectSchool';
 import DisplayLineChart from '../../components/layout/displayLineChart';
