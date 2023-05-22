@@ -5,7 +5,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import DropdownSelectDate from '../../components/layout/dropdownDate';
 import SelectSchool from '../../components/layout/selectSchool';
-import DisplayLineChart from '../../components/layout/displayLineChart';
+import DisplayLineChart from '../../components/charts/wasteGenerated';
 
 
 // Define a custom icon for the marker
