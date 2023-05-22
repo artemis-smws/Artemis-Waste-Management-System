@@ -6,6 +6,7 @@ import "leaflet/dist/leaflet.css";
 import DropdownSelectDate from "../../components/layout/dropdownDate";
 import SelectSchool from "../../components/layout/selectSchool";
 import WasteGenerated from "../../components/charts/wasteGenerated";
+import {Link} from 'react-router-dom'
 
 // Define a custom icon for the marker
 const customIcon = L.divIcon({
@@ -20,25 +21,16 @@ const customIcon2 = L.divIcon({
   className: "round-button",
   html: '<button type="button" className="btn" id="trash-status2">90%</button>',
 });
-interface Props {
-  handleDashboard?: () => void;
-  handleBin?: () => void;
-}
-export default function Maps({ handleDashboard, handleBin }: Props) {
-  const handleButtonClick = () => {
-    console.log("Button clicked!");
-  };
+
+export default function Maps() {
+  
   function myFunction(): void {
     const popup = document.getElementById("myPopup");
     if (popup) {
       popup.classList.toggle("show");
     }
   }
-  function handlePopupClick(
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ): void {
-    event.stopPropagation();
-  }
+  
   return (
     <div>
       <MapContainer
@@ -48,21 +40,24 @@ export default function Maps({ handleDashboard, handleBin }: Props) {
         zoomControl={false}
       >
         <div className="navbar" id="maps-navbar">
+          <Link to='/dashboard'>
+          
           <img
             src="./assets/img/artemis-favicon.webp"
             width="45px"
             height="44px"
           />
+          </Link>
           <div
             className="d-flex justify-content-around align-items-center"
             id="map-navbar-list"
           >
-            <a onClick={handleDashboard} className="nav-link mx-2">
+            <Link to='/dasboard' className="nav-link mx-2">
               Dashboard
-            </a>
-            <a onClick={handleBin} className="nav-link mx-2">
+            </Link>
+            <Link to='/bin' className="nav-link mx-2">
               Bin
-            </a>
+            </Link>
             <input type="text" placeholder="Search" id="search-location" />
           </div>
         </div>
@@ -156,7 +151,7 @@ export default function Maps({ handleDashboard, handleBin }: Props) {
         </Marker>
         <button type="button" className="btn" id="legend" onClick={myFunction}>
           Legend
-          <span className="popuptext" id="myPopup" onClick={handlePopupClick}>
+          <span className="popuptext" id="myPopup">
             <div
               className="d-flex justify-content-center"
               id="trash-percentage"
