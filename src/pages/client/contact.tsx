@@ -15,6 +15,7 @@ export default function Contact({ className }: Props) {
   };
   const bodyTextStyle: React.CSSProperties = {
     margin: "0",
+    color : 'white'
   };
 
   return (

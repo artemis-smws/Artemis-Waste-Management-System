@@ -28,7 +28,7 @@ export default function About({ className }: Props) {
         </div>
       </div>
       <div className="d-flex flex-column justify-content-evenly h-100">
-        <p style={{ fontSize: "20px" }}>
+        <p className="text-white" style={{ fontSize: "20px" }}>
           ArteMIS is a Management Information System focusing on Waste. ArteMIS
           aims to bring efficiency on delivering waste management in the
           environment through utilizing modern technologies. It also aims to
@@ -46,7 +46,7 @@ export default function About({ className }: Props) {
           GAIA -{" "}
           <span id="inline-text-style"> Management Information System </span>
         </h2>
-        <p>
+        <p className="text-white">
           ArteMIS is initialy based in Batangas State Univesity - Alangilan
           Campus, with the help of said partners which handles the regulation of
           environmental sustainability of the campus. (General Office Unit,
