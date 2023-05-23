@@ -68,79 +68,40 @@ export default function Maps() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={[13.78409, 121.07486]} icon={customIcon}>
-          <Popup>
-            <Popup className="custom-popup">
-              <div
-                id="popup-content"
-                className="d-flex justify-content-around align-items-center"
-              >
-                <div id="popup-left">
-                  <div className="d-flex justify-content-around">
+        <Popup>
+          <Popup className="custom-popup">
+            <div id="popup-content">
+                <div className="d-flex justify-content-between">
                     <div id="trashbin-id">
-                      <h1>Trash bin:</h1>
-                      <h1>2123</h1>
+                        <h1>Trash bin:</h1>
+                        <h1>2123</h1>
                     </div>
                     <div id="trashbin-location">
-                      <h1>Canteen - Near Door</h1>
-                      <h1>X: 204 Y: 102</h1>
+                        <h1>Canteen - Near Door</h1>
+                        <h1>X: 204 Y: 102</h1>
                     </div>
-                  </div>
-
-                  <div
-                    className="d-flex justify-content-around"
-                    id="trash-weight"
-                  >
+                </div>
+                <div className="d-flex justify-content-around" id="trash-weight">
                     <div className="d-flex align-items-center">
-                      <button
-                        type="button"
-                        className="btn d-flex justify-content-center align-items-center"
-                        id="trash-status"
-                      >
-                        60%
-                      </button>
-                      <h1
-                        style={{
-                          fontFamily: "Inria Sans",
-                          fontSize: "14px",
-                          margin: "0",
-                        }}
-                      >
-                        Trashbin almost full
-                      </h1>
+                        <button type="button" className="btn d-flex justify-content-center align-items-center" id="trash-status">60%</button><h1 style={{ fontFamily: 'Inria Sans', fontSize: '16px', margin: '0'}}>Trashbin almost full</h1>
                     </div>
                     <div className="d-flex align-items-center">
-                      <img
-                        src="./assets/img/weight.png"
-                        width="30px"
-                        height="30px"
-                      />
-                      <h1
-                        style={{
-                          fontFamily: "Inria Sans",
-                          fontSize: "14px",
-                          margin: "0",
-                        }}
-                      >
-                        (weight) 64kg
-                      </h1>
+                        <img src="./assets/img/weight.png" width="30px" height="30px"/><h1 style={{ fontFamily: 'Inria Sans', fontSize: '16px', margin: '0'}}>(weight) 64kg</h1>
                     </div>
-                  </div>
                 </div>
 
-                <div>
-                  <div id="trashbin-activity">
+                <div id="trashbin-activity">
                     <div>
-                      <h1>Trashbin Activity</h1>
+                        <h1>Trashbin Activity</h1>
                     </div>
                     <div className="d-flex justify-content-center">
-                      <div id="trashbin-activity-chart">
-                        <WasteGenerated />
-                      </div>
+                        <div id="trashbin-activity-chart">
+                            <WasteGenerated/>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </Popup>
+            </div>
+          </Popup>
           </Popup>
         </Marker>
         <Marker position={[13.78428, 121.0743]} icon={customIcon1}>
