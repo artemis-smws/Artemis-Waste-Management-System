@@ -8,13 +8,29 @@ interface Props {
 
 export default function WasteGenerationBuilding() {
   const data = {
-    labels: ["CICS", "CEAFA", "RGR"],
+    labels: ["CICS", "CEAFA", "RGR", 'Gym', 'STEER Hub', 'SSC', 'CIT'],
     datasets: [
       {
-        data: [1, 22, 30],
-      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+        label : 'Residual Waste',
+        data: [15, 23, 34, 24, 22, 30, 12],
+        borderColor: "#EDE92D",
+        backgroundColor : 'transparent',
+        tension: 0,
       },
+      {
+        label : 'Recyclable Waste',
+        data:  [22, 17, 26, 30, 19, 28, 15],
+        borderColor: "#00C8F4",
+        backgroundColor : 'transparent',
+        tension: 0,
+      },
+      {
+        label : 'Food Waste',
+        data: [32, 24, 33, 21, 18, 27, 35],
+        borderColor: "#419550",
+        backgroundColor : 'transparent',
+        tension: 0,
+      }
     ],
   };
   const option: ChartOptions = {

@@ -1,33 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PieChart from "../layout/chart.js/PieChart";
-import { ChartOptions } from "chart.js";
+import { ChartData, ChartOptions } from "chart.js";
 
-const data = {
-  labels: ["Alangilan", "Pablo Borbon", "Nasugbu"],
-  datasets: [
-    {
-      data: [10, 20, 30],
-      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+export default function PercentagePerCampus() {
+  const data: ChartData = {
+    labels: ["Alangilan"],
+    datasets: [
+      {
+        data: [100],
+        backgroundColor: ["#7A0000", "#36A2EB", "#FFCE56"],
+      },
+    ],
+  };
+
+  const options: ChartOptions = {
+    title: {
+      display: true,
     },
-  ],
-};
-
-const options : ChartOptions = {
-  title: {
-    display: true,
-  },
-  responsive : true,
-  maintainAspectRatio: false,
-  layout: {
-    padding: {
-      bottom: 35,
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        bottom: 35,
+      },
     },
-  }
-};
+  };
 
-const PercentagePerCampus: React.FC = () => {
-  return <PieChart data={data} options={options}/>;
-};
-
-export default PercentagePerCampus;
+  return <PieChart data={data} options={options} />;
+}
