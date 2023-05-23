@@ -478,38 +478,35 @@ footer li{
 }
 
 .custom-popup .leaflet-popup-content-wrapper {
-    width: 750px; /* Set the desired width */
-    height: 250px; /* Set the desired height */
+    width: 400px; /* Set the desired width */
+    height: 400px; /* Set the desired height */
     background-color: #FFF4EE;
-    margin-top: 60px;
+    margin: 0;
 }
 
 #popup-content{
-    width: 750px;
-    height: 250px;
+    width: 400px;
+    height: 400px;
     position: relative;
     right: 22px;
     bottom: 14px;
 }
 
-#popup-left{
-    height: 212px;
-    width: 340px;
-}
-
 #trashbin-id{
     margin-top: 17px;
+    margin-left: 31px;
 }
 
 #trashbin-location{
-    margin-top: 17px;
+    margin-top: 26px;
+    margin-right: 50px;
 }
 
 #trashbin-id h1{
     font-family: 'Inria Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 #trashbin-location h1{
@@ -521,7 +518,7 @@ footer li{
 }
 
 #trash-weight{
-    margin-top: 60px;
+    margin-top: 10px;
 }
 
 #trashbin-activity{
@@ -538,7 +535,7 @@ footer li{
 }
 
 #trashbin-activity-chart{
-    width: 300px;
+    width: 380px;
     height: 175px;
     background-color: white;
 }

@@ -2,6 +2,10 @@ import { ChartOptions } from "chart.js";
 import PieChart from "../layout/chart.js/PieChart";
 import LineChart from "../layout/chart.js/LineChart";
 
+interface Props {
+  data ?: Object
+}
+
 export default function WasteGenerationBuilding() {
   const data = {
     labels: ["CICS", "CEAFA", "RGR"],

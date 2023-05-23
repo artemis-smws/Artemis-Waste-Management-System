@@ -1,8 +1,13 @@
 import React from "react";
 import LineChart from "../layout/chart.js/LineChart";
 
+
+interface Props {
+  data ?: Object
+}
+
 const data = {
-  labels: ["January", "February", "March", "April", "May", "June", "July"],
+  labels: [],
   datasets: [
     {
       label: "My Dataset",

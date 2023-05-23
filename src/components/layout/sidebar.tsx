@@ -24,6 +24,7 @@ function Sidebar() {
           <Link
             to="/dashboard"
             className="d-flex align-items-center justify-content-center"
+            reloadDocument
           >
             <img
               src="./assets/img/artemis-favicon.webp"
@@ -43,6 +44,7 @@ function Sidebar() {
             <Link
               to="/dashboard"
               className="d-flex align-items-center justify-content-start row border-bottom rounded-0 border-1 btn bg-red w-100 bg-green m-0 py-3 ps-5 pe-3"
+              reloadDocument
             >
               <img
                 src="./assets/img/home.png"
@@ -54,6 +56,7 @@ function Sidebar() {
             <Link
               to="/maps"
               className="d-flex align-items-center justify-content-start ps-5 row border-bottom rounded-0 border-1 btn bg-red w-100 bg-green m-0 py-3 pe-3"
+              reloadDocument
             >
               <img
                 src="./assets/img/maps.png"
@@ -65,6 +68,7 @@ function Sidebar() {
             <Link
               to="/bin"
               className="d-flex align-items-center justify-content-start ps-5 row border-bottom rounded-0 border-1 btn bg-red w-100 bg-green m-0 py-3 pe-3"
+              reloadDocument
             >
               <img
                 src="./assets/img/bin.png"
