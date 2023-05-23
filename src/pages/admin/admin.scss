@@ -419,9 +419,9 @@ footer li{
     width: 508px;
     height: 178px;
 
-  }
+}
 
-  #legend .popuptext::after {
+#legend .popuptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -430,31 +430,31 @@ footer li{
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
-  }
+}
   
   /* Toggle this class - hide and show the popup */
-  #legend .show {
+#legend .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
-  }
+}
   
   /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
+@-webkit-keyframes fadeIn {
     from {opacity: 0;} 
     to {opacity: 1;}
-  }
+}
   
-  @keyframes fadeIn {
+@keyframes fadeIn {
     from {opacity: 0;}
     to {opacity:1 ;}
-  }
+}
 
-  #trash-percentage{
+#trash-percentage{
     margin-top: 24px;
-  }
+}
 
-  #t-percentage{
+#t-percentage{
     width: 161px;
     height: 35px;
 
@@ -463,7 +463,7 @@ footer li{
     border-style: solid;
     border-color: #000000;
     border-radius: 10px;
-  }
+}
   
 #t-percentage h1{
     font-family: 'Inria Sans';
