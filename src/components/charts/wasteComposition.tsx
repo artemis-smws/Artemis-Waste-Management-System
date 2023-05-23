@@ -1,14 +1,14 @@
 import { ChartOptions } from "chart.js";
 import PieChart from "../layout/chart.js/PieChart";
+import DoughnutChart from "../layout/chart.js/DoughnutChart";
 
 export default function WasteComposition() {
   const data = {
     labels: ["Food waste", "Residual", "Recyclable"],
     datasets: [
       {
-        data: [1, 22, 30],
-      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+        data: [25, 45, 30],
+      backgroundColor: ["#419550", "#EDE92D", "#00C8F4"],
       },
     ],
   };
@@ -27,5 +27,5 @@ export default function WasteComposition() {
     },
   };
 
-  return <PieChart data={data} options={option} />
+  return <DoughnutChart data={data} options={option} />
 }

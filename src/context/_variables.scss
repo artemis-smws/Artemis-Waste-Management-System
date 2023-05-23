@@ -1,6 +1,7 @@
 // Landing page - Color Scheme
 $primary-red: #7a0000;
-$secondary-red: #AE4642;
+$secondary-red: #e08b88;
+$tertiary-red: #3002001c;
 $primary-green: #001B19;
 $secondary-green: #00cb6a;
 $tertiary-grey: #9eafa2;
@@ -36,6 +37,14 @@ $temp-color: RGB(33, 0, 2);
 .bg-red {
   background-color: $primary-red;
   color: $text-color-primary;
+}
+.bg-tertiary-red {
+  background-color: $tertiary-red;
+  color: $text-color-secondary;
+}
+.bg-secondary-red {
+  background-color: $secondary-red;
+  color: $text-color-secondary;
 }
 .bg-white {
   background-color: $background-white;

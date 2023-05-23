@@ -8,9 +8,9 @@ import WasteComposition from "../../components/charts/wasteComposition";
 import WasteGenerationBuilding from "../../components/charts/wasteGenerationBuilding";
 
 export default function Dashboard() {
-  const [highest_weight, setHighest] = useState({ weight: 0, day: "" });
-  const [lowest_weight, setLowest] = useState({ weight: 0, day: "" });
-  const [average, setAverage] = useState(0.0);
+  const [highest_weight, setHighest] = useState({ weight: 98, day: "May 12" });
+  const [lowest_weight, setLowest] = useState({ weight: 12, day: "May 15" });
+  const [average, setAverage] = useState(43.12);
 
   const date = new Date();
 
@@ -36,7 +36,7 @@ export default function Dashboard() {
                   Highest
                 </h5>
                 <h3>
-                  {highest_weight.weight <= 0 ? "N/A" : highest_weight.weight}
+                  {highest_weight.weight <= 0 ? "N/A" : highest_weight.weight + " kg"}
                 </h3>
                 <h5>
                   {highest_weight.day.length <= 0 ? "" : highest_weight.day}
@@ -52,7 +52,7 @@ export default function Dashboard() {
                   Lowest
                 </h5>
                 <h3>
-                  {lowest_weight.weight <= 0 ? "N/A" : lowest_weight.weight}
+                  {lowest_weight.weight <= 0 ? "N/A" : lowest_weight.weight + " kg"}
                 </h3>
                 <h5>
                   {lowest_weight.day.length <= 0 ? "" : lowest_weight.day}
@@ -85,13 +85,13 @@ export default function Dashboard() {
 
                 <div className="d-flex flex-column w-50 justify-content-center">
                   <div className="d-flex w-100 justify-content-between px-4">
-                    Food Waste <div>30%</div>
+                    Food Waste <div>25%</div>
                   </div>
                   <div className="d-flex w-100 justify-content-between px-4">
-                    Residual <div>50%</div>
+                    Residual <div>45%</div>
                   </div>
                   <div className="d-flex w-100 justify-content-between px-4">
-                    Recyclable <div>10%</div>
+                    Recyclable <div>30%</div>
                   </div>
                 </div>
               </AdminChartCard>
@@ -135,8 +135,32 @@ export default function Dashboard() {
                 >
                   <ol className="list-group list-group-numbered">
                     <li className="d-flex justify-content-between list-group-item">
+                      <div>Gymnasium</div>
+                      <div>108kg</div>
+                    </li>
+                    <li className="d-flex justify-content-between list-group-item">
+                      <div>CEAFA Building</div>
+                      <div>115kg</div>
+                    </li>
+                    <li className="d-flex justify-content-between list-group-item">
+                      <div>CIT Building</div>
+                      <div>122kg</div>
+                    </li>
+                    <li className="d-flex justify-content-between list-group-item">
                       <div>CICS Building</div>
-                      <div>90kg</div>
+                      <div>129kg</div>
+                    </li>
+                    <li className="d-flex justify-content-between list-group-item">
+                      <div>SSC Building</div>
+                      <div>136kg</div>
+                    </li>
+                    <li className="d-flex justify-content-between list-group-item">
+                      <div>STEER Hub</div>
+                      <div>143kg</div>
+                    </li>
+                    <li className="d-flex justify-content-between list-group-item">
+                      <div>RGR Building</div>
+                      <div>150kg</div>
                     </li>
                   </ol>
                 </body>
