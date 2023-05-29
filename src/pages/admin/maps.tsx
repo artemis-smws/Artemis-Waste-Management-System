@@ -1,11 +1,11 @@
-import React from "react";
-import { MapContainer, Marker, Popup } from "react-leaflet";
-import { TileLayer } from "react-leaflet";
+import React, { useState } from "react";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import DropdownSelectDate from "../../components/layout/dropdownDate";
 import SelectSchool from "../../components/layout/selectSchool";
 import WasteGenerated from "../../components/charts/wasteGenerated";
+import { OpenStreetMapProvider } from "leaflet-geosearch";
 import {Link} from 'react-router-dom'
 
 
@@ -31,8 +31,10 @@ export default function Maps() {
       popup.classList.toggle("show");
     }
   }
-  
+
+
   return (
+    
     <div>
       <MapContainer
         center={[13.78428, 121.0743]}
@@ -59,7 +61,9 @@ export default function Maps() {
             <Link to='/bin' className="nav-link mx-2">
               Bin
             </Link>
-            <input type="text" placeholder="Search" id="search-location" />
+            
+            <SearchControl/>
+            
           </div>
         </div>
         <TileLayer
@@ -217,6 +221,46 @@ export default function Maps() {
           </span>
         </button>
       </MapContainer>
+    </div>
+  );
+}
+
+function SearchControl() {
+  const map = useMap();
+
+  const provider = new OpenStreetMapProvider();
+
+  const handleSearch = async (query : any) => {
+    const results = await provider.search({ query });
+    if (results.length > 0) {
+      const { x, y } = results[0];
+      map.flyTo([y, x], 19);
+    }
+  };
+  const [searchQuery, setSearchQuery] = useState("");
+  const handleSearchQueryChange = (event : any) => {
+    setSearchQuery(event.target.value);
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchQuery}
+        onChange={(event : any) => {
+          setSearchQuery(event.target.value)
+        }}
+        id="search-location"
+      />
+      <button
+        type="button"
+        className="btn btn-light"
+        id="search-button"
+        onClick={() => handleSearch(searchQuery)}
+      >
+        Search
+      </button>
     </div>
   );
 }
