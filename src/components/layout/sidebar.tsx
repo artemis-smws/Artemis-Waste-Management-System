@@ -77,6 +77,18 @@ function Sidebar() {
               />
               Trashbin
             </Link>
+            <Link
+              to="/auth"
+              className="d-flex align-items-center justify-content-start ps-5 row border-bottom rounded-0 border-1 btn bg-red w-100 bg-green m-0 py-3 pe-3"
+              reloadDocument
+            >
+              <img
+                src="./assets/img/access.png"
+                height="30px"
+                className="w-auto"
+              />
+              Auth
+            </Link>
           </div>
         </div>
 
