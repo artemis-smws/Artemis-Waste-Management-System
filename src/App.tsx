@@ -9,6 +9,7 @@ import Maps from "./pages/admin/maps";
 import Dashboard from "./pages/admin/dashboard";
 import Bin from "./pages/admin/bin";
 import { getCookie, saveCookie } from "./services/cookies";
+import Auth from "./pages/admin/auth";
 
 export function App() {
   useEffect(() => {
@@ -40,6 +41,14 @@ export function App() {
           element={
             <ProtectedRoute>
               <Bin />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/auth"
+          element={
+            <ProtectedRoute>
+              <Auth />
             </ProtectedRoute>
           }
         />
