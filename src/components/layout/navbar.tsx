@@ -29,10 +29,10 @@ export default function Navbar({handleFeature, handleAbout, handleContact} : Pro
           <a onClick={handleContact} className="nav-link mx-2">
             CONTACTS
           </a>
-          <NavLink  to='/admin' className="nav-link mx-2">
+          <NavLink  to='/login' className="nav-link mx-2">
             MAP
           </NavLink>
-          <NavLink to='/admin' className="nav-link mx-2">
+          <NavLink to='/login' className="nav-link mx-2">
             ANALYTICS
           </NavLink>
         </div>
