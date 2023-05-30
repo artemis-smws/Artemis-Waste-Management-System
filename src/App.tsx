@@ -6,6 +6,7 @@ import Maps from "./pages/admin/maps";
 import Navbar from "./components/layout/navbar";
 import Dashboard from "./pages/admin/dashboard";
 import Bin from "./pages/admin/bin";
+import Auth from "./pages/admin/auth";
 
 
 export function App() { 
@@ -19,6 +20,7 @@ export function App() {
         <Route path="*" element={<LandingPage/>} />
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/bin" element={<Bin/>}/>
+        <Route path="/auth" element={<Auth/>}/>
       </Routes>
     </div>
   );
