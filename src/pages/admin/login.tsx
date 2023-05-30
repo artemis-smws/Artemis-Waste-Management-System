@@ -33,7 +33,7 @@ export default function Admin() {
    })
    const credJSON = await cred.json()
    saveCookie(credJSON.user.uid);
-   navigate("/dashboard");
+  navigate("/dashboard");
   };
 
   const handleGoogleAuthenticate = async () => {
@@ -42,6 +42,8 @@ export default function Admin() {
       prompt: "select_account",
     });
     const cred = await signInWithPopup(auth, provider);
+    console.log(cred);
+    
     await saveCookie(cred.user.uid);
     navigate("/dashboard");
   };

@@ -2,17 +2,33 @@ import WasteGenerated from "../../components/charts/wasteGenerated";
 import PercentagePerCampus from "../../components/charts/percentagePerCampus";
 import Sidebar from "../../components/layout/sidebar";
 import { GraphDownArrow, GraphUpArrow } from "react-bootstrap-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AdminChartCard from "../../components/adminChartCard";
 import WasteComposition from "../../components/charts/wasteComposition";
 import WasteGenerationBuilding from "../../components/charts/wasteGenerationBuilding";
 
 export default function Dashboard() {
-  const [highest_weight, setHighest] = useState({ weight: 98, day: "May 12" });
-  const [lowest_weight, setLowest] = useState({ weight: 12, day: "May 15" });
-  const [average, setAverage] = useState(43.12);
+  const [highest_weight, setHighest] = useState({ weight: 0, day: "" });
+  const [lowest_weight, setLowest] = useState({ weight: 0, day: "" });
+  const [average, setAverage] = useState(0);
+  const [currentDoc, setCurrentDoc] = useState({ weight: 0 });
 
   const date = new Date();
+
+  useEffect(() => {
+    const {
+      highest_weight,
+      highest_day,
+      lowest_weight,
+      lowest_day,
+      average,
+      today_weight,
+    } = localStorage;
+    setHighest({ weight: JSON.parse(highest_weight), day: highest_day });
+    setLowest({ weight: JSON.parse(lowest_weight), day: lowest_day });
+    setAverage(JSON.parse(average));
+    setCurrentDoc({ weight: JSON.parse(today_weight) });
+  }, []);
 
   return (
     <div>
@@ -25,7 +41,7 @@ export default function Dashboard() {
             style={{ overflowY: "scroll" }}
           >
             {/* Lowest Highest Average UI */}
-            <div className="cstm-shadow d-flex justify-content-center align-items-center w-100 border border-3 rounded mb-4">
+            <div className="d-flex justify-content-center align-items-center w-100 border border-3 rounded mb-4">
               <div
                 style={{ color: "red" }}
                 className="d-flex flex-column justify-content-center align-items-center"
@@ -36,7 +52,9 @@ export default function Dashboard() {
                   Highest
                 </h5>
                 <h3>
-                  {highest_weight.weight <= 0 ? "N/A" : highest_weight.weight + " kg"}
+                  {highest_weight.weight <= 0 && highest_weight.day == ""
+                    ? "N/A"
+                    : highest_weight.weight + " kg"}
                 </h3>
                 <h5>
                   {highest_weight.day.length <= 0 ? "" : highest_weight.day}
@@ -52,7 +70,9 @@ export default function Dashboard() {
                   Lowest
                 </h5>
                 <h3>
-                  {lowest_weight.weight <= 0 ? "N/A" : lowest_weight.weight + " kg"}
+                  {lowest_weight.weight <= 0 && highest_weight.day == ""
+                    ? "N/A"
+                    : lowest_weight.weight + " kg"}
                 </h3>
                 <h5>
                   {lowest_weight.day.length <= 0 ? "" : lowest_weight.day}
@@ -64,7 +84,7 @@ export default function Dashboard() {
                 id="average"
               >
                 <h5 className="d-flex align-items-center">Average</h5>
-                <h3>{average <= 0 ? "N/A" : average}</h3>
+                <h3>{average <= 0 ? "N/A" : average.toPrecision(4) + " kg"}</h3>
               </div>
             </div>
             {/* chart row 1 */}
@@ -112,10 +132,16 @@ export default function Dashboard() {
                   style={{ overflowY: "scroll" }}
                 >
                   {/* generate whole div on dynamic display */}
-                  <div className="bg-red border border-0 rounded px-2 py-4 mb-3">
+                  <div className="border border-2 bg-tertiary-red rounded px-4 py-3 mb-3 fs-5">
                     The total solid waste generation of Batangas State
-                    University for the month of {date.toUTCString().slice(8,16)} is {'0kg'}. The peak day during
-                    the month is {'N/A'} while the lowest day is in {'N/A'}.
+                    University for the month of{" "}
+                    <span className="text-danger fw-semibold">{date.toUTCString().slice(8, 16)}</span> is{" "}
+                    <span className="text-danger fw-semibold">{currentDoc.weight} kg </span>. The peak day is during
+                    the day of <span className="text-danger fw-semibold">{highest_weight.day}</span> with the weight
+                    of <span className="text-danger fw-semibold">{highest_weight.weight}  kg</span> while the lowest
+                    day is in
+                    <span className="text-danger fw-semibold">{lowest_weight.day}</span> with the weight of{" "}
+                    <span className="text-danger fw-semibold">{lowest_weight.weight}  kg</span>.
                   </div>
                 </body>
               </AdminChartCard>

@@ -10,7 +10,6 @@ function Sidebar() {
   const handleSignOut = async () => {
     auth.signOut();
     deleteCookie();
-    console.log({ cookies: getCookie(), user: auth.currentUser });
     navigate("/login");
   };
 

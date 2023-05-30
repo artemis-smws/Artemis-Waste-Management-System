@@ -15,7 +15,7 @@ export default function AdminChartCard ({maxHeight, header , children, width} : 
         maxHeight : '360px',
     }
     const bootstrap_class = "d-flex flex-column border border-2 rounded"
-    const header_class = "border-bottom border-3 px-2 py-2 bg-tertiary-red"
+    const header_class = "border-bottom border-3 px-2 py-2 bg-red"
     const body_class = "h-100 w-100 d-flex flex-row justify-content-center"
 
 
