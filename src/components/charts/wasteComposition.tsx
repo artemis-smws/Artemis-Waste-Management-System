@@ -8,7 +8,7 @@ export default function WasteComposition() {
     datasets: [
       {
         data: [25, 45, 30],
-      backgroundColor: ["#419550", "#EDE92D", "#00C8F4"],
+      backgroundColor: ["#419550", "#5e29ff", "#f04337"],
       },
     ],
   };

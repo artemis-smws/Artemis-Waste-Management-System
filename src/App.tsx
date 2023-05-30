@@ -1,4 +1,6 @@
 import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; 
 import LandingPage from "./pages/client/landingPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -6,9 +8,6 @@ import Admin from "./pages/admin/login";
 import Maps from "./pages/admin/maps";
 import Dashboard from "./pages/admin/dashboard";
 import Bin from "./pages/admin/bin";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "./firebase/firebase";
-import { createContext, useContext } from "react";
 import { getCookie, saveCookie } from "./services/cookies";
 
 export function App() {

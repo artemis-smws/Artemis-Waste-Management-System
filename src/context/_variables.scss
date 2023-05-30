@@ -16,7 +16,6 @@ $text-color-secondary: $primary-green;
 // temporary variable - will remove later 
 $temp-color: RGB(33, 0, 2);
 
-
 @mixin flex-column {
   display: flex;
   flex-direction: column;
