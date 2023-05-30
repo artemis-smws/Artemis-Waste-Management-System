@@ -3,7 +3,8 @@ import { Parallax, ParallaxLayer, ParallaxProps } from "@react-spring/parallax";
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getCookie, saveCookie } from "../../services/cookies";
 import auth from "../../firebase/firebase";
 import { handleSigninWithEmail } from "../../modules/handleAuthentication";
 
@@ -19,15 +20,20 @@ export default function Admin() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const isValid = (password.length > 7 && email.includes('@gmail.com')) ? true : false
+  const isValid =
+    password.length > 7 && email.includes("@gmail.com") ? true : false;
 
   const handleAuthenticate = async () => {
-    const response = await handleSigninWithEmail({
-      email: email,
-      password: password,
-    });
-    console.log(response)
-    navigate('/dashboard')
+   const cred = await fetch('https://us-central1-artemis-b18ae.cloudfunctions.net/server/auth/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({email, password})
+   })
+   const credJSON = await cred.json()
+   saveCookie(credJSON.user.uid);
+   navigate("/dashboard");
   };
 
   const handleGoogleAuthenticate = async () => {
@@ -35,8 +41,9 @@ export default function Admin() {
     provider.setCustomParameters({
       prompt: "select_account",
     });
-    await signInWithPopup(auth, provider);
-    navigate('/dashboard')
+    const cred = await signInWithPopup(auth, provider);
+    await saveCookie(cred.user.uid);
+    navigate("/dashboard");
   };
 
   const navigate = useNavigate();
@@ -137,7 +144,7 @@ export default function Admin() {
               type="button"
               className="btn"
               id="lgn-btn"
-              disabled={(isValid)? false : true}
+              disabled={isValid ? false : true}
             >
               LOGIN
             </button>
@@ -162,12 +169,9 @@ export default function Admin() {
   );
 }
 
-
-
-
 function CustomFooter() {
   return (
-    <footer className="vw-100" style={{maxHeight : '70px'}}>
+    <footer className="vw-100" style={{ maxHeight: "70px" }}>
       <ul className="d-flex justify-content-evenly w-100" id="f-lists">
         <li className="d-flex">
           <img className="me-1 w-auto" src="./assets/img/bsu-logo.png" />
