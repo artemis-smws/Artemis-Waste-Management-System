@@ -1,18 +1,18 @@
 import * as React from "react";
 import { Component } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase/firebase";
+import { deleteCookie, getCookie } from "../../services/cookies";
 
 function Sidebar() {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    const handleSignOut = async () => {
-        const callback = await fetch('https://us-central1-artemis-b18ae.cloudfunctions.net/server/auth/signout', {
-            method : 'POST'
-        })
-        
-        console.log(callback.status)
-        navigate('/admin')
-    }
+  const handleSignOut = async () => {
+    auth.signOut();
+    deleteCookie();
+    console.log({ cookies: getCookie(), user: auth.currentUser });
+    navigate("/login");
+  };
 
   return (
     <div>

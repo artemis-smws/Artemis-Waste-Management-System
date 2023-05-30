@@ -1,27 +1,53 @@
 import "./App.scss";
 import LandingPage from "./pages/client/landingPage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Admin from "./pages/admin/login";
 import Maps from "./pages/admin/maps";
-import Navbar from "./components/layout/navbar";
 import Dashboard from "./pages/admin/dashboard";
 import Bin from "./pages/admin/bin";
-import Auth from "./pages/admin/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "./firebase/firebase";
+import { createContext, useContext } from "react";
+import { getCookie, saveCookie } from "./services/cookies";
 
-
-export function App() { 
-
+export function App() {
+  console.log({cookies : getCookie()});
   return (
     <div>
       <Routes>
-        <Route path="/" element={<LandingPage/>} />
-        <Route path="/admin" element={<Admin/>} />
-        <Route path="/maps" element={<Maps/>} />
-        <Route path="*" element={<LandingPage/>} />
-        <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/bin" element={<Bin/>}/>
-        <Route path="/auth" element={<Auth/>}/>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Admin />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/maps"
+          element={
+            <ProtectedRoute >
+              <Maps />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/bin"
+          element={
+            <ProtectedRoute >
+              <Bin />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );
+}
+
+function ProtectedRoute({ children }: any) {
+  const user = getCookie().trim().split('=')[1];
+  console.log(user)
+  return user != '' ? children : <Navigate to="/login" />;
 }
