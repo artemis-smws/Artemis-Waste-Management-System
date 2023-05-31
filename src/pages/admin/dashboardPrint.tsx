@@ -1,5 +1,8 @@
+import { useEffect } from "react"
 export default function DashboardPrint(){
-
+    useEffect(() => {
+        window.print()
+    }, [])
     return(
 
         <div className="vw-100 vh-100">
@@ -20,7 +23,7 @@ export default function DashboardPrint(){
                         <thead>
                             <tr style={{backgroundColor: "red", color: "black"}}>
                                 <th scope="col">Date</th>
-                                <th colspan="3" scope="colgroup">Types of Solid Waste</th>
+                                <th colSpan={3} scope="colgroup">Types of Solid Waste</th>
                                 <th scope="col">Total Solid Waste Generated per day</th>
                             </tr>
                         </thead>

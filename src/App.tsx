@@ -8,6 +8,7 @@ import Dashboard from "./pages/admin/dashboard";
 import Bin from "./pages/admin/bin";
 import { getCookie, saveCookie } from "./services/cookies";
 import Auth from "./pages/admin/auth";
+import DashboardPrint from "./pages/admin/dashboardPrint";
 
 
 export function App() {
@@ -51,6 +52,16 @@ export function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/print"
+          element={
+            
+              <DashboardPrint />
+           
+          }
+        >
+          
+        </Route>
       </Routes>
     </div>
   );
