@@ -330,7 +330,7 @@ function SearchControl() {
   };
 
   return (
-    <div>
+    <div className="d-flex justify-content-center align-items-center">
       <input
         type="text"
         placeholder="Search"
@@ -342,7 +342,7 @@ function SearchControl() {
       />
       <button
         type="button"
-        className="btn btn-light"
+        className="btn btn-light align-items-center"
         id="search-button"
         onClick={() => handleSearch(searchQuery)}
       >
