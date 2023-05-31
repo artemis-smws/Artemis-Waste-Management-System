@@ -16,6 +16,7 @@ export default function Dashboard() {
   const [lowest_weight, setLowest] = useState({ weight: 0, day: "" });
   const [average, setAverage] = useState(0);
   const [currentDoc, setCurrentDoc] = useState({ weight: 0 });
+  const {overall_food_waste, overall_residual_waste, overall_recyclable_waste} = localStorage
 
   const date = new Date();
   const [user] = useAuthState(auth);
@@ -117,13 +118,13 @@ export default function Dashboard() {
 
                   <div className="d-flex flex-column w-50 h-100 justify-content-between p-3 ">
                     <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-                      <div className="fs-5">Food Waste</div> <div>124kg</div>
+                      <div className="fs-5">Food Waste</div> <div>{overall_food_waste} kg</div>
                     </div>
                     <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-                      <div className="fs-5">Residual</div> <div>124kg</div>
+                      <div className="fs-5">Residual</div> <div>{overall_residual_waste} kg</div>
                     </div>
                     <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-                      <div className="fs-5">Recyclable</div> <div>124kg</div>
+                      <div className="fs-5">Recyclable</div> <div>{overall_recyclable_waste} kg</div>
                     </div>
                   </div>
                 </AdminChartCard>
