@@ -157,6 +157,7 @@ async function fetchData() {
     }
   );
   const totalWeightPerTypesJSON = await totalWeightPerTypes.json();
+  console.log(totalWeightPerTypesJSON)
   localStorage.setItem("overall_food_waste", totalWeightPerTypesJSON[0].overall_food_waste_weight);
   localStorage.setItem("overall_residual_waste", totalWeightPerTypesJSON[0].overall_residual_weight)
   localStorage.setItem("overall_recyclable_waste", totalWeightPerTypesJSON[0].overall_recyclable_weight)

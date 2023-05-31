@@ -161,10 +161,9 @@ export default function Dashboard() {
                 >
                   {/* generate whole div on dynamic display */}
                   <div className="border border-2 bg-tertiary-red rounded px-4 py-3 mb-3 fs-5">
-                    The total solid waste generation of Batangas State
-                    University for the month of{" "}
+                    The current total waste generated and record for this day,{" "}
                     <span className="text-danger fw-semibold">
-                      {date.toUTCString().slice(8, 16)}
+                      {date.toUTCString().slice(4, 16)}
                     </span>{" "}
                     is{" "}
                     <span className="text-danger fw-semibold">
