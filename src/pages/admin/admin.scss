@@ -742,3 +742,63 @@ footer li{
     color: white;
 }
 
+table{
+    text-align: center;
+    table-layout: fixed;
+}
+
+thead{
+    display: table-row-group;
+}
+
+#table-1{
+    margin-top: 30px;
+}
+
+#report-title{
+    font-family: 'Times New Roman';
+    font-size: 26pt;
+    font-weight: bold;
+}
+
+#table-title h1{
+    font-family: 'Times New Roman';
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+#table-2{
+    margin-top: 30px;
+}
+
+#table-3{
+    margin-top: 30px;
+}
+
+#table-4{
+    margin-top: 30px;
+}
+
+table td{
+    vertical-align: center;
+    border: 1px solid black;
+}
+
+table th{
+    vertical-align: top;
+}
+
+table tr{
+    border: 1px solid black;
+}
+
+@page{
+    size: auto;
+    margin: 25mm 20mm 25mm 20mm;
+}
+
+@media print{
+    body{
+        print-color-adjust: exact;
+    }
+}
