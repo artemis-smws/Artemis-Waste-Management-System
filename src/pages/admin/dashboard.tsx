@@ -16,11 +16,15 @@ export default function Dashboard() {
   const [lowest_weight, setLowest] = useState({ weight: 0, day: "" });
   const [average, setAverage] = useState(0);
   const [currentDoc, setCurrentDoc] = useState({ weight: 0 });
-  const {overall_food_waste, overall_residual_waste, overall_recyclable_waste} = localStorage
+  const {
+    overall_food_waste,
+    overall_residual_waste,
+    overall_recyclable_waste,
+  } = localStorage;
 
   const date = new Date();
   const [user] = useAuthState(auth);
-  const username = user?.displayName
+  const username = user?.displayName;
 
   useEffect(() => {
     const {
@@ -50,10 +54,11 @@ export default function Dashboard() {
             <div className="w-100 d-flex">
               <h1 className="mb-5">Hello! Welcome {username}</h1>
             </div>
-            
+
             {/* section 0 */}
-            <div className="bg-light d-flex justify-content-center align-items-center border border-3 rounded mb-4"
-              style={{ width : '80%' }}
+            <div
+              className="bg-light d-flex justify-content-center align-items-center border border-3 rounded mb-4"
+              style={{ width: "80%" }}
             >
               {/* Lowest Highest Average UI */}
               <div
@@ -118,13 +123,16 @@ export default function Dashboard() {
 
                   <div className="d-flex flex-column w-50 h-100 justify-content-between p-3 ">
                     <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-                      <div className="fs-5">Food Waste</div> <div>{overall_food_waste} kg</div>
+                      <div className="fs-5">Food Waste</div>{" "}
+                      <div>{overall_food_waste} kg</div>
                     </div>
                     <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-                      <div className="fs-5">Residual</div> <div>{overall_residual_waste} kg</div>
+                      <div className="fs-5">Residual</div>{" "}
+                      <div>{overall_residual_waste} kg</div>
                     </div>
                     <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-                      <div className="fs-5">Recyclable</div> <div>{overall_recyclable_waste} kg</div>
+                      <div className="fs-5">Recyclable</div>{" "}
+                      <div>{overall_recyclable_waste} kg</div>
                     </div>
                   </div>
                 </AdminChartCard>
@@ -132,10 +140,7 @@ export default function Dashboard() {
             </section>
             {/* chart row 2 */}
             <section className="w-100 d-flex justify-content-between mt-5">
-              <AdminChartCard
-                width="38%"
-                header="Ranking per building"
-              >
+              <AdminChartCard width="38%" header="Ranking per building">
                 <BuildingLeaderboards />
               </AdminChartCard>
               <AdminChartCard width="28%" header="Contribution percentage">
@@ -173,7 +178,7 @@ export default function Dashboard() {
                     <span className="text-danger fw-semibold">
                       {highest_weight.weight} kg
                     </span>{" "}
-                    while the lowest day is in
+                    while the lowest day is in{" "}
                     <span className="text-danger fw-semibold">
                       {lowest_weight.day}
                     </span>{" "}
