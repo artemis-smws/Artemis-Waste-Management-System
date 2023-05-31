@@ -76,7 +76,7 @@ function Sidebar() {
               />
               Trashbin
             </Link>
-            <Link
+            {/* <Link
               to="/auth"
               className="d-flex align-items-center justify-content-start ps-5 row border-bottom rounded-0 border-1 btn bg-red w-100 bg-green m-0 py-3 pe-3"
               reloadDocument
@@ -87,7 +87,7 @@ function Sidebar() {
                 className="w-auto"
               />
               Auth
-            </Link>
+            </Link> */}
           </div>
         </div>
 

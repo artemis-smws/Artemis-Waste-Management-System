@@ -10,7 +10,7 @@ export default function Auth(){
         <div>
             <div className="d-flex">
                 <Sidebar/>
-                    <div className="d-flex justify-content-center align-items-center" id="ac">
+                    <div className="d-flex justify-content-center w-100 vh-100">
                         <AuthContent/>
                     </div>
             </div>
@@ -81,7 +81,7 @@ function AuthContent(){
         <div>
             <div className="d-flex justify-content-center align-items-center">
                 <div className="d-flex align-items-center" id="auth-title">
-                    <h1>Authentication</h1>
+                    <Header/>
                     <ToastContainer/>
                 </div>
             </div>
@@ -122,3 +122,11 @@ function AuthContent(){
     );
 
 }
+
+function Header() {
+    return (
+      <div className="w-100 d-flex border-bottom border-2 shadow align-items-center justify-content-between ps-4 py-3">
+        <p className="m-0 fw-bold fs-4">Users</p>
+      </div>
+    );
+  }
