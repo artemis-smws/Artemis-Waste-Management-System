@@ -488,7 +488,9 @@ footer li{
     width: 400px; /* Set the desired width */
     height: 400px; /* Set the desired height */
     background-color: #FFF4EE;
-    margin: 60px;
+    margin: 0px;
+    margin-top: 60px;
+    margin-right: 60px;
 }
 
 #popup-content{
@@ -496,7 +498,7 @@ footer li{
     height: 400px;
     position: relative;
     right: 22px;
-    bottom: 14px;
+    bottom: 0px;
 }
 
 #trashbin-id{
