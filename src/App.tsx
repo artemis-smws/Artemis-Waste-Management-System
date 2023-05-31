@@ -1,6 +1,4 @@
 import "./App.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import LandingPage from "./pages/client/landingPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, createContext } from "react";
