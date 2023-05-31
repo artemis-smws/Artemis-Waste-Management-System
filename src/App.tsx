@@ -118,15 +118,18 @@ async function fetchData() {
     }
   );
   const totalWeightLast7DaysJSON = await totalWeightLast7Days.json();
+  const months_list = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'];
   const total_weights: any = [];
   const days_list: any = [];
   let overall_weight = 0;
   totalWeightLast7DaysJSON.forEach((doc: any) => {
     total_weights.push(doc.overall_weight);
-    const date = new Date(doc.createdAt.seconds * 1000)
-      .toUTCString()
-      .slice(5, 11);
-    days_list.push(date);
+    const timestamp = doc.createdAt;
+    const milliseconds = timestamp.seconds * 1000 + Math.floor(timestamp.nanoseconds / 1e6);
+    const date = new Date(milliseconds)
+    const day = date.getDate()
+    const month = date.getMonth()
+    days_list.push(`${months_list[month]} ${day}`);
   });
   total_weights.forEach((weight: any) => {
     overall_weight += weight;
