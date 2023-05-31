@@ -13,14 +13,14 @@ export default function WasteGenerationBuilding() {
       {
         label : 'Residual Waste',
         data: [15, 23, 34, 24, 22, 30, 12],
-        borderColor: "#EDE92D",
+        borderColor: "#5e29ff" ,
         backgroundColor : 'transparent',
         tension: 0,
       },
       {
         label : 'Recyclable Waste',
         data:  [22, 17, 26, 30, 19, 28, 15],
-        borderColor: "#00C8F4",
+        borderColor: "#f04337",
         backgroundColor : 'transparent',
         tension: 0,
       },
