@@ -38,7 +38,7 @@ export default function Maps() {
         scrollWheelZoom={true}
         zoomControl={false}
       >
-        <div className="navbar" id="maps-navbar">
+        <div className="navbar w-100" id="maps-navbar">
           <Link to="/dashboard">
             <img
               src="./assets/img/artemis-favicon.webp"
@@ -47,13 +47,13 @@ export default function Maps() {
             />
           </Link>
           <div
-            className="d-flex justify-content-around align-items-center"
+            className="w-100 d-flex justify-content-between align-items-center"
             id="map-navbar-list"
           >
-            <Link to="/dashboard" className="nav-link mx-2">
+            <Link to="/dashboard" className="nav-link mx-4">
               Dashboard
             </Link>
-            <Link to="/bin" className="nav-link mx-2">
+            <Link to="/bin" className="nav-link mx-4">
               Bin
             </Link>
 
@@ -330,9 +330,10 @@ function SearchControl() {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center">
+    <div className="input-group d-flex justify-content-center align-items-center">
       <input
         type="text"
+        className="form-control"
         placeholder="Search"
         value={searchQuery}
         onChange={(event: any) => {
@@ -342,7 +343,7 @@ function SearchControl() {
       />
       <button
         type="button"
-        className="btn btn-light align-items-center"
+        className="btn btn-outline-light align-items-center"
         id="search-button"
         onClick={() => handleSearch(searchQuery)}
       >
