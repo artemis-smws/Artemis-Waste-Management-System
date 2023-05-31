@@ -10,6 +10,7 @@ import { BuildingLeaderboards } from "../../components/buildingLeaderboards";
 import { getCookie } from "../../services/cookies";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase";
+import { Link, Navigate } from "react-router-dom";
 
 export default function Dashboard() {
   const [highest_weight, setHighest] = useState({ weight: 0, day: "" });
@@ -212,10 +213,12 @@ function Header() {
   return (
     <div className="d-flex border-bottom border-2 shadow align-items-center justify-content-between ps-4 py-3">
       <p className="m-0 fw-bold fs-4">Dashboard</p>
-      <button type="button" className="btn cstm-shadow rounded-pill px-3 me-3">
+      <Link to='/print' type="button" className="btn cstm-shadow rounded-pill px-3 me-3"
+        
+      >
         <i className="bi bi-printer me-2"></i>
         Print
-      </button>
+      </Link>
     </div>
   );
 }
