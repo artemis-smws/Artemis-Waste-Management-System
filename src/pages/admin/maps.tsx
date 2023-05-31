@@ -30,6 +30,10 @@ export default function Maps() {
     }
   }
 
+  function handleDropdownClick(event: React.MouseEvent<HTMLDivElement>) {
+    event.stopPropagation();
+  }
+
   return (
     <div>
       <MapContainer
@@ -299,10 +303,10 @@ export default function Maps() {
                 <h1>61%-100%</h1>
               </div>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex justify-content-center align-items-center" onClick={handleDropdownClick}>
               <SelectSchool />
             </div>
-            <div className="d-flex">
+            <div className="d-flex" onClick={handleDropdownClick}>
               <DropdownSelectDate />
             </div>
           </span>
