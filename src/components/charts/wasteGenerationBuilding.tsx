@@ -1,6 +1,7 @@
 import { ChartOptions } from "chart.js";
 import PieChart from "../layout/chart.js/PieChart";
 import LineChart from "../layout/chart.js/LineChart";
+import BarChart from "../layout/chart.js/BarChart";
 
 interface Props {
   data ?: Object
@@ -13,30 +14,28 @@ export default function WasteGenerationBuilding() {
       {
         label : 'Residual Waste',
         data: [15, 23, 34, 24, 22, 30, 12],
-        borderColor: "#5e29ff" ,
-        backgroundColor : 'transparent',
-        tension: 0,
+        backgroundColor: "#5e29ff" ,
+        borderWidth: 2,
       },
       {
         label : 'Recyclable Waste',
-        data:  [22, 17, 26, 30, 19, 28, 15],
-        borderColor: "#f04337",
-        backgroundColor : 'transparent',
-        tension: 0,
+        data:  [29, 37, 18, 39, 31, 26, 16, 35],
+        backgroundColor : "#f04337" ,
+        borderWidth: 2,
       },
       {
         label : 'Food Waste',
-        data: [32, 24, 33, 21, 18, 27, 35],
-        borderColor: "#419550",
-        backgroundColor : 'transparent',
-        tension: 0,
+        data: [17, 38, 27, 33, 20, 28, 36, 19],
+        backgroundColor: "#419550" ,
+        borderWidth: 2,
       }
-    ],
+    ]
   };
   const option: ChartOptions = {
     responsive: true,
-    maintainAspectRatio : false
+    maintainAspectRatio : false,
+    
   };
 
-  return <LineChart data={data} options={option} />
+  return <BarChart data={data} options={option} />
 }
