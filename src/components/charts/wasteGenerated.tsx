@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { ChartOptions } from "chart.js";
 
 export default function WasteGenerated() {
-  let [dataWeight, setDataWeight] = useState([])
-  let [dataDay, setDataDay]  = useState([])
+  const [dataWeight, setDataWeight] = useState([])
+  const [dataDay, setDataDay]  = useState([])
   
 
   useEffect(() => {

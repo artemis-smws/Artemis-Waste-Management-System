@@ -1,4 +1,5 @@
 import { ChartOptions } from "chart.js";
+import {useEffect, useState} from 'react'
 import PieChart from "../layout/chart.js/PieChart";
 import LineChart from "../layout/chart.js/LineChart";
 import BarChart from "../layout/chart.js/BarChart";
@@ -8,25 +9,29 @@ interface Props {
 }
 
 export default function WasteGenerationBuilding() {
+  const [buildingData, setbuildingData] = useState<any[]>([])
+  const [buildingName, setBuildingName] = useState<any[]>([])
+  useEffect(() => {
+    const {buildingDataObj} = localStorage
+    const buildingData = JSON.parse(buildingDataObj)
+    const keys = Object.keys(buildingData)
+    const values = Object.values(buildingData)
+    for(let i = 0; i < keys.length; i++){
+      if(keys[i]) {
+        setBuildingName(prev => [...prev, keys[i]])
+      }
+      if(values[i]) {
+        setbuildingData(prev => [...prev, values[i]])
+      }
+    }
+  }, [])
   const data = {
-    labels: ["CICS", "CEAFA", "RGR", 'Gym', 'STEER Hub', 'SSC', 'CIT'],
+    labels: buildingName,
     datasets: [
       {
-        label : 'Residual Waste',
-        data: [15, 23, 34, 24, 22, 30, 12],
-        backgroundColor: "#5e29ff" ,
-        borderWidth: 2,
-      },
-      {
-        label : 'Recyclable Waste',
-        data:  [29, 37, 18, 39, 31, 26, 16, 35],
-        backgroundColor : "#f04337" ,
-        borderWidth: 2,
-      },
-      {
-        label : 'Food Waste',
-        data: [17, 38, 27, 33, 20, 28, 36, 19],
-        backgroundColor: "#419550" ,
+        label : 'Overall Waste Generated',
+        data: buildingData,
+        backgroundColor: "#f04337" ,
         borderWidth: 2,
       }
     ]
@@ -34,7 +39,15 @@ export default function WasteGenerationBuilding() {
   const option: ChartOptions = {
     responsive: true,
     maintainAspectRatio : false,
-    
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    }
   };
 
   return <BarChart data={data} options={option} />

@@ -103,8 +103,8 @@ async function fetchData() {
     .slice(5, 11);
   localStorage.setItem("lowest_day", date1);
 
-  const averageData = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/status/latest",
+  const monthlyData = await fetch(
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/status/monthly/latest",
     {
       method: "GET",
       headers: {
@@ -112,9 +112,15 @@ async function fetchData() {
       },
     }
   );
-  const averageDataJSON = await averageData.json();
-  localStorage.setItem("average", averageDataJSON[0].average_per_building.toFixed(2));
-
+  const monthlyDataJSON = await monthlyData.json();
+  localStorage.setItem("average", monthlyDataJSON[0].average.toFixed(2));
+  localStorage.setItem('monthly_food_waste', monthlyDataJSON[0].types.food_waste)
+  localStorage.setItem('monthly_recyclable', monthlyDataJSON[0].types.recyclable)
+  localStorage.setItem('monthly_residual', monthlyDataJSON[0].types.residual)
+  localStorage.setItem('monthly_overall', monthlyDataJSON[0].types.overall_total)
+  const buildingList = Object.keys(monthlyDataJSON[0].buildings)
+  localStorage.setItem('buildingDataObj', JSON.stringify(monthlyDataJSON[0].buildings))
+  localStorage.setItem('buildingList', JSON.stringify(buildingList))
   const totalWeightLast7Days = await fetch(
     "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/latest/7days",
     {
