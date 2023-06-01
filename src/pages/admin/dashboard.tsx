@@ -52,10 +52,6 @@ export default function Dashboard() {
             className="h-100 w-100 d-flex flex-column align-items-center px-4 py-4 border"
             style={{ overflowY: "scroll", backgroundColor: "#f5f5f5" }}
           >
-            <div className="w-100 d-flex">
-              <h1 className="mb-5">Hello! Welcome {username}</h1>
-            </div>
-
             {/* section 0 */}
             <div
               className="bg-light d-flex justify-content-center align-items-center border border-3 rounded mb-4"
