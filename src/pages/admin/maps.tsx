@@ -280,6 +280,7 @@ export default function Maps() {
             <div
               className="d-flex justify-content-center"
               id="trash-percentage"
+              onClick={handleDropdownClick}
             >
               <div
                 className="d-flex justify-content-center align-items-center"

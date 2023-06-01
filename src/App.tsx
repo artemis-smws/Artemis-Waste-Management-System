@@ -55,13 +55,11 @@ export function App() {
         <Route
           path="/print"
           element={
-            
-              <DashboardPrint />
-           
+            <ProtectedRoute>
+              <DashboardPrint/>
+            </ProtectedRoute>
           }
-        >
-          
-        </Route>
+        />
       </Routes>
     </div>
   );

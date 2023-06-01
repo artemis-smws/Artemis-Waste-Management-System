@@ -1,11 +1,24 @@
-import { useEffect } from "react"
+import { Link } from "react-router-dom"
+
 export default function DashboardPrint(){
-    useEffect(() => {
-        window.print()
-    }, [])
+
     return(
 
         <div className="vw-100 vh-100">
+            <div className="d-flex justify-content-between" id="top-buttons">
+                <div>
+                    <button type="button" className="btn btn-secondary" onClick={window.print}>
+                        PRINT
+                    </button>
+                </div>
+                <div>
+                    <button type="button" className="btn btn-secondary">
+                        <Link to="/dashboard" className="nav-link mx2">
+                            BACK
+                        </Link>
+                    </button>
+                </div>
+            </div>
             <div className="d-flex justify-content-center align-items-center" id="report-title">
                 ArteMIS Monthly Report
             </div>
@@ -348,7 +361,6 @@ export default function DashboardPrint(){
                     </table>
                 </div>
             </div>
-        
         </div>
     )
 
