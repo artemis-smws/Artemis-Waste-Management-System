@@ -11,6 +11,8 @@ import { getCookie } from "../../services/cookies";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase";
 import { Link, Navigate } from "react-router-dom";
+import DashboardPrint from "./dashboardPrint";
+
 
 export default function Dashboard() {
   const [highest_weight, setHighest] = useState({ weight: 0, day: "" });
@@ -47,7 +49,7 @@ export default function Dashboard() {
       <div className="d-flex">
         <Sidebar />
         <div className="vw-100 vh-100 overflow-hidden">
-          <Header />
+          <Header/>
           <div
             className="h-100 w-100 d-flex flex-column align-items-center px-4 py-4 border"
             style={{ overflowY: "scroll", backgroundColor: "#f5f5f5" }}
@@ -210,17 +212,51 @@ export default function Dashboard() {
 }
 
 function Header() {
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  function togglePopup(){
+    setShowPopup(!showPopup);
+  }
+
+  function printPreview(): void{
+    setShowPopup(!showPopup);
+  }
+
+  function PrintPreview(){
+    if (!showPopup){
+      return null;
+    }
+  
+
+    return(
+      <div id="printPreview">
+        <div className="d-flex justify-content-between" id="top-buttons">
+          <button type="button" className="btn btn-secondary">
+            <Link to="/print" className="nav-link mx-2">
+              Proceed to Printing
+            </Link>
+          </button>
+          <button type="button" className="btn btn-secondary" onClick={togglePopup}>
+            CLOSE
+          </button>
+        </div>
+        <div className="d-flex" id="display-review">
+          <DashboardPrint/>
+        </div>
+      </div>
+    );
+    }
+
   return (
     <div className="d-flex border-bottom border-2 shadow align-items-center justify-content-between ps-4 py-3">
       <p className="m-0 fw-bold fs-4">Dashboard</p>
-      <Link to='/print' type="button" className="btn cstm-shadow rounded-pill px-3 me-3"
-        
-      >
-        <i className="bi bi-printer me-2"></i>
-        Print
-      </Link>
+      <button type="button" className="btn btn-secondary "onClick={printPreview}>Print</button>
+      <PrintPreview/>
     </div>
   );
+  
+
 }
 
 function FilterButton() {
