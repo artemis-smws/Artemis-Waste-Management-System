@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom"
+import { useEffect } from 'react'
 
 export default function DashboardPrint(){
-
+    useEffect(() => {
+        window.print()
+    }, [])
     return(
 
         <div className="vw-100 vh-100">
@@ -13,7 +16,7 @@ export default function DashboardPrint(){
                 </div>
                 <div>
                     <button type="button" className="btn btn-secondary">
-                        <Link to="/dashboard" className="nav-link mx2">
+                        <Link to="/dashboard" type="button" className="nav-link mx2">
                             BACK
                         </Link>
                     </button>

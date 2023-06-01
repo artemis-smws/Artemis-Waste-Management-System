@@ -208,51 +208,17 @@ export default function Dashboard() {
 }
 
 function Header() {
-
-  const [showPopup, setShowPopup] = useState(false);
-
-  function togglePopup(){
-    setShowPopup(!showPopup);
-  }
-
-  function printPreview(): void{
-    setShowPopup(!showPopup);
-  }
-
-  function PrintPreview(){
-    if (!showPopup){
-      return null;
-    }
-  
-
-    return(
-      <div id="printPreview">
-        <div className="d-flex justify-content-between" id="top-buttons">
-          <button type="button" className="btn btn-secondary">
-            <Link to="/print" className="nav-link mx-2">
-              Proceed to Printing
-            </Link>
-          </button>
-          <button type="button" className="btn btn-secondary" onClick={togglePopup}>
-            CLOSE
-          </button>
-        </div>
-        <div className="d-flex" id="display-review">
-          <DashboardPrint/>
-        </div>
-      </div>
-    );
-    }
-
   return (
     <div className="d-flex border-bottom border-2 shadow align-items-center justify-content-between ps-4 py-3">
       <p className="m-0 fw-bold fs-4">Dashboard</p>
-      <button type="button" className="btn btn-secondary "onClick={printPreview}>Print</button>
-      <PrintPreview/>
+      <Link to='/print' type="button" className="btn cstm-shadow rounded-pill px-3 me-3"
+        
+      >
+        <i className="bi bi-printer me-2"></i>
+        Print
+      </Link>
     </div>
   );
-  
-
 }
 
 function FilterButton() {
