@@ -104,7 +104,7 @@ async function fetchData() {
   localStorage.setItem("lowest_day", date1);
 
   const averageData = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/status/monthly/latest",
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/status/latest",
     {
       method: "GET",
       headers: {
@@ -113,7 +113,7 @@ async function fetchData() {
     }
   );
   const averageDataJSON = await averageData.json();
-  localStorage.setItem("average", averageDataJSON[0].average.toFixed(2));
+  localStorage.setItem("average", averageDataJSON[0].average_per_building.toFixed(2));
 
   const totalWeightLast7Days = await fetch(
     "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/latest/7days",
