@@ -166,28 +166,6 @@ export default function Admin() {
         </div>
       </div>
 
-      <CustomFooter />
     </Parallax>
-  );
-}
-
-function CustomFooter() {
-  return (
-    <footer className="vw-100" style={{ maxHeight: "70px" }}>
-      <ul className="d-flex justify-content-evenly w-100" id="f-lists">
-        <li className="d-flex">
-          <img className="me-1 w-auto" src="./assets/img/bsu-logo.png" />
-          <h1>Batangas State University</h1>
-        </li>
-        <li className="d-flex">
-          <img className="me-1 w-auto" src="./assets/img/bsu-logo.png" />
-          <h1>BatState-U General Service Office</h1>
-        </li>
-        <li className="d-flex">
-          <img className="me-1 w-auto" src="./assets/img/emu_logo.png" />
-          <h1>BatState-U Environmental Management Unit</h1>
-        </li>
-      </ul>
-    </footer>
   );
 }
