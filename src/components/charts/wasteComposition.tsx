@@ -28,7 +28,7 @@ export default function WasteComposition() {
       },
     },
   };
-  if(data.datasets[0].data[0] != 0 && data.datasets[0].data[1] != 0 && data.datasets[0].data[2] != 0) {
+  if(!(data.datasets[0].data[0] == 0 && data.datasets[0].data[1] == 0 && data.datasets[0].data[2] == 0)) {
     return <DoughnutChart data={data} options={option} />
   } else {
     return <div className="h-100 w-100 d-flex flex-column justify-content-center align-item-center">
