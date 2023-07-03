@@ -4,11 +4,9 @@ import PieChart from "../layout/chart.js/PieChart";
 import LineChart from "../layout/chart.js/LineChart";
 import BarChart from "../layout/chart.js/BarChart";
 
-interface Props {
-  data ?: Object
-}
+export default function WasteGenerationBuilding() { 
 
-export default function WasteGenerationBuilding() {
+
   const [buildingData, setbuildingData] = useState<any[]>([])
   const [buildingName, setBuildingName] = useState<any[]>([])
   useEffect(() => {
@@ -51,4 +49,18 @@ export default function WasteGenerationBuilding() {
   };
 
   return <BarChart data={data} options={option} />
+}
+
+async function fetchData() {
+  const data = await fetch(
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/latest",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+  const latestDocs = await data.json()
+  
 }
