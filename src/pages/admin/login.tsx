@@ -31,6 +31,7 @@ export default function Admin() {
       },
       body: JSON.stringify({email, password})
    })
+   console.log(cred);
    const credJSON = await cred.json()
    saveCookie(credJSON.user.uid);
   navigate("/dashboard");

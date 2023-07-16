@@ -1,7 +1,7 @@
 export function saveCookie(cred: any) {
   const date = new Date();
   const expirationDate = new Date(date.getTime() + 60 * 60 * 1000); // 1 hour
-  document.cookie = `firebaseToken=${cred}; expires=${expirationDate.toUTCString()}; path=/`;
+  document.cookie = `firebaseToken=${cred}; expires=${expirationDate.toUTCString()}; path=/ ; SameSite=None; Secure`;
 }
 
 export function getCookie() {
@@ -13,5 +13,5 @@ export function getCookie() {
 }
 
 export function deleteCookie() {
-    document.cookie = "firebaseToken=; path=/;"
+    document.cookie = "firebaseToken=; path=/; SameSite=None; Secure"
 }
