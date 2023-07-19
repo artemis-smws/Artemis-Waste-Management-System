@@ -5,6 +5,7 @@ import About from "./about";
 import { useRef } from "react";
 import Features from "./features";
 import Contact from "./contact";
+import WebStatusOvelay from "../../components/webStatusOverlay";
 
 export default function LandingPage() {
   const layer: React.CSSProperties = {
@@ -20,6 +21,7 @@ export default function LandingPage() {
 
   return (
     <>
+      <WebStatusOvelay />
       {/* first page */}
       <Parallax pages={4} style={{ top: "0", left: "0" }} ref={ref}>
         <ParallaxLayer offset={0} speed={0.25} factor={1} style={layer}>
