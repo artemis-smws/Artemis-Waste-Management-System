@@ -1,3 +1,4 @@
+import './index.scss'
 import {NavLink, Link} from 'react-router-dom'
 
 // linked to single page references using useRef

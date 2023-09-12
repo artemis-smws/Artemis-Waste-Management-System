@@ -1,8 +1,8 @@
-import * as React from "react";
+import './index.scss'
 import { Component } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import auth from "../../services/firebase";
-import { deleteCookie, getCookie } from "../../utils/cookies";
+import auth from "../../../services/firebase";
+import { deleteCookie, getCookie } from "../../../utils/cookies";
 
 function Sidebar() {
   const navigate = useNavigate();

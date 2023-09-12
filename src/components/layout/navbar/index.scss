@@ -1,0 +1,19 @@
+@import "../../../constants/variables";
+
+.navbar {
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 1fr 50% 1fr;
+    background-color: $background-black;
+    max-height: 100px !important;
+    align-items: center;
+    padding: 1px 25px !important;
+  }
+  .navbar-toggler {
+    border: none;
+    font-weight: bold;
+  }
+  .nav-link,
+  .navbar-brand {
+    color: $text-color-primary;
+  }
