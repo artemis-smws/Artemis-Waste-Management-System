@@ -1,4 +1,4 @@
-import LineChart from "../layout/chart.js/LineChart";
+import LineChart from "./charts/LineChart";
 import { useEffect, useState } from "react";
 import { ChartOptions } from "chart.js";
 

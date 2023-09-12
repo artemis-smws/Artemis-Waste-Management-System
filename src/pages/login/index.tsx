@@ -3,8 +3,8 @@ import { Parallax, ParallaxLayer, ParallaxProps } from "@react-spring/parallax";
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { saveCookie } from "../../services/cookies";
-import auth from "../../firebase/firebase";
+import { saveCookie } from "../../utils/cookies";
+import auth from "../../services/firebase";
 
 export default function Admin() {
   const layer: React.CSSProperties = {

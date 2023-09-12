@@ -1,7 +1,7 @@
 import { ChartOptions } from "chart.js";
 import { useEffect, useState, useContext } from "react";
-import PieChart from "../layout/chart.js/PieChart";
-import DoughnutChart from "../layout/chart.js/DoughnutChart";
+import PieChart from "../../components/charts/PieChart";
+import DoughnutChart from "../../components/charts/DoughnutChart";
 
 export default function WasteComposition() {
   const {overall_food_waste, overall_residual_waste, overall_recyclable_waste} = localStorage

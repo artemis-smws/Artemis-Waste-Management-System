@@ -6,10 +6,9 @@ import Admin from "./pages/login";
 import Maps from "./pages/maps";
 import Dashboard from "./pages/dashboard";
 import Bin from "./pages/binDashboard";
-import { getCookie, saveCookie } from "./services/cookies";
-import Auth from "./pages/admin/auth";
+import { getCookie, saveCookie } from "./utils/cookies";
 import DashboardPrint from "./pages/dashboard/dashboardPrint";
-import { fetchData } from "./helpers/fetchData";
+import { fetchData } from "./utils/fetchData";
 
 
 export function App() {
@@ -46,14 +45,6 @@ export function App() {
           element={
             <ProtectedRoute>
               <Bin />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/auth"
-          element={
-            <ProtectedRoute>
-              <Auth />
             </ProtectedRoute>
           }
         />

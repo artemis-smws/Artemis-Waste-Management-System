@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PieChart from "../layout/chart.js/PieChart";
+import PieChart from "../../components/charts/PieChart";
 import { ChartData, ChartOptions } from "chart.js";
 
 export default function PercentagePerCampus() {

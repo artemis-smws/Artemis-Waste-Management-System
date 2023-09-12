@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import DropdownSelectDate from "../../components/layout/dropdownDate";
-import SelectSchool from "../../components/layout/selectSchool";
-import WasteGenerated from "../../components/charts/wasteGenerated";
+import DropdownSelectDate from "../../components/dropdownDate";
+import SelectSchool from "../../components/selectSchool";
+import WasteGenerated from "../../components/wasteGenerated";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { Link } from "react-router-dom";
 
