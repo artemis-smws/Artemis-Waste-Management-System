@@ -1,6 +1,7 @@
-import AdminChartCard from "../../components/adminChartCard";
-import BinFrequencyChart from "../../components/charts/binFrequencyChart";
-import DropdownSelectDate from "../../components/layout/dropdownDate";
+import './index.scss'
+import AdminChartCard from "../dashboard/adminChartCard";
+import BinFrequencyChart from "../dashboard/binFrequencyChart";
+import DropdownSelectDate from "../../components/dropdownDate";
 import Sidebar from "../../components/layout/sidebar";
 import { GeoAlt, InfoCircle, X } from "react-bootstrap-icons";
 import React, { useState, useEffect, useRef } from "react";

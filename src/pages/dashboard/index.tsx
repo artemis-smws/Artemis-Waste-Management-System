@@ -1,18 +1,19 @@
-import WasteGenerated from "../../components/charts/wasteGenerated";
-import PercentagePerCampus from "../../components/charts/percentagePerCampus";
+import './index.scss'
+import WasteGenerated from "../../components/wasteGenerated";
+import PercentagePerCampus from "./percentagePerCampus";
 import Sidebar from "../../components/layout/sidebar";
 import { GraphDownArrow, GraphUpArrow } from "react-bootstrap-icons";
 import { useState, useEffect } from "react";
-import AdminChartCard from "../../components/adminChartCard";
-import WasteComposition from "../../components/charts/wasteComposition";
-import WasteGenerationBuilding from "../../components/charts/wasteGenerationBuilding";
-import { BuildingLeaderboards } from "../../components/buildingLeaderboards";
-import { getCookie } from "../../services/cookies";
+import AdminChartCard from "./adminChartCard"; 
+import WasteComposition from "./wasteComposition";
+import WasteGenerationBuilding from "./wasteGenerationBuilding";
+import { BuildingLeaderboards } from "./buildingLeaderboards";
+import { getCookie } from "../../utils/cookies";
 import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase/firebase";
+import auth from "../../services/firebase";
 import { Link, Navigate } from "react-router-dom";
 import DashboardPrint from "./dashboardPrint";
-import ContributionPercentage from "../../components/contributionPercentage";
+import ContributionPercentage from "./contributionPercentage";
 
 
 export default function Dashboard() {

@@ -1,12 +1,10 @@
-import "./admin.scss";
+import './index.scss'
 import { Parallax, ParallaxLayer, ParallaxProps } from "@react-spring/parallax";
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { getCookie, saveCookie } from "../../services/cookies";
-import auth from "../../firebase/firebase";
-import { handleSigninWithEmail } from "../../modules/handleAuthentication";
+import { saveCookie } from "../../utils/cookies";
+import auth from "../../services/firebase";
 
 export default function Admin() {
   const layer: React.CSSProperties = {

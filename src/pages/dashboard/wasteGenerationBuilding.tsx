@@ -1,8 +1,8 @@
 import { ChartOptions } from "chart.js";
 import {useEffect, useState} from 'react'
-import PieChart from "../layout/chart.js/PieChart";
-import LineChart from "../layout/chart.js/LineChart";
-import BarChart from "../layout/chart.js/BarChart";
+import PieChart from "../../components/charts/PieChart";
+import LineChart from "../../components/charts/LineChart";
+import BarChart from "../../components/charts/BarChart";
 
 export default function WasteGenerationBuilding() { 
 

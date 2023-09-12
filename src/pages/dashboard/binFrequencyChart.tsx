@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import BarChart from "../layout/chart.js/BarChart";
+import BarChart from "../../components/charts/BarChart";
 import { ChartData, ChartOptions } from "chart.js";
 
 export default function BinFrequencyChart() {
