@@ -1,4 +1,4 @@
-import "./landingPage.scss";
+import "./index.scss";
 import Navbar from "../../components/layout/navbar";
 import { Parallax, ParallaxLayer, ParallaxProps } from "@react-spring/parallax";
 import About from "./about";
@@ -21,7 +21,7 @@ export default function LandingPage() {
 
   return (
     <>
-      <WebStatusOvelay />
+      {/* <WebStatusOvelay /> */}
       {/* first page */}
       <Parallax pages={4} style={{ top: "0", left: "0" }} ref={ref}>
         <ParallaxLayer offset={0} speed={0.25} factor={1} style={layer}>

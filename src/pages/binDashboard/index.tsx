@@ -1,3 +1,4 @@
+import './index.scss'
 import AdminChartCard from "../../components/adminChartCard";
 import BinFrequencyChart from "../../components/charts/binFrequencyChart";
 import DropdownSelectDate from "../../components/layout/dropdownDate";

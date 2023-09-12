@@ -1,3 +1,4 @@
+import './index.scss'
 import WasteGenerated from "../../components/charts/wasteGenerated";
 import PercentagePerCampus from "../../components/charts/percentagePerCampus";
 import Sidebar from "../../components/layout/sidebar";

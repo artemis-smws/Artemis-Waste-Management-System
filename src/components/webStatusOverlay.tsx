@@ -1,7 +1,7 @@
 export default function WebStatusOvelay() {
   return (
     <div style={{zIndex : 1000, backgroundColor : " rgba(0, 0, 0, 0.5)"}} className="position-absolute top-0 right-0 vh-100 vw-100 d-flex justify-content-center align-items-center">
-      {underMaintenance}
+      {securedConntection}
     </div>
   );
 }

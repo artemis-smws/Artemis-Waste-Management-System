@@ -1,14 +1,14 @@
 import "./App.scss";
-import LandingPage from "./pages/client/landingPage";
+import LandingPage from "./pages/landingPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, createContext, useState } from "react";
-import Admin from "./pages/admin/login";
-import Maps from "./pages/admin/maps";
-import Dashboard from "./pages/admin/dashboard";
-import Bin from "./pages/admin/bin";
+import Admin from "./pages/login";
+import Maps from "./pages/maps";
+import Dashboard from "./pages/dashboard";
+import Bin from "./pages/binDashboard";
 import { getCookie, saveCookie } from "./services/cookies";
 import Auth from "./pages/admin/auth";
-import DashboardPrint from "./pages/admin/dashboardPrint";
+import DashboardPrint from "./pages/dashboard/dashboardPrint";
 import { fetchData } from "./helpers/fetchData";
 
 

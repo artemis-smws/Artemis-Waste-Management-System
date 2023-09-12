@@ -1,3 +1,4 @@
+import './index.scss'
 import React, { useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import L from "leaflet";
