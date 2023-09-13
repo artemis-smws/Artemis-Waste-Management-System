@@ -4,7 +4,7 @@
     font-weight: bold;
     display: grid;
     grid-template-columns: 1fr 50% 1fr;
-    background-color: $background-black;
+    background-color: rgba(0, 0, 0, 0.168);
     max-height: 100px !important;
     align-items: center;
     padding: 1px 25px !important;
@@ -15,5 +15,6 @@
   }
   .nav-link,
   .navbar-brand {
+    cursor: pointer;
     color: $text-color-primary;
   }

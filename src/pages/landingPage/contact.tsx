@@ -1,10 +1,7 @@
 import Card from "../../components/card";
 import Footer from "../../components/layout/footer";
 
-interface Props {
-  className?: string;
-}
-export default function Contact({ className }: Props) {
+export default function Contact() {
   const divStyle: React.CSSProperties = {
     display: "flex",
     flexDirection: "row",
@@ -20,9 +17,10 @@ export default function Contact({ className }: Props) {
 
   return (
     <section
+      id="contacts"
       style={{ display: "grid", gridTemplateColumns: "75% 30%" }}
       className={
-        "justify-content-end align-items-end bg-tertiary-grey " + className
+        "justify-content-end align-items-end bg-tertiary-grey vw-100 vh-100"
       }
     >
       <div className="h-100 d-flex flex-column justify-content-end align-items-center ">

@@ -1,8 +1,4 @@
-interface Props {
-  className: string;
-}
-
-export default function About({ className }: Props) {
+export default function About() {
   const style: React.CSSProperties = {
     display: "grid",
     gridTemplateColumns: "50% 25% 25%",
@@ -10,7 +6,7 @@ export default function About({ className }: Props) {
     backgroundRepeat: "no-repeat",
   };
   return (
-    <div id="about" style={style} className={className}>
+    <div id="about" style={style} className="vh-100 vh-100">
       <div className="d-flex flex-column justify-content-evenly h-100 mt-5 px-5 ">
         <h1
           style={{ fontSize: "60px", paddingTop: "100px" }}
