@@ -1,5 +1,3 @@
-import { API_URL } from "../constants";
-
 export async function fetchData() {
   const highestData: any = await fetch(
     "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/highest",
