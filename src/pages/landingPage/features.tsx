@@ -1,11 +1,7 @@
 import Card from "../../components/card";
 import SimpleCard from "../../components/simpleCard";
 
-interface Props {
-  className: string;
-}
-
-export default function Features({ className }: Props) {
+export default function Features() {
   const divStyle: React.CSSProperties = {
     minHeight: "250px",
     maxHeight: "80%",
@@ -21,7 +17,7 @@ export default function Features({ className }: Props) {
         backgroundSize: "cover",
         backgroundPosition: "top center",
       }}
-      className={className + " py-5 bg-tertiary-grey"}
+      className="vh-100 vw-100 p-5 bg-tertiary-grey"
     >
       <h1 className="text-white" style={{ fontWeight: "bold" }}>
         KEY FEATURES
