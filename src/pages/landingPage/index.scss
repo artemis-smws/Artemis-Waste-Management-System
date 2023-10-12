@@ -17,26 +17,6 @@
   color: $text-color-secondary;
 }
 
-.home_parallax_layer {
-  height: inherit;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-position: bottom center;
-  background-size: contain;
-}
-.other_parallax_layer {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-position: bottom center;
-  background-size: contain;
-}
-
 #home {
   background-image: url("./assets/img/tempBackdrop.png");
   background-repeat: no-repeat;
