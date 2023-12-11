@@ -25,6 +25,7 @@
     "leaflet-geosearch": "^3.8.0",
     "nominatim": "^0.1.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.1",
     "react-bootstrap-icons": "^1.10.3",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",

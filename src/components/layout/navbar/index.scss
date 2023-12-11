@@ -4,10 +4,10 @@
     font-weight: bold;
     display: grid;
     grid-template-columns: 1fr 50% 1fr;
-    background-color: rgba(0, 0, 0, 0.168);
+    background-color: rgba(0, 0, 0, 0);
     max-height: 100px !important;
     align-items: center;
-    padding: 1px 25px !important;
+    padding: 18px 18px !important;
   }
   .navbar-toggler {
     border: none;
@@ -17,4 +17,7 @@
   .navbar-brand {
     cursor: pointer;
     color: $text-color-primary;
+  }
+  a { 
+    text-decoration: none;
   }
