@@ -15,7 +15,7 @@ function Sidebar() {
 
   return (
     <div>
-      <div
+      <div 
         className="d-flex flex-column align-items-center justify-content-between"
         id="Sidebar"
       >
