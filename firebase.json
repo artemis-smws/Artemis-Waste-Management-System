@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "artemis-uat-1",
+    "site": "artemis-b18ae",
     "public": "dist",
     "ignore": [
       "firebase.json",
