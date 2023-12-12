@@ -1,12 +1,10 @@
 import "./index.scss";
-import Navbar from "../../components/layout/navbar";
-import { Parallax, ParallaxLayer, ParallaxProps } from "@react-spring/parallax";
 import About from "./about";
 import { useRef } from "react";
 import Features from "./features";
 import Contact from "./contact";
 import Home from "./home";
-import WebStatusOvelay from "../../components/webStatusOverlay";
+import Navbar_ from "../../components/layout/navbar";
 
 export default function LandingPage() {
   const layer: React.CSSProperties = {
@@ -22,10 +20,11 @@ export default function LandingPage() {
 
   return (
     <>
+      <Navbar_ />
       <Home />
-      <About />
+      {/* <About />
       <Features />
-      <Contact />
+      <Contact /> */}
     </>
   );
 }

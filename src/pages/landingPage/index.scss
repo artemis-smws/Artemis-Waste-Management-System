@@ -7,18 +7,19 @@
 }
 
 #about {
-  background-color: $primary-green;
-  background-size: 50%;
-  background-position: bottom left;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: $background-white;
 }
 #features {
-  background-color: $tertiary-grey;
+  background-color: $primary-green;
   color: $text-color-secondary;
 }
-
+#contacts {
+  background-color: $primary-green;
+  color: $text-color-secondary;
+}
 #home {
-  background-image: url("./assets/img/tempBackdrop.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
