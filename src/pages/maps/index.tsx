@@ -1,4 +1,4 @@
-import './index.scss'
+import "./index.scss";
 import React, { useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import L from "leaflet";
@@ -8,6 +8,7 @@ import SelectSchool from "../../components/selectSchool";
 import WasteGenerated from "../../components/wasteGenerated";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { Link } from "react-router-dom";
+import Sidebar from "../../components/layout/sidebar";
 
 // Define a custom icon for the marker
 const customIcon = L.divIcon({
@@ -36,35 +37,15 @@ export default function Maps() {
   }
 
   return (
-    <div>
+    <div className="d-flex ">
+      <Sidebar />
       <MapContainer
         center={[13.78428, 121.0743]}
         zoom={19}
         scrollWheelZoom={true}
         zoomControl={false}
       >
-        <div className="navbar w-100" id="maps-navbar">
-          <Link to="/dashboard">
-            <img
-              src="./assets/img/artemis-favicon.webp"
-              width="45px"
-              height="44px"
-            />
-          </Link>
-          <div
-            className="w-100 d-flex justify-content-between align-items-center"
-            id="map-navbar-list"
-          >
-            <Link to="/dashboard" className="nav-link mx-4">
-              Dashboard
-            </Link>
-            <Link to="/bin" className="nav-link mx-4">
-              Bin
-            </Link>
-
-            <SearchControl />
-          </div>
-        </div>
+        <SearchControl />
         <TileLayer
           maxNativeZoom={19}
           maxZoom={20}
@@ -305,7 +286,10 @@ export default function Maps() {
                 <h1>61%-100%</h1>
               </div>
             </div>
-            <div className="d-flex justify-content-center align-items-center" onClick={handleDropdownClick}>
+            <div
+              className="d-flex justify-content-center align-items-center"
+              onClick={handleDropdownClick}
+            >
               <SelectSchool />
             </div>
             <div className="d-flex" onClick={handleDropdownClick}>
@@ -336,7 +320,7 @@ function SearchControl() {
   };
 
   return (
-    <div className="input-group d-flex justify-content-center align-items-center">
+    <div className="input-group position-absolute sticky-top d-flex justify-content-center align-items-center">
       <input
         type="text"
         className="form-control"
@@ -349,7 +333,7 @@ function SearchControl() {
       />
       <button
         type="button"
-        className="btn btn-outline-light align-items-center"
+        className="btn bg-red align-items-center"
         id="search-button"
         onClick={() => handleSearch(searchQuery)}
       >
