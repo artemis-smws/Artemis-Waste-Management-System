@@ -49,4 +49,10 @@
 
 .cstm-shadow{
     box-shadow: 1px 5px 7px rgba(44, 44, 44, 0.63);
-}   
+} 
+
+@media print{
+    .print-hidden{
+        display: none;
+    }
+}
