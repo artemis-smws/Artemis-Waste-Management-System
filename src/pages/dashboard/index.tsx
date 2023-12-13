@@ -14,6 +14,7 @@ import auth from "../../services/firebase";
 import { Link, Navigate } from "react-router-dom";
 import DashboardPrint from "./dashboardPrint";
 import ContributionPercentage from "./contributionPercentage";
+import OverviewCard from './overviewCard';
 
 
 export default function Dashboard() {
@@ -22,9 +23,10 @@ export default function Dashboard() {
   const [average, setAverage] = useState(0);
   const [currentDoc, setCurrentDoc] = useState({ weight: 0 });
   const {
-    overall_food_waste,
-    overall_residual_waste,
-    overall_recyclable_waste,
+    overall_biodegradable,
+    overall_residual,
+    overall_recyclable,
+    overall_infectious
   } = localStorage;
 
   const date = new Date();
@@ -33,16 +35,8 @@ export default function Dashboard() {
 
   useEffect(() => {
     const {
-      highest_weight,
-      highest_day,
-      lowest_weight,
-      lowest_day,
-      average,
       today_weight,
     } = localStorage;
-    setHighest({ weight: JSON.parse(highest_weight), day: highest_day });
-    setLowest({ weight: JSON.parse(lowest_weight), day: lowest_day });
-    setAverage(JSON.parse(average));
     setCurrentDoc({ weight: JSON.parse(today_weight) });
   }, []);
 
@@ -57,83 +51,38 @@ export default function Dashboard() {
             style={{ overflowY: "scroll", backgroundColor: "#f5f5f5" }}
           >
             {/* section 0 */}
-            <div
-              className="bg-light d-flex justify-content-center align-items-center border border-3 rounded mb-4"
-              style={{ width: "80%" }}
-            >
-              {/* Lowest Highest Average UI */}
-              <div
-                style={{ color: "red" }}
-                className="d-flex flex-column justify-content-center align-items-center"
-                id="highest"
-              >
-                <h5 className="d-flex align-items-center">
-                  <GraphUpArrow className="me-2" />
-                  Highest
-                </h5>
-                <h3>
-                  {highest_weight.weight <= 0 && highest_weight.day == ""
-                    ? "N/A"
-                    : highest_weight.weight + " kg"}
-                </h3>
-                <h5>
-                  {highest_weight.day.length <= 0 ? "" : highest_weight.day}
-                </h5>
-              </div>
-              <div
-                style={{ color: "green" }}
-                className="d-flex flex-column justify-content-center align-items-center"
-                id="lowest"
-              >
-                <h5 className="d-flex align-items-center">
-                  <GraphDownArrow className="me-2" />
-                  Lowest
-                </h5>
-                <h3>
-                  {lowest_weight.weight <= 0 && highest_weight.day == ""
-                    ? "N/A"
-                    : lowest_weight.weight + " kg"}
-                </h3>
-                <h5>
-                  {lowest_weight.day.length <= 0 ? "" : lowest_weight.day}
-                </h5>
-              </div>
-              <div
-                style={{ color: "grey" }}
-                className="d-flex flex-column justify-content-center align-items-center"
-                id="average"
-              >
-                <h5 className="d-flex align-items-center">Average</h5>
-                <h3>{average <= 0 ? "N/A" : average.toPrecision(4) + " kg"}</h3>
-              </div>
-            </div>
+            <OverviewCard />
             {/* chart row 1 */}
             <section className="d-flex w-100 flex-column">
               <div className="w-100 my-3 d-flex justify-content-between">
-                <h2>Waste Generated</h2>
+                <h3>Waste Generated</h3>
                 <FilterButton />
               </div>
               <div className="w-100 d-flex justify-content-between">
-                <AdminChartCard width="60%" header="Overall weight">
+                <AdminChartCard maxHeight='100%' width="60%" header="Overall weight">
                   <WasteGenerated />
                 </AdminChartCard>
-                <AdminChartCard width="38%" header="Waste composition">
+                <AdminChartCard maxHeight='auto' width="38%" header="Waste composition">
                   <div className="w-50">
                     <WasteComposition />
                   </div>
 
                   <div className="d-flex flex-column w-50 h-100 justify-content-between p-3 ">
                     <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-                      <div className="fs-5">Food Waste</div>{" "}
-                      <div>{overall_food_waste} kg</div>
+                      <div className="fs-5">Biodegradable</div>{" "}
+                      <div>{overall_biodegradable} kg</div>
                     </div>
                     <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
                       <div className="fs-5">Residual</div>{" "}
-                      <div>{overall_residual_waste} kg</div>
+                      <div>{overall_residual} kg</div>
                     </div>
                     <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
                       <div className="fs-5">Recyclable</div>{" "}
-                      <div>{overall_recyclable_waste} kg</div>
+                      <div>{overall_recyclable} kg</div>
+                    </div>
+                    <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
+                      <div className="fs-5">Infectious</div>{" "}
+                      <div>{overall_infectious} kg</div>
                     </div>
                   </div>
                 </AdminChartCard>

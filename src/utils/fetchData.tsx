@@ -59,21 +59,17 @@ export async function fetchData() {
     }
   );
   const totalWeightLast7DaysJSON = await totalWeightLast7Days.json();
-  const months_list = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'];
   const total_weights: any = [];
   const days_list: any = [];
   let overall_weight = 0;
-  totalWeightLast7DaysJSON.forEach((doc: any) => {
-    total_weights.push(doc.overall_weight);
-    const timestamp = doc.createdAt;
-    const milliseconds = timestamp.seconds * 1000 + Math.floor(timestamp.nanoseconds / 1e6);
-    const date = new Date(milliseconds)
-    const day = date.getDate()
-    const month = date.getMonth()
-    days_list.push(`${months_list[month]} ${day}`);
+  totalWeightLast7DaysJSON.forEach((i: any) => {
+    const {overall_weight, id} = i
+    total_weights.push(overall_weight);
+    const date = id.split("-")
+    days_list.push(date[0] + "-" + date[1]);
   });
-  total_weights.forEach((weight: any) => {
-    overall_weight += weight;
+  total_weights.forEach((i: any) => {
+    overall_weight += i;
   })
   localStorage.setItem("overall_weight", JSON.stringify(overall_weight));
   localStorage.setItem("total_weights", total_weights);
@@ -91,7 +87,7 @@ export async function fetchData() {
   localStorage.setItem("today_weight", latestDocDataJSON[0].overall_weight);
 
   const totalWeightPerTypes = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/status/latest",
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/latest",
     {
       method: "GET",
       headers: {
@@ -101,8 +97,10 @@ export async function fetchData() {
   );
   const totalWeightPerTypesJSON = await totalWeightPerTypes.json();
   console.log(totalWeightPerTypesJSON)
-  localStorage.setItem("overall_food_waste", totalWeightPerTypesJSON[0].overall_food_waste_weight);
-  localStorage.setItem("overall_residual_waste", totalWeightPerTypesJSON[0].overall_residual_weight)
-  localStorage.setItem("overall_recyclable_waste", totalWeightPerTypesJSON[0].overall_recyclable_weight)
+  localStorage.setItem("overall_biodegradable", totalWeightPerTypesJSON[0].overall_biodegradable);
+  localStorage.setItem("overall_residual", totalWeightPerTypesJSON[0].overall_residual)
+  localStorage.setItem("overall_recyclable", totalWeightPerTypesJSON[0].overall_recyclable)
+  localStorage.setItem("overall_infectious", totalWeightPerTypesJSON[0].overall_infectious)
+
   return true;
 }

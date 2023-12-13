@@ -4,35 +4,55 @@ import PieChart from "../../components/charts/PieChart";
 import DoughnutChart from "../../components/charts/DoughnutChart";
 
 export default function WasteComposition() {
-  const {overall_food_waste, overall_residual_waste, overall_recyclable_waste} = localStorage
+  const {
+    overall_biodegradable,
+    overall_residual,
+    overall_recyclable,
+    overall_infectious,
+  } = localStorage;
   const data = {
-    labels: ["Food waste", "Residual", "Recyclable"],
+    labels: ["Biodegradable", "Residual", "Recyclable", "Infectious"],
     datasets: [
       {
-      data: [overall_food_waste, overall_residual_waste, overall_recyclable_waste],
-      backgroundColor: ["#419550", "#5e29ff", "#f04337"],
+        data: [
+          overall_biodegradable,
+          overall_residual,
+          overall_recyclable,
+          overall_infectious,
+        ],
+        backgroundColor: ["#419550", "#5e29ff", "#f04337", "#ff00ff"],
       },
     ],
   };
   const option: ChartOptions = {
-    legend : {
-        display: false
+    legend: {
+      align: "start",  
+      display: true,
+      position: "bottom"  
     },
     responsive: true,
-    maintainAspectRatio : false,
+    maintainAspectRatio: false,
     layout: {
       padding: {
         bottom: 35,
-        left : 20,
-        right : 20,
+        left: 20,
+        right: 20,
       },
     },
   };
-  if(!(data.datasets[0].data[0] == 0 && data.datasets[0].data[1] == 0 && data.datasets[0].data[2] == 0)) {
-    return <DoughnutChart data={data} options={option} />
+  if (
+    !(
+      data.datasets[0].data[0] == 0 &&
+      data.datasets[0].data[1] == 0 &&
+      data.datasets[0].data[2] == 0
+    )
+  ) {
+    return <DoughnutChart data={data} options={option} />;
   } else {
-    return <div className="h-100 w-100 d-flex flex-column justify-content-center align-item-center">
-      <p className="text-center">No Data Available</p>
-    </div>
+    return (
+      <div className="h-100 w-100 d-flex flex-column justify-content-center align-item-center">
+        <p className="text-center">No Data Available</p>
+      </div>
+    );
   }
 }
