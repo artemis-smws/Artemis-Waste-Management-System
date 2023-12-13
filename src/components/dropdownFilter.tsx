@@ -16,14 +16,14 @@ const DropdownFilter: React.FC<Props> = ({
 }) => {
   return (
     <Dropdown>
-      <Dropdown.Header>{dropdown_header}</Dropdown.Header>
-      <Dropdown.Menu>
-        {dropdown_item.map((data) => (
-          <Dropdown.Item onClick={data.actions}>{data.label}</Dropdown.Item>
+      <Dropdown.Toggle variant="danger">{dropdown_header}</Dropdown.Toggle>
+      <Dropdown.Menu> 
+        {dropdown_item.map(({actions, label}) => (
+          <Dropdown.Item onClick={() => actions}>{label}</Dropdown.Item>
         ))}
       </Dropdown.Menu>
     </Dropdown>
   );
 };
 
-export default Dropdown;
+export default DropdownFilter;

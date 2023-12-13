@@ -15,6 +15,7 @@ import { Link, Navigate } from "react-router-dom";
 import DashboardPrint from "./dashboardPrint";
 import ContributionPercentage from "./contributionPercentage";
 import OverviewCard from './overviewCard';
+import DropdownFilter from '../../components/dropdownFilter';
 
 
 export default function Dashboard() {
@@ -46,7 +47,17 @@ export default function Dashboard() {
             <section className="d-flex w-100 flex-column">
               <div className="w-100 my-3 d-flex justify-content-between">
                 <h3>Waste Generated</h3>
-                <FilterButton />
+                <DropdownFilter dropdown_header={"Filter"} dropdown_item={[{
+                  actions : () => {return 0},
+                  label : "Latest"
+                }, {
+                  actions : () => {return 0},
+                  label : "Last 7 days"
+                }, {
+                  actions : () => {return 0},
+                  label : "Last 30 days"
+                }
+                ]}/>
               </div>
               <div className="w-100 d-flex justify-content-between">
                 <AdminChartCard maxHeight='100%' width="60%" header="Overall weight">
