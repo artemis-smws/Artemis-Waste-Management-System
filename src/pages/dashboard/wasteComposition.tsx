@@ -20,7 +20,7 @@ export default function WasteComposition() {
           overall_recyclable,
           overall_infectious,
         ],
-        backgroundColor: ["#419550", "#5e29ff", "#f04337", "#ff00ff"],
+        backgroundColor: ["#21B614", "#000000", "#0267FF", "#F3F375"],
       },
     ],
   };

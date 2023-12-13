@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useEffect } from 'react'
 
 export default function DashboardPrint(){
-
+    const navigate = useNavigate()
+    useEffect(() => {
+        window.print()
+        navigate('/dashboard')
+    }, [])
     const tableHeaders = [
         { label: 'Date', style: { color: 'black' , backgroundColor: "#fcd4dc"} },
         { label: 'Residuals', style: { color: 'black' , backgroundColor: "#fcd4dc"} },

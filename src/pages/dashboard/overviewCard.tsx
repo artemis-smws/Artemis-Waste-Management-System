@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
 import { GraphDownArrow, GraphUpArrow } from "react-bootstrap-icons";
 import useFetch from "../../hooks/useFetch";
+import calculateAverage from "./calculateAverage";
 
 export default function OverviewCard() {
   const [highest_weight, setHighest] = useState({ weight: 0, day: "" });
   const [lowest_weight, setLowest] = useState({ weight: 0, day: "" });
   const [average, setAverage] = useState(0);
   useEffect(() => {
-    const { highest_weight, highest_day, lowest_weight, lowest_day, average } =
+    const { highest_weight, highest_day, lowest_weight, lowest_day } =
       localStorage;
     setHighest({ weight: JSON.parse(highest_weight), day: highest_day });
     setLowest({ weight: JSON.parse(lowest_weight), day: lowest_day });
-    setAverage(JSON.parse(average));
+    const avgValue = calculateAverage()
+      .then(value => {
+        setAverage(Number(value.toPrecision(3)))
+      })
   }, []);
 
   return (

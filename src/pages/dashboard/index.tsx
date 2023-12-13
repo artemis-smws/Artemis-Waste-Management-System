@@ -1,5 +1,5 @@
 import './index.scss'
-import WasteGenerated from "../../components/wasteGenerated";
+import WasteGenerated from "./wasteGenerated";
 import PercentagePerCampus from "./percentagePerCampus";
 import Sidebar from "../../components/layout/sidebar";
 import { GraphDownArrow, GraphUpArrow } from "react-bootstrap-icons";
@@ -18,10 +18,7 @@ import OverviewCard from './overviewCard';
 
 
 export default function Dashboard() {
-  const [highest_weight, setHighest] = useState({ weight: 0, day: "" });
-  const [lowest_weight, setLowest] = useState({ weight: 0, day: "" });
-  const [average, setAverage] = useState(0);
-  const [currentDoc, setCurrentDoc] = useState({ weight: 0 });
+
   const {
     overall_biodegradable,
     overall_residual,
@@ -49,6 +46,7 @@ export default function Dashboard() {
       setIsPrinting(false);
     }, 500); // Adjust the timeout as needed to ensure proper rendering before printing
   };
+
 
   return (
     <div>
@@ -101,49 +99,6 @@ export default function Dashboard() {
               </div>
             </section>
             {/* chart row 2 */}
-            <section className="w-100 d-flex justify-content-between mt-5">
-              <AdminChartCard width="38%" header="Ranking per building">
-                <BuildingLeaderboards />
-              </AdminChartCard>
-              <AdminChartCard width="28%" header="Contribution percentage">
-                <ContributionPercentage />
-              </AdminChartCard>
-              <AdminChartCard width="30%" header="Summary report">
-                <body
-                  className="w-100 h-100 p-3"
-                  style={{ overflowY: "scroll" }}
-                >
-                  {/* generate whole div on dynamic display */}
-                  <div className="border border-2 bg-tertiary-red rounded px-4 py-3 mb-3 fs-5">
-                    The current total waste generated and record for this day,{" "}
-                    <span className="text-danger fw-semibold">
-                      {date.toUTCString().slice(4, 16)}
-                    </span>{" "}
-                    is{" "}
-                    <span className="text-danger fw-semibold">
-                      {currentDoc.weight} kg{" "}
-                    </span>
-                    . The peak day is during the day of{" "}
-                    <span className="text-danger fw-semibold">
-                      {highest_weight.day}
-                    </span>{" "}
-                    with the weight of{" "}
-                    <span className="text-danger fw-semibold">
-                      {highest_weight.weight} kg
-                    </span>{" "}
-                    while the lowest day is in{" "}
-                    <span className="text-danger fw-semibold">
-                      {lowest_weight.day}
-                    </span>{" "}
-                    with the weight of{" "}
-                    <span className="text-danger fw-semibold">
-                      {lowest_weight.weight} kg
-                    </span>
-                    .
-                  </div>
-                </body>
-              </AdminChartCard>
-            </section>
             {/* chart row 3 */}
             <section className="w-100 d-flex justify-content-between mt-5">
               <AdminChartCard
