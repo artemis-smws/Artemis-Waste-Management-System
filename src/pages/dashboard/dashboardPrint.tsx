@@ -7,31 +7,110 @@ export default function DashboardPrint(){
         window.print()
         navigate('/dashboard')
     }, [])
-    return(
 
+    const tableHeaders = [
+        { label: 'Date', style: { color: 'black' , backgroundColor: "#fcd4dc"} },
+        { label: 'Residuals', style: { color: 'black' , backgroundColor: "#fcd4dc"} },
+        { label: 'Food Waste', style: { color: 'black' , backgroundColor: "#fcd4dc"} },
+        { label: 'Recyclable', style: { color: 'black' , backgroundColor: "#fcd4dc"} },
+        { label: 'Total Solid Waste Generated per day', style: { color: 'black' , backgroundColor: "#fcd4dc"} },
+    ];
+
+    const generateTableHeader = () => {
+        return (
+            <tr>
+                {tableHeaders.map((header, index) => (
+                    <th key={index} style={header.style}>{header.label}</th>
+                ))}
+            </tr>
+        );
+    };
+
+    const generateTableRows = () => {
+        return tableData.map((data, index) => (
+            <tr key={index}>
+                <td>{data.date}</td>
+                <td>{data.residuals}</td>
+                <td>{data.foodWaste}</td>
+                <td>{data.recyclable}</td>
+                <td style={{ fontWeight: "bold" }}>{data.total}</td>
+            </tr>
+        ));
+    };
+
+    const getDaysInMonth = (month: number, year:number): number => {
+        return new Date(year, month, 0).getDate();
+    };
+
+    const generateTableData = (month: number, year: number): Array<any> => {
+        const daysInMonth = getDaysInMonth(month, year);
+        const tableData: Array<any> = [];
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const formattedDate = new Date(year, month - 1, day).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            });
+            const residuals = Math.floor(Math.random() * 100);
+            const foodWaste = Math.floor(Math.random() * 50);
+            const recyclable = Math.floor(Math.random() * 50);
+            const total = residuals + foodWaste + recyclable;
+
+            tableData.push({ date: formattedDate, residuals, foodWaste, recyclable, total });
+        }
+
+        return tableData;
+    };
+    
+
+    const getCurrentMonth = () => {
+        const currentDate = new Date();
+        const month = currentDate.getMonth() + 1;
+        const year = currentDate.getFullYear();
+        return { month, year };
+    }
+
+    const getCurrentDate = () => {
+        const currentDate = new Date();
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const month = monthNames[currentDate.getMonth()];
+        const year = currentDate.getFullYear();
+        return `${month} ${year}`;
+    }
+
+    const { month, year } = getCurrentMonth();
+
+    useEffect(() => {
+        generateTableData(month, year);
+    }, [month, year])
+
+    const tableData = generateTableData(month, year);
+    const reportDate = getCurrentDate();
+
+    return(
         <div className="vw-100 vh-100">
             <div className="d-flex justify-content-between" id="top-buttons">
                 <div>
-                    <button type="button" className="btn btn-secondary" onClick={window.print}>
-                        PRINT
-                    </button>
-                </div>
-                <div>
-                    <button type="button" className="btn btn-secondary">
+                    <button type="button" className="btn btn-secondary print-hidden">
                         <Link to="/dashboard" type="button" className="nav-link mx2">
                             BACK
                         </Link>
                     </button>
                 </div>
             </div>
+
+            <br/>
             <div className="d-flex justify-content-center align-items-center" id="report-title">
                 ArteMIS Monthly Report
             </div>
             <div className="d-flex justify-content-center align-items-center" id="report-date">
-                January 2023
+                {reportDate}
             </div>
 
             <div className="d-flex flex-column justify-content-center">
+
+                <br /> 
                 <div id="table-1">
                     <div className="d-flex flex-column justify-content-center align-items-center"id="table-title">
                         <h1>Table 1.</h1>
@@ -39,240 +118,18 @@ export default function DashboardPrint(){
                     </div>
                     <table className="table table-bordered">
                         <thead>
-                            <tr style={{backgroundColor: "red", color: "black"}}>
-                                <th scope="col">Date</th>
-                                <th colSpan={3} scope="colgroup">Types of Solid Waste</th>
-                                <th scope="col">Total Solid Waste Generated per day</th>
-                            </tr>
+                            {generateTableHeader()}
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td>Residuals</td>
-                                <td>Food Waste</td>
-                                <td>Recyclable</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">January 1, 2023</td>
-                                <td>30</td>
-                                <td>1</td>
-                                <td>21</td>
-                                <td style={{fontWeight: "bold"}}>52</td>
-                            </tr>
-                            <tr>
-                                <td scope="row">January 2, 2023</td>
-                                <td>21</td>
-                                <td>3</td>
-                                <td>2</td>
-                                <td style={{fontWeight: "bold"}}>26</td>
-                            </tr>
-                            <tr>
-                                <td>January 3, 2023</td>
-                                <td>33</td>
-                                <td>2</td>
-                                <td>11</td>
-                                <td style={{fontWeight: "bold"}}>46</td>
-                            </tr>
-                            <tr>
-                                <td>January 4, 2023</td>
-                                <td>12</td>
-                                <td>2</td>
-                                <td>1</td>
-                                <td style={{fontWeight: "bold"}}>15</td>
-                            </tr>
-                            <tr>
-                                <td>January 5, 2023</td>
-                                <td>12</td>
-                                <td>2</td>
-                                <td>1</td>
-                                <td style={{fontWeight: "bold"}}>15</td>
-                            </tr>
-                            <tr>
-                                <td>January 6, 2023</td>
-                                <td>445</td>
-                                <td>34</td>
-                                <td>32</td>
-                                <td style={{fontWeight: "bold"}}>511</td>
-                            </tr>
-                            <tr>
-                                <td>January 7, 2023</td>
-                                <td>2</td>
-                                <td></td>
-                                <td></td>
-                                <td style={{fontWeight: "bold"}}>2</td>
-                            </tr>
-                            <tr>
-                                <td>January 8, 2023</td>
-                                <td>323</td>
-                                <td>111</td>
-                                <td>22</td>
-                                <td style={{fontWeight: "bold"}}>456</td>
-                            </tr>
-                            <tr>
-                                <td>January 9, 2023</td>
-                                <td>11</td>
-                                <td>4</td>
-                                <td>1</td>
-                                <td style={{fontWeight: "bold"}}>16</td>
-                            </tr>
-                            <tr>
-                                <td>January 10, 2023</td>
-                                <td>54</td>
-                                <td>21</td>
-                                <td>2</td>
-                                <td style={{fontWeight: "bold"}}>77</td>
-                            </tr>
-                            <tr>
-                                <td>January 11, 2023</td>
-                                <td>33</td>
-                                <td>2</td>
-                                <td>1</td>
-                                <td style={{fontWeight: "bold"}}>36</td>
-                            </tr>
-                            <tr>
-                                <td>January 12, 2023</td>
-                                <td>54</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td style={{fontWeight: "bold"}}>57</td>
-                            </tr>
-                            <tr>
-                                <td>January 13, 2023</td>
-                                <td>14</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td style={{fontWeight: "bold"}}>19</td>
-                            </tr>
-                            <tr>
-                                <td>January 14, 2023</td>
-                                <td>64</td>
-                                <td>33</td>
-                                <td>22</td>
-                                <td style={{fontWeight: "bold"}}>119</td>
-                            </tr>
-                            <tr>
-                                <td>January 15, 2023</td>
-                                <td>53</td>
-                                <td>22</td>
-                                <td>21</td>
-                                <td style={{fontWeight: "bold"}}>96</td>
-                            </tr>
-                            <tr>
-                                <td>January 16, 2023</td>
-                                <td>34</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td style={{fontWeight: "bold"}}>38</td>
-                            </tr>
-                            <tr>
-                                <td>January 17, 2023</td>
-                                <td>33</td>
-                                <td></td>
-                                <td>11</td>
-                                <td style={{fontWeight: "bold"}}>44</td>
-                            </tr>
-                            <tr>
-                                <td>January 18, 2023</td>
-                                <td>52</td>
-                                <td>3</td>
-                                <td>1</td>
-                                <td style={{fontWeight: "bold"}}>56</td>
-                            </tr>
-                            <tr>
-                                <td>January 19, 2023</td>
-                                <td>52</td>
-                                <td>23</td>
-                                <td>1</td>
-                                <td style={{fontWeight: "bold"}}>76</td>
-                            </tr>
-                            <tr>
-                                <td>January 20, 2023</td>
-                                <td>64</td>
-                                <td>22</td>
-                                <td>32</td>
-                                <td style={{fontWeight: "bold"}}>118</td>
-                            </tr>
-                            <tr>
-                                <td>January 21, 2023</td>
-                                <td>34</td>
-                                <td>3</td>
-                                <td></td>
-                                <td style={{fontWeight: "bold"}}>37</td>
-                            </tr>
-                            <tr>
-                                <td>January 22, 2023</td>
-                                <td>23</td>
-                                <td>24</td>
-                                <td>22</td>
-                                <td style={{fontWeight: "bold"}}>69</td>
-                            </tr>
-                            <tr>
-                                <td>January 23, 2023</td>
-                                <td>54</td>
-                                <td>21</td>
-                                <td>1</td>
-                                <td style={{fontWeight: "bold"}}>76</td>
-                            </tr>
-                            <tr>
-                                <td>January 24, 2023</td>
-                                <td>45</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td style={{fontWeight: "bold"}}>49</td>
-                            </tr>
-                            <tr>
-                                <td>January 25, 2023</td>
-                                <td>2</td>
-                                <td></td>
-                                <td>1</td>
-                                <td style={{fontWeight: "bold"}}>3</td>
-                            </tr>
-                            <tr>
-                                <td>January 26, 2023</td>
-                                <td>53</td>
-                                <td>12</td>
-                                <td>2</td>
-                                <td style={{fontWeight: "bold"}}>67</td>
-                            </tr>
-                            <tr>
-                                <td>January 27, 2023</td>
-                                <td>13</td>
-                                <td>1</td>
-                                <td>3</td>
-                                <td style={{fontWeight: "bold"}}>16</td>
-                            </tr>
-                            <tr>
-                                <td>January 28, 2023</td>
-                                <td>63</td>
-                                <td>24</td>
-                                <td>22</td>
-                                <td style={{fontWeight: "bold"}}>109</td>
-                            </tr>
-                            <tr>
-                                <td>January 29, 2023</td>
-                                <td>54</td>
-                                <td>2</td>
-                                <td>21</td>
-                                <td style={{fontWeight: "bold"}}>77</td>
-                            </tr>
-                            <tr>
-                                <td>January 30, 2023</td>
-                                <td>65</td>
-                                <td>3</td>
-                                <td>2</td>
-                                <td style={{fontWeight: "bold"}}>70</td>
-                            </tr>
-                            <tr>
-                                <td style={{backgroundColor: "green", color:"black", fontWeight: "bold"}}>Total Monthly Waste Gathered for the Month of January 2023</td>
-                                <td style={{fontWeight: "bold"}}>1,802</td>
-                                <td style={{fontWeight: "bold"}}>382</td>
-                                <td style={{fontWeight: "bold"}}>265</td>
-                                <td style={{fontWeight: "bold"}}>2,342</td>
-                            </tr>
+                        {generateTableRows()}
+                        <tr style={{ backgroundColor: "green", color: "black", fontWeight: "bold" }}>
+                            {/* ... (total row) */}
+                        </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <br/><br/>
                 <div id="table-2">
                     <div className="d-flex flex-column justify-content-center align-items-center"id="table-title">
                         <h1>Table 2.</h1>
@@ -296,6 +153,8 @@ export default function DashboardPrint(){
                         </tbody>
                     </table>
                 </div>
+
+                <br/><br/>
                 <div id="table-3">
                     <div className="d-flex flex-column justify-content-center align-items-center"id="table-title">
                         <h1>Table 3.</h1>
@@ -323,6 +182,8 @@ export default function DashboardPrint(){
                         </tbody>
                     </table>
                 </div>
+
+                <br/><br/> 
                 <div id="table-4">
                     <div className="d-flex flex-column justify-content-center align-items-center"id="table-title">
                         <h1>Ranking Per Building</h1>
