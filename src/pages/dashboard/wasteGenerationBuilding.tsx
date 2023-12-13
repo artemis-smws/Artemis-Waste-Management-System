@@ -3,26 +3,32 @@ import {useEffect, useState} from 'react'
 import PieChart from "../../components/charts/PieChart";
 import LineChart from "../../components/charts/LineChart";
 import BarChart from "../../components/charts/BarChart";
+import useFetchLatest from "../../hooks/useFetchLatest";
+import getBuidlingNames from "./getBuildingNames";
 
 export default function WasteGenerationBuilding() { 
 
 
   const [buildingData, setbuildingData] = useState<any[]>([])
   const [buildingName, setBuildingName] = useState<any[]>([])
+  const [status, setStatus] = useState(false)
   useEffect(() => {
-    const {buildingDataObj} = localStorage
-    const buildingData = JSON.parse(buildingDataObj)
-    const keys = Object.keys(buildingData)
-    const values = Object.values(buildingData)
-    for(let i = 0; i < keys.length; i++){
-      if(keys[i]) {
-        setBuildingName(prev => [...prev, keys[i]])
-      }
-      if(values[i]) {
-        setbuildingData(prev => [...prev, values[i]])
-      }
-    }
+    const data = useFetchLatest()
+      .then((value) => {
+        setStatus((value) && true)
+        const buildingNames = getBuidlingNames(value)
+        setBuildingName(buildingNames)
+        buildingNames.forEach((buildingName) => {
+          setbuildingData((prev) => [...prev, value[0][buildingName].weight.total])
+        })
+        console.log({data: buildingData})
+      })
+      .catch(e => {
+        console.log(e.message)
+        setStatus(false)
+      })
   }, [])
+
   const data = {
     labels: buildingName,
     datasets: [
