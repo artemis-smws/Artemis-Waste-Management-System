@@ -7,7 +7,6 @@ export default function DashboardPrint(){
         window.print()
         navigate('/dashboard')
     }, [])
-
     const tableHeaders = [
         { label: 'Date', style: { color: 'black' , backgroundColor: "#fcd4dc"} },
         { label: 'Residuals', style: { color: 'black' , backgroundColor: "#fcd4dc"} },
