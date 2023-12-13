@@ -14,6 +14,7 @@ import auth from "../../services/firebase";
 import { Link, Navigate } from "react-router-dom";
 import DashboardPrint from "./dashboardPrint";
 import ContributionPercentage from "./contributionPercentage";
+import OverviewCard from './overviewCard';
 
 
 export default function Dashboard() {
@@ -39,12 +40,24 @@ export default function Dashboard() {
     setCurrentDoc({ weight: JSON.parse(today_weight) });
   }, []);
 
+  const [isPrinting, setIsPrinting] = useState(false);
+
+  const handlePrint = () => {
+    setIsPrinting(true);
+    setTimeout(() => {
+      window.print();
+      setIsPrinting(false);
+    }, 500); // Adjust the timeout as needed to ensure proper rendering before printing
+  };
+
   return (
     <div>
       <div className="d-flex">
-        <Sidebar />
-        <div className="vw-100 vh-100 overflow-hidden">
-          <Header/>
+        <div className='hide-dashboard'>
+        <Sidebar/>
+        </div>
+        <div className="vw-100 vh-100 overflow-hidden hide-dashboard">
+          <Header handlePrint={handlePrint} />
           <div
             className="h-100 w-100 d-flex flex-column align-items-center px-4 py-4 border"
             style={{ overflowY: "scroll", backgroundColor: "#f5f5f5" }}
@@ -145,20 +158,24 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+      {isPrinting && <DashboardPrint />}
     </div>
   );
 }
 
-function Header() {
+function Header({ handlePrint }) {
   return (
     <div className="d-flex border-bottom border-2 shadow align-items-center justify-content-between ps-4 py-3">
       <p className="m-0 fw-bold fs-4">Dashboard</p>
-      <Link to='/print' type="button" className="btn cstm-shadow rounded-pill px-3 me-3"
-        
+      {/* Call handlePrint function onClick */}
+      <button
+        type="button"
+        className="btn cstm-shadow rounded-pill px-3 me-3"
+        onClick={handlePrint}
       >
         <i className="bi bi-printer me-2"></i>
         Print
-      </Link>
+      </button>
     </div>
   );
 }
