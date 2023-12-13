@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useEffect } from 'react'
 
 export default function DashboardPrint(){
+    const navigate = useNavigate()
     useEffect(() => {
         window.print()
+        navigate('/dashboard')
     }, [])
     return(
 
