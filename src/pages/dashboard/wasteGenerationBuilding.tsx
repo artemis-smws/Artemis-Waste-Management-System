@@ -9,19 +9,24 @@ import getBuidlingNames from "./getBuildingNames";
 export default function WasteGenerationBuilding() { 
 
 
-  const [buildingData, setbuildingData] = useState<any[]>([])
+  const [biodegradable, setBiodegradable] = useState<any[]>([])
+  const [recyclable, setRecyclable] = useState<any[]>([])
+  const [infectious, setInfectious] = useState<any[]>([])
+  const [residual, setResidual] = useState<any[]>([])
   const [buildingName, setBuildingName] = useState<any[]>([])
   const [status, setStatus] = useState(false)
   useEffect(() => {
     const data = useFetchLatest()
       .then((value) => {
-        setStatus((value) && true)
         const buildingNames = getBuidlingNames(value)
         setBuildingName(buildingNames)
         buildingNames.forEach((buildingName) => {
-          setbuildingData((prev) => [...prev, value[0][buildingName].weight.total])
+          setRecyclable((prev) => [...prev, value[0][buildingName].weight.recyclable.total])
+          setResidual((prev) => [...prev, value[0][buildingName].weight.residual])
+          setBiodegradable((prev) => [...prev, value[0][buildingName].weight.biodegradable])
+          setInfectious((prev) => [...prev, value[0][buildingName].weight.infectious])
         })
-        console.log({data: buildingData})
+        setStatus((value) && true)
       })
       .catch(e => {
         console.log(e.message)
@@ -33,9 +38,27 @@ export default function WasteGenerationBuilding() {
     labels: buildingName,
     datasets: [
       {
-        label : 'Overall Waste Generated',
-        data: buildingData,
-        backgroundColor: "#f04337" ,
+        label : 'Recyclable',
+        data: recyclable,
+        backgroundColor: "#0267FF" ,
+        borderWidth: 2,
+      },
+      {
+        label : 'Residual',
+        data: residual,
+        backgroundColor: "#000000" ,
+        borderWidth: 2,
+      },
+      {
+        label : 'Biodegradable',
+        data: biodegradable,
+        backgroundColor: "#21B614" ,
+        borderWidth: 2,
+      },
+      {
+        label : 'Infectious',
+        data: infectious,
+        backgroundColor: "#F3F375" ,
         borderWidth: 2,
       }
     ]
@@ -44,29 +67,21 @@ export default function WasteGenerationBuilding() {
     responsive: true,
     maintainAspectRatio : false,
     scales: {
+      xAxes : [
+        {
+          stacked: true
+        }
+      ],
       yAxes: [
         {
           ticks: {
             beginAtZero: true,
           },
+          stacked: true
         },
       ],
     }
   };
 
   return <BarChart data={data} options={option} />
-}
-
-async function fetchData() {
-  const data = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/latest",
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  )
-  const latestDocs = await data.json()
-  
 }
