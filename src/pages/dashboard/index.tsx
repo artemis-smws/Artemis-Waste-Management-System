@@ -1,5 +1,5 @@
 import './index.scss'
-import WasteGenerated from "../../components/wasteGenerated";
+import WasteGenerated from "./wasteGenerated";
 import PercentagePerCampus from "./percentagePerCampus";
 import Sidebar from "../../components/layout/sidebar";
 import { GraphDownArrow, GraphUpArrow } from "react-bootstrap-icons";

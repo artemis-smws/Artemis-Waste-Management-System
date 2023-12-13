@@ -1,4 +1,4 @@
-import LineChart from "./charts/LineChart";
+import LineChart from "../../components/charts/LineChart";
 import { useEffect, useState } from "react";
 import { ChartOptions } from "chart.js";
 
@@ -22,7 +22,7 @@ export default function WasteGenerated() {
         data: dataWeight,
         fill: true,
         borderColor: "grey",
-        tension: 0.1,
+        tension: 0.2,
       },
     ],
   };

@@ -5,7 +5,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import DropdownSelectDate from "../../components/dropdownDate";
 import SelectSchool from "../../components/selectSchool";
-import WasteGenerated from "../../components/wasteGenerated";
+import WasteGenerated from "../dashboard/wasteGenerated";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { Link } from "react-router-dom";
 import Sidebar from "../../components/layout/sidebar";
