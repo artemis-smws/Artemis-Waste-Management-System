@@ -14,7 +14,6 @@ import auth from "../../services/firebase";
 import { Link, Navigate } from "react-router-dom";
 import DashboardPrint from "./dashboardPrint";
 import ContributionPercentage from "./contributionPercentage";
-import OverviewCard from './overviewCard';
 
 
 export default function Dashboard() {

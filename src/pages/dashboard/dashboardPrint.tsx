@@ -2,9 +2,6 @@ import { Link } from "react-router-dom"
 import { useEffect } from 'react'
 
 export default function DashboardPrint(){
-    useEffect(() => {
-        window.print()
-    }, [])
 
     const tableHeaders = [
         { label: 'Date', style: { color: 'black' , backgroundColor: "#fcd4dc"} },
