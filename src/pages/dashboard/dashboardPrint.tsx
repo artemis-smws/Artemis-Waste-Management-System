@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 export default function DashboardPrint(){
     const navigate = useNavigate()
     useEffect(() => {
-        // window.print()
         navigate('/dashboard')
     }, [])
     const tableHeaders = [
