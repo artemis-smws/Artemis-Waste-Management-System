@@ -96,7 +96,6 @@ export async function fetchData() {
     }
   );
   const totalWeightPerTypesJSON = await totalWeightPerTypes.json();
-  console.log(totalWeightPerTypesJSON)
   localStorage.setItem("overall_biodegradable", totalWeightPerTypesJSON[0].overall_biodegradable);
   localStorage.setItem("overall_residual", totalWeightPerTypesJSON[0].overall_residual)
   localStorage.setItem("overall_recyclable", totalWeightPerTypesJSON[0].overall_recyclable)

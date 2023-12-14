@@ -31,13 +31,6 @@ export default function Dashboard() {
   const [user] = useAuthState(auth);
   const username = user?.displayName;
 
-  useEffect(() => {
-    const {
-      today_weight,
-    } = localStorage;
-    setCurrentDoc({ weight: JSON.parse(today_weight) });
-  }, []);
-
   const [isPrinting, setIsPrinting] = useState(false);
 
   const handlePrint = () => {
@@ -129,7 +122,7 @@ export default function Dashboard() {
   );
 }
 
-function Header({ handlePrint }) {
+function Header({ handlePrint } : any) {
   return (
     <div className="d-flex border-bottom border-2 shadow align-items-center justify-content-between ps-4 py-3">
       <p className="m-0 fw-bold fs-4">Dashboard</p>
@@ -142,37 +135,6 @@ function Header({ handlePrint }) {
         <i className="bi bi-printer me-2"></i>
         Print
       </button>
-    </div>
-  );
-}
-
-function FilterButton() {
-  return (
-    <div className="dropdown">
-      <button
-        role="button"
-        data-bs-toggle="dropdown"
-        className="btn bg-red dropdown-toggle px-3"
-      >
-        Filter
-      </button>
-      <ul className="dropdown-menu">
-        <li>
-          <a className="dropdown-item" href="#">
-            Last 7 days
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Last 30 days
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Year
-          </a>
-        </li>
-      </ul>
     </div>
   );
 }
