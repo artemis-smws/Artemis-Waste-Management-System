@@ -100,6 +100,14 @@ export async function fetchData() {
   localStorage.setItem("overall_residual", totalWeightPerTypesJSON[0].overall_residual)
   localStorage.setItem("overall_recyclable", totalWeightPerTypesJSON[0].overall_recyclable)
   localStorage.setItem("overall_infectious", totalWeightPerTypesJSON[0].overall_infectious)
-
+  const last30Days = await fetch(
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/latest/30days",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
   return true;
 }

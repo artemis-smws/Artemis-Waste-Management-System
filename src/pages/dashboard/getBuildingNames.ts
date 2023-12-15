@@ -1,4 +1,4 @@
-export default function getBuidlingNames(data : []) {
+export default function getBuidlingNames(data : string []) {
     const returnList : any [] = []
     data.forEach(d => {
         const keys = Object.keys(d)

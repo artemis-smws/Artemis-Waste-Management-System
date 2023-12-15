@@ -27,8 +27,8 @@ export default function AdminChartCard ({maxHeight, header , children, width, fi
             <h5 className='m-0'>{header}</h5>
             {filterOptions}
         </header>
-        <body style={{overflow : 'hidden'}}  className={body_class}>
+        <div style={{overflow : 'hidden'}}  className={body_class}>
             {children}
-        </body>
+        </div>
     </div>);
 }

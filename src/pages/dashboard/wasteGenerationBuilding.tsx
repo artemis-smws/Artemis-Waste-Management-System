@@ -8,7 +8,6 @@ import getBuidlingNames from "./getBuildingNames";
 
 export default function WasteGenerationBuilding() { 
 
-
   const [biodegradable, setBiodegradable] = useState<any[]>([])
   const [recyclable, setRecyclable] = useState<any[]>([])
   const [infectious, setInfectious] = useState<any[]>([])
@@ -16,7 +15,7 @@ export default function WasteGenerationBuilding() {
   const [buildingName, setBuildingName] = useState<any[]>([])
   const [status, setStatus] = useState(false)
   useEffect(() => {
-    const data = useFetchLatest()
+    useFetchLatest()
       .then((value) => {
         const buildingNames = getBuidlingNames(value)
         setBuildingName(buildingNames)

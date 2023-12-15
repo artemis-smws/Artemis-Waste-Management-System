@@ -1,3 +1,4 @@
+import fetchDataFactory from "../../api/fetchDataFactory"
 import useFetchLatest from "../../hooks/useFetchLatest"
 import getBuidlingNames from "./getBuildingNames"
 
