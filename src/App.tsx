@@ -2,12 +2,12 @@ import "./App.scss";
 import LandingPage from "./pages/landingPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, createContext, useState } from "react";
-import Admin from "./pages/login";
-import Maps from "./pages/maps";
-import Dashboard from "./pages/dashboard";
-import Bin from "./pages/binDashboard";
+import Admin from "./pages/loginPage";
+import Maps from "./pages/mapsPage";
+import Dashboard from "./pages/dashboardPage";
+import Bin from "./pages/binPage";
 import { getCookie, saveCookie } from "./utils/cookies";
-import DashboardPrint from "./pages/dashboard/dashboardPrint";
+import DashboardPrint from "./pages/dashboardPage/components/printDashboard";
 import { fetchData } from "./utils/fetchData";
 
 
@@ -19,6 +19,7 @@ export function App() {
       setLoaded(true)
     })
   }, [loaded]);
+  
   return (
     <div>
       <Routes>
@@ -63,5 +64,5 @@ export function App() {
 
 function ProtectedRoute({ children }: any) {
   const user = getCookie().trim().split("=")[1];
-  return user != "" ? children : <Navigate to="/login" />;
+  return user != "" || null ? children : <Navigate to="/login" />;
 }

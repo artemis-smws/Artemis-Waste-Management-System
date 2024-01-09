@@ -1,28 +1,23 @@
 import "./index.scss";
 // import Navbar from "../../components/layout/navbar";
 import { useRef } from "react";
+import { home } from "./data";
 
 export default function Home() {
-  const style : React.CSSProperties = {
-    backgroundImage: "url(./assets/img/bg-img.png)",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center"
-  }
   const ref: any = useRef();
 
   return (
     <>
-      {/* <Navbar
-        handleFeature={() => location.href = '#features'}
-        handleAbout={() => location.href = '#about'}
-        handleContact={() => location.href = '#contacts'}
-      /> */}
-        <div className="vw-100 vh-100 d-flex justify-content-center align-items-center" style={style}>
-          <img src="./assets/img/artemis-logo.png" alt="artemis logo" />
+      <div id="home-overlay"></div>
+      <div id="home">
+        <div>
+          <div>
+            <h1>{home.front_text}</h1>
+            <button className="btn btn-primary">Contact Us</button>
+          </div>
         </div>
+        <div></div>
+      </div>
     </>
   );
 }
-
-

@@ -1,23 +1,47 @@
 @import "../../../constants/variables";
 
 .navbar {
-    font-weight: bold;
-    display: grid;
-    grid-template-columns: 1fr 50% 1fr;
-    background-color: rgba(0, 0, 0, 0);
-    max-height: 100px !important;
-    align-items: center;
-    padding: 18px 18px !important;
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 1fr 50% 1fr;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 0.696) 0%,
+    rgba(0, 0, 0, 0.567) 28%,
+    rgba(0, 212, 255, 0) 100%
+  );
+  max-height: 100px !important;
+  align-items: center;
+  padding: 16px 32px !important;
+  z-index: 1000;
+  .active {
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.429);
+    color: #cfe5c5 !important;
   }
-  .navbar-toggler {
-    border: none;
-    font-weight: bold;
+}
+.offcanvas {
+  background-color: black;
+  padding: 24px 0;
+  gap: 0;
+  a {
+    height: 100%;
   }
-  .nav-link,
-  .navbar-brand {
-    cursor: pointer;
-    color: $text-color-primary;
-  }
-  a { 
-    text-decoration: none;
-  }
+}
+.navbar-toggler {
+  border: none;
+  font-weight: bold;
+}
+.nav-link[href="/login"] {
+  background-color: $tertiary-color;
+}
+.nav-link,
+.navbar-brand {
+  border-radius: 8px;
+  padding: 8px 16px !important;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}

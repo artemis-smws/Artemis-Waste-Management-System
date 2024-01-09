@@ -1,0 +1,73 @@
+@import "../../constants/variables";
+
+#admin-login {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./assets/img/bg-img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .card {
+    width: 100%;
+    height: 650px;
+    min-width: 360px;
+    max-width: 1050px;
+    margin: 15px;
+    display: grid;
+    border: none;
+    border-radius: 15px !important;
+    grid-template-columns: 45% 1fr;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.547);
+    button {
+      max-height: 56px;
+    }
+    button[type="submit"] {
+      padding: 8px 18px;
+      background-color: $tertiary-color;
+    }
+    #left {
+      background-color: $secondary-color;
+      padding: 5% 10%;
+      border-radius: 15px 0 0 15px;
+      div {
+        padding: 16px;
+        img {
+          margin: 24px 0;
+          max-width: 256px;
+          cursor: pointer;
+        }
+        button {
+          background-color: $primary-white;
+        }
+      }
+    }
+    #right {
+      padding: 10% 10%;
+      background-color: $primary-white;
+      border-radius: 0 15px 15px 0;
+      span {
+        font-weight: 400;
+        color: $tertiary-color;
+      }
+      h1 {
+        font-size: xx-large;
+        margin: 0px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $small-devices-width) {
+  #admin-login {
+    .card {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+  }
+}

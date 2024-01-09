@@ -16,10 +16,10 @@ const DropdownFilter: React.FC<Props> = ({
 }) => {
   return (
     <Dropdown>
-      <Dropdown.Toggle variant="danger">{dropdown_header}</Dropdown.Toggle>
+      <Dropdown.Toggle variant="Success">{dropdown_header}</Dropdown.Toggle>
       <Dropdown.Menu> 
         {dropdown_item.map(({actions, label}) => (
-          <Dropdown.Item key={label as string} onClick={() => actions}>{label}</Dropdown.Item>
+          <Dropdown.Item key={label as string} onClick={actions}>{label}</Dropdown.Item>
         ))}
       </Dropdown.Menu>
     </Dropdown>

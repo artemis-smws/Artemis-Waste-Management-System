@@ -1,0 +1,89 @@
+@import "../../constants/variables";
+
+#add-bin{
+    background-color: $tertiary-color;
+}
+
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 370px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+#popup-title{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#popup-title h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+#tb-name{
+    margin-top: 35px;
+}
+
+#tb-name h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0;
+}
+
+#tb-select{
+    height: 40px;
+    width: 300px;
+    border-radius: 7px;
+    border-color: $primary-red;
+}
+
+#tb-type{
+    margin-top: 35px;
+}
+
+#tb-type h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0;
+}
+
+#tb-type-select{
+    height: 40px;
+    width: 300px;
+    border-radius: 7px;
+    border-color: $primary-red;
+}
+
+#tb-submit{
+    height: 126px;
+    width: 400px;
+}
+
+#tb-submit-btn{
+    width: 140px;
+    height: 45px;
+    background-color: $primary-red;
+    font-style: normal;
+    font-weight: 6  00;
+    font-size: 15px;
+    color: white;
+}
+
+table {
+    thead {
+        background-color: $secondary-color;
+        color: $primary-white;
+    }
+}

@@ -1,12 +1,26 @@
 @import "../../../constants/variables";
 
 #Sidebar {
-  background-color: $primary-red;
+  background-color: $primary-color;
   margin: 0;
   height: 100vh;
   max-width: 300px;
   min-width: 280px;
   padding: 30px 10px;
+  #sidebar-button-wrapper {
+    width: 100%;
+    a:hover {
+      background-color: $tertiary-color;
+      transition-duration: 5ms;
+    }
+    .disabled-true {
+        display: none !important;
+    }
+  }
+  button[type="button"] {
+    background-color: $tertiary-color;
+    border: none;
+  }
 }
 
 #Project-Logo a {
@@ -33,5 +47,3 @@
 #Lists li {
   margin: 10px;
 }
-
-

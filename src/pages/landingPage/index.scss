@@ -20,8 +20,54 @@
   color: $text-color-secondary;
 }
 #home {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  background-image: url(./assets/img/bg-img-new.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  :first-child {
+    // background-color: green;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    div {
+      width: 76%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      h1 {
+        color: #cfe5c5;
+        font-size: 64px;
+        height: auto;
+        margin-bottom: 40px;
+      }
+      button {
+        border-radius: 30px;
+        padding: 8px 16px;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.429);
+      }
+    }
+  }
+}
+#home-overlay {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 0, 0, 0.8799894957983193) 35%,
+    rgba(0, 0, 0, 0.085) 100%
+  );
 }
 #inline-text-style {
   color: $secondary-green;

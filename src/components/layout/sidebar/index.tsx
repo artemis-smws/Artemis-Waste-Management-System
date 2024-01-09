@@ -1,8 +1,10 @@
-import './index.scss'
+import "./index.scss";
 import { Component } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../services/firebase";
 import { deleteCookie, getCookie } from "../../../utils/cookies";
+import { HouseDoorFill } from "react-bootstrap-icons";
+import { sidebar } from "./data";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ function Sidebar() {
 
   return (
     <div>
-      <div 
+      <div
         className="d-flex flex-column align-items-center justify-content-between"
         id="Sidebar"
       >
@@ -26,12 +28,10 @@ function Sidebar() {
             reloadDocument
           >
             <img
-              src="./assets/img/artemis-favicon.webp"
-              width="auto"
-              height="48px"
-              className="me-2"
+              src="./assets/logo/artemis-brand1.png"
+              width="90%"
+              height="auto"
             />
-            <h1>ArteMIS</h1>
           </Link>
         </div>
 
@@ -39,59 +39,24 @@ function Sidebar() {
           className="d-flex flex-column justify-content-center align-items-center w-100"
           id="Lists"
         >
-          <div className="col w-100">
-            <Link
-              to="/dashboard"
-              className="d-flex align-items-center justify-content-start row border-bottom rounded-0 border-1 btn bg-red w-100 bg-green m-0 py-3 ps-5 pe-3"
-              reloadDocument
-            >
-              <img
-                src="./assets/img/home.png"
-                height="30px"
-                className="w-auto"
-              />
-              Dashboard
-            </Link>
-            <Link
-              to="/maps"
-              className="d-flex align-items-center justify-content-start ps-5 row border-bottom rounded-0 border-1 btn bg-red w-100 bg-green m-0 py-3 pe-3"
-              reloadDocument
-            >
-              <img
-                src="./assets/img/maps.png"
-                height="30px"
-                className="w-auto"
-              />
-              Maps
-            </Link>
-            <Link
-              to="/bin"
-              className="d-flex align-items-center justify-content-start ps-5 row border-bottom rounded-0 border-1 btn bg-red w-100 bg-green m-0 py-3 pe-3"
-              reloadDocument
-            >
-              <img
-                src="./assets/img/bin.png"
-                height="20px"
-                className="w-auto ms-1 me-2"
-              />
-              Trashbin
-            </Link>
-            {/* <Link
-              to="/auth"
-              className="d-flex align-items-center justify-content-start ps-5 row border-bottom rounded-0 border-1 btn bg-red w-100 bg-green m-0 py-3 pe-3"
-              reloadDocument
-            >
-              <img
-                src="./assets/img/access.png"
-                height="30px"
-                className="w-auto"
-              />
-              Auth
-            </Link> */}
+          <div id="sidebar-button-wrapper">
+            {sidebar.sidebar_button.map((data) => (
+              <Link
+                key={data.name}
+                to={data.route}
+                className={"d-flex align-items-center justify-content-center btn w-100 m-0 py-3 px-4 text-white disabled-" + data.disable}
+                reloadDocument
+              >
+                <div className="w-100 d-flex justify-content-start gap-4 px-3">
+                  <img src={data.icon} alt={data.name + " icon"} />
+                  {data.name}
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
 
-        <button type="button" onClick={handleSignOut} className="btn btn-light">
+        <button type="button" onClick={handleSignOut} className="btn">
           SIGN OUT
         </button>
       </div>

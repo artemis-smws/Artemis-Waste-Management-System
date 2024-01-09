@@ -10,10 +10,11 @@ body {
   scroll-behavior: smooth;
   background-color: $background-white;
 }
-p {
-  color: $text-color-secondary;
-}
 
 .active {
   background-color: white;
+}
+
+p {
+  height: auto !important;
 }
