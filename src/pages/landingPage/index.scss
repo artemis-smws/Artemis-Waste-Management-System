@@ -69,34 +69,11 @@
     rgba(0, 0, 0, 0.085) 100%
   );
 }
-#inline-text-style {
-  color: $secondary-green;
-}
 
-.card-img-bg {
-  background-color: $background-white;
-  object-fit: cover;
-}
-
-@mixin card-img-format {
-  max-width: 100%;
-  max-height: 180px;
-  object-fit: cover;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.contactCard {
-  width: 200px;
-  max-width: 250px;
-  min-height: 240px;
-  background-color: $primary-red;
-  color: $text-color-primary;
-  img {
-    @include card-img-format;
-    height: auto;
-    max-width: 50%;
-    object-fit: contain;
+@media only screen and (max-width: $medium-devices-width) {
+  #home {
+    h1 {
+      font-size: clamp(45px, 4vw, 64px) !important;
+    }
   }
 }

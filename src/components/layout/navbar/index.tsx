@@ -29,8 +29,8 @@ export default function Navbar_({
           alt="artemis brand"
         />
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Offcanvas id="basic-navbar-nav">
+      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+      <Navbar.Offcanvas id="basic-navbar-nav" placement="end" >
         <Nav className="d-flex justify-content-end gap-5 w-100 fw-normal">
           {nav.nav_links.map(data => (
             <Nav.Link key={data.name} href={data.reference} className="text-uppercase fw-semibold text-white">

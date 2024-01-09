@@ -63,7 +63,7 @@
   }
 }
 
-@media only screen and (max-width: $small-devices-width) {
+@media only screen and (max-width: $medium-devices-width) {
   #admin-login {
     .card {
       grid-template-columns: 1fr;
