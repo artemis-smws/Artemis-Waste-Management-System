@@ -1,8 +1,14 @@
 import "./index.scss";
 import { NavLink, Link } from "react-router-dom";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  Offcanvas,
+} from "react-bootstrap";
 import { BoxArrowInRight, DoorOpen } from "react-bootstrap-icons";
-import {nav} from './data'
+import { nav } from "./data";
 
 // linked to single page references using useRef
 interface Props {
@@ -29,11 +35,25 @@ export default function Navbar_({
           alt="artemis brand"
         />
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-      <Navbar.Offcanvas id="basic-navbar-nav" placement="end" >
-        <Nav className="d-flex justify-content-end gap-5 w-100 fw-normal">
-          {nav.nav_links.map(data => (
-            <Nav.Link key={data.name} href={data.reference} className="text-uppercase fw-semibold text-white">
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Offcanvas id="basic-navbar-nav" placement="end">
+        <Offcanvas.Header closeButton className="mb-4">
+          <Offcanvas.Title>
+            <img
+              height="40px"
+              width="auto"
+              src="./assets/logo/artemis-brand.png"
+              alt="artemis brand"
+            />
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Nav className="d-flex justify-content-end gap-1 w-100 fw-normal">
+          {nav.nav_links.map((data) => (
+            <Nav.Link
+              key={data.name}
+              href={data.reference}
+              className="text-uppercase fw-semibold text-white"
+            >
               {data.name}
             </Nav.Link>
           ))}

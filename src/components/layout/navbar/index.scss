@@ -45,3 +45,16 @@
 a {
   text-decoration: none;
 }
+
+#basic-navbar-nav {
+  .btn-close {
+    background-color: white;
+  }
+  .active {
+    background-color: $tertiary-color;
+  }
+  a:hover {
+    background-color: $tertiary-color;
+  }
+}
+
