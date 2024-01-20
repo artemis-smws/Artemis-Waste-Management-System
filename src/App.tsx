@@ -9,6 +9,7 @@ import Bin from "./pages/binPage";
 import { getCookie, saveCookie } from "./utils/cookies";
 import DashboardPrint from "./pages/dashboardPage/components/printDashboard";
 import { fetchData } from "./utils/fetchData";
+import AddPage from "./pages/addDataPage";
 
 
 export function App() {
@@ -54,6 +55,14 @@ export function App() {
           element={
             <ProtectedRoute>
               <DashboardPrint/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/data"
+          element={
+            <ProtectedRoute>
+              <AddPage />
             </ProtectedRoute>
           }
         />
