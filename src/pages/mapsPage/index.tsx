@@ -1,27 +1,26 @@
 import "./index.scss";
 import React, { useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, useMap, CircleMarker} from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import DropdownSelectDate from "../../components/dropdownDate";
 import SelectSchool from "../../components/selectSchool";
 import WasteGenerated from "../dashboardPage/components/wasteGenerated";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
-import { Link } from "react-router-dom";
 import Sidebar from "../../components/layout/sidebar";
 
 // Define a custom icon for the marker
 const customIcon = L.divIcon({
   className: "round-button",
-  html: '<button type="button" className="btn" id="trash-status">60%</button>',
+  html: '<button type="button" id="trash-status">60%</button>',
 });
 const customIcon1 = L.divIcon({
   className: "round-button",
-  html: '<button type="button" className="btn" id="trash-status1">20%</button>',
+  html: '<button type="button" id="trash-status1">20%</button>',
 });
 const customIcon2 = L.divIcon({
   className: "round-button",
-  html: '<button type="button" className="btn" id="trash-status2">90%</button>',
+  html: '<button type="button" id="trash-status2">90%</button>',
 });
 
 export default function Maps() {
@@ -320,7 +319,7 @@ function SearchControl() {
   };
 
   return (
-    <div className="input-group position-absolute sticky-top d-flex justify-content-center align-items-center">
+    <div className="input-group position-absolute sticky-top d-flex justify-content-center align-items-center" style={{top: "20px"}}>
       <input
         type="text"
         className="form-control"
@@ -333,7 +332,7 @@ function SearchControl() {
       />
       <button
         type="button"
-        className="btn bg-red align-items-center"
+        className="btn align-items-center"
         id="search-button"
         onClick={() => handleSearch(searchQuery)}
       >
