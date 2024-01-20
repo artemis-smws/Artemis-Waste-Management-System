@@ -47,8 +47,8 @@ function Sidebar() {
                 className={"d-flex align-items-center justify-content-center btn w-100 m-0 py-3 px-4 text-white disabled-" + data.disable}
                 reloadDocument
               >
-                <div className="w-100 d-flex justify-content-start gap-4 px-3">
-                  <img src={data.icon} alt={data.name + " icon"} />
+                <div className="w-100 d-flex align-items-center justify-content-start gap-4 px-3">
+                  <img height="16px" src={data.icon} alt={data.name + " icon"} />
                   {data.name}
                 </div>
               </Link>
