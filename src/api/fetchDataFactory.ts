@@ -8,7 +8,7 @@ type availableEndpoints =
   | "lowest";
 export default function fetchDataFactory(url: availableEndpoints) {
   const promise = fetch(
-    `https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/${url}`,
+    `https://us-central1-artemis-b18ae.cloudfunctions.net/v1/waste/${url}`,
     {
       method: "GET",
       headers: {    

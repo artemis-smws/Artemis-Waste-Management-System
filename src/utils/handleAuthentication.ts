@@ -5,6 +5,6 @@ export const handleSigninWithEmail = async(req : Object) => {
         body : JSON.stringify(req)
     }
 
-    const response = await fetch('https://us-central1-artemis-b18ae.cloudfunctions.net/server/auth/signin', requestOptions)
+    const response = await fetch('https://us-central1-artemis-b18ae.cloudfunctions.net/v1/auth/signin', requestOptions)
     return response
 }

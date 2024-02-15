@@ -1,6 +1,6 @@
 export async function fetchData() {
   const highestData: any = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/highest",
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/v1/waste/highest",
     {
       method: "GET",
       headers: {
@@ -16,7 +16,7 @@ export async function fetchData() {
   localStorage.setItem("highest_day", date);
 
   const lowestData: any = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/lowest",
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/v1/waste/lowest",
     {
       method: "GET",
       headers: {
@@ -32,7 +32,7 @@ export async function fetchData() {
   localStorage.setItem("lowest_day", date1);
 
   const monthlyData = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/status/monthly/latest",
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/v1/status/monthly/latest",
     {
       method: "GET",
       headers: {
@@ -50,7 +50,7 @@ export async function fetchData() {
   localStorage.setItem('buildingDataObj', JSON.stringify(monthlyDataJSON[0].buildings))
   localStorage.setItem('buildingList', JSON.stringify(buildingList))
   const totalWeightLast7Days = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/latest/7days",
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/v1/waste/latest/7days",
     {
       method: "GET",
       headers: {
@@ -75,7 +75,7 @@ export async function fetchData() {
   localStorage.setItem("total_weights", total_weights);
   localStorage.setItem("days_list", days_list);
   const latestDocData = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/latest",
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/v1/waste/latest",
     {
       method: "GET",
       headers: {
@@ -87,7 +87,7 @@ export async function fetchData() {
   localStorage.setItem("today_weight", latestDocDataJSON[0].overall_weight);
 
   const totalWeightPerTypes = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/latest",
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/v1/waste/latest",
     {
       method: "GET",
       headers: {
@@ -101,7 +101,7 @@ export async function fetchData() {
   localStorage.setItem("overall_recyclable", totalWeightPerTypesJSON[0].overall_recyclable)
   localStorage.setItem("overall_infectious", totalWeightPerTypesJSON[0].overall_infectious)
   const last30Days = await fetch(
-    "https://us-central1-artemis-b18ae.cloudfunctions.net/server/waste/latest/30days",
+    "https://us-central1-artemis-b18ae.cloudfunctions.net/v1/waste/latest/30days",
     {
       method: "GET",
       headers: {
