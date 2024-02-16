@@ -7,7 +7,6 @@ import useFetchLatest from "../../../hooks/useFetchLatest";
 import getBuidlingNames from "../utils/getBuildingNames";
 
 export default function WasteGenerationBuilding() { 
-
   const [biodegradable, setBiodegradable] = useState<any[]>([])
   const [recyclable, setRecyclable] = useState<any[]>([])
   const [infectious, setInfectious] = useState<any[]>([])

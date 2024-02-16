@@ -22,8 +22,6 @@ export default function WasteGenerated() {
     }
     setDataWeight(staged_weights.reverse())
     setDataDay(staged_days.reverse())
-    console.log(staged_weights)
-    console.log(staged_days)
   }, [contextData]);
 
   const data = {
