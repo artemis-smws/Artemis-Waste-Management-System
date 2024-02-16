@@ -16,8 +16,7 @@
     "@react-spring/web": "^9.7.1",
     "@types/chart.js": "^2.9.35",
     "bootstrap": "^5.2.3",
-    "chart.js": "^2.
-    9.4",
+    "chart.js": "^2.9.4",
     "dotenv": "^16.0.3",
     "firebase": "^9.22.0",
     "jwt-decode": "^3.1.2",
