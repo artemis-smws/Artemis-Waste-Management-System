@@ -8,6 +8,7 @@ export default async function useFetch(endpoint : string, name : string) {
             }
         }
     )
-    localStorage.setItem(name, JSON.stringify(data))
-    return true
-}
+    const jsonData = await data.json()
+    localStorage.setItem(name, JSON.stringify(jsonData))
+    return jsonData
+}   

@@ -1,19 +1,28 @@
 import LineChart from "../../../components/charts/LineChart";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ChartOptions } from "chart.js";
+import { WasteDataContext } from "../../../context/wasteDataContext";
 
 export default function WasteGenerated() {
-  const [dataWeight, setDataWeight] = useState([])
-  const [dataDay, setDataDay]  = useState([])
+  const contextData = useContext(WasteDataContext)
+  const [dataWeight, setDataWeight] = useState(Array<number>)
+  const [dataDay, setDataDay]  = useState(Array<string>)
   
 
   useEffect(() => {
-    const {total_weights, days_list} = localStorage;
-    const staged_weights = total_weights.split(',').reverse()
-    const staged_days = days_list.split(',').reverse()
-    setDataWeight(staged_weights)
-    setDataDay(staged_days)
-  }, []);
+    const staged_weights: number[] = []
+    const staged_days: string[] = [] 
+    if (Array.isArray(contextData)) {
+      contextData.forEach((item: any) => {
+        const {overall_weight, id} = item
+        staged_weights.push(overall_weight)
+        const date = id.split("-")
+        staged_days.push(date[0] + "-" + date[1])
+      });
+    }
+    setDataWeight(staged_weights.reverse())
+    setDataDay(staged_days.reverse())
+  }, [contextData]);
 
   const data = {
     labels:  dataDay,

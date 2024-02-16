@@ -1,4 +1,3 @@
 import { createContext } from "react";
 
-
-export const WasteDataContext = createContext({})
+export const WasteDataContext = createContext(Array<{}>)

@@ -20,23 +20,12 @@ import fetchDataFactory from "../../api/fetchDataFactory";
 import LoadingPage from "../../components/loadingPage";
 import { WasteDataContext } from "../../context/wasteDataContext";
 import { Dropdown } from "react-bootstrap";
-
-type availableEndpoints =
-  | "latest"
-  | "latest/7days"
-  | "latest/30days"
-  | "highest"
-  | "lowest";
+import useFetch from "../../hooks/useFetch";
+import calculateTotal from "./utils/calculateTotal";
 
 export default function Dashboard() {
-  const [wasteData, setWasteData] = useState([])
-
-  const {
-    overall_biodegradable,
-    overall_residual,
-    overall_recyclable,
-    overall_infectious,
-  } = localStorage;
+  const [wasteData, setWasteData] : any = useState()
+  const [loading, setLoading] = useState(true)
 
   const [user] = useAuthState(auth);
   const username = user?.displayName;
@@ -49,12 +38,36 @@ export default function Dashboard() {
       window.print();
       setIsPrinting(false);
     }, 500); // Adjust the timeout as needed to ensure proper rendering before printing
-  };
-  console.log(wasteData)
+  }
+  const handleFilterButton = (event : React.MouseEvent<HTMLElement, MouseEvent>, api_endpoint : string, data_name : string) => {
+    event.preventDefault()
+    setLoading(true)
+    useFetch(api_endpoint, data_name)
+      .then((res : any) => {
+        setWasteData(res)
+      })
+      .finally(() => setLoading(false))
+      .catch((e : unknown)=> {
+        e instanceof Error && console.log(e.message)
+      }) 
+  }
+
+  useEffect(() => {
+    useFetch("waste/latest/7days", "7days")
+    .then((res : any) => {
+      setWasteData(res)
+    })
+    .finally(() => setLoading(false))
+    .catch((e : unknown) => {
+      e instanceof Error && console.log(e.message)
+    })
+  }, [])
+
+  
   return (
     // TODO: Change loading / skeleton loading page'
     <WasteDataContext.Provider value={wasteData}>
-      <Suspense fallback={<LoadingPage />}>
+      {(loading) ? <LoadingPage /> : (
         <div id="dashboard">
           <div className="d-flex">
             <div className="hide-dashboard">
@@ -78,31 +91,25 @@ export default function Dashboard() {
                       </Dropdown.Toggle>
                       <Dropdown.Menu>
                           <Dropdown.Item
-                            onClick={() => {
-                              const data = fetchDataFactory("latest")
-                              const wasteData = data.read()
-                              setWasteData(wasteData)
+                            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                              handleFilterButton(e, "waste/latest/7days", "7days");
                             }}
                           >
                             Latest
                           </Dropdown.Item>
                           <Dropdown.Item
-                            onClick={() => {
-                              const data = fetchDataFactory("latest/7days")
-                              const wasteData = data.read()
-                              setWasteData(wasteData)
-                            }}
-                          >
-                            Last 7 days
-                          </Dropdown.Item>
-                          <Dropdown.Item
-                            onClick={() => {
-                              const data = fetchDataFactory("latest/30days")
-                              const wasteData = data.read()
-                              setWasteData(wasteData)
+                            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                              handleFilterButton(e, "waste/latest/30days", "30days");
                             }}
                           >
                             Last 30 days
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                              handleFilterButton(e, "waste/latest/7days", "7days");
+                            }}
+                          >
+                            Last 365 days 
                           </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
@@ -127,19 +134,19 @@ export default function Dashboard() {
                       <div className="d-flex flex-column w-50 h-100 justify-content-between p-3 ">
                         <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
                           <div className="fs-5">Biodegradable</div>{" "}
-                          <div>{overall_biodegradable} kg</div>
+                          <div>{calculateTotal(wasteData).total_biodegradable} kg</div>
                         </div>
                         <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
                           <div className="fs-5">Residual</div>{" "}
-                          <div>{overall_residual} kg</div>
+                          <div>{calculateTotal(wasteData).total_residual} kg</div>
                         </div>
                         <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
                           <div className="fs-5">Recyclable</div>{" "}
-                          <div>{overall_recyclable} kg</div>
+                          <div>{calculateTotal(wasteData).total_recyclable} kg</div>
                         </div>
                         <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
                           <div className="fs-5">Infectious</div>{" "}
-                          <div>{overall_infectious} kg</div>
+                          <div>{calculateTotal(wasteData).total_infectious} kg</div>
                         </div>
                       </div>
                     </AdminChartCard>
@@ -165,7 +172,7 @@ export default function Dashboard() {
           </div>
           {isPrinting && <DashboardPrint />}
         </div>
-      </Suspense>
+      )}
     </WasteDataContext.Provider>
   );
 }
