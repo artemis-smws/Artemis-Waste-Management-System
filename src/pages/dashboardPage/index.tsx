@@ -22,15 +22,9 @@ import { WasteDataContext } from "../../context/wasteDataContext";
 import { Dropdown } from "react-bootstrap";
 import useFetch from "../../hooks/useFetch";
 
-type availableEndpoints =
-  | "latest"
-  | "latest/7days"
-  | "latest/30days"
-  | "highest"
-  | "lowest";
-
 export default function Dashboard() {
-  const [wasteData, setWasteData] = useState(Array<{}>)
+  const [wasteData, setWasteData] : any = useState()
+  const [loading, setLoading] = useState(true)
 
   const {
     overall_biodegradable,
@@ -53,21 +47,32 @@ export default function Dashboard() {
   }
   const handleFilterButton = (event : React.MouseEvent<HTMLElement, MouseEvent>, api_endpoint : string, data_name : string) => {
     event.preventDefault()
+    setLoading(true)
     useFetch(api_endpoint, data_name)
       .then((res : any) => {
         setWasteData(res)
       })
-      .then(res => {
-      })
+      .finally(() => setLoading(false))
       .catch((e : unknown)=> {
         e instanceof Error && console.log(e.message)
       }) 
   }
+
+  useEffect(() => {
+    useFetch("waste/latest/7days", "7days")
+    .then((res : any) => {
+      setWasteData(res)
+    })
+    .finally(() => setLoading(false))
+    .catch((e : unknown) => {
+      e instanceof Error && console.log(e.message)
+    })
+  }, [])
   
   return (
     // TODO: Change loading / skeleton loading page'
     <WasteDataContext.Provider value={wasteData}>
-      <Suspense fallback={<LoadingPage />}>
+      {(loading) ? <LoadingPage /> : (
         <div id="dashboard">
           <div className="d-flex">
             <div className="hide-dashboard">
@@ -172,7 +177,7 @@ export default function Dashboard() {
           </div>
           {isPrinting && <DashboardPrint />}
         </div>
-      </Suspense>
+      )}
     </WasteDataContext.Provider>
   );
 }
