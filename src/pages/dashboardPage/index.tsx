@@ -21,17 +21,11 @@ import LoadingPage from "../../components/loadingPage";
 import { WasteDataContext } from "../../context/wasteDataContext";
 import { Dropdown } from "react-bootstrap";
 import useFetch from "../../hooks/useFetch";
+import calculateTotal from "./utils/calculateTotal";
 
 export default function Dashboard() {
   const [wasteData, setWasteData] : any = useState()
   const [loading, setLoading] = useState(true)
-
-  const {
-    overall_biodegradable,
-    overall_residual,
-    overall_recyclable,
-    overall_infectious,
-  } = localStorage;
 
   const [user] = useAuthState(auth);
   const username = user?.displayName;
@@ -68,6 +62,7 @@ export default function Dashboard() {
       e instanceof Error && console.log(e.message)
     })
   }, [])
+
   
   return (
     // TODO: Change loading / skeleton loading page'
@@ -139,19 +134,19 @@ export default function Dashboard() {
                       <div className="d-flex flex-column w-50 h-100 justify-content-between p-3 ">
                         <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
                           <div className="fs-5">Biodegradable</div>{" "}
-                          <div>{overall_biodegradable} kg</div>
+                          <div>{calculateTotal(wasteData).total_biodegradable} kg</div>
                         </div>
                         <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
                           <div className="fs-5">Residual</div>{" "}
-                          <div>{overall_residual} kg</div>
+                          <div>{calculateTotal(wasteData).total_residual} kg</div>
                         </div>
                         <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
                           <div className="fs-5">Recyclable</div>{" "}
-                          <div>{overall_recyclable} kg</div>
+                          <div>{calculateTotal(wasteData).total_recyclable} kg</div>
                         </div>
                         <div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
                           <div className="fs-5">Infectious</div>{" "}
-                          <div>{overall_infectious} kg</div>
+                          <div>{calculateTotal(wasteData).total_infectious} kg</div>
                         </div>
                       </div>
                     </AdminChartCard>
