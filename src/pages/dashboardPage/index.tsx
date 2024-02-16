@@ -20,6 +20,7 @@ import fetchDataFactory from "../../api/fetchDataFactory";
 import LoadingPage from "../../components/loadingPage";
 import { WasteDataContext } from "../../context/wasteDataContext";
 import { Dropdown } from "react-bootstrap";
+import useFetch from "../../hooks/useFetch";
 
 type availableEndpoints =
   | "latest"
@@ -29,7 +30,7 @@ type availableEndpoints =
   | "lowest";
 
 export default function Dashboard() {
-  const [wasteData, setWasteData] = useState([])
+  const [wasteData, setWasteData] = useState(Array<{}>)
 
   const {
     overall_biodegradable,
@@ -49,8 +50,20 @@ export default function Dashboard() {
       window.print();
       setIsPrinting(false);
     }, 500); // Adjust the timeout as needed to ensure proper rendering before printing
-  };
-  console.log(wasteData)
+  }
+  const handleFilterButton = (event : React.MouseEvent<HTMLElement, MouseEvent>, api_endpoint : string, data_name : string) => {
+    event.preventDefault()
+    useFetch(api_endpoint, data_name)
+      .then((res : any) => {
+        setWasteData(res)
+      })
+      .then(res => {
+      })
+      .catch((e : unknown)=> {
+        e instanceof Error && console.log(e.message)
+      }) 
+  }
+  
   return (
     // TODO: Change loading / skeleton loading page'
     <WasteDataContext.Provider value={wasteData}>
@@ -78,31 +91,25 @@ export default function Dashboard() {
                       </Dropdown.Toggle>
                       <Dropdown.Menu>
                           <Dropdown.Item
-                            onClick={() => {
-                              const data = fetchDataFactory("latest")
-                              const wasteData = data.read()
-                              setWasteData(wasteData)
+                            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                              handleFilterButton(e, "waste/latest/7days", "7days");
                             }}
                           >
                             Latest
                           </Dropdown.Item>
                           <Dropdown.Item
-                            onClick={() => {
-                              const data = fetchDataFactory("latest/7days")
-                              const wasteData = data.read()
-                              setWasteData(wasteData)
-                            }}
-                          >
-                            Last 7 days
-                          </Dropdown.Item>
-                          <Dropdown.Item
-                            onClick={() => {
-                              const data = fetchDataFactory("latest/30days")
-                              const wasteData = data.read()
-                              setWasteData(wasteData)
+                            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                              handleFilterButton(e, "waste/latest/30days", "30days");
                             }}
                           >
                             Last 30 days
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                              handleFilterButton(e, "waste/latest/7days", "7days");
+                            }}
+                          >
+                            Last 365 days 
                           </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
