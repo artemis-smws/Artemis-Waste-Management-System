@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import PieChart from "../../../components/charts/PieChart";
 import { ChartData, ChartOptions } from "chart.js";
 

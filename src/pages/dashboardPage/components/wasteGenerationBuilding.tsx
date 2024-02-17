@@ -1,9 +1,6 @@
 import { ChartOptions } from "chart.js";
 import {useContext, useEffect, useState} from 'react'
-import PieChart from "../../../components/charts/PieChart";
-import LineChart from "../../../components/charts/LineChart";
 import BarChart from "../../../components/charts/BarChart";
-import useFetchLatest from "../../../hooks/useFetchLatest";
 import getBuidlingNames from "../utils/getBuildingNames";
 import { WasteDataContext } from "../../../context/wasteDataContext";
 import addingTwoArrays from "../utils/addingTwoArrays";

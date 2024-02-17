@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { GraphDownArrow, GraphUpArrow } from "react-bootstrap-icons";
-import useFetch from "../../../hooks/useFetch";
 import calculateAverage from "../utils/calculateAverage";
 
 export default function OverviewCard() {

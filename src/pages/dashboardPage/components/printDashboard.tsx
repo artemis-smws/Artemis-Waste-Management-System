@@ -1,9 +1,7 @@
 import { ReactNode, useContext, useEffect, useState } from "react";
-import webSocketFetchData from "../../../utils/webSocketFetchData";
 import fetchDataFactory from "../../../api/fetchDataFactory";
 import calculateOverallAverage from "../utils/calculateOverallAverge";
 import calculateTotal from "../utils/calculateTotal";
-import getBuidlingNames from "../utils/getBuildingNames";
 
 const wasteResource = fetchDataFactory("latest/30days");
 const highestWasteResource = fetchDataFactory("highest");

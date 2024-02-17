@@ -1,6 +1,5 @@
 import { ChartOptions } from "chart.js";
 import { useEffect, useState, useContext } from "react";
-import PieChart from "../../../components/charts/PieChart";
 import DoughnutChart from "../../../components/charts/DoughnutChart";
 import { WasteDataContext } from "../../../context/wasteDataContext";
 
