@@ -34,6 +34,8 @@ export default function Dashboard() {
 
   const handlePrint = () => {
     setIsPrinting(true);
+    document.body.style.overflowY = 'hidden';
+    
     setTimeout(() => {
       window.print();
       setIsPrinting(false);
