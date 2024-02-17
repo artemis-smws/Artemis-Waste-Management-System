@@ -1,36 +1,62 @@
 import { ChartOptions } from "chart.js";
-import {useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import PieChart from "../../../components/charts/PieChart";
 import LineChart from "../../../components/charts/LineChart";
 import BarChart from "../../../components/charts/BarChart";
 import useFetchLatest from "../../../hooks/useFetchLatest";
 import getBuidlingNames from "../utils/getBuildingNames";
+import { WasteDataContext } from "../../../context/wasteDataContext";
+import addingTwoArrays from "../utils/addingTwoArrays";
 
 export default function WasteGenerationBuilding() { 
+  const contextData = useContext(WasteDataContext)
   const [biodegradable, setBiodegradable] = useState<any[]>([])
   const [recyclable, setRecyclable] = useState<any[]>([])
   const [infectious, setInfectious] = useState<any[]>([])
   const [residual, setResidual] = useState<any[]>([])
   const [buildingName, setBuildingName] = useState<any[]>([])
-  const [status, setStatus] = useState(false)
   useEffect(() => {
-    useFetchLatest()
-      .then((value) => {
-        const buildingNames = getBuidlingNames(value)
-        setBuildingName(buildingNames)
-        buildingNames.forEach((buildingName) => {
-          setRecyclable((prev) => [...prev, value[0][buildingName].weight.recyclable.total])
-          setResidual((prev) => [...prev, value[0][buildingName].weight.residual])
-          setBiodegradable((prev) => [...prev, value[0][buildingName].weight.biodegradable])
-          setInfectious((prev) => [...prev, value[0][buildingName].weight.infectious])
+    if(Array.isArray(contextData)) {
+      const buildingNames = getBuidlingNames(contextData)
+      setBuildingName(buildingNames)
+      contextData.forEach((data) => {
+        const staged_recyclable: any[] = []
+        const staged_residual: any[] = []
+        const staged_biodegradable: any[] = []
+        const staged_infectious: any[] = []
+        buildingNames.forEach(building_name => {
+          staged_recyclable.push(data[building_name].weight.recyclable.total || 0)
+          staged_residual.push(data[building_name].weight.residual || 0)
+          staged_biodegradable.push(data[building_name].weight.biodegradable || 0)
+          staged_infectious.push(data[building_name].weight.infectious || 0)
         })
-        setStatus((value) && true)
+        setRecyclable((prev) => {
+          if(prev.length != 0) {
+            return addingTwoArrays(prev, staged_recyclable)
+          }
+          return staged_recyclable
+        })
+        setResidual((prev) => {
+          if(prev.length != 0) {
+            return addingTwoArrays(prev, staged_residual)
+          }
+          return staged_residual
+        })
+        setBiodegradable((prev) => {
+          if(prev.length != 0) {
+            return addingTwoArrays(prev, staged_biodegradable)
+          }
+          return staged_biodegradable
+        })
+        setInfectious((prev) => {
+          if(prev.length != 0) {
+            return addingTwoArrays(prev, staged_infectious)
+          }
+          return staged_infectious
+        })
       })
-      .catch(e => {
-        console.log(e.message)
-        setStatus(false)
-      })
-  }, [])
+    }
+  }, [contextData])
 
   const data = {
     labels: buildingName,
