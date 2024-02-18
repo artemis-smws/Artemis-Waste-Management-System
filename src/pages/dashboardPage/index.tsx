@@ -108,7 +108,14 @@ export default function Dashboard() {
                           </Dropdown.Item>
                           <Dropdown.Item
                             onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-                              handleFilterButton(e, "waste/latest/7days", "7days");
+                              handleFilterButton(e, "waste/latest/90days", "90days");
+                            }}
+                          >
+                            Last 90 days 
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                              handleFilterButton(e, "waste/latest/365days", "365days");
                             }}
                           >
                             Last 365 days 
