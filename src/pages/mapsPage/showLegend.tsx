@@ -1,6 +1,6 @@
 import SelectSchool from "../../components/selectSchool"
 import DropdownSelectDate from "../../components/dropdownDate"
-import './maps.scss'
+import './index.scss'
 
 interface props {
     close: () => void

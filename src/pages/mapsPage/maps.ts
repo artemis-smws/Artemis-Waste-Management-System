@@ -1,5 +1,5 @@
 import L from "leaflet"
-import './maps.scss'
+import './index.scss'
 
 export const mapContainer = {
     lat: 13.78428,
