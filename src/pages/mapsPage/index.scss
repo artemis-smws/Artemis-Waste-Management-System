@@ -1,20 +1,44 @@
 @import "../../constants/variables";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-#trash-status{
-    height: 50px;
-    width: 50px;
 
-    background-color: yellow;
-    border-radius: 50px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: black;
+.leaflet-container {
+    width: 100%;
+    height: 100vh;
+  }
+
+.leaflet-popup-content-wrapper{
+    margin-top: 100px;
+    width: 400px;
+    height: 400px;
 }
 
-#trash-status1{
+.leaflet-popup-content{
+    font-weight: 500;
+    height: 400px;
+    width: 400px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: -24px;
+    top: 87px;
+    background: #efffeec9;
+    border-radius: 10px;
+}
+
+.leaflet-popup-tip{
+    display: none;
+}
+
+.container-header h1{
+    font-size: 4vh;
+}
+
+#green{
     height: 50px;
     width: 50px;
-
 
     background-color: green;
     border-radius: 50px;
@@ -23,51 +47,15 @@
     border-color: black;
 }
 
-#trash-status2{
+#yellow{
     height: 50px;
     width: 50px;
 
-    background-color: red;
+    background-color: yellow;
     border-radius: 50px;
     border-style: solid;
     border-width: 3px;
-    border-color: black;    
-}
-
-#legend{
-    padding: 13px 30px;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 19px;
-    background-color: $tertiary-color;
-    border-radius: 37px;
-    color: white;
-
-    position: absolute;
-    z-index: 400;
-    bottom: 20px;
-    left: 30px;
-}
-
-#maps-navbar{
-    position: absolute;
-    z-index: 400;
-    width: 100%;
-    background-color: rgba(122, 0, 0, 0.75);
-
-    height: 60px;
-}
-
-#map-navbar-list a{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 29px;
-
-    color: white;
+    border-color: black;
 }
 
 #search-location{
@@ -90,53 +78,21 @@
     background-color: $tertiary-color;
 }
 
-#legend .popuptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: $secondary-color;
-    border-radius: 6px;
-    border: 1px solid black;
+#legend{
+    padding: 13px 30px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 19px;
+    background-color: $tertiary-color;
+    border-radius: 37px;
+    color: white;
+
     position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-    width: 508px;
-    height: 178px;
-
-}
-
-#legend .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-  
-  /* Toggle this class - hide and show the popup */
-#legend .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-  
-  /* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-}
-  
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-}
-
-#trash-percentage{
-    margin-top: 24px;
+    z-index: 400;
+    bottom: 20px;
+    left: 30px;
 }
 
 #t-percentage{
@@ -157,63 +113,20 @@
     color: black;
 }
 
-.custom-popup .leaflet-popup-content-wrapper {
-    width: 400px; /* Set the desired width */
-    height: 400px; /* Set the desired height */
-    background-color: #FFF4EE;
-    margin: 0px;
-    margin-top: 60px;
-    margin-right: 60px;
+.legend-container{
+    position: absolute;
+    z-index: 1000;
+    width: 500px;
+    height: 178px;
+    background-color: $secondary-color;
+    border-radius: 6px;
+    border: 1px solid black;
+    bottom: 8%;
+    left: 1%;
 }
 
-#popup-content{
-    width: 400px;
-    height: 400px;
-    position: relative;
-    right: 22px;
-    bottom: 0px;
-}
-
-#trashbin-id{
-    margin-top: 17px;
-    margin-left: 31px;
-}
-
-#trashbin-location{
-    margin-top: 26px;
-    margin-right: 50px;
-}
-
-#trashbin-id h1{
-    font-family: 'Inria Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-}
-
-#trashbin-location h1{
-    font-family: 'Inria Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    text-align: right;
-}
-
-#trash-weight{
-    margin-top: 10px;
-}
-
-#trashbin-activity{
-    margin-top: 10px;
-}
-
-#trashbin-activity h1{
-    font-family: 'Inria Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
+#trash-percentage{
+    margin-top: 24px;
 }
 
 #trashbin-activity-chart{
@@ -222,118 +135,25 @@
     background-color: white;
 }
 
-.popup{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 370px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1;
+#t-percentage{
+    width: 161px;
+    height: 35px;
+    border : none;
+    border-radius: 10px;
 }
 
-#popup-title{
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-#popup-title h1{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-#tb-name{
-    margin-top: 35px;
-}
-
-#tb-name h1{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    margin: 0;
-}
-
-#tb-select{
-    height: 40px;
-    width: 300px;
-    border-radius: 7px;
-    border-color: $primary-red;
-}
-
-#tb-type{
-    margin-top: 35px;
-}
-
-#tb-type h1{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    margin: 0;
-}
-
-#tb-type-select{
-    height: 40px;
-    width: 300px;
-    border-radius: 7px;
-    border-color: $primary-red;
-}
-
-#tb-submit{
-    height: 126px;
-    width: 400px;
-}
-
-#tb-submit-btn{
-    width: 140px;
-    height: 45px;
-    background-color: $primary-red;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 6  00;
-    font-size: 15px;
-    color: white;
-}
-
-
-.leaflet-container {
-    width: 100%;
-    height: 100vh;
-  }
-  
-  #select-day,
-  #select-month,
-  #select-year {
-    box-sizing: border-box;
-    width: 95.59px;
-    height: 32px;
-  
-    background: #ffffff;
-    mix-blend-mode: normal;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-  
-    margin: 10px 10px 10px 10px;
-  
-    font-family: "Inria Sans";
+#t-percentage h1{
+    font-family: 'Inria Sans';
     font-style: normal;
     font-weight: 300;
     font-size: 12px;
     line-height: 14px;
     text-align: center;
-  
-    color: #000000;
-  }
-  
-  #select-school {
+    margin: 0;
+    color: black;
+}
+
+#select-school{
     border-radius: 5px;
     height: 32px;
     width: 486px;
@@ -345,5 +165,28 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 14px;
-  }
-  
+}
+
+#select-day,
+#select-month,
+#select-year {
+    box-sizing: border-box;
+    width: 95.59px;
+    height: 32px;
+
+    background: #ffffff;
+    mix-blend-mode: normal;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+
+    margin: 10px 10px 10px 10px;
+
+    font-family: "Inria Sans";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+
+    color: #000000;
+}
