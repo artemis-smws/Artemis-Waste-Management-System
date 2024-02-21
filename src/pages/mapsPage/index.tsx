@@ -9,6 +9,7 @@ import Legend from './showLegend';
 import WasteGenerated from '../dashboardPage/components/wasteGenerated';
 
 export default function Maps1(){
+    
 
     const [legend, showLegend] = useState(false);
 
