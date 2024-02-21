@@ -8,19 +8,10 @@ import Dashboard from "./pages/dashboardPage";
 import Bin from "./pages/binPage";
 import { getCookie, saveCookie } from "./utils/cookies";
 import DashboardPrint from "./pages/dashboardPage/components/printDashboard";
-import { fetchData } from "./utils/fetchData";
 import AddPage from "./pages/addDataPage";
 
 
-export function App() {
-  const [loaded, setLoaded] = useState(false)
-  useEffect(() => {
-   fetchData()
-    .then(() => {
-      setLoaded(true)
-    })
-  }, [loaded]);
-  
+export function App() { 
   return (
     <div>
       <Routes>
