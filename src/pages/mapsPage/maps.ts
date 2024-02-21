@@ -15,27 +15,14 @@ export const tileLayer = {
     url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 }
 
-export const markerPosition = [
+export const TrashContainer = [
     {
         lat: 13.78397, 
         lng: 121.07435,
         icon: L.divIcon({
             className: "round-button",
             html: `<button type="button" id="green">30%</button>` 
-        })
-    },
-    {
-        lat: 13.78430,
-        lng: 121.07457,
-        icon: L.divIcon({
-            className: "round-button",
-            html: `<button type="button" id="yellow">50%</button>` 
-        })
-    }
-]
-
-export const TrashContainer = [
-    {
+        }),
         trashbinID: 1,
         trashbinLocation: 'Outside - Near CICS Building',
         trashPercentage: 30,
@@ -43,6 +30,12 @@ export const TrashContainer = [
         trashWeight: 24,
     },
     {
+        lat: 13.78430,
+        lng: 121.07457,
+        icon: L.divIcon({
+            className: "round-button",
+            html: `<button type="button" id="yellow">50%</button>` 
+        }),
         trashbinID: 2,
         trashbinLocation: 'Outside - Near CEAFA Building',
         trashPercentage: 50,

@@ -1,5 +1,5 @@
 import { MapContainer, Marker, Popup, TileLayer, useMap} from 'react-leaflet';
-import { mapContainer, tileLayer, markerPosition, TrashContainer } from './maps';
+import { mapContainer, tileLayer, TrashContainer } from './maps';
 import Sidebar from '../../components/layout/sidebar';
 import SearchControl from './search-location';
 import 'leaflet/dist/leaflet.css'
@@ -37,7 +37,7 @@ export default function Maps1(){
                     url={tileLayer.url}
                 />
 
-                {markerPosition.map((position, count) => (
+                {TrashContainer.map((position, count) => (
                     <Marker key={count} position={[position.lat, position.lng]} icon={position.icon}>
                         <Popup>
                             <div className='d-flex justify-content-around container-header w-100'>  
