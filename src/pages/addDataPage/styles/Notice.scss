@@ -1,0 +1,22 @@
+.notice-card{
+    width: 440px;
+    height: 182px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 12px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: white;
+}
+
+.notice-card-content h1{
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.notice-card-content p{
+    font-family: 'Inter';
+}
