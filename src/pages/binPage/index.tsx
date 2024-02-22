@@ -1,4 +1,4 @@
-import './index.scss'
+import './bin.scss'
 import AdminChartCard from "../dashboardPage/components/adminChartCard";
 import BinFrequencyChart from "../dashboardPage/components/binFrequencyChart";
 import DropdownSelectDate from "../../components/dropdownDate";
