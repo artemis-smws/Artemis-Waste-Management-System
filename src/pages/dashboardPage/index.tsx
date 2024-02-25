@@ -15,8 +15,6 @@ import { Link, Navigate } from "react-router-dom";
 import DashboardPrint from "./components/printDashboard";
 import ContributionPercentage from "./components/contributionPercentage";
 import OverviewCard from "./components/overviewCard";
-import DropdownFilter from "../../components/dropdownFilter";
-import fetchDataFactory from "../../api/fetchDataFactory";
 import LoadingPage from "../../components/loadingPage";
 import { WasteDataContext } from "../../context/wasteDataContext";
 import { Dropdown } from "react-bootstrap";
