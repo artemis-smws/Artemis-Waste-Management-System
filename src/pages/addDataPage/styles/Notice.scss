@@ -1,14 +1,20 @@
 .notice-card{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notice-card-content{
     width: 440px;
     height: 182px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 12px;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, 0);
     background-color: white;
+    border-radius: 10px;
 }
 
 .notice-card-content h1{
