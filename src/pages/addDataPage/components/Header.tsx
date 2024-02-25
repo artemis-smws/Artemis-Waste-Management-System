@@ -1,7 +1,7 @@
 import '../styles/Header.scss'
 import DeleteButton from './DeleteButton'
 import AddWasteButton from './AddButton'
-import Dropdown from './DropdownFilter'
+import DropdownComponent from './DropdownFilter'
 import CalendarButton from './Calendar'
 
 interface props{
@@ -17,7 +17,7 @@ const Header: React.FC<props> = ({ isDeleteButtonVisible }) => {
                     <div className="w-50 d-flex gap-3">
                         <CalendarButton/>
                         {isDeleteButtonVisible && <DeleteButton/>}
-                        <Dropdown/>
+                        <DropdownComponent/>
                     </div>
                     <div>
                         <AddWasteButton/>
