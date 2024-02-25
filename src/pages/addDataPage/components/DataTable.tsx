@@ -1,9 +1,10 @@
+// DataTable.tsx
+
 import { TrashData } from './TableData';
 import '../styles/Table.scss';
 import { useState } from 'react';
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { MdDeleteOutline } from "react-icons/md";
-import { MdOutlineUpdate } from "react-icons/md";
+import { MdDeleteOutline, MdOutlineUpdate } from "react-icons/md";
 import React from 'react';
 
 interface props {
@@ -14,12 +15,13 @@ const DataTable: React.FC<props> = ({ toggleDeleteButtonVisibility }) => {
 
     const [checkedItems, setCheckedItems] = useState(new Map<number, boolean>());
     const [selectAll, setSelectAll] = useState(false);
+    const [trashData, setTrashData] = useState(TrashData);
 
     const handleSelectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
         const isChecked = event.target.checked;
         setSelectAll(isChecked);
         const newCheckedItems = new Map<number, boolean>();
-        TrashData.forEach((data) => {
+        trashData.forEach((data) => {
             newCheckedItems.set(data.Number, isChecked);
         });
         setCheckedItems(newCheckedItems);
@@ -32,6 +34,13 @@ const DataTable: React.FC<props> = ({ toggleDeleteButtonVisibility }) => {
         setCheckedItems(newCheckedItems);
         setSelectAll([...newCheckedItems.values()].every(Boolean));
         toggleDeleteButtonVisibility([...newCheckedItems.values()].some(Boolean));
+    };
+
+    const handleRowDelete = (number: number) => {
+        // Filter out the selected row based on its Number
+        const updatedTrashData = trashData.filter(data => data.Number !== number);
+        // Update the state with the new data
+        setTrashData(updatedTrashData);
     };
 
     const getRowClassName = (number: number) => {
@@ -52,7 +61,7 @@ const DataTable: React.FC<props> = ({ toggleDeleteButtonVisibility }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {TrashData.map((data, index) => (
+                    {trashData.map((data, index) => (
                         <tr key={index} className={getRowClassName(data.Number)}>
                             <th scope='row'>
                                 <input
@@ -67,7 +76,7 @@ const DataTable: React.FC<props> = ({ toggleDeleteButtonVisibility }) => {
                             <td>{data.Description}</td>
                             <td>{data.WasteType}</td>
                             <td>{data.Weight}</td>
-                            <td><TableDropdown/></td>
+                            <td><TableDropdown onDelete={() => handleRowDelete(data.Number)} /></td>
                         </tr>
                     ))}
                 </tbody>
@@ -76,7 +85,7 @@ const DataTable: React.FC<props> = ({ toggleDeleteButtonVisibility }) => {
     );
 };
 
-function TableDropdown() {
+function TableDropdown({ onDelete }: { onDelete: () => void }) {
     return (
         <div className="dropdown ms-auto">
             <BsThreeDotsVertical data-bs-toggle="dropdown" aria-expanded="false"/>
@@ -88,7 +97,7 @@ function TableDropdown() {
                     </span>
                 </li>
                 <li>
-                    <span className="dropdown-item">
+                    <span className="dropdown-item" onClick={onDelete}>
                         <MdDeleteOutline/>
                         Delete
                     </span>
