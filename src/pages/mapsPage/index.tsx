@@ -3,14 +3,48 @@ import { mapContainer, tileLayer, TrashContainer } from './maps';
 import Sidebar from '../../components/layout/sidebar';
 import SearchControl from './search-location';
 import 'leaflet/dist/leaflet.css'
+import L from "leaflet"
 import './index.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Legend from './showLegend';
 import WasteGenerated from '../dashboardPage/components/wasteGenerated';
+import useFetch from '../../hooks/useFetch';
+
+enum TrashStatus {
+    Full = "Trashbin Full",
+    HalfFull = "Trashbin Half Full",
+    NotFull = "Trashbin not Full"
+}
+
+type TrashContainerType = {
+    type : string,
+    organization : string,
+    location : {
+        latitude : number,
+        longitude : number
+    },
+    id  : string,
+    trashPercentage : number
+}
+
+function setTrashbinStatus(trashPercentage : number) : TrashStatus {
+    if (trashPercentage >= 80) {
+        return TrashStatus.Full
+    } else if (trashPercentage >= 50) {
+        return TrashStatus.HalfFull
+    } else {
+        return TrashStatus.NotFull
+    }
+}
 
 export default function Maps1(){
+    const [trashbin, setTrashbin] = useState<TrashContainerType[]>([])
+        useFetch('trashbin', "trashbin")
+            .then(data => {
+                setTrashbin(data)
+            })
+        
     
-
     const [legend, showLegend] = useState(false);
 
     const toggleShow = () => {
@@ -37,19 +71,22 @@ export default function Maps1(){
                     url={tileLayer.url}
                 />
 
-                {TrashContainer.map((position, count) => (
-                    <Marker key={count} position={[position.lat, position.lng]} icon={position.icon}>
+                {trashbin.map((data, idx) => (
+                    <Marker key={idx} position={[data.location.latitude, data.location.longitude]} icon={L.divIcon({
+                        className : "round-button",
+                        html : `<button type="button" id="green">${data.trashPercentage + "%"}</button>`
+                    })}>
                         <Popup>
                             <div className='d-flex justify-content-around container-header w-100'>  
                                 <h1>Trashbin ID: </h1>
-                                <h1>{TrashContainer[count].trashbinID}</h1>
+                                <h1>{data.id}</h1>
                             </div>
                             <div className='w-100 d-flex flex-column justify-content-center align-items-center'>
-                                <p>Location: {TrashContainer[count].trashbinLocation}</p>
-                                <p>Percentage: {TrashContainer[count].trashPercentage}%</p>
+                                <p>Location: {data.organization}</p>
+                                <p>Percentage: {data.trashPercentage}%</p>
                                 <div className='w-100 d-flex justify-content-around'>
-                                    <p>Status: {TrashContainer[count].trashStatus}</p>
-                                    <p>Weight: {TrashContainer[count].trashWeight}</p>
+                                    <p>Status: {setTrashbinStatus(data.trashPercentage)}</p>
+                                    <p>Type: {data.type}</p>
                                 </div>
                             </div>
                             <div id="trashbin-activity-chart">
