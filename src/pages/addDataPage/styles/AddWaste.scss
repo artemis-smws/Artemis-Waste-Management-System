@@ -1,17 +1,19 @@
 .add-card{
-    height: 502px;
-    width: 514px;
-    border: var(--bs-border-width) solid var(--bs-border-color);
-    border-radius: 5px;
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
   }
   
 .add-card-content{
-    height: 497px;
-    width: 510px;
+    height: 499px;
+    width: 512px;
     border-radius: 5px;
 }
 

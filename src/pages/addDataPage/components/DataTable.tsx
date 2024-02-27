@@ -1,101 +1,106 @@
+import React, { useState } from 'react';
+import DataTable from 'react-data-table-component';
 import { TrashData } from './TableData';
-import '../styles/Table.scss';
-import { useState } from 'react';
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { MdDeleteOutline } from "react-icons/md";
-import { MdOutlineUpdate } from "react-icons/md";
-import React from 'react';
+import { Dropdown } from 'react-bootstrap';
 
-interface props {
-    toggleDeleteButtonVisibility: (isVisible: boolean) => void;
+interface DataRow {
+    Number: number;
+    Building: string;
+    Description: string;
+    WasteType: string;
+    Weight: string;
 }
 
-const DataTable: React.FC<props> = ({ toggleDeleteButtonVisibility }) => {
+interface Table1Props {
+    setIsDeleteButtonVisible: (isVisible: boolean) => void;
+}
 
-    const [checkedItems, setCheckedItems] = useState(new Map<number, boolean>());
-    const [selectAll, setSelectAll] = useState(false);
+interface CustomDropdownProps {
+    row: DataRow;
+}
 
-    const handleSelectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const isChecked = event.target.checked;
-        setSelectAll(isChecked);
-        const newCheckedItems = new Map<number, boolean>();
-        TrashData.forEach((data) => {
-            newCheckedItems.set(data.Number, isChecked);
-        });
-        setCheckedItems(newCheckedItems);
-        toggleDeleteButtonVisibility(isChecked);
+const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
+
+    const [selectedRows, setSelectedRows] = useState<any[]>([]);
+
+    const handleChange = (state: { selectedRows: any[] }) => {
+        setSelectedRows(state.selectedRows);
+        setIsDeleteButtonVisible(state.selectedRows.length > 0);
     };
 
-    const handleCheckboxChange = (number: number) => {
-        const newCheckedItems = new Map(checkedItems);
-        newCheckedItems.set(number, !checkedItems.get(number));
-        setCheckedItems(newCheckedItems);
-        setSelectAll([...newCheckedItems.values()].every(Boolean));
-        toggleDeleteButtonVisibility([...newCheckedItems.values()].some(Boolean));
+    const handleDeleteRow = (row: DataRow) => {
+        
     };
 
-    const getRowClassName = (number: number) => {
-        return checkedItems.get(number) ? 'table-row active' : 'table-row';
+    const handleUpdateRow = (row: DataRow) => {
+    
     };
 
-    return (
-        <div className='mt-1'>
-            <table className='table table-borderless'>
-                <thead>
-                    <tr>
-                        <th scope='col'><input type="checkbox" onChange={handleSelectAll} checked={selectAll} className='checkbox-input'/> #</th>
-                        <th scope='col'>Building</th>
-                        <th scope='col'>Description</th>
-                        <th scope='col'>Types of Waste</th>
-                        <th scope='col'>Weight</th>
-                        <th scope='col'></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {TrashData.map((data, index) => (
-                        <tr key={index} className={getRowClassName(data.Number)}>
-                            <th scope='row'>
-                                <input
-                                    type="checkbox"
-                                    checked={checkedItems.get(data.Number)}
-                                    onChange={() => handleCheckboxChange(data.Number)}
-                                    className='checkbox-input'
-                                /> 
-                                {data.Number}
-                            </th>
-                            <td>{data.Building}</td>
-                            <td>{data.Description}</td>
-                            <td>{data.WasteType}</td>
-                            <td>{data.Weight}</td>
-                            <td><TableDropdown/></td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+    const CustomDropdown: React.FC<CustomDropdownProps> = ({ row }) => (
+        <Dropdown>
+            <Dropdown.Toggle variant="light" id="dropdown-basic">
+                
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+                <Dropdown.Item onClick={() => handleDeleteRow(row)}>Delete</Dropdown.Item>
+                <Dropdown.Item onClick={() => handleUpdateRow(row)}>Update</Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
     );
-};
 
-function TableDropdown() {
+    const columns = [
+        {
+            name: 'Number',
+            selector: (row: DataRow) => row.Number,
+            sortable: true
+        },
+        {
+            name: 'Building',
+            selector: (row: DataRow) => row.Building,
+            sortable: true
+        },
+        {
+            name: 'Description',
+            selector: (row: DataRow) => row.Description,
+            sortable: true
+        },
+        {
+            name: 'Waste Type',
+            selector: (row: DataRow) => row.WasteType,
+            sortable: true
+        },
+        {
+            name: 'Weight',
+            selector: (row: DataRow) => row.Weight,
+            sortable: true
+        },
+        {
+            name: 'Actions',
+            cell: (row: DataRow) => (
+                <CustomDropdown row={row} />
+            ),
+            button: true,
+            ignoreRowClick: true,
+            allowOverflow: true,
+            buttonStyle: {
+                padding: '0.25rem 0.5rem',
+                minWidth: 'unset',
+            }
+        }
+    ];
+
     return (
-        <div className="dropdown ms-auto">
-            <BsThreeDotsVertical data-bs-toggle="dropdown" aria-expanded="false"/>
-            <ul className="dropdown-menu">
-                <li>
-                    <span className="dropdown-item">
-                        <MdOutlineUpdate/>
-                        Update
-                    </span>
-                </li>
-                <li>
-                    <span className="dropdown-item">
-                        <MdDeleteOutline/>
-                        Delete
-                    </span>
-                </li>
-            </ul>
-        </div>
+        <DataTable
+            columns={columns}
+            data={TrashData}
+            selectableRows
+            selectableRowsHighlight
+            onSelectedRowsChange={handleChange}
+            fixedHeader
+            pagination
+        />
     );
 }
 
-export default DataTable;
+export default TrashTable;

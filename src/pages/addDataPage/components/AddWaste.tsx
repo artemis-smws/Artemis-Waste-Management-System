@@ -7,19 +7,19 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const addWaste = [
     {
-    building: 'Building', 
-    date: 'Date',
-    WasteType: [
-        {
-            wastetype: 'Type of Waste',
-        },
-        {
-            description: 'Waste Description',
-        },
-        {
-            weight: 'Weight'
-        },
-    ]
+        building: 'Building', 
+        date: 'Date',
+        WasteType: [
+            {
+                wastetype: 'Type of Waste',
+            },
+            {
+                description: 'Waste Description',
+            },
+            {
+                weight: 'Weight'
+            },
+        ]
     },
 ]
 
@@ -49,7 +49,7 @@ const AddWaste: React.FC<props> = ( {onClose} ) =>{
                 <div className="add-card">
                     <div className="add-card-content d-flex flex-column justify-content-between align-items-center">
                         <div className="header w-100 p-3 d-flex justify-content-between align-items-center">
-                            <h1>Add Waste</h1>
+                            <h1 className='m-0'>Add Waste</h1>
                             <IoIosCloseCircleOutline onClick={onClose}/>
                         </div>
                         <div key={index} className="d-flex flex-column justify-content-center w-100 h-100 p-4 input-section">
