@@ -98,7 +98,9 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
             selectableRowsHighlight
             onSelectedRowsChange={handleChange}
             fixedHeader
+            fixedHeaderScrollHeight='100%'
             pagination
+            paginationPerPage={20}
         />
     );
 }
