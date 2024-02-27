@@ -1,31 +1,33 @@
-import '../styles/Header.scss'
-import DeleteButton from './DeleteButton'
-import AddWasteButton from './AddButton'
-import DropdownComponent from './DropdownFilter'
-import CalendarButton from './Calendar'
+// Header.tsx
+import React from 'react';
+import DeleteButton from './DeleteButton';
+import AddWasteButton from './AddButton';
+import DropdownComponent from './DropdownFilter';
+import CalendarButton from './Calendar';
 
-interface props{
+interface HeaderProps {
     isDeleteButtonVisible: boolean;
+    handleDelete: () => void;
 }
 
-const Header: React.FC<props> = ({ isDeleteButtonVisible }) => {
+const Header: React.FC<HeaderProps> = ({ isDeleteButtonVisible, handleDelete }) => {
 
     return (
         <div>
             <div className='d-flex justify-content-between align-items-center border-bottom border-2 shadow p-3 w-100'>
                 <div className='d-flex gap-3 justify-content-between align-items-center w-100'>
                     <div className="w-50 d-flex gap-3">
-                        <CalendarButton/>
-                        {isDeleteButtonVisible && <DeleteButton/>}
-                        <DropdownComponent/>
+                        <CalendarButton />
+                        {isDeleteButtonVisible && <DeleteButton onClick={handleDelete} />}
+                        <DropdownComponent />
                     </div>
                     <div>
-                        <AddWasteButton/>
+                        <AddWasteButton />
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;
