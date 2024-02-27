@@ -7,19 +7,19 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const addWaste = [
     {
-    building: 'Building', 
-    date: 'Date',
-    WasteType: [
-        {
-            wastetype: 'Type of Waste',
-        },
-        {
-            description: 'Waste Description',
-        },
-        {
-            weight: 'Weight'
-        },
-    ]
+        building: 'Building', 
+        date: 'Date',
+        WasteType: [
+            {
+                wastetype: 'Type of Waste',
+            },
+            {
+                description: 'Waste Description',
+            },
+            {
+                weight: 'Weight'
+            },
+        ]
     },
 ]
 
