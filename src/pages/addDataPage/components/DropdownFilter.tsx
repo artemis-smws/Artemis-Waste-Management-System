@@ -1,10 +1,13 @@
 import "../styles/Dropdown.scss"
 
+
 const DropdownComponent = () => {
     return(
         <div className="input-group">
             <div className="input-group-prepend">
+
                 <button className="btn btn-outline-secondary dropdown-toggle dropdown-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</button>
+
                     <div className="dropdown-menu">
                         <a className="dropdown-item" href="#">ALL</a>
                         <a className="dropdown-item" href="#">TYPES OF WASTE</a>
