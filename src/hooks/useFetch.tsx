@@ -1,6 +1,6 @@
 export default async function useFetch(endpoint : string, name : string) {
     const data = await fetch(
-        `https://us-central1-artemis-b18ae.cloudfunctions.net/v1/${endpoint}`,
+        `${import.meta.env.VITE_API_URL}${endpoint}`,
         {
             method : "GET",
             headers : {
