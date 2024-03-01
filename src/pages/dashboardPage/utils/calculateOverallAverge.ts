@@ -5,6 +5,5 @@ export default function calculateOverallAverage(data : Array<any>) : number {
         totalWaste += entry.overall_weight
         totalEntries++
     })
-    console.log(totalWaste, totalEntries)
     return Number((totalWaste / totalEntries).toFixed(2))
 }
