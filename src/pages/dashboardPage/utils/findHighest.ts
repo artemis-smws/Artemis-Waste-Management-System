@@ -1,4 +1,4 @@
-export default function findHighest(data : Array<{}>) {
+export default function findHighest(data : Array<any>) {
     const temp_array : Array<number> = []
     let return_data = data[0]
     data.forEach((element : any) => {
