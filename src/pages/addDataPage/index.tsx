@@ -4,30 +4,28 @@ import { useState } from "react";
 import TrashTable from "./components/DataTable";
 
 export default function AddPage() {
+  const [isDeleteButtonVisible, setDeleteButtonVisible] =
+    useState<boolean>(false);
 
-    const [isDeleteButtonVisible, setDeleteButtonVisible] = useState<boolean>(false);
+  const handleDeleteButtonVisibility = (isVisible: boolean) => {
+    setDeleteButtonVisible(isVisible);
+  };
 
-    const handleDeleteButtonVisibility = (isVisible: boolean) => {
-        setDeleteButtonVisible(isVisible);
-    };
+  const handleDelete = () => {};
 
-    const handleDelete = () => {
-        
-    };
-
-    return (
-        <div className="d-flex vh-100 w-100">
-            <div className="vh-100">
-                <Sidebar/>
-            </div>   
-            <div className="w-100 h-100 overflow-auto" style={{objectFit: "contain"}}>
-                <div>
-                    <Header isDeleteButtonVisible={isDeleteButtonVisible} handleDelete={handleDelete}/>
-                </div>
-                <div>
-                   <TrashTable setIsDeleteButtonVisible={handleDeleteButtonVisibility}/> 
-                </div>
-            </div>
+  return (
+    <div className="d-flex vh-100 w-100">
+      <div className="vh-100">
+        <Sidebar />
+      </div>
+      <div
+        className="w-100 h-100 overflow-auto"
+        style={{ objectFit: "contain" }}
+      >
+        <div>
+          <TrashTable setIsDeleteButtonVisible={handleDeleteButtonVisibility} />
         </div>
-    );
+      </div>
+    </div>
+  );
 }
