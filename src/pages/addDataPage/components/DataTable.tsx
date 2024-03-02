@@ -3,9 +3,9 @@ import DataTable from "react-data-table-component";
 import { TrashData } from "./TableData";
 import { Dropdown } from "react-bootstrap";
 import DeleteButton from "./DeleteButton";
-import AddWasteButton from "./AddButton";
 import DropdownComponent from "./DropdownFilter";
 import CalendarButton from "./Calendar";
+import AddWaste from "./AddWaste";
 
 interface DataRow {
   Number: number;
@@ -142,7 +142,7 @@ const Header: React.FC<HeaderProps> = ({
             </Dropdown>
           </div>
           <div>
-            <AddWasteButton />
+            <AddWaste />
           </div>
         </div>
       </div>

@@ -12,15 +12,16 @@ import {
   Form,
 } from "react-bootstrap";
 
-interface props {
-  onClose: () => void;
-}
-
-const AddWaste: React.FC<props> = ({ onClose }) => {
-  const [isVisible, setIsVisible] = useState(true); // State to manage card visibility
+const AddWaste = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedBuilding, setSelectedBuilding] = useState("Select Building");
+  const [selectedType, setSelectedType] = useState("Select Type of Waste");
+  const [wasteDescription, setWasteDescription] = useState("");
+  const [weight, setWeight] = useState("");
 
   const handleSubmit = () => {
-    setIsVisible(false); // Close the card
+    setIsOpen(false);
+    // Show success toast
     toast.success("Data Added. ", {
       position: "bottom-right",
       autoClose: 5000,
@@ -33,8 +34,13 @@ const AddWaste: React.FC<props> = ({ onClose }) => {
     });
   };
 
-  const [selectedBuilding, setSelectedBuilding] = useState("Select Building");
-  const [selectedType, setSelectedType] = useState("Select Type of Waste");
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   const handleSelectBuilding = (item: string) => {
     setSelectedBuilding(item);
@@ -44,9 +50,22 @@ const AddWaste: React.FC<props> = ({ onClose }) => {
     setSelectedType(type);
   };
 
+  const handleWasteDescriptionChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setWasteDescription(event.target.value);
+  };
+
+  const handleWeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setWeight(event.target.value);
+  };
+
   return (
     <>
-      {isVisible && ( // Conditionally render the card based on visibility state
+      <button type="button" className="btn btn-success" onClick={handleOpen}>
+        Add Waste
+      </button>
+      {isOpen && (
         <div className="add-card">
           <div className="add-card-content d-flex flex-column justify-content-between align-items-center">
             <div className="header w-100 p-3 d-flex justify-content-start align-items-center">
@@ -129,6 +148,8 @@ const AddWaste: React.FC<props> = ({ onClose }) => {
                   <Form.Control
                     type="text"
                     className="add-waste-input"
+                    value={wasteDescription}
+                    onChange={handleWasteDescriptionChange}
                   ></Form.Control>
                 </Form>
                 <Form className="mt-3">
@@ -136,6 +157,8 @@ const AddWaste: React.FC<props> = ({ onClose }) => {
                   <Form.Control
                     type="number"
                     className="weight-input"
+                    value={weight}
+                    onChange={handleWeightChange}
                   ></Form.Control>
                 </Form>
               </div>
@@ -144,9 +167,9 @@ const AddWaste: React.FC<props> = ({ onClose }) => {
               <button
                 type="button"
                 className="btn btn-secondary m-1"
-                onClick={onClose}
+                onClick={handleClose}
               >
-                Cancel
+                Close
               </button>
               <button
                 type="button"
@@ -159,6 +182,7 @@ const AddWaste: React.FC<props> = ({ onClose }) => {
           </div>
         </div>
       )}
+
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
