@@ -27,6 +27,7 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
   const [hiddenColumns, setHiddenColumns] = useState<string[]>([]);
   const [isDeleteButtonVisible, setIsDeleteButtonVisibleLocal] =
     useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleChange = (state: { selectedRows: any[] }) => {
     setSelectedRows(state.selectedRows);
@@ -99,6 +100,13 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
     },
   ];
 
+  // Filter rows based on search query
+  const filteredRows = TrashData.filter((row) =>
+    Object.values(row).some((value) =>
+      value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  );
+
   return (
     <div
       className="d-flex flex-column"
@@ -111,11 +119,11 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
         }}
         toggleColumn={toggleColumn}
         hiddenColumns={hiddenColumns}
-        TrashData={TrashData}
+        setSearchQuery={setSearchQuery}
       />
       <DataTable
         columns={columns}
-        data={TrashData}
+        data={filteredRows} // Use filtered rows
         selectableRows
         selectableRowsHighlight
         onSelectedRowsChange={handleChange}
@@ -132,7 +140,7 @@ interface HeaderProps {
   handleDelete: () => void;
   toggleColumn: (columnName: string) => void;
   hiddenColumns: string[];
-  TrashData: DataRow[];
+  setSearchQuery: (query: string) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -140,8 +148,12 @@ const Header: React.FC<HeaderProps> = ({
   handleDelete,
   toggleColumn,
   hiddenColumns,
-  TrashData,
+  setSearchQuery,
 }) => {
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <div
       style={{
@@ -165,7 +177,7 @@ const Header: React.FC<HeaderProps> = ({
                 Toggle Columns
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                {Object.keys(TrashData[0]).map((column: string) => (
+                {Object.keys(hiddenColumns).map((column: string) => (
                   <Dropdown.Item
                     key={column}
                     onClick={() => toggleColumn(column)}
@@ -178,7 +190,11 @@ const Header: React.FC<HeaderProps> = ({
               </Dropdown.Menu>
             </Dropdown>
             <Form className="d-flex w-50">
-              <Form.Control type="text" placeholder="Search"></Form.Control>
+              <Form.Control
+                type="text"
+                placeholder="Search"
+                onChange={handleSearchChange}
+              ></Form.Control>
             </Form>
           </div>
           <div>
