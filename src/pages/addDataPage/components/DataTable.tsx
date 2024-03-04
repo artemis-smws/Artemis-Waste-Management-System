@@ -120,6 +120,7 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
         toggleColumn={toggleColumn}
         hiddenColumns={hiddenColumns}
         setSearchQuery={setSearchQuery}
+        TrashData={TrashData}
       />
       <DataTable
         columns={columns}
@@ -141,6 +142,7 @@ interface HeaderProps {
   toggleColumn: (columnName: string) => void;
   hiddenColumns: string[];
   setSearchQuery: (query: string) => void;
+  TrashData: DataRow[];
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -149,6 +151,7 @@ const Header: React.FC<HeaderProps> = ({
   toggleColumn,
   hiddenColumns,
   setSearchQuery,
+  TrashData,
 }) => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
@@ -177,7 +180,7 @@ const Header: React.FC<HeaderProps> = ({
                 Toggle Columns
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                {Object.keys(hiddenColumns).map((column: string) => (
+                {Object.keys(TrashData[0]).map((column: string) => (
                   <Dropdown.Item
                     key={column}
                     onClick={() => toggleColumn(column)}
