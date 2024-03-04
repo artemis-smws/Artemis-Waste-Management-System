@@ -124,22 +124,22 @@ const AddWaste = () => {
                     <DropdownItem
                       onClick={() => handleSelectType("BIODEGRADABLE")}
                     >
-                      BIODEGRADABLE
+                      Biodegredable
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => handleSelectType("RECYCLABLE")}
                     >
-                      RECYCLABLE
+                      Recyclable
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => handleSelectType("FOOD WASTE")}
                     >
-                      FOOD WASTE
+                      Food waste
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => handleSelectType("INFECTIOUS")}
                     >
-                      INFECTIOUS
+                      Infectious
                     </DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
