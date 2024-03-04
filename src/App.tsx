@@ -15,7 +15,7 @@ import { TrashbinContext } from "./context/trashbinContext";
 export function App() {
 	const [trashbinData, setTrashbinData] : any = useState()
 	useEffect(() => {
-    useFetch("bin/latest", "bin")
+    useFetch("trashbin", "trashbin")
 		.then((data : any) => {
 			console.log(data)
 			setTrashbinData(data)
