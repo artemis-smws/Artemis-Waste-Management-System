@@ -9,9 +9,14 @@ export default async function useGoogleAuthenticate() {
     provider.setCustomParameters({
         prompt : "select_account"
     })
-    const cred = await signInWithPopup(auth, provider)
-    saveCookie(JSON.stringify(cred))
-    return cred
+    try {
+      const cred = await signInWithPopup(auth, provider)
+      saveCookie(JSON.stringify(cred))
+      console.log("Successfully logged in!")
+      return cred
+    } catch(e : any) {
+      (e instanceof Error)&& console.log(e.message)
+    }
   } 
   return credentials
 }
