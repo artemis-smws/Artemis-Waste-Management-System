@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { TrashData } from "./TableData";
-import { Dropdown } from "react-bootstrap";
+import { Dropdown, Form } from "react-bootstrap";
 import DeleteButton from "./DeleteButton";
-import DropdownComponent from "./DropdownFilter";
 import CalendarButton from "./Calendar";
 import AddWaste from "./AddWaste";
 
@@ -19,11 +18,16 @@ interface Table1Props {
   setIsDeleteButtonVisible: (isVisible: boolean) => void;
 }
 
+interface CustomDropdownProps {
+  row: DataRow;
+}
+
 const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
   const [selectedRows, setSelectedRows] = useState<any[]>([]);
   const [hiddenColumns, setHiddenColumns] = useState<string[]>([]);
   const [isDeleteButtonVisible, setIsDeleteButtonVisibleLocal] =
     useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleChange = (state: { selectedRows: any[] }) => {
     setSelectedRows(state.selectedRows);
@@ -38,6 +42,25 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
       setHiddenColumns([...hiddenColumns, columnName]);
     }
   };
+
+  const handleDeleteRow = (row: DataRow) => {};
+
+  const handleUpdateRow = (row: DataRow) => {};
+
+  const CustomDropdown: React.FC<CustomDropdownProps> = ({ row }) => (
+    <Dropdown>
+      <Dropdown.Toggle variant="light" id="dropdown-basic"></Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item onClick={() => handleDeleteRow(row)}>
+          Delete
+        </Dropdown.Item>
+        <Dropdown.Item onClick={() => handleUpdateRow(row)}>
+          Update
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
 
   const columns = [
     {
@@ -64,10 +87,31 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
       sortable: true,
       omit: hiddenColumns.includes("Weight"),
     },
+    {
+      name: "Actions",
+      cell: (row: DataRow) => <CustomDropdown row={row} />,
+      button: true,
+      ignoreRowClick: true,
+      allowOverflow: true,
+      buttonStyle: {
+        padding: "0.25rem 0.5rem",
+        minWidth: "unset",
+      },
+    },
   ];
 
+  // Filter rows based on search query
+  const filteredRows = TrashData.filter((row) =>
+    Object.values(row).some((value) =>
+      value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  );
+
   return (
-    <div style={{ position: "relative", height: "100vh", overflow: "auto" }}>
+    <div
+      className="d-flex flex-column"
+      style={{ position: "relative", height: "100vh", overflow: "hidden" }}
+    >
       <Header
         isDeleteButtonVisible={isDeleteButtonVisible}
         handleDelete={() => {
@@ -75,16 +119,17 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
         }}
         toggleColumn={toggleColumn}
         hiddenColumns={hiddenColumns}
-        TrashData={TrashData}
+        setSearchQuery={setSearchQuery}
       />
       <DataTable
         columns={columns}
-        data={TrashData}
+        data={filteredRows} // Use filtered rows
         selectableRows
         selectableRowsHighlight
         onSelectedRowsChange={handleChange}
         pagination
         paginationPerPage={20}
+        fixedHeader
       />
     </div>
   );
@@ -95,7 +140,7 @@ interface HeaderProps {
   handleDelete: () => void;
   toggleColumn: (columnName: string) => void;
   hiddenColumns: string[];
-  TrashData: DataRow[];
+  setSearchQuery: (query: string) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -103,14 +148,18 @@ const Header: React.FC<HeaderProps> = ({
   handleDelete,
   toggleColumn,
   hiddenColumns,
-  TrashData,
+  setSearchQuery,
 }) => {
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <div
       style={{
         position: "sticky",
         top: "0",
-        zIndex: 1,
+        zIndex: 1000,
         backgroundColor: "#fff",
       }}
     >
@@ -119,16 +168,16 @@ const Header: React.FC<HeaderProps> = ({
           <div className="w-50 d-flex gap-3">
             <CalendarButton />
             {isDeleteButtonVisible && <DeleteButton onClick={handleDelete} />}
-            <Dropdown>
+            <Dropdown className="d-flex">
               <Dropdown.Toggle
                 variant="light"
                 id="dropdown-basic"
-                className="border"
+                className="border-0"
               >
                 Toggle Columns
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                {Object.keys(TrashData[0]).map((column: string) => (
+                {Object.keys(hiddenColumns).map((column: string) => (
                   <Dropdown.Item
                     key={column}
                     onClick={() => toggleColumn(column)}
@@ -140,6 +189,13 @@ const Header: React.FC<HeaderProps> = ({
                 ))}
               </Dropdown.Menu>
             </Dropdown>
+            <Form className="d-flex w-50">
+              <Form.Control
+                type="text"
+                placeholder="Search"
+                onChange={handleSearchChange}
+              ></Form.Control>
+            </Form>
           </div>
           <div>
             <AddWaste />

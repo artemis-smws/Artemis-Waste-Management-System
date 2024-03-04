@@ -18,10 +18,7 @@ export default function AddPage() {
       <div className="vh-100">
         <Sidebar />
       </div>
-      <div
-        className="w-100 h-100 overflow-auto"
-        style={{ objectFit: "contain" }}
-      >
+      <div className="w-100 h-100" style={{ objectFit: "contain" }}>
         <div>
           <TrashTable setIsDeleteButtonVisible={handleDeleteButtonVisibility} />
         </div>
