@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { TrashData } from "./TableData";
-import { Dropdown, Form } from "react-bootstrap";
+import { Dropdown, Form, Button, Card } from "react-bootstrap";
 import DeleteButton from "./DeleteButton";
 import CalendarButton from "./Calendar";
 import AddWaste from "./AddWaste";
+import "../styles/AddWaste.scss";
 
 interface DataRow {
   Number: number;
@@ -157,6 +158,12 @@ const Header: React.FC<HeaderProps> = ({
     setSearchQuery(event.target.value);
   };
 
+  const [columns, setColumns] = useState(false);
+
+  const showColumnsList = () => {
+    setColumns(true);
+  };
+
   return (
     <div
       style={{
@@ -180,16 +187,19 @@ const Header: React.FC<HeaderProps> = ({
                 Toggle Columns
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                {Object.keys(TrashData[0]).map((column: string) => (
-                  <Dropdown.Item
-                    key={column}
-                    onClick={() => toggleColumn(column)}
-                  >
-                    {hiddenColumns.includes(column)
-                      ? `Show ${column}`
-                      : `Hide ${column}`}
-                  </Dropdown.Item>
-                ))}
+                {Object.keys(TrashData[0])
+                  .filter((column) => column !== "Number")
+                  .map((column: string) => (
+                    <Form.Check
+                      type="checkbox"
+                      id={column}
+                      label={column}
+                      checked={!hiddenColumns.includes(column)}
+                      onChange={() => toggleColumn(column)}
+                      className="d-flex gap-2"
+                      style={{ marginLeft: "7px" }}
+                    />
+                  ))}
               </Dropdown.Menu>
             </Dropdown>
             <Form className="d-flex w-50">
