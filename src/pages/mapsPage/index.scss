@@ -1,5 +1,4 @@
 @import "../../constants/variables";
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 
 .leaflet-container {
@@ -9,13 +8,17 @@
 
 .leaflet-popup-content-wrapper{
     margin-top: 100px;
-    width: 400px;
-    height: 400px;
+    min-width: 400px;
+    min-height: 400px;
+    object-fit: contain;
+    p {
+        margin: 6px 0 !important;
+    }
 }
 
 .leaflet-popup-content{
-    font-weight: 500;
-    height: 400px;
+    height: auto;
+    min-height: 400px;
     width: 400px !important;
     display: flex;
     flex-direction: column;
@@ -52,6 +55,17 @@
     width: 50px;
 
     background-color: yellow;
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+}
+
+#red{
+    height: 50px;
+    width: 50px;
+
+    background-color: red;
     border-radius: 50px;
     border-style: solid;
     border-width: 3px;
@@ -133,6 +147,8 @@
     width: 380px;
     height: 175px;
     background-color: white;
+    margin: 12px;
+    border-radius: 5px;
 }
 
 #t-percentage{

@@ -1,3 +1,15 @@
 import { createContext } from "react";
 
-export const TrashbinContext = createContext(Array<{}>)
+export type TrashContainerType = {
+	type: string;
+	organization: string;
+	location: {
+		latitude: number;
+		longitude: number;
+	};
+	id: string;
+	capacity : number;
+	frequency ?: number;
+};
+
+export const TrashbinContext = createContext(Array<TrashContainerType>)
