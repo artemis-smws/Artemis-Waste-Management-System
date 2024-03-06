@@ -121,8 +121,6 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 		setLoading(true);
 		useFetch("waste", "all waste")
 			.then((res: any) => {
-				const buildingName = getBuidlingNames(res);
-				console.log(buildingName);
 				const wasteType = [
 					"infectious",
 					"biodegradable",
@@ -131,7 +129,10 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 				];
 				const staged: DataRow[] = [];
 				res.forEach((response: any) => {
-					buildingName.forEach((building: string) => {
+					const buildingList = Object.keys(response).filter((key) => {
+						return (key != "createdAt" && key != "overall_biodegradable" && key != "overall_recyclable" && key != "overall_residual" && key != "overall_infectious" && key != "overall_weight" && key != "id") && key
+					})
+					buildingList.forEach((building: string) => {
 						wasteType.forEach((type: string) => {
 							if (response[building] === undefined) {
 								console.log(
@@ -186,7 +187,7 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			/>
 			<DataTable
 				columns={columns}
-				data={filteredRows} // Use filtered rows
+				data={filteredRows.reverse()} // Use filtered rows
 				selectableRows
 				selectableRowsHighlight
 				onSelectedRowsChange={handleChange}
