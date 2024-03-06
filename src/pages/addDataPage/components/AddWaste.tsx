@@ -59,7 +59,7 @@ const AddWaste = () => {
   const handleWeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setWeight(event.target.value);
   };
-
+  
   return (
     <>
       <button type="button" className="btn btn-success" onClick={handleOpen}>
