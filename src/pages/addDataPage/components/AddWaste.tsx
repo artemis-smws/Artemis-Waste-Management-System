@@ -51,7 +51,7 @@ const AddWaste = () => {
   const handleWeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setWeight(event.target.value);
   };
-
+  
   return (
     <>
       <button type="button" className="btn btn-success" onClick={handleOpen}>
@@ -122,21 +122,56 @@ const AddWaste = () => {
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-end align-items-center w-100 px-3">
-                <Button
-                  type="button"
-                  className="btn btn-secondary m-1"
-                  onClick={handleClose}
-                >
-                  Close
-                </Button>
-                <Button
-                  type="submit"
-                  className="btn btn-success m-1"
-                  onClick={handleSubmit}
-                >
-                  Confirm
-                </Button>
+              <div className="d-flex justify-content-start flex-column mt-3">
+                <label>Type of Waste</label>
+                <Dropdown>
+                  <DropdownToggle
+                    className="add-waste-input d-flex justify-content-between align-items-center"
+                    variant="light"
+                  >
+                    {selectedType}
+                  </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem
+                      onClick={() => handleSelectType("BIODEGRADABLE")}
+                    >
+                      Biodegredable
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => handleSelectType("RECYCLABLE")}
+                    >
+                      Recyclable
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => handleSelectType("FOOD WASTE")}
+                    >
+                      Food waste
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => handleSelectType("INFECTIOUS")}
+                    >
+                      Infectious
+                    </DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+                <Form className="mt-3">
+                  <label>Waste Description</label>
+                  <Form.Control
+                    type="text"
+                    className="add-waste-input"
+                    value={wasteDescription}
+                    onChange={handleWasteDescriptionChange}
+                  ></Form.Control>
+                </Form>
+                <Form className="mt-3">
+                  <label>Weight</label>
+                  <Form.Control
+                    type="number"
+                    className="weight-input"
+                    value={weight}
+                    onChange={handleWeightChange}
+                  ></Form.Control>
+                </Form>
               </div>
             </Form>
           </div>

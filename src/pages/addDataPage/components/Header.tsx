@@ -1,6 +1,6 @@
 import React from "react";
 import DeleteButton from "./DeleteButton";
-import AddWasteButton from "./AddButton";
+import AddWasteButton from "./AddWaste";
 import DropdownComponent from "./DropdownFilter";
 import CalendarButton from "./Calendar";
 

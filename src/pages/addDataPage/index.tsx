@@ -12,7 +12,7 @@ export default function AddPage() {
   };
 
   const handleDelete = () => {};
-
+  
   return (
     <div className="d-flex vh-100 w-100">
       <div className="vh-100">
