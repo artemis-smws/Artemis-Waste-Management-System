@@ -57,7 +57,7 @@ function Sidebar() {
         </div>
 
         <button type="button" onClick={handleSignOut} className="btn">
-          SIGN OUT
+          Sign out
         </button>
       </div>
     </div>
