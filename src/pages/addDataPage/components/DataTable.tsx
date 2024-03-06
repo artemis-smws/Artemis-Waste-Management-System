@@ -8,9 +8,13 @@ import AddWaste from "./AddWaste";
 import "../styles/AddWaste.scss";
 import useFetch from "../../../hooks/useFetch";
 import LoadingPage from "../../../components/loadingPage";
+import getBuidlingNames from "../../dashboardPage/utils/getBuildingNames";
+import getWeight from "../utils/getWeight";
 
 interface DataRow {
 	Date: string;
+	Building: string;
+	WasteType: string;
 	Weight: number;
 }
 
@@ -28,11 +32,13 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 	const [isDeleteButtonVisible, setIsDeleteButtonVisibleLocal] =
 		useState(false);
 	const [searchQuery, setSearchQuery] = useState("");
+
 	const handleChange = (state: { selectedRows: any[] }) => {
 		setSelectedRows(state.selectedRows);
 		setIsDeleteButtonVisibleLocal(state.selectedRows.length > 0);
 		setIsDeleteButtonVisible(state.selectedRows.length > 0);
 	};
+
 	const toggleColumn = (columnName: string) => {
 		if (hiddenColumns.includes(columnName)) {
 			setHiddenColumns(hiddenColumns.filter((col) => col !== columnName));
@@ -40,7 +46,9 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			setHiddenColumns([...hiddenColumns, columnName]);
 		}
 	};
+
 	const handleDeleteRow = (row: DataRow) => {};
+
 	const handleUpdateRow = (row: DataRow) => {};
 
 	const CustomDropdown: React.FC<CustomDropdownProps> = ({ row }) => (
@@ -68,20 +76,20 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			sortable: true,
 			omit: hiddenColumns.includes("Date"),
 		},
-		// {
-		// 	name: "Description",
-		// 	selector: (row: DataRow) => row.Description,
-		// 	sortable: true,
-		// 	omit: hiddenColumns.includes("Description"),
-		// },
-		// {
-		// 	name: "Waste Type",
-		// 	selector: (row: DataRow) => row.WasteType,
-		// 	sortable: true,
-		// 	omit: hiddenColumns.includes("WasteType"),
-		// },
 		{
-			name: "Weight",
+			name: "Building",
+			selector: (row: DataRow) => row.Building,
+			sortable: true,
+			omit: hiddenColumns.includes("Building"),
+		},
+		{
+			name: "Waste Type",
+			selector: (row: DataRow) => row.WasteType,
+			sortable: true,
+			omit: hiddenColumns.includes("WasteType"),
+		},
+		{
+			name: "Weight (kg)",
 			selector: (row: DataRow) => row.Weight,
 			sortable: true,
 			omit: hiddenColumns.includes("Weight"),
@@ -98,36 +106,53 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			},
 		},
 	];
+
 	const [wasteData, setWasteData] = useState(Array<DataRow>);
 	const [loading, setLoading] = useState(false);
-	const filteredRows =
-		wasteData &&
-		wasteData.filter((row) =>
-			Object.values(row).some((value: any) =>
-				value
-					.toString()
-					.toLowerCase()
-					.includes(searchQuery.toLowerCase())
-			)
-		);
+
+	// Filter rows based on search query
+	const filteredRows = wasteData.filter((row) =>
+		Object.values(row).some((value) =>
+			value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+		)
+	);
 
 	useEffect(() => {
 		setLoading(true);
 		useFetch("waste", "all waste")
-			.then((res: {}[]) => {
-				res.forEach((data: any) => {
-					if (wasteData.length === 0) {
-						setWasteData((prev: any) => [
-							...prev,
-							{
-								Date: data.id,
-								Weight: data.overall_weight,
-							},
-						]);
-					} else {
-						setWasteData([]);
-					}
+			.then((res: any) => {
+				const buildingName = getBuidlingNames(res);
+				console.log(buildingName);
+				const wasteType = [
+					"infectious",
+					"biodegradable",
+					"recyclable",
+					"residual",
+				];
+				const staged: DataRow[] = [];
+				res.forEach((response: any) => {
+					buildingName.forEach((building: string) => {
+						wasteType.forEach((type: string) => {
+							if (response[building] === undefined) {
+								console.log(
+									"No data for this building: ",
+									building
+								);
+								return;
+							}
+							staged.push({
+								Date: response.id,
+								Building: building,
+								WasteType: type,
+								Weight: getWeight(
+									response[building].weight,
+									type
+								),
+							});
+						});
+					});
 				});
+				setWasteData(staged);
 			})
 			.catch((e: any) => {
 				e instanceof Error && console.log(e.message);
@@ -137,8 +162,6 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 				setLoading(false);
 			});
 	}, []);
-	// TODO: Connect to the server.
-	// Filter rows based on search query
 
 	return loading ? (
 		<LoadingPage />
@@ -163,7 +186,7 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			/>
 			<DataTable
 				columns={columns}
-				data={filteredRows}
+				data={filteredRows} // Use filtered rows
 				selectableRows
 				selectableRowsHighlight
 				onSelectedRowsChange={handleChange}
@@ -192,12 +215,14 @@ const Header: React.FC<HeaderProps> = ({
 	setSearchQuery,
 	TrashData,
 }) => {
-	const [columns, setColumns] = useState(false);
-	const showColumnsList = () => {
-		setColumns(true);
-	};
 	const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchQuery(event.target.value);
+	};
+
+	const [columns, setColumns] = useState(false);
+
+	const showColumnsList = () => {
+		setColumns(true);
 	};
 
 	return (
@@ -225,8 +250,9 @@ const Header: React.FC<HeaderProps> = ({
 								Toggle Columns
 							</Dropdown.Toggle>
 							<Dropdown.Menu>
-								{Object.keys(TrashData[0]).map(
-									(column: string) => (
+								{Object.keys(TrashData[0])
+									.filter((column) => column !== "Number")
+									.map((column: string) => (
 										<Form.Check
 											type="checkbox"
 											id={column}
@@ -240,8 +266,7 @@ const Header: React.FC<HeaderProps> = ({
 											className="d-flex gap-2"
 											style={{ marginLeft: "7px" }}
 										/>
-									)
-								)}
+									))}
 							</Dropdown.Menu>
 						</Dropdown>
 						<Form className="d-flex w-50">

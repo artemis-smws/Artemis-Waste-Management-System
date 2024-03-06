@@ -17,7 +17,6 @@ export function App() {
 	useEffect(() => {
     useFetch("trashbin", "trashbin")
 		.then((data : any) => {
-			console.log(data)
 			setTrashbinData(data)
 		})
 		.catch((e: any) => {
