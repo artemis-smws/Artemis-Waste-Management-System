@@ -92,10 +92,10 @@ const AddWaste = () => {
                 <div className="d-flex justify-content-start flex-column mt-3">
                   <Form.Label>Type of Waste</Form.Label>
                   <Form.Select className="add-waste-input d-flex justify-content-between align-items-center">
-                    <option value="">Biodegredable</option>
-                    <option value="">Recyclable</option>
-                    <option value="">Food Waste</option>
-                    <option value="">Infectious</option>
+                    <option value="biodegradable">Biodegredable</option>
+                    <option value="recyclable">Recyclable</option>
+                    <option value="residual">Residual</option>
+                    <option value="infectious">Infectious</option>
                   </Form.Select>
                   <div className="mt-3">
                     <Form.Label>Weight</Form.Label>
