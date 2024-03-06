@@ -12,12 +12,6 @@ const AddWaste = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [wasteDescription, setWasteDescription] = useState("");
   const [weight, setWeight] = useState("");
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const target = e.target as HTMLInputElement;
-    setSelectedDate(new Date(target.value));
-  };
 
   const handleSubmit = () => {
     setIsOpen(false);
@@ -80,12 +74,7 @@ const AddWaste = () => {
                     <div className="row">
                       <div className="col">
                         <div className="date-picker-wrapper">
-                          <Form.Control
-                            as={DatePicker}
-                            selected={selectedDate}
-                            onChange={handleChange}
-                            className="form-control"
-                          />
+                          <MyDatePicker />
                           <span className="date-picker-icon">
                             <LuCalendarDays />
                           </span>

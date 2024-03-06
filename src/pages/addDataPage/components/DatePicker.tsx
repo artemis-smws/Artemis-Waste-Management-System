@@ -8,17 +8,15 @@ import { Form } from "react-bootstrap";
 const MyDatePicker: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const target = e.target as HTMLInputElement;
-    setSelectedDate(new Date(target.value));
+  const handleChange = (date: Date | null) => {
+    setSelectedDate(date);
   };
 
   return (
     <div className="row">
       <div className="col">
         <div className="date-picker-wrapper">
-          <Form.Control
-            as={DatePicker}
+          <DatePicker
             selected={selectedDate}
             onChange={handleChange}
             className="form-control"
