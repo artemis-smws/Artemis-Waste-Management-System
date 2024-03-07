@@ -126,6 +126,7 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 					"biodegradable",
 					"recyclable",
 					"residual",
+					"total"
 				];
 				const staged: DataRow[] = [];
 				res.forEach((response: any) => {

@@ -43,6 +43,10 @@ const AddWaste = () => {
 		useFetch(`waste/${newDate[0]}-${newDate[1]}-${newDate[2]}`, "latest")
 			.then((data) => {
 				const latestData = data[0][building];
+				const biodegradable = latestData.weight.biodegradable + (wasteType === "biodegradable" ? weight : 0)  
+				const recyclable = latestData.weight.recyclable.total + (wasteType === "recyclable" ? weight : 0)  
+				const residual = latestData.weight.residual + (wasteType === "residual" ? weight : 0) 
+				const infectious = latestData.weight.infectious + (wasteType === "infectious" ? weight : 0) 
 				fetch(
 					`${import.meta.env.VITE_API_URL}waste/${newDate[0]}-${
 						newDate[1]
@@ -56,21 +60,13 @@ const AddWaste = () => {
 							building_name: building,
 							campus: latestData.campus,
 							weight: {
-								biodegradable:
-									latestData.weight.biodegredable +
-									(wasteType === "biodegradable"
-										? weight
-										: 0),
-								recyclable:
-									latestData.weight.recyclable.total +
-									(wasteType === "recyclable" ? weight : 0),
-								residual:
-									latestData.weight.residual +
-									(wasteType === "residual" ? weight : 0),
-								infectious:
-									latestData.weight.infectious +
-									(wasteType === "infectious" ? weight : 0),
-								total: latestData.weight.total + weight,
+								biodegradable: biodegradable,
+								recyclable:{
+									total : recyclable
+								}, 
+								residual: residual,
+								infectious: infectious,
+								total: biodegradable + recyclable + residual + infectious,
 							},
 							date: `${newDate[0]}-${newDate[1]}-${newDate[2]}`,
 						}),
