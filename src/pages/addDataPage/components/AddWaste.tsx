@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MyDatePicker from "./DatePicker";
@@ -8,6 +8,7 @@ import { LuCalendarDays } from "react-icons/lu";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useFetch from "../../../hooks/useFetch";
+import getBuidlingNames from "../../dashboardPage/utils/getBuildingNames";
 
 const AddWaste = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,17 @@ const AddWaste = () => {
 	const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 	const [building, setBuilding] = useState("CEAFA");
 	const [wasteType, setWasteType] = useState("biodegradable");
-
+	const [buildingList, setBuildingList] = useState(["CEAFA", "SSC", " CIT"]);
+	useEffect(() => {
+		useFetch('waste/latest', "buildingNames")
+			.then((res) => {
+				const buildingNames = getBuidlingNames(res)
+				setBuildingList(buildingNames)
+			})
+			.catch((e : any) => {
+				console.log(e.message)
+			})
+	}, [])
 	const handleSubmit = () => {
 		setIsOpen(false);
 		if (weight === 0 || selectedDate === null) {
@@ -43,10 +54,18 @@ const AddWaste = () => {
 		useFetch(`waste/${newDate[0]}-${newDate[1]}-${newDate[2]}`, "latest")
 			.then((data) => {
 				const latestData = data[0][building];
-				const biodegradable = latestData.weight.biodegradable + (wasteType === "biodegradable" ? weight : 0)  
-				const recyclable = latestData.weight.recyclable.total + (wasteType === "recyclable" ? weight : 0)  
-				const residual = latestData.weight.residual + (wasteType === "residual" ? weight : 0) 
-				const infectious = latestData.weight.infectious + (wasteType === "infectious" ? weight : 0) 
+				const biodegradable = latestData.weight.biodegradable
+					? latestData.weight.biodegradable
+					: weight;
+				const recyclable = latestData.weight.recyclable.total
+					? latestData.weight.recyclable.total
+					: weight;
+				const residual = latestData.weight.residual
+					? latestData.weight.residual
+					: weight;
+				const infectious = latestData.weight.infectious
+					? latestData.weight.infectious
+					: weight;
 				fetch(
 					`${import.meta.env.VITE_API_URL}waste/${newDate[0]}-${
 						newDate[1]
@@ -61,12 +80,16 @@ const AddWaste = () => {
 							campus: latestData.campus,
 							weight: {
 								biodegradable: biodegradable,
-								recyclable:{
-									total : recyclable
-								}, 
+								recyclable: {
+									total: recyclable,
+								},
 								residual: residual,
 								infectious: infectious,
-								total: biodegradable + recyclable + residual + infectious,
+								total:
+									biodegradable +
+									recyclable +
+									residual +
+									infectious,
 							},
 							date: `${newDate[0]}-${newDate[1]}-${newDate[2]}`,
 						}),
@@ -143,18 +166,15 @@ const AddWaste = () => {
 											}}
 											className="add-waste-input d-flex justify-content-between align-items-center"
 										>
-											<option value="CEAFA">
-												CEAFA Building
-											</option>
-											<option value="CICS">
-												CICS Building
-											</option>
-											<option value="CIT">
-												CIT Building
-											</option>
-											<option value="ACES">
-												ACES Building
-											</option>
+											{buildingList.map(
+												(building: string) => {
+													return (
+														<option value={building}>
+															{building}
+														</option>
+													);
+												}
+											)}
 										</Form.Select>
 									</div>
 									<div>
