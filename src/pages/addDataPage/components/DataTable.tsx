@@ -10,6 +10,7 @@ import useFetch from "../../../hooks/useFetch";
 import LoadingPage from "../../../components/loadingPage";
 import getBuidlingNames from "../../dashboardPage/utils/getBuildingNames";
 import getWeight from "../utils/getWeight";
+import { toast } from "react-toastify";
 
 interface DataRow {
 	Date: string;
@@ -47,9 +48,81 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 		}
 	};
 
-	const handleDeleteRow = (row: DataRow) => {};
+	const handleDeleteRow = (row: DataRow) => {
+		console.log(row);
+		const latestDataString = localStorage.getItem("7days");
+		const latestData = JSON.parse(latestDataString!)[0];
+		const biodegradable =
+			row.WasteType === "biodegradable"
+				? 0
+				: latestData[row.Building].weight.biodegradable;
+		const recyclable =
+			row.WasteType === "recyclable"
+				? { total: 0 }
+				: latestData[row.Building].weight.recyclable.total;
+		const residual =
+			row.WasteType === "residual"
+				? 0
+				: latestData[row.Building].weight.residual;
+		const infectious =
+			row.WasteType === "infectious"
+				? 0
+				: latestData[row.Building].weight.infectious;
+		fetch(
+			`${import.meta.env.VITE_API_URL}waste/reset-current/${row.Date}`,
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					building_name: row.Building,
+					campus: latestData[row.Building].campus,
+					waste_type: {
+						biodegradable: row.WasteType === biodegradable,
+						recyclable: row.WasteType === recyclable,
+						residual: row.WasteType === residual,
+						infectious: row.WasteType === infectious,
+						total:
+							biodegradable + recyclable + residual + infectious,
+					},
+				}),
+			}
+		)
+			.then((res: any) => {
+				if (res.status !== 200) {
+					throw new Error("Data not deleted successfully. ");
+				}
+				toast.success("Data deleted successfully. ", {
+					position: "bottom-right",
+					autoClose: 3000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "dark",
+				});
+				console.log(res);
+			})
+			.catch((e: any) => {
+				toast.error("Data not deleted successfully. ", {
+					position: "bottom-right",
+					autoClose: 3000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "dark",
+				});
+				console.log(e.message);
+			});
+	};
 
-	const handleUpdateRow = (row: DataRow) => {};
+	const handleUpdateRow = (row: DataRow) => {
+		console.log(row);
+	};
 
 	const CustomDropdown: React.FC<CustomDropdownProps> = ({ row }) => (
 		<Dropdown>
@@ -126,13 +199,22 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 					"biodegradable",
 					"recyclable",
 					"residual",
-					"total"
+					"total",
 				];
 				const staged: DataRow[] = [];
 				res.forEach((response: any) => {
 					const buildingList = Object.keys(response).filter((key) => {
-						return (key != "createdAt" && key != "overall_biodegradable" && key != "overall_recyclable" && key != "overall_residual" && key != "overall_infectious" && key != "overall_weight" && key != "id") && key
-					})
+						return (
+							key != "createdAt" &&
+							key != "overall_biodegradable" &&
+							key != "overall_recyclable" &&
+							key != "overall_residual" &&
+							key != "overall_infectious" &&
+							key != "overall_weight" &&
+							key != "id" &&
+							key
+						);
+					});
 					buildingList.forEach((building: string) => {
 						wasteType.forEach((type: string) => {
 							if (response[building] === undefined) {
