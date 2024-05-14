@@ -36,7 +36,7 @@ const CalendarButton = () => {
 
     return (
         <div>
-            <button type="button" className="btn btn-primary" onClick={toggleCalendar} ref={buttonRef}>
+            <button type="button" className="btn btn-primary bg-success border-0" onClick={toggleCalendar} ref={buttonRef}>
                 <LuCalendarDays />
             </button>
             {calendarOpen && (
