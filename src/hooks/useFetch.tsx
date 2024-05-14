@@ -1,4 +1,4 @@
-export default async function useFetch(endpoint : string, name : string) {
+export default async function useFetch(endpoint : string, name ?: string) {
     const data = await fetch(
         `${import.meta.env.VITE_API_URL}${endpoint}`,
         {
@@ -9,6 +9,8 @@ export default async function useFetch(endpoint : string, name : string) {
         }
     )
     const jsonData = await data.json()
-    localStorage.setItem(name, JSON.stringify(jsonData))
+    if (name) {
+        localStorage.setItem(name, JSON.stringify(jsonData))
+    }
     return jsonData
 }   
