@@ -7,16 +7,17 @@ interface Props {
     maxHeight?: string;
     filterOptions?: React.ReactNode;
     height?: string;
+    minHeight?: string;
 }
 
-export default function AdminChartCard({ maxHeight, header, children, width, filterOptions, height }: Props) {
+export default function AdminChartCard({ maxHeight, header, children, width, filterOptions, height, minHeight }: Props) {
     return (
         <div
-            className="flex flex-col bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden"
+            className="flex flex-col bg-white border border-gray-200/60 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden w-full h-full"
             style={{
                 width: width ?? '100%',
                 height: height,
-                minHeight: '350px',
+                minHeight: minHeight ?? (height === '100%' ? '100%' : (height ? height : '350px')),
                 maxHeight: maxHeight === undefined ? '350px' : maxHeight,
             }}
         >

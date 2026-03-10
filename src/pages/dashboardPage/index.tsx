@@ -42,14 +42,14 @@ interface WasteTileProps {
 function WasteTile({ label, value, color, bgColor, dotColor }: WasteTileProps) {
   return (
     <div
-      className="flex flex-col items-center justify-center gap-0.5 rounded-lg py-3 px-2 border"
+      className="group flex flex-col items-center justify-center gap-0.5 rounded-lg py-3 px-2 border hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default"
       style={{ backgroundColor: bgColor, borderColor: dotColor + "33" }}
     >
       <div className="flex items-center gap-1.5 mb-1">
-        <span className="w-2 h-2 rounded-full inline-block" style={{ backgroundColor: dotColor }} />
+        <span className="w-2 h-2 rounded-full inline-block group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: dotColor }} />
         <span className="text-xs font-medium text-gray-500">{label}</span>
       </div>
-      <span className="text-lg font-bold font-mono" style={{ color }}>
+      <span className="text-xl font-bold font-mono group-hover:scale-105 transition-transform duration-300" style={{ color }}>
         {value} kg
       </span>
     </div>
@@ -110,7 +110,7 @@ export default function Dashboard() {
             <div className="flex flex-col flex-1 min-w-0 h-screen overflow-hidden border-l border-gray-200">
 
               {/* ── Top navbar ──────────────────────────────────────── */}
-              <header className="flex items-center justify-between px-6 py-0 bg-white border-b border-gray-200 shadow-sm shrink-0 h-16">
+              <header className="flex items-center justify-between px-6 py-0 bg-white/80 backdrop-blur-md border-b border-gray-200/75 shadow-sm shrink-0 h-16 sticky top-0 z-20">
                 <div className="flex items-center gap-3">
                   <div className="w-1 h-6 rounded-full bg-[#216604]" />
                   <h1 className="text-xl font-bold text-[#171717] tracking-tight m-0">Dashboard</h1>
@@ -138,13 +138,15 @@ export default function Dashboard() {
               </header>
 
               {/* ── Page body ───────────────────────────────────────── */}
-              <main className="flex-1 overflow-y-auto bg-[#f1f1f1] px-6 pt-6 pb-10">
+              <main className="flex-1 overflow-y-auto bg-gradient-to-br from-[#f1f1f1] to-gray-200/50 px-6 pt-6 pb-10">
 
                 {/* KPI Overview Strip */}
-                <OverviewCard />
+                <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both">
+                  <OverviewCard />
+                </div>
 
                 {/* ── Section: Waste Generated ───────────────────────── */}
-                <section className="flex flex-col w-full">
+                <section className="flex flex-col w-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both" style={{ animationDelay: '150ms' }}>
                   {/* Section header */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
@@ -194,10 +196,10 @@ export default function Dashboard() {
                   {/* Chart row 1 — Area chart + Donut + waste totals */}
                   <div className="flex gap-5 w-full">
                     {/* Area chart (Overall Weight) */}
-                    <div className="flex-[3] min-w-0">
+                    <div className="flex-[3] min-w-0 flex">
                       <AdminChartCard
                         maxHeight="100%"
-                        height="360px"
+                        height="100%"
                         header="Overall Weight Over Time"
                       >
                         <WasteGenerated />
@@ -251,7 +253,7 @@ export default function Dashboard() {
                 </section>
 
                 {/* ── Section: Per Building ──────────────────────────── */}
-                <section className="flex flex-col w-full mt-6">
+                <section className="flex flex-col w-full mt-6 animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both" style={{ animationDelay: '300ms' }}>
                   <div className="flex items-center gap-2 mb-4">
                     <span className="w-1 h-5 rounded-full bg-[#216604] inline-block" />
                     <h2 className="text-lg font-semibold text-[#171717] m-0 tracking-tight">

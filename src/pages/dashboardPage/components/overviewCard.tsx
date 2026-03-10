@@ -18,22 +18,27 @@ interface StatItemProps {
 
 function StatItem({ icon, label, value, date, colorClass, borderClass, accentColor }: StatItemProps) {
   return (
-    <div className={`flex flex-col items-center justify-center gap-1 flex-1 px-8 py-2 ${borderClass ?? ""}`}>
+    <div className={`group flex flex-col items-center justify-center gap-1 flex-1 px-8 py-4 ${borderClass ?? ""} hover:bg-gray-50/50 transition-colors duration-300 relative overflow-hidden`}>
       <div className={`flex items-center gap-2 text-sm font-medium mb-1 ${colorClass}`}>
-        <span>{icon}</span>
+        <span className="transform group-hover:scale-110 group-hover:-translate-y-0.5 transition-transform duration-300">{icon}</span>
         <span>{label}</span>
       </div>
       <div
-        className={`text-3xl font-bold font-mono tracking-tight ${colorClass}`}
+        className={`text-3xl font-bold font-mono tracking-tight ${colorClass} group-hover:scale-105 transition-transform duration-300`}
       >
         {value}
       </div>
       {date && (
         <div className="text-xs text-gray-400 mt-0.5">{date}</div>
       )}
+      {/* Subtle background glow effect on hover */}
+      <div 
+        className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none"
+        style={{ backgroundColor: accentColor }}
+      />
       {/* Accent bar */}
       <div
-        className="mt-3 h-0.5 w-12 rounded-full opacity-40"
+        className="mt-3 h-0.5 w-12 rounded-full opacity-40 group-hover:w-16 group-hover:opacity-100 transition-all duration-300"
         style={{ backgroundColor: accentColor }}
       />
     </div>
@@ -74,7 +79,7 @@ export default function OverviewCard() {
   const averageVal = average <= 0 ? "N/A" : `${average.toPrecision(4)} kg`;
 
   return (
-    <div className="w-full bg-white border border-gray-200 rounded-xl shadow-sm mb-6 flex divide-x divide-gray-100 overflow-hidden">
+    <div className="w-full bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 mb-6 flex divide-x divide-gray-100/50 overflow-hidden">
       <StatItem
         icon={<BsGraphUpArrow />}
         label="Highest"
