@@ -1,6 +1,5 @@
 import LineChart from "../../../components/charts/LineChart";
 import { useContext, useEffect, useState } from "react";
-import { ChartOptions } from "chart.js";
 import { WasteDataContext } from "../../../context/wasteDataContext";
 
 export default function WasteGenerated() {
@@ -24,33 +23,10 @@ export default function WasteGenerated() {
     setDataDay(staged_days.reverse())
   }, [contextData]);
 
-  const data = {
-    labels:  dataDay,
-    datasets: [
-      {
-        data: dataWeight,
-        fill: true,
-        borderColor: "grey",
-        tension: 0.2,
-      },
-    ],
-  };
+  const chartData = dataDay.map((day, i) => ({
+    name: day,
+    value: dataWeight[i]
+  }));
 
-  const options: ChartOptions = {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-      ],
-    },
-    maintainAspectRatio: false,
-    legend: {
-      display: false,
-    },
-  };
-
-  return <LineChart data={data} options={options} />;
+  return <LineChart data={chartData} />;
 }

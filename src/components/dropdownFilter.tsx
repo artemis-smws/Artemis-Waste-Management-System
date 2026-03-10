@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
 interface dropdownItem {
   label: String;
@@ -15,14 +15,26 @@ const DropdownFilter: React.FC<Props> = ({
   dropdown_item,
 }) => {
   return (
-    <Dropdown>
-      <Dropdown.Toggle variant="Success">{dropdown_header}</Dropdown.Toggle>
-      <Dropdown.Menu> 
-        {dropdown_item.map(({actions, label}) => (
-          <Dropdown.Item key={label as string} onClick={actions}>{label}</Dropdown.Item>
-        ))}
-      </Dropdown.Menu>
-    </Dropdown>
+    <DropdownMenu.Root>
+      <DropdownMenu.Trigger asChild>
+        <button className="px-4 py-2 bg-success text-white rounded-md shadow-sm hover:bg-green-700 transition font-medium focus:outline-none focus:ring-2 focus:ring-green-500">
+          {dropdown_header as string}
+        </button>
+      </DropdownMenu.Trigger>
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content className="min-w-[150px] bg-white rounded-md shadow-lg border border-gray-200 p-1 z-50 flex flex-col">
+          {dropdown_item.map(({ actions, label }) => (
+            <DropdownMenu.Item
+              key={label as string}
+              onClick={actions}
+              className="px-3 py-2 text-sm cursor-pointer hover:bg-gray-100 rounded flex outline-none text-gray-700 font-medium"
+            >
+              {label as string}
+            </DropdownMenu.Item>
+          ))}
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
+    </DropdownMenu.Root>
   );
 };
 

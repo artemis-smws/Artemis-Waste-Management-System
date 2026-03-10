@@ -11,26 +11,26 @@ const Legend: React.FC<props> = ({close}) => {
     return(
         <div className="legend-container">
              <div
-                  className="d-flex justify-content-center"
+                  className="flex justify-center"
                   id="trash-percentage"
                   onClick={close}
                 >
                     <div
-                      className="d-flex justify-content-center align-items-center"
+                      className="flex justify-center items-center"
                       id="t-percentage"
                       style={{ backgroundColor: "green" }}
                     >
                       <h1>0-30%</h1>
                     </div>
                     <div
-                      className="d-flex justify-content-center align-items-center"
+                      className="flex justify-center items-center"
                       id="t-percentage"
                       style={{ backgroundColor: "yellow" }}
                     >
                       <h1>31%-60%</h1>
                     </div>
                     <div
-                      className="d-flex justify-content-center align-items-center"
+                      className="flex justify-center items-center"
                       id="t-percentage"
                       style={{ backgroundColor: "rgb(212, 63, 63)" }}
                     >
@@ -38,7 +38,7 @@ const Legend: React.FC<props> = ({close}) => {
                     </div>
                 </div>
 
-                <div className="d-flex flex-column justify-content-center align-items-center m-1">
+                <div className="flex flex-col justify-center items-center m-1">
                   <SelectSchool />       
                   <DropdownSelectDate />
                 </div>

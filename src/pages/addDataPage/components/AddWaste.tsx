@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MyDatePicker from "./DatePicker";
-import "../styles/AddWaste.scss";
-import { Form, Button } from "react-bootstrap";
 import { LuCalendarDays } from "react-icons/lu";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useFetch from "../../../hooks/useFetch";
 import getBuidlingNames from "../../dashboardPage/utils/getBuildingNames";
+import * as Dialog from "@radix-ui/react-dialog";
 
 const AddWaste = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +27,8 @@ const AddWaste = () => {
 				console.log(e.message)
 			})
 	}, [])
-	const handleSubmit = () => {
+	const handleSubmit = (e?: React.FormEvent) => {
+		if (e) e.preventDefault();
 		setIsOpen(false);
 		if (weight === 0 || selectedDate === null) {
 			toast.error("Please fill out the form. ", {
@@ -51,6 +51,7 @@ const AddWaste = () => {
 				day: "numeric",
 			})
 			.split("/");
+    if(!newDate) return;
 		useFetch(`waste/${newDate[0]}-${newDate[1]}-${newDate[2]}`, "latest")
 			.then((data) => {
 				const latestData = data[0][building];
@@ -119,14 +120,6 @@ const AddWaste = () => {
 			});
 	};
 
-	const handleOpen = () => {
-		setIsOpen(true);
-	};
-
-	const handleClose = () => {
-		setIsOpen(false);
-	};
-
 	const handleWeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setWeight(Number(event.target.value));
 	};
@@ -136,125 +129,88 @@ const AddWaste = () => {
 
 	return (
 		<>
-			<button
-				type="button"
-				className="btn btn-success"
-				onClick={handleOpen}
-			>
-				Add Waste
-			</button>
-			{isOpen && (
-				<div className="add-card">
-					<div className="add-card-content d-flex flex-column justify-content-between align-items-center">
-						<div className="header w-100 p-3 d-flex justify-content-start align-items-center">
-							<h1 className="m-0">Add Waste</h1>
+			<Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
+				<Dialog.Trigger asChild>
+					<button className="bg-success text-white px-4 py-2 rounded shadow-sm hover:bg-green-700 transition font-medium">
+						Add Waste
+					</button>
+				</Dialog.Trigger>
+				<Dialog.Portal>
+					<Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+					<Dialog.Content className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-[512px] translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white shadow-lg duration-200 sm:rounded-lg overflow-hidden">
+						<div className="bg-[#216604] px-6 py-4 flex items-center">
+							<Dialog.Title className="text-xl font-medium text-white m-0 tracking-wide font-inter">
+								Add Waste
+							</Dialog.Title>
 						</div>
-						<Form className="input-section w-100 h-100 d-flex flex-column justify-content-around px-3">
-							<div>
-								<div className="d-flex justify-content-center align-items-center gap-3">
-									<div>
-										<Form.Label>Building</Form.Label>
-										<Form.Select
-											onChange={(e: any) => {
-												setBuilding(e.target.value);
-											}}
-											className="add-waste-input d-flex justify-content-between align-items-center"
-										>
-											{buildingList.map(
-												(building: string) => {
-													return (
-														<option value={building}>
-															{building}
-														</option>
-													);
-												}
-											)}
-										</Form.Select>
-									</div>
-									<div>
-										<Form.Label>Date</Form.Label>
-										<div className="row">
-											<div className="col">
-												<div className="date-picker-wrapper">
-													<div className="row">
-														<div className="col">
-															<div className="date-picker-wrapper">
-																<DatePicker
-																	selected={
-																		selectedDate
-																	}
-																	onChange={
-																		handleDateChange
-																	}
-																	className="form-control"
-																/>
-																<span className="date-picker-icon">
-																	<LuCalendarDays />
-																</span>
-															</div>
-														</div>
-													</div>
-													<span className="date-picker-icon">
-														<LuCalendarDays />
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="d-flex justify-content-start flex-column mt-3">
-									<Form.Label>Type of Waste</Form.Label>
-									<Form.Select
-										onChange={(e: any) => {
-											setWasteType(e.target.value);
-										}}
-										className="add-waste-input d-flex justify-content-between align-items-center"
+						<form className="bg-gray-100 flex flex-col p-6 space-y-6" onSubmit={handleSubmit}>
+							
+							<div className="flex gap-4 w-full">
+								<div className="flex-1 space-y-2">
+									<label className="text-sm font-medium text-gray-700">Building</label>
+									<select
+										onChange={(e) => setBuilding(e.target.value)}
+										className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
 									>
-										<option value="biodegradable">
-											Biodegredable
-										</option>
-										<option value="recyclable">
-											Recyclable
-										</option>
-										<option value="residual">
-											Residual
-										</option>
-										<option value="infectious">
-											Infectious
-										</option>
-									</Form.Select>
-									<div className="mt-3">
-										<Form.Label>Weight</Form.Label>
-										<Form.Control
-											min={0}
-											type="number"
-											className="weight-input"
-											value={weight}
-											onChange={handleWeightChange}
-										></Form.Control>
+										{buildingList.map((bldg: string, idx: number) => (
+											<option key={idx} value={bldg}>{bldg}</option>
+										))}
+									</select>
+								</div>
+								
+								<div className="flex-1 space-y-2">
+									<label className="text-sm font-medium text-gray-700">Date</label>
+									<div className="relative w-full">
+										<DatePicker
+											selected={selectedDate}
+											onChange={handleDateChange}
+											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
+										/>
+										<span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
+											<LuCalendarDays />
+										</span>
 									</div>
 								</div>
 							</div>
-							<div className="d-flex justify-content-end align-items-center w-100">
-								<Button
-									type="button"
-									className="btn btn-secondary m-1"
-									onClick={handleClose}
+
+							<div className="flex flex-col space-y-2">
+								<label className="text-sm font-medium text-gray-700">Type of Waste</label>
+								<select
+									onChange={(e) => setWasteType(e.target.value)}
+									className="w-[256px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
 								>
-									Close
-								</Button>
-								<Button
-									type="submit"
-									className="btn btn-success m-1"
-									onClick={handleSubmit}
-								>
-									Confirm
-								</Button>
+									<option value="biodegradable">Biodegredable</option>
+									<option value="recyclable">Recyclable</option>
+									<option value="residual">Residual</option>
+									<option value="infectious">Infectious</option>
+								</select>
 							</div>
-						</Form>
-					</div>
-				</div>
-			)}
+
+							<div className="flex flex-col space-y-2">
+								<label className="text-sm font-medium text-gray-700">Weight</label>
+								<input
+									min={0}
+									type="number"
+									className="w-[138px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
+									value={weight}
+									onChange={handleWeightChange}
+								/>
+							</div>
+
+							<div className="flex justify-end gap-3 mt-4 w-full">
+								<Dialog.Close asChild>
+									<button type="button" className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition font-medium min-w-[80px]">
+										Close
+									</button>
+								</Dialog.Close>
+								<button type="submit" className="px-4 py-2 bg-success text-white rounded-md hover:bg-green-700 transition font-medium min-w-[80px]">
+									Confirm
+								</button>
+							</div>
+						</form>
+					</Dialog.Content>
+				</Dialog.Portal>
+			</Dialog.Root>
 
 			<ToastContainer
 				position="bottom-right"

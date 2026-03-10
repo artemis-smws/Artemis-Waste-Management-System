@@ -1,5 +1,3 @@
-import { HouseDoorFill } from "react-bootstrap-icons";
-
 export const sidebar = {
     sidebar_button : [
         {

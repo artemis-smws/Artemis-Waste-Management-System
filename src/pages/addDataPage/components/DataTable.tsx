@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { TrashData } from "./TableData";
-import { Dropdown, Form, Button, Card } from "react-bootstrap";
 import DeleteButton from "./DeleteButton";
 import CalendarButton from "./Calendar";
 import AddWaste from "./AddWaste";
-import "../styles/AddWaste.scss";
 import useFetch from "../../../hooks/useFetch";
 import LoadingPage from "../../../components/loadingPage";
 import getBuidlingNames from "../../dashboardPage/utils/getBuildingNames";
 import getWeight from "../utils/getWeight";
 import { toast } from "react-toastify";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { BsThreeDotsVertical, BsFilterLeft } from "react-icons/bs";
 
 interface DataRow {
 	Date: string;
@@ -51,7 +51,8 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 	const handleDeleteRow = (row: DataRow) => {
 		console.log(row);
 		const latestDataString = localStorage.getItem("7days");
-		const latestData = JSON.parse(latestDataString!)[0];
+		const latestData = latestDataString ? JSON.parse(latestDataString)[0] : null;
+		if (!latestData) return;
 		const biodegradable =
 			row.WasteType === "biodegradable"
 				? 0
@@ -125,21 +126,29 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 	};
 
 	const CustomDropdown: React.FC<CustomDropdownProps> = ({ row }) => (
-		<Dropdown>
-			<Dropdown.Toggle
-				variant="light"
-				id="dropdown-basic"
-			></Dropdown.Toggle>
-
-			<Dropdown.Menu>
-				<Dropdown.Item onClick={() => handleDeleteRow(row)}>
-					Delete
-				</Dropdown.Item>
-				<Dropdown.Item onClick={() => handleUpdateRow(row)}>
-					Update
-				</Dropdown.Item>
-			</Dropdown.Menu>
-		</Dropdown>
+		<DropdownMenu.Root>
+			<DropdownMenu.Trigger asChild>
+				<button className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-tertiary">
+					<BsThreeDotsVertical />
+				</button>
+			</DropdownMenu.Trigger>
+			<DropdownMenu.Portal>
+				<DropdownMenu.Content className="min-w-[120px] bg-white rounded-md shadow-lg border border-gray-200 p-1 flex flex-col z-50">
+					<DropdownMenu.Item
+						className="px-3 py-2 text-sm cursor-pointer hover:bg-red-50 hover:text-red-700 text-red-600 rounded outline-none"
+						onClick={() => handleDeleteRow(row)}
+					>
+						Delete
+					</DropdownMenu.Item>
+					<DropdownMenu.Item
+						className="px-3 py-2 text-sm cursor-pointer hover:bg-gray-100 rounded outline-none"
+						onClick={() => handleUpdateRow(row)}
+					>
+						Update
+					</DropdownMenu.Item>
+				</DropdownMenu.Content>
+			</DropdownMenu.Portal>
+		</DropdownMenu.Root>
 	);
 
 	const columns = [
@@ -250,14 +259,7 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 	return loading ? (
 		<LoadingPage />
 	) : (
-		<div
-			className="d-flex flex-column"
-			style={{
-				position: "relative",
-				height: "100vh",
-				overflow: "hidden",
-			}}
-		>
+		<div className="flex flex-col relative h-full min-h-screen overflow-hidden">
 			<Header
 				isDeleteButtonVisible={isDeleteButtonVisible}
 				handleDelete={() => {
@@ -268,16 +270,18 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 				setSearchQuery={setSearchQuery}
 				TrashData={TrashData}
 			/>
-			<DataTable
-				columns={columns}
-				data={filteredRows.reverse()} // Use filtered rows
-				selectableRows
-				selectableRowsHighlight
-				onSelectedRowsChange={handleChange}
-				pagination
-				paginationPerPage={20}
-				fixedHeader
-			/>
+			<div className="flex-1 overflow-auto w-full">
+				<DataTable
+					columns={columns}
+					data={filteredRows.reverse()} // Use filtered rows
+					selectableRows
+					selectableRowsHighlight
+					onSelectedRowsChange={handleChange}
+					pagination
+					paginationPerPage={20}
+					fixedHeader
+				/>
+			</div>
 		</div>
 	);
 };
@@ -303,63 +307,51 @@ const Header: React.FC<HeaderProps> = ({
 		setSearchQuery(event.target.value);
 	};
 
-	const [columns, setColumns] = useState(false);
-
-	const showColumnsList = () => {
-		setColumns(true);
-	};
-
 	return (
-		<div
-			style={{
-				position: "sticky",
-				top: "0",
-				zIndex: 1000,
-				backgroundColor: "#fff",
-			}}
-		>
-			<div className="d-flex justify-content-between align-items-center border-bottom border-2 shadow p-3 w-100">
-				<div className="d-flex gap-3 justify-content-between align-items-center w-100">
-					<div className="w-50 d-flex gap-3">
+		<div className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
+			<div className="flex justify-between items-center p-4 w-full">
+				<div className="flex gap-4 justify-between items-center w-full">
+					<div className="w-1/2 flex items-center gap-4">
 						<CalendarButton />
 						{isDeleteButtonVisible && (
 							<DeleteButton onClick={handleDelete} />
 						)}
-						<Dropdown className="d-flex">
-							<Dropdown.Toggle
-								variant="light"
-								id="dropdown-basic"
-								className="border-0"
-							>
-								Toggle Columns
-							</Dropdown.Toggle>
-							<Dropdown.Menu>
-								{Object.keys(TrashData[0])
-									.filter((column) => column !== "Number")
-									.map((column: string) => (
-										<Form.Check
-											type="checkbox"
-											id={column}
-											label={column}
-											checked={
-												!hiddenColumns.includes(column)
-											}
-											onChange={() =>
-												toggleColumn(column)
-											}
-											className="d-flex gap-2"
-											style={{ marginLeft: "7px" }}
-										/>
-									))}
-							</Dropdown.Menu>
-						</Dropdown>
-						<Form className="d-flex w-50">
-							<Form.Control
+						<DropdownMenu.Root>
+							<DropdownMenu.Trigger asChild>
+								<button className="flex items-center gap-2 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-tertiary text-sm font-medium">
+									<BsFilterLeft className="text-lg" />
+									Toggle Columns
+								</button>
+							</DropdownMenu.Trigger>
+							<DropdownMenu.Portal>
+								<DropdownMenu.Content className="min-w-[150px] bg-white rounded-md shadow-lg border border-gray-200 p-2 flex flex-col gap-1 z-50">
+									{Object.keys(TrashData[0] || {})
+										.filter((column) => column !== "Number")
+										.map((column: string) => (
+											<label
+												key={column}
+												className="flex items-center gap-2 px-2 py-1.5 text-sm cursor-pointer hover:bg-gray-50 rounded"
+											>
+												<input
+													type="checkbox"
+													checked={!hiddenColumns.includes(column)}
+													onChange={() => toggleColumn(column)}
+													className="rounded border-gray-300 text-tertiary focus:ring-tertiary"
+												/>
+												{column}
+											</label>
+										))}
+								</DropdownMenu.Content>
+							</DropdownMenu.Portal>
+						</DropdownMenu.Root>
+						<form className="flex w-1/2" onSubmit={(e) => e.preventDefault()}>
+							<input
 								type="text"
 								placeholder="Search"
 								onChange={handleSearchChange}
-							></Form.Control>
-						</Form>
+								className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
+							/>
+						</form>
 					</div>
 					<div>
 						<AddWaste />

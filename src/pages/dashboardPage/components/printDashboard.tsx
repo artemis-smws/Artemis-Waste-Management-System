@@ -46,22 +46,22 @@ export default function DashboardPrint() {
 		<div className="vw-100 vh-100">
 			<br />
 			<div
-				className="d-flex justify-content-center align-items-center"
+				className="flex justify-center items-center"
 				id="report-title"
 			>
 				ArteMIS Last 30 days Report
 			</div>
 			<div
-				className="d-flex justify-content-center align-items-center"
+				className="flex justify-center items-center"
 				id="report-date"
 			>
 				{reportDate}
 			</div>
-			<div className="d-flex flex-column justify-content-center">
+			<div className="flex flex-col justify-center">
 				<br />
 				<div id="table-1">
 					<div
-						className="d-flex flex-column justify-content-center align-items-center"
+						className="flex flex-col justify-center items-center"
 						id="table-title"
 					>
 						<h1>Table 1.</h1>
@@ -90,7 +90,7 @@ export default function DashboardPrint() {
 				<br />
 				<div id="table-2">
 					<div
-						className="d-flex flex-column justify-content-center align-items-center"
+						className="flex flex-col justify-center items-center"
 						id="table-title"
 					>
 						<h1>Table 2.</h1>
@@ -146,7 +146,7 @@ export default function DashboardPrint() {
 				<br />
 				<div id="table-3">
 					<div
-						className="d-flex flex-column justify-content-center align-items-center"
+						className="flex flex-col justify-center items-center"
 						id="table-title"
 					>
 						<h1>Table 3.</h1>

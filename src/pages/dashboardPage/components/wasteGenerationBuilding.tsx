@@ -1,4 +1,3 @@
-import { ChartOptions } from "chart.js";
 import {useContext, useEffect, useState} from 'react'
 import BarChart from "../../../components/charts/BarChart";
 import getBuidlingNames from "../utils/getBuildingNames";
@@ -55,54 +54,20 @@ export default function WasteGenerationBuilding() {
     }
   }, [contextData])
 
-  const data = {
-    labels: buildingName,
-    datasets: [
-      {
-        label : 'Recyclable',
-        data: recyclable,
-        backgroundColor: "#0267FF" ,
-        borderWidth: 2,
-      },
-      {
-        label : 'Residual',
-        data: residual,
-        backgroundColor: "#000000" ,
-        borderWidth: 2,
-      },
-      {
-        label : 'Biodegradable',
-        data: biodegradable,
-        backgroundColor: "#21B614" ,
-        borderWidth: 2,
-      },
-      {
-        label : 'Infectious',
-        data: infectious,
-        backgroundColor: "#F3F375" ,
-        borderWidth: 2,
-      }
-    ]
-  };
-  const option: ChartOptions = {
-    responsive: true,
-    maintainAspectRatio : false,
-    scales: {
-      xAxes : [
-        {
-          stacked: true
-        }
-      ],
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-          stacked: true
-        },
-      ],
-    }
-  };
+  const chartData = buildingName.map((name, index) => ({
+    name,
+    Recyclable: recyclable[index],
+    Residual: residual[index],
+    Biodegradable: biodegradable[index],
+    Infectious: infectious[index]
+  }));
 
-  return <BarChart data={data} options={option} />
+  const bars = [
+    { dataKey: "Recyclable", fill: "#0267FF", stackId: "a" },
+    { dataKey: "Residual", fill: "#000000", stackId: "a" },
+    { dataKey: "Biodegradable", fill: "#21B614", stackId: "a" },
+    { dataKey: "Infectious", fill: "#F3F375", stackId: "a" }
+  ];
+
+  return <BarChart data={chartData} bars={bars} />
 }

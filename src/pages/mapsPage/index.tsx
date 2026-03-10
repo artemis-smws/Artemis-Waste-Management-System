@@ -58,7 +58,7 @@ export default function Maps() {
 	}, [trashbinData]);
 
 	return (
-		<div className="d-flex">
+		<div className="flex">
 			<Sidebar />
 			<MapContainer
 				center={[mapContainer.lat, mapContainer.lng]}
@@ -89,13 +89,13 @@ export default function Maps() {
 							})}
 						>
 							<Popup>
-								<div className="d-flex flex-column justify-content-center container-header w-100 p-3">
+								<div className="flex flex-col justify-center container-header w-full p-3">
 									<h3>Trashbin ID: {data.id || "n/a"}</h3>
 									<p>
 										Location : {data.organization || "n/a"}
 									</p>
 									<p>Percentage : {data.capacity || "n/a"}</p>
-									<p>Status : {"Testing" || "n/a"}</p>
+									<p>Status : {"Testing"}</p>
 									<p>Type : {data.type || "n/a"}</p>
 								</div>
 								<div id="trashbin-activity-chart">

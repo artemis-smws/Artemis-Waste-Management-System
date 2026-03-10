@@ -2,7 +2,6 @@ import "./index.scss";
 import WasteGenerated from "./components/wasteGenerated";
 import PercentagePerCampus from "./components/percentagePerCampus";
 import Sidebar from "../../components/layout/sidebar";
-import { GraphDownArrow, GraphUpArrow } from "react-bootstrap-icons";
 import { useState, useEffect, Suspense, createContext } from "react";
 import AdminChartCard from "./components/adminChartCard";
 import WasteComposition from "./components/wasteComposition";
@@ -17,7 +16,8 @@ import ContributionPercentage from "./components/contributionPercentage";
 import OverviewCard from "./components/overviewCard";
 import LoadingPage from "../../components/loadingPage";
 import { WasteDataContext } from "../../context/wasteDataContext";
-import { Dropdown } from "react-bootstrap";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { BsPrinter } from "react-icons/bs";
 import useFetch from "../../hooks/useFetch";
 import calculateTotal from "./utils/calculateTotal";
 
@@ -40,7 +40,7 @@ export default function Dashboard() {
 		}, 500); // Adjust the timeout as needed to ensure proper rendering before printing
 	};
 	const handleFilterButton = (
-		event: React.MouseEvent<HTMLElement, MouseEvent>,
+		event: any,
 		api_endpoint: string,
 		data_name: string
 	) => {
@@ -74,98 +74,58 @@ export default function Dashboard() {
 				<LoadingPage />
 			) : (
 				<div id="dashboard">
-					<div className="d-flex">
+					<div className="flex">
 						<div className="hide-dashboard">
 							<Sidebar />
 						</div>
-						<div className="vw-100 vh-100 overflow-hidden hide-dashboard">
+						<div className="w-screen h-screen overflow-hidden hide-dashboard">
 							<Header handlePrint={handlePrint} />
 							<div
-								className="h-100 w-100 d-flex flex-column align-items-center px-4 py-4 border"
-								style={{
-									overflowY: "scroll",
-									backgroundColor: "#f5f5f5",
-								}}
+								className="h-full w-full flex flex-col items-center px-6 py-6 border-l border-gray-200 overflow-y-auto bg-gray-50"
 							>
 								{/* section 0 */}
 								<OverviewCard />
 								{/* chart row 1 */}
-								<section className="d-flex w-100 flex-column">
-									<div className="w-100 my-3 d-flex justify-content-between">
-										<h3>Waste Generated</h3>
-										<Dropdown>
-											<Dropdown.Toggle>
-												Filter
-											</Dropdown.Toggle>
-											<Dropdown.Menu>
-												<Dropdown.Item
-													onClick={(
-														e: React.MouseEvent<
-															HTMLElement,
-															MouseEvent
-														>
-													) => {
-														handleFilterButton(
-															e,
-															"waste/latest/7days",
-															"7days"
-														);
-													}}
-												>
-													Latest
-												</Dropdown.Item>
-												<Dropdown.Item
-													onClick={(
-														e: React.MouseEvent<
-															HTMLElement,
-															MouseEvent
-														>
-													) => {
-														handleFilterButton(
-															e,
-															"waste/latest/30days",
-															"30days"
-														);
-													}}
-												>
-													Last 30 days
-												</Dropdown.Item>
-												<Dropdown.Item
-													onClick={(
-														e: React.MouseEvent<
-															HTMLElement,
-															MouseEvent
-														>
-													) => {
-														handleFilterButton(
-															e,
-															"waste/latest/90days",
-															"90days"
-														);
-													}}
-												>
-													Last 90 days
-												</Dropdown.Item>
-												<Dropdown.Item
-													onClick={(
-														e: React.MouseEvent<
-															HTMLElement,
-															MouseEvent
-														>
-													) => {
-														handleFilterButton(
-															e,
-															"waste/latest/365days",
-															"365days"
-														);
-													}}
-												>
-													Last 365 days
-												</Dropdown.Item>
-											</Dropdown.Menu>
-										</Dropdown>
+								<section className="flex w-full flex-col">
+									<div className="w-full my-4 flex justify-between items-center">
+										<h3 className="text-2xl font-semibold">Waste Generated</h3>
+										<DropdownMenu.Root>
+											<DropdownMenu.Trigger asChild>
+												<button className="px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-tertiary">
+													Filter
+												</button>
+											</DropdownMenu.Trigger>
+											<DropdownMenu.Portal>
+												<DropdownMenu.Content className="min-w-[150px] bg-white rounded-md shadow-lg border border-gray-200 p-1 z-50">
+													<DropdownMenu.Item
+														className="px-3 py-2 text-sm cursor-pointer hover:bg-gray-100 rounded flex outline-none"
+														onClick={(e) => handleFilterButton(e, "waste/latest/7days", "7days")}
+													>
+														Latest
+													</DropdownMenu.Item>
+													<DropdownMenu.Item
+														className="px-3 py-2 text-sm cursor-pointer hover:bg-gray-100 rounded flex outline-none"
+														onClick={(e) => handleFilterButton(e, "waste/latest/30days", "30days")}
+													>
+														Last 30 days
+													</DropdownMenu.Item>
+													<DropdownMenu.Item
+														className="px-3 py-2 text-sm cursor-pointer hover:bg-gray-100 rounded flex outline-none"
+														onClick={(e) => handleFilterButton(e, "waste/latest/90days", "90days")}
+													>
+														Last 90 days
+													</DropdownMenu.Item>
+													<DropdownMenu.Item
+														className="px-3 py-2 text-sm cursor-pointer hover:bg-gray-100 rounded flex outline-none"
+														onClick={(e) => handleFilterButton(e, "waste/latest/365days", "365days")}
+													>
+														Last 365 days
+													</DropdownMenu.Item>
+												</DropdownMenu.Content>
+											</DropdownMenu.Portal>
+										</DropdownMenu.Root>
 									</div>
-									<div className="w-100 d-flex justify-content-between">
+									<div className="w-full flex justify-between gap-4">
 										<AdminChartCard
 											maxHeight="100%"
 											width="60%"
@@ -178,63 +138,26 @@ export default function Dashboard() {
 											width="38%"
 											header="Waste composition"
 										>
-											<div className="w-50">
+											<div className="w-1/2">
 												<WasteComposition />
 											</div>
 
-											<div className="d-flex flex-column w-50 h-100 justify-content-between p-3 ">
-												<div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-													<div className="fs-5">
-														Biodegradable
-													</div>{" "}
-													<div>
-														{
-															calculateTotal(
-																wasteData
-															)
-																.total_biodegradable
-														}{" "}
-														kg
-													</div>
+											<div className="flex flex-col w-1/2 h-full justify-between p-4">
+												<div className="mt-2 py-2 border border-gray-200 rounded-md flex flex-col bg-red-50 text-emerald-900 w-full justify-center items-center px-4 font-semibold">
+													<div className="text-lg">Biodegradable</div>
+													<div>{calculateTotal(wasteData).total_biodegradable} kg</div>
 												</div>
-												<div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-													<div className="fs-5">
-														Residual
-													</div>{" "}
-													<div>
-														{
-															calculateTotal(
-																wasteData
-															).total_residual
-														}{" "}
-														kg
-													</div>
+												<div className="mt-2 py-2 border border-gray-200 rounded-md flex flex-col bg-red-50 text-emerald-900 w-full justify-center items-center px-4 font-semibold">
+													<div className="text-lg">Residual</div>
+													<div>{calculateTotal(wasteData).total_residual} kg</div>
 												</div>
-												<div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-													<div className="fs-5">
-														Recyclable
-													</div>{" "}
-													<div>
-														{
-															calculateTotal(
-																wasteData
-															).total_recyclable
-														}{" "}
-														kg
-													</div>
+												<div className="mt-2 py-2 border border-gray-200 rounded-md flex flex-col bg-red-50 text-emerald-900 w-full justify-center items-center px-4 font-semibold">
+													<div className="text-lg">Recyclable</div>
+													<div>{calculateTotal(wasteData).total_recyclable} kg</div>
 												</div>
-												<div className="mt-2 py-2 border rounded d-flex flex-column bg-tertiary-red w-100 justify-content-center align-items-center px-4 fw-semibold">
-													<div className="fs-5">
-														Infectious
-													</div>{" "}
-													<div>
-														{
-															calculateTotal(
-																wasteData
-															).total_infectious
-														}{" "}
-														kg
-													</div>
+												<div className="mt-2 py-2 border border-gray-200 rounded-md flex flex-col bg-red-50 text-emerald-900 w-full justify-center items-center px-4 font-semibold">
+													<div className="text-lg">Infectious</div>
+													<div>{calculateTotal(wasteData).total_infectious} kg</div>
 												</div>
 											</div>
 										</AdminChartCard>
@@ -242,7 +165,7 @@ export default function Dashboard() {
 								</section>
 								{/* chart row 2 */}
 								{/* chart row 3 */}
-								<section className="w-100 d-flex justify-content-between mt-5">
+								<section className="w-full flex justify-between mt-10">
 									<AdminChartCard
 										width="100%"
 										header="Waste generation per building"
@@ -251,10 +174,7 @@ export default function Dashboard() {
 										<WasteGenerationBuilding />
 									</AdminChartCard>
 								</section>
-								<section
-									className="w-100"
-									style={{ minHeight: "90px" }}
-								></section>
+								<section className="w-full min-h-[90px]"></section>
 							</div>
 						</div>
 					</div>
@@ -267,15 +187,15 @@ export default function Dashboard() {
 
 function Header({ handlePrint }: any) {
 	return (
-		<div className="d-flex border-bottom border-2 shadow align-items-center justify-content-between ps-4 py-3">
-			<p className="m-0 fw-bold fs-4">Dashboard</p>
+		<div className="flex border-b-2 border-gray-200 shadow-sm items-center justify-between pl-6 py-4 bg-white">
+			<p className="m-0 font-bold text-2xl">Dashboard</p>
 			{/* Call handlePrint function onClick */}
 			<button
 				type="button"
-				className="btn cstm-shadow rounded-pill px-3 me-3"
+				className="flex mx-4 items-center gap-2 bg-white border border-gray-300 shadow-sm rounded-full px-4 py-2 font-medium hover:bg-gray-50 transition-colors"
 				onClick={handlePrint}
 			>
-				<i className="bi bi-printer me-2"></i>
+				<BsPrinter />
 				Print
 			</button>
 		</div>

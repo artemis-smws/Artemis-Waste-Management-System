@@ -14,7 +14,7 @@ export default function SimpleCard({ style, children }: Props) {
         height: '270px',
         width: '400px',
       }}
-      className="d-flex rounded py-3 bg-green flex-column justify-content-center align-items-center"
+      className="flex rounded-md py-3 bg-green-600 text-white flex-col justify-center items-center"
     >
       {children}
     </div>

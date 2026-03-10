@@ -1,4 +1,3 @@
-import { ChartOptions } from "chart.js";
 import { useEffect, useState, useContext } from "react";
 import DoughnutChart from "../../../components/charts/DoughnutChart";
 import { WasteDataContext } from "../../../context/wasteDataContext";
@@ -34,47 +33,25 @@ export default function WasteComposition() {
     })
   }, [contextData])
   
-  const data = {
-    labels: ["Biodegradable", "Residual", "Recyclable", "Infectious"],
-    datasets: [
-      {
-        data: [
-          inputData.overall_biodegradable,
-          inputData.overall_residual,
-          inputData.overall_recyclable,
-          inputData.overall_infectious,
-        ],
-        backgroundColor: ["#21B614", "#000000", "#0267FF", "#F3F375"],
-      },
-    ],
-  };
-  const option: ChartOptions = {
-    legend: {
-      align: "start",  
-      display: true,
-      position: "bottom"  
-    },
-    responsive: true,
-    maintainAspectRatio: false,
-    layout: {
-      padding: {
-        bottom: 35,
-        left: 20,
-        right: 20,
-      },
-    },
-  };
+  const chartData = [
+    { name: "Biodegradable", value: inputData.overall_biodegradable },
+    { name: "Residual", value: inputData.overall_residual },
+    { name: "Recyclable", value: inputData.overall_recyclable },
+    { name: "Infectious", value: inputData.overall_infectious },
+  ];
+  const colors = ["#21B614", "#000000", "#0267FF", "#F3F375"];
+
   if (
     !(
-      data.datasets[0].data[0] == 0 &&
-      data.datasets[0].data[1] == 0 &&
-      data.datasets[0].data[2] == 0
+      chartData[0].value == 0 &&
+      chartData[1].value == 0 &&
+      chartData[2].value == 0
     )
   ) {
-    return <DoughnutChart data={data} options={option} />;
+    return <DoughnutChart data={chartData} colors={colors} />;
   } else {
     return (
-      <div className="h-100 w-100 d-flex flex-column justify-content-center align-item-center">
+      <div className="flex h-full w-full flex-col justify-center items-center">
         <p className="text-center">No Data Available</p>
       </div>
     );

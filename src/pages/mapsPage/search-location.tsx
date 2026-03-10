@@ -24,10 +24,10 @@ export default function SearchControl() {
     };
   
     return (
-      <div className="input-group position-absolute sticky-top d-flex justify-content-center align-items-center" style={{top: "20px"}}>
+      <div className="absolute top-5 left-1/2 -translate-x-1/2 z-[1000] flex justify-center items-center w-full max-w-sm px-4">
         <input
           type="text"
-          className="form-control"
+          className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 bg-white text-gray-800"
           placeholder="Search"
           value={searchQuery}
           onChange={(event: any) => {
@@ -37,7 +37,7 @@ export default function SearchControl() {
         />
         <button
           type="button"
-          className="btn align-items-center"
+          className="px-4 py-2 bg-green-600 text-white rounded-r-md shadow-sm hover:bg-green-700 transition font-medium focus:outline-none focus:ring-2 focus:ring-green-500"
           id="search-button"
           onClick={() => handleSearch(searchQuery)}
         >

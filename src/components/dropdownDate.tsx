@@ -62,11 +62,11 @@ const DropdownSelectDate = () => {
     return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
   };
   return (
-    <div className="select-date">
-      <select id="select-day" value={date.getDate()} onChange={handleDayChange}>
+    <div className="flex gap-2 items-center">
+      <select id="select-day" value={date.getDate()} onChange={handleDayChange} className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 bg-white">
         {days.map(day => <option key={day} value={day}>{day}</option>)}
       </select>
-      <select id="select-month" value={date.getMonth()} onChange={handleMonthChange}>
+      <select id="select-month" value={date.getMonth()} onChange={handleMonthChange} className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 bg-white">
         <option value={0}>January</option>
         <option value={1}>February</option>
         <option value={2}>March</option>
@@ -80,7 +80,7 @@ const DropdownSelectDate = () => {
         <option value={10}>November</option>
         <option value={11}>December</option>
       </select>
-      <select id="select-year" value={date.getFullYear()} onChange={handleYearChange}>
+      <select id="select-year" value={date.getFullYear()} onChange={handleYearChange} className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 bg-white">
         {years.map(year => <option key={year} value={year}>{year}</option>)}
       </select>
     </div>

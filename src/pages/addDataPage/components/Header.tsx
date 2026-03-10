@@ -14,9 +14,9 @@ const Header: React.FC<HeaderProps> = ({
   handleDelete,
 }) => {
   return (
-    <div className="d-flex justify-content-between align-items-center border-bottom border-2 shadow p-3 w-100">
-      <div className="d-flex gap-3 justify-content-between align-items-center w-100">
-        <div className="w-50 d-flex gap-3">
+    <div className="flex justify-between items-center border-b-2 border-gray-200 shadow-sm p-4 w-full bg-white z-10">
+      <div className="flex gap-4 justify-between items-center w-full">
+        <div className="w-1/2 flex items-center gap-4">
           <CalendarButton />
           {isDeleteButtonVisible && <DeleteButton onClick={handleDelete} />}
           <DropdownComponent />

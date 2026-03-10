@@ -1,9 +1,7 @@
-import "./index.scss";
 import { Component } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../services/firebase";
 import { deleteCookie, getCookie } from "../../../utils/cookies";
-import { HouseDoorFill } from "react-bootstrap-icons";
 import { sidebar } from "./data";
 
 function Sidebar() {
@@ -18,36 +16,38 @@ function Sidebar() {
   return (
     <div>
       <div
-        className="d-flex flex-column align-items-center justify-content-between"
+        className="flex flex-col items-center justify-between bg-[#216604] m-0 h-screen min-w-[280px] max-w-[300px] py-8 px-2"
         id="Sidebar"
       >
-        <div className="justify-content-center" id="Project-Logo">
+        <div className="flex justify-center w-full" id="Project-Logo">
           <Link
             to="/dashboard"
-            className="d-flex align-items-center justify-content-center"
+            className="flex items-center justify-center no-underline w-full"
             reloadDocument
           >
             <img
               src="./assets/logo/artemis-brand1.png"
-              width="90%"
-              height="auto"
+              className="w-[90%] h-auto"
+              alt="Artemis Logo"
             />
           </Link>
         </div>
 
         <div
-          className="d-flex flex-column justify-content-center align-items-center w-100"
+          className="flex flex-col justify-center items-center w-full mt-8 flex-1"
           id="Lists"
         >
-          <div id="sidebar-button-wrapper">
+          <div className="w-full flex flex-col gap-2">
             {sidebar.sidebar_button.map((data) => (
               <Link
                 key={data.name}
                 to={data.route}
-                className={"d-flex align-items-center justify-content-center btn w-100 m-0 py-3 px-4 text-white disabled-" + data.disable}
+                className={`flex items-center justify-center w-full m-0 py-3 px-4 text-white text-lg font-light no-underline hover:bg-[#A21111] transition-colors rounded-md ${
+                  data.disable ? "hidden" : ""
+                }`}
                 reloadDocument
               >
-                <div className="w-100 d-flex align-items-center justify-content-start gap-4 px-3">
+                <div className="w-full flex items-center justify-start gap-4 px-3">
                   <img height="16px" src={data.icon} alt={data.name + " icon"} />
                   {data.name}
                 </div>
@@ -56,7 +56,11 @@ function Sidebar() {
           </div>
         </div>
 
-        <button type="button" onClick={handleSignOut} className="btn">
+        <button
+          type="button"
+          onClick={handleSignOut}
+          className="w-full py-3 px-4 bg-[#A21111] text-white rounded-md font-medium hover:bg-red-800 transition-colors border-none"
+        >
           Sign out
         </button>
       </div>

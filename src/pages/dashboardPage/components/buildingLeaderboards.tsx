@@ -21,29 +21,29 @@ export function BuildingLeaderboards() {
     }
   }, []);
   return (
-    <body className="w-100 h-100 p-3" style={{ overflowY: "scroll" }}>
-      <ol className="list-group list-group-flushed">
+    <div className="w-full h-full p-3 overflow-y-auto">
+      <ul className="flex flex-col border border-gray-200 rounded-md bg-white shadow-sm overflow-hidden m-0 p-0">
         {building.map((building, index) => {
           return index >= 0 && index < 3 ? (
-            <ul className="list-group-item d-flex justify-content-between align-items-center">
+            <li key={building} className="flex justify-between items-center px-4 py-3 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition">
               <img width="30px" src={rankBadgeUrl[index]} alt="rank badges" />
-              <div className="fw-bold">{building}</div>
-              <div>{buildingData[index]}</div>
-            </ul>
+              <div className="font-bold text-gray-800">{building}</div>
+              <div className="text-gray-600">{buildingData[index]}</div>
+            </li>
           ) : (
-            <ul className="list-group-item d-flex justify-content-between align-items-center">
+            <li key={building} className="flex justify-between items-center px-4 py-3 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition">
               <div
-                className="d-flex justify-content-center"
+                className="flex justify-center font-semibold text-gray-500"
                 style={{ width: "30px" }}
               >
                 {index + 1}
               </div>
-              <div className="fw-bold">{building}</div>
-              <div>{buildingData[index]}</div>
-            </ul>
+              <div className="font-bold text-gray-800">{building}</div>
+              <div className="text-gray-600">{buildingData[index]}</div>
+            </li>
           );
         })}
-      </ol>
-    </body>
+      </ul>
+    </div>
   );
 }

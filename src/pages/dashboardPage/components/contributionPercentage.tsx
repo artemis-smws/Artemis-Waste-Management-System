@@ -1,7 +1,9 @@
 export default function ContributionPercentage() {
-    const {  } = localStorage;
+    const campus = localStorage.getItem('campus') || "Alangilan";
   return (
-    <div className="w-100 h-100 d-flex flex-column justify-content-evenly align-items-center p-3">
+    <div className="w-full h-full flex flex-col justify-evenly items-center p-3">
+      <h2>Top Performing Campus</h2>
+      <h3>{campus}</h3>
       <p className="m-0">
         Percentage to overall waste production in the Philippines
       </p>

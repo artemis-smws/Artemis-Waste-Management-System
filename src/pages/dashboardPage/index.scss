@@ -1,12 +1,12 @@
-@import "../../constants/variables";
+
 
 #dashboard {
     .dropdown-toggle {
-        background-color: $tertiary-color;
+        background-color: #62A944;
         border: 1px solid rgb(122, 122, 122);
     }
     .dropdown-item::after {
-        background-color: $tertiary-color;
+        background-color: #62A944;
     }
 }
 

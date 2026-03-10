@@ -1,4 +1,4 @@
-import "./index.scss";
+
 import About from "./about";
 import { useRef } from "react";
 import Features from "./features";
@@ -16,7 +16,7 @@ export default function LandingPage() {
     backgroundSize: "cover",
   };
 
-  const ref: any = useRef();
+  const ref: any = useRef(null);
 
   return (
     <>

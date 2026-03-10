@@ -1,4 +1,4 @@
-import "./App.scss";
+
 import LandingPage from "./pages/landingPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, createContext, useState } from "react";
