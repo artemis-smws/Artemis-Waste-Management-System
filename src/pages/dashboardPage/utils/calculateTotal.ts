@@ -6,6 +6,7 @@ export default function calculateTotal(data : any) {
         total_biodegradable : 0,
         total_infectious : 0
     }
+    if (!data || !Array.isArray(data)) return total;
     data.forEach((data : any) => {
         total.total_weight += data.overall_weight
         total.total_biodegradable += data.overall_biodegradable

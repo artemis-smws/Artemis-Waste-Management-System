@@ -1,73 +1,14 @@
+/*
+ * Dashboard page — print-only styles
+ * All component styles are handled by Tailwind CSS utility classes.
+ */
 
+@media print {
+  .print-hidden {
+    display: none;
+  }
 
-#dashboard {
-    .dropdown-toggle {
-        background-color: #62A944;
-        border: 1px solid rgb(122, 122, 122);
-    }
-    .dropdown-item::after {
-        background-color: #62A944;
-    }
-}
-
-#highest{
-    text-align: center;
-    width: 385px;
-    height: 137px;
-
-    border-right: solid;
-    border-width: 1px;
-    border-color: gray;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-}
-
-#lowest{
-    text-align: center;
-    width: 385px;
-    height: 137px;
-
-}
-
-#average{
-    text-align: center;
-    width: 385px;
-    height: 137px;
-
-    border-left: solid;
-    border-width: 1px;
-    border-color: gray;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
-#waste-generated{
-    max-width: 750px;
-    max-height: 354px;
-    border-radius: 15px;
-
-    box-shadow: 0 6px 10px -2px gray;
-}
-
-#percentage-per-campus{
-    max-height: 354px;
-    max-width: 353px;
-    border-radius: 15px;
-
-    box-shadow: 0 6px 10px -2px gray;
-}
-
-.cstm-shadow{
-    box-shadow: 1px 5px 7px rgba(44, 44, 44, 0.63);
-} 
-
-@media print{
-    .print-hidden{
-        display: none;
-    }
-
-    .hide-dashboard{
-        display: none;
-    }
-    
+  .hide-dashboard {
+    display: none;
+  }
 }
