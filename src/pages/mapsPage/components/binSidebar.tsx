@@ -11,6 +11,7 @@ import {
 interface BinSidebarProps {
 	isOpen: boolean;
 	onToggle: () => void;
+	onBinClick?: (lat: number, lng: number) => void;
 }
 
 function setTrashbinStatus(trashPercentage: number) {
@@ -33,18 +34,37 @@ function setTrashbinStatus(trashPercentage: number) {
 	}
 }
 
-export default function BinSidebar({ isOpen, onToggle }: BinSidebarProps) {
+function setWasteTypeStatus(type: string | undefined) {
+	const t = type?.toLowerCase() || "";
+	if (t.includes("infectious")) {
+		return "text-[#ef4444] bg-[#ef4444]/10";
+	}
+	if (t.includes("recyclable") || t.includes("recycle")) {
+		return "text-[#3b82f6] bg-[#3b82f6]/10";
+	}
+	if (t.includes("residual")) {
+		return "text-[#171717] bg-[#171717]/10";
+	}
+	if (t.includes("biodegradable") || t.includes("food")) {
+		return "text-[#216604] bg-[#216604]/10";
+	}
+	return "text-gray-500 bg-gray-100";
+}
+
+export default function BinSidebar({ isOpen, onToggle, onBinClick }: BinSidebarProps) {
 	return (
 		<>
 			{/* Toggle Button */}
 			<button
 				onClick={onToggle}
-				className={`absolute top-1/2 -translate-y-1/2 z-[1000] bg-white border border-gray-200 shadow-md p-2 rounded-l-md hover:bg-gray-50 transition-all duration-300 ${
-					isOpen ? "right-[400px]" : "right-0"
+				className={`absolute top-1/2 -translate-y-1/2 z-[1000] flex items-center justify-center w-10 h-16 shadow-[0_4px_12px_rgba(0,0,0,0.15)] rounded-l-xl transition-all duration-300 ${
+					isOpen 
+						? "right-[400px] bg-white border border-gray-200 border-r-0 text-gray-600 hover:bg-gray-50" 
+						: "right-0 bg-[#216604] border border-[#216604] text-white hover:bg-[#62A944] hover:border-[#62A944]"
 				}`}
 				aria-label={isOpen ? "Close Bins Sidebar" : "Open Bins Sidebar"}
 			>
-				{isOpen ? <BsChevronRight size={20} className="text-gray-600" /> : <BsChevronLeft size={20} className="text-gray-600" />}
+				{isOpen ? <BsChevronRight size={24} /> : <BsChevronLeft size={24} />}
 			</button>
 
 			{/* Sidebar Panel */}
@@ -56,9 +76,7 @@ export default function BinSidebar({ isOpen, onToggle }: BinSidebarProps) {
 			>
 				<Header />
 				<div className="flex-1 overflow-y-auto bg-gray-50 p-4">
-					<div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-						<BinTable />
-					</div>
+					<BinList onBinClick={onBinClick} />
 				</div>
 			</div>
 		</>
@@ -145,56 +163,72 @@ function Header() {
 	);
 }
 
-function BinTable() {
+function BinList({ onBinClick }: { onBinClick?: (lat: number, lng: number) => void }) {
 	const trashbinData: any = useContext(TrashbinContext);
-	const [tableData, setTableData] = useState<TrashContainerType[]>([]);
+	const [listData, setListData] = useState<TrashContainerType[]>([]);
 	
 	useEffect(() => {
 		if (trashbinData) {
-			setTableData(trashbinData);
+			setListData(trashbinData);
 		}
 	}, [trashbinData]);
 
+	if (listData.length === 0) {
+		return (
+			<div className="flex flex-col items-center justify-center p-8 text-center bg-white rounded-lg border border-gray-200 shadow-sm">
+				<p className="text-sm text-gray-500 font-medium">No bins found.</p>
+			</div>
+		);
+	}
+
 	return (
-		<div className="overflow-x-auto">
-			<table className="w-full divide-y divide-gray-200 text-left">
-				<thead className="bg-gray-50 text-xs font-semibold text-gray-500 uppercase tracking-wider sticky top-0">
-					<tr>
-						<th scope="col" className="px-4 py-3">ID</th>
-						<th scope="col" className="px-4 py-3">Loc</th>
-						<th scope="col" className="px-4 py-3">Fill</th>
-					</tr>
-				</thead>
-				<tbody className="bg-white divide-y divide-gray-200">
-					{tableData.length === 0 ? (
-						<tr>
-							<td colSpan={3} className="px-4 py-8 text-center text-sm text-gray-500">
-								No bins found.
-							</td>
-						</tr>
-					) : (
-						tableData.map((data: TrashContainerType, idx: number) => {
-							const status = setTrashbinStatus(data.capacity);
-							return (
-								<tr key={idx} className="hover:bg-gray-50 transition-colors group">
-									<td className="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900 group-hover:text-[#216604] transition-colors">
-										{data.id}
-									</td>
-									<td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500 truncate max-w-[120px]" title={data.organization}>
-										{data.organization}
-									</td>
-									<td className="px-4 py-3 whitespace-nowrap flex items-center gap-2">
-										<span className="font-mono text-sm font-medium text-gray-700 w-8">{data.capacity}%</span>
-										<span className={`rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide ${status.badge}`}>
-											{status.display}
-										</span>
-									</td>
-								</tr>
-							);
-						})
-					)}
-				</tbody>
-			</table>
+		<div className="flex flex-col gap-3">
+			{listData.map((data: TrashContainerType, idx: number) => {
+				const status = setTrashbinStatus(data.capacity);
+				return (
+					<div 
+						key={idx} 
+						onClick={() => onBinClick && onBinClick(data.location.latitude, data.location.longitude)}
+						className="bg-white border border-gray-200 rounded-lg shadow-sm p-4 hover:border-[#62A944]/50 hover:shadow-md transition-all group flex flex-col gap-3 cursor-pointer"
+					>
+						<div className="flex items-center justify-between">
+							<div className="flex items-center gap-2">
+								<span className="font-mono text-sm font-semibold text-gray-900 group-hover:text-[#216604] transition-colors">
+									{data.id}
+								</span>
+								<span className={`text-xs uppercase tracking-wider font-medium px-2 py-0.5 rounded-md ${setWasteTypeStatus(data.type)}`}>
+									{data.type || "Trash Bin"}
+								</span>
+							</div>
+							<span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide ${status.badge}`}>
+								{status.display}
+							</span>
+						</div>
+						
+						<div className="flex flex-col gap-1">
+							<span className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Location</span>
+							<span className="text-sm font-medium text-gray-800 line-clamp-2" title={data.organization}>
+								{data.organization}
+							</span>
+						</div>
+
+						<div className="flex flex-col gap-1 mt-1">
+							<div className="flex items-center justify-between text-xs">
+								<span className="font-semibold text-gray-500">Fill Level</span>
+								<span className="font-mono font-bold text-gray-900">{data.capacity}%</span>
+							</div>
+							<div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+								<div 
+									className={`h-full rounded-full transition-all duration-500 ${
+										data.capacity >= 75 ? "bg-red-500" : data.capacity >= 40 ? "bg-amber-500" : "bg-[#00cb6a]"
+									}`}
+									style={{ width: `${Math.min(100, Math.max(0, data.capacity))}%` }}
+								></div>
+							</div>
+						</div>
+					</div>
+				);
+			})}
 		</div>
 	);
 }

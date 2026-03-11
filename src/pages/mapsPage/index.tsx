@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import { mapContainer, tileLayer } from "./maps";
 import Sidebar from "../../components/layout/sidebar";
 import SearchControl from "./search-location";
@@ -34,11 +34,26 @@ function setTrashbinStatus(trashPercentage: number) {
 	}
 }
 
+function MapController({ center }: { center: [number, number] | null }) {
+	const map = useMap();
+	
+	useEffect(() => {
+		if (center) {
+			map.flyTo(center, 20, {
+				duration: 1.0
+			});
+		}
+	}, [center, map]);
+
+	return null;
+}
+
 export default function Maps() {
 	const trashbinData = useContext(TrashbinContext);
 	const [trashbin, setTrashbin] = useState<TrashContainerType[]>();
 	const [legend, showLegend] = useState(false);
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+	const [focusLocation, setFocusLocation] = useState<[number, number] | null>(null);
 
 	const handleToggleShow = () => {
 		showLegend(true);
@@ -62,6 +77,7 @@ export default function Maps() {
 				scrollWheelZoom={mapContainer.scroll}
 				zoomControl={mapContainer.zoomCtrl}
 			>
+				<MapController center={focusLocation} />
 				<SearchControl />
 				<TileLayer
 					maxNativeZoom={tileLayer.nativeZoom}
@@ -135,7 +151,11 @@ export default function Maps() {
 					Legend
 				</button>
 			</MapContainer>
-			<BinSidebar isOpen={isSidebarOpen} onToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
+			<BinSidebar 
+				isOpen={isSidebarOpen} 
+				onToggle={() => setIsSidebarOpen(!isSidebarOpen)} 
+				onBinClick={(lat, lng) => setFocusLocation([lat, lng])}
+			/>
 			</div>
 		</div>
 	);
