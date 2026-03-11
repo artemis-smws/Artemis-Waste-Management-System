@@ -29,11 +29,6 @@ const navItems: NavItem[] = [
     icon: <MapPin size={18} />,
   },
   {
-    name: "Trash Bins",
-    route: "/bin",
-    icon: <Trash2 size={18} />,
-  },
-  {
     name: "Data",
     route: "/data",
     icon: <Database size={18} />,
@@ -65,7 +60,6 @@ function Sidebar() {
       <div className="flex justify-center items-center px-3 mb-8" id="Project-Logo">
         <Link
           to="/dashboard"
-          reloadDocument
           className="flex items-center gap-2 no-underline w-full"
         >
           <img
@@ -94,7 +88,6 @@ function Sidebar() {
               <Link
                 key={item.name}
                 to={item.route}
-                reloadDocument
                 className="group relative flex items-center gap-3 px-3 py-2.5 rounded-lg no-underline transition-all duration-200"
                 style={
                   active

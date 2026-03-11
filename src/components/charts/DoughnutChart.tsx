@@ -14,7 +14,7 @@ type DoughnutChartProps = {
   colors?: string[];
 };
 
-const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
+const CustomTooltip = ({ active, payload }: TooltipProps<number, string> & { payload?: any[] }) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-white border border-gray-200 rounded-lg shadow-md px-3 py-2">
@@ -53,8 +53,8 @@ const DoughnutChart: React.FC<DoughnutChartProps> = ({ data, colors }) => {
           data={data}
           cx="50%"
           cy="45%"
-          innerRadius={55}
-          outerRadius={85}
+          innerRadius="50%"
+          outerRadius="80%"
           paddingAngle={3}
           dataKey="value"
           strokeWidth={0}

@@ -1,0 +1,34 @@
+/* Leaflet specific map overrides that can't be purely represented via Tailwind classes */
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.leaflet-control-container .leaflet-top.leaflet-right {
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.leaflet-popup-tip {
+    display: none;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+    padding: 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+    border: 1px solid #e5e7eb;
+}
+
+.custom-popup .leaflet-popup-content {
+    margin: 0;
+    width: 320px !important;
+}
+
+.custom-leaflet-icon {
+    background: transparent;
+    border: none;
+}

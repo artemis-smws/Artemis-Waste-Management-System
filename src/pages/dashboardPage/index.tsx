@@ -210,8 +210,6 @@ export default function Dashboard() {
                     <div className="flex-[2] min-w-0 flex flex-col gap-4">
                       {/* Donut chart */}
                       <AdminChartCard
-                        maxHeight="100%"
-                        height="220px"
                         header="Waste Composition"
                       >
                         <WasteComposition />
