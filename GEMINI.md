@@ -128,6 +128,13 @@ This specific repository contains the **Web Dashboard** built with React.
           "mid":    { "range": "40–74%",  "color": "#f59e0b", "label": "Moderate", "tailwind": "text-amber-500 bg-amber-500/10" },
           "high":   { "range": "75–100%", "color": "#ef4444", "label": "Critical", "tailwind": "text-red-500 bg-red-500/10" }
         },
+        "wasteTypes": {
+          "comment": "Color schema for waste types based on waste UX policies",
+          "biodegradable": { "color": "#216604", "label": "Biodegradable", "tailwind": "text-[#216604] bg-[#216604]/10" },
+          "infectious":    { "color": "#ef4444", "label": "Infectious",    "tailwind": "text-[#ef4444] bg-[#ef4444]/10" },
+          "recyclable":    { "color": "#3b82f6", "label": "Recyclable",    "tailwind": "text-[#3b82f6] bg-[#3b82f6]/10" },
+          "residual":      { "color": "#171717", "label": "Residual",      "tailwind": "text-[#171717] bg-[#171717]/10" }
+        },
         "themeTokens": {
           "comment": "CSS custom properties defined in src/theme.css @theme block — use var() in components",
           "--color-primary":        "#216604",
@@ -142,6 +149,10 @@ This specific repository contains the **Web Dashboard** built with React.
           "--color-level-low":      "#00cb6a",
           "--color-level-mid":      "#f59e0b",
           "--color-level-high":     "#ef4444",
+          "--color-waste-biodegradable": "#216604",
+          "--color-waste-infectious":    "#ef4444",
+          "--color-waste-recyclable":    "#3b82f6",
+          "--color-waste-residual":      "#171717",
           "--color-text-base":      "#171717",
           "--color-text-muted":     "#6b7280",
           "--color-text-inverse":   "#ffffff"
