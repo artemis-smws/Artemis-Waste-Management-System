@@ -179,19 +179,6 @@ function Sidebar() {
 
       {/* ── Bottom section: branding pill + sign out ── */}
       <div className={`flex flex-col gap-3 ${isCollapsed ? "px-0 items-center w-full" : "px-1"}`}>
-        {/* Eco badge */}
-        {!isCollapsed && (
-          <div
-            className="flex items-center gap-2 px-3 py-2 rounded-lg"
-            style={{ background: "rgba(33,102,4,0.35)" }}
-          >
-            <Leaf size={14} style={{ color: "#62A944", flexShrink: 0 }} />
-            <span className="text-xs font-medium whitespace-nowrap" style={{ color: "#8ecb6a" }}>
-              Smart Waste Management
-            </span>
-          </div>
-        )}
-
         {/* Sign out */}
         <button
           type="button"

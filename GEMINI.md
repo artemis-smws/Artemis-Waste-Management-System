@@ -53,6 +53,7 @@ This specific repository contains the **Web Dashboard** built with React.
 *   **Ask First**: Always ask for clarification if a task requirement is ambiguous, especially regarding database schemas for IoT data.
 *   **Never Do**: Do NOT execute `npm run deploy` unless explicitly instructed by the user. Do NOT modify the core `firebase.json` or Firebase project configs without approval.
 *   **Always Do**: Refer to existing code patterns when creating new components to maintain the Artemis web ecosystem's consistency. Write self-documenting code with clear variable names.
+*   **Component Libraries First**: For each new component or layout being integrated and used, ensure to check for an available component/layout in shadcn/ui or Radix UI first. This minimizes custom code, especially for `div`s that can be made as a component and components already present in those libraries.
 
 ## Design System
 

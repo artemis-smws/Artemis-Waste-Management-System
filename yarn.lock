@@ -1136,7 +1136,7 @@
   dependencies:
     "@types/geojson" "*"
 
-"@types/node@^20.19.0 || >=22.12.0", "@types/node@>=12.12.47", "@types/node@>=13.7.0":
+"@types/node@^20.19.0 || >=22.12.0", "@types/node@^25.4.0", "@types/node@>=12.12.47", "@types/node@>=13.7.0":
   version "25.4.0"
   resolved "https://registry.npmjs.org/@types/node/-/node-25.4.0.tgz"
   integrity sha512-9wLpoeWuBlcbBpOY3XmzSTG3oscB6xjBEEtn+pYXTfhyXhIxC5FsBer2KTopBlvKEiW9l13po9fq+SJY/5lkhw==

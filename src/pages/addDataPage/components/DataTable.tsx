@@ -8,8 +8,10 @@ import useFetch from "../../../hooks/useFetch";
 import getBuidlingNames from "../../dashboardPage/utils/getBuildingNames";
 import getWeight from "../utils/getWeight";
 import { toast } from "react-toastify";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { BsThreeDotsVertical, BsFilterLeft, BsSearch } from "react-icons/bs";
+import { BsFilterLeft, BsSearch, BsPencil, BsTrash, BsCheck, BsX } from "react-icons/bs";
 
 interface DataRow {
 	Date: string;
@@ -22,16 +24,16 @@ interface Table1Props {
 	setIsDeleteButtonVisible: (isVisible: boolean) => void;
 }
 
-interface CustomDropdownProps {
-	row: DataRow;
-}
-
 const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 	const [selectedRows, setSelectedRows] = useState<any[]>([]);
 	const [hiddenColumns, setHiddenColumns] = useState<string[]>([]);
 	const [isDeleteButtonVisible, setIsDeleteButtonVisibleLocal] =
 		useState(false);
 	const [searchQuery, setSearchQuery] = useState("");
+	const [wasteData, setWasteData] = useState<DataRow[]>([]);
+	const [loading, setLoading] = useState(false);
+	const [updateRowId, setUpdateRowId] = useState<string | null>(null);
+	const [updateWeightValue, setUpdateWeightValue] = useState<number>(0);
 
 	const handleChange = (state: { selectedRows: any[] }) => {
 		setSelectedRows(state.selectedRows);
@@ -120,35 +122,27 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			});
 	};
 
-	const handleUpdateRow = (row: DataRow) => {
-		console.log(row);
+	const handleUpdateClick = (row: DataRow) => {
+		setUpdateRowId(`${row.Date}-${row.Building}-${row.WasteType}`);
+		setUpdateWeightValue(row.Weight);
 	};
 
-	const CustomDropdown: React.FC<CustomDropdownProps> = ({ row }) => (
-		<DropdownMenu.Root>
-			<DropdownMenu.Trigger asChild>
-				<button className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-tertiary">
-					<BsThreeDotsVertical />
-				</button>
-			</DropdownMenu.Trigger>
-			<DropdownMenu.Portal>
-				<DropdownMenu.Content className="min-w-[120px] bg-white rounded-md shadow-lg border border-gray-200 p-1 flex flex-col z-50">
-					<DropdownMenu.Item
-						className="px-3 py-2 text-sm cursor-pointer hover:bg-red-50 hover:text-red-700 text-red-600 rounded outline-none"
-						onClick={() => handleDeleteRow(row)}
-					>
-						Delete
-					</DropdownMenu.Item>
-					<DropdownMenu.Item
-						className="px-3 py-2 text-sm cursor-pointer hover:bg-gray-100 rounded outline-none"
-						onClick={() => handleUpdateRow(row)}
-					>
-						Update
-					</DropdownMenu.Item>
-				</DropdownMenu.Content>
-			</DropdownMenu.Portal>
-		</DropdownMenu.Root>
-	);
+	const handleSaveUpdate = (row: DataRow) => {
+		const newData = wasteData.map((r) => {
+			if (`${r.Date}-${r.Building}-${r.WasteType}` === `${row.Date}-${row.Building}-${row.WasteType}`) {
+				return { ...r, Weight: updateWeightValue };
+			}
+			return r;
+		});
+		setWasteData(newData);
+		setUpdateRowId(null);
+		toast.success("Data updated successfully.", {
+			position: "bottom-right",
+			autoClose: 3000,
+			theme: "dark",
+		});
+		console.log(`Updated row:`, row, `New Weight:`, updateWeightValue);
+	};
 
 	const columns = [
 		{
@@ -174,11 +168,71 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			selector: (row: DataRow) => row.Weight,
 			sortable: true,
 			omit: hiddenColumns.includes("Weight"),
-			format: (row: DataRow) => <span className="font-mono">{row.Weight}</span>,
+			cell: (row: DataRow) => {
+				const rowId = `${row.Date}-${row.Building}-${row.WasteType}`;
+				if (updateRowId === rowId) {
+					return (
+						<div className="flex items-center w-[100px]">
+							<Input
+								type="number"
+								min="0"
+								step="0.5"
+								value={updateWeightValue}
+								onChange={(e) => setUpdateWeightValue(parseFloat(e.target.value) || 0)}
+								className="h-8 text-center font-mono hide-arrow"
+							/>
+						</div>
+					);
+				}
+				return <span className="font-mono">{row.Weight}</span>;
+			},
 		},
 		{
 			name: "Actions",
-			cell: (row: DataRow) => <CustomDropdown row={row} />,
+			cell: (row: DataRow) => {
+				const rowId = `${row.Date}-${row.Building}-${row.WasteType}`;
+				const isUpdating = updateRowId === rowId;
+
+				if (isUpdating) {
+					return (
+						<div className="flex gap-2">
+							<button
+								onClick={() => handleSaveUpdate(row)}
+								className="p-1.5 text-green-600 hover:bg-green-50 rounded"
+								title="Save"
+							>
+								<BsCheck className="w-5 h-5" />
+							</button>
+							<button
+								onClick={() => setUpdateRowId(null)}
+								className="p-1.5 text-gray-500 hover:bg-gray-100 rounded"
+								title="Cancel"
+							>
+								<BsX className="w-5 h-5" />
+							</button>
+						</div>
+					);
+				}
+
+				return (
+					<div className="flex gap-2">
+						<button
+							onClick={() => handleUpdateClick(row)}
+							className="p-1.5 text-[#3b82f6] hover:bg-blue-50 rounded"
+							title="Update"
+						>
+							<BsPencil className="w-4 h-4" />
+						</button>
+						<button
+							onClick={() => handleDeleteRow(row)}
+							className="p-1.5 text-[#ef4444] hover:bg-red-50 rounded"
+							title="Delete"
+						>
+							<BsTrash className="w-4 h-4" />
+						</button>
+					</div>
+				);
+			},
 			button: true,
 			ignoreRowClick: true,
 			allowOverflow: true,
@@ -224,9 +278,6 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			},
 		},
 	};
-
-	const [wasteData, setWasteData] = useState(Array<DataRow>);
-	const [loading, setLoading] = useState(false);
 
 	// Filter rows based on search query
 	const filteredRows = wasteData.filter((row) =>
