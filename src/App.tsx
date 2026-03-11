@@ -8,7 +8,8 @@ import Dashboard from "./pages/dashboardPage";
 import Bin from "./pages/binPage";
 import { getCookie, saveCookie } from "./utils/cookies";
 import DashboardPrint from "./pages/dashboardPage/components/printDashboard";
-import AddPage from "./pages/addDataPage";
+import { lazy, Suspense } from "react";
+const AddPage = lazy(() => import("./pages/addDataPage"));
 import useFetch from "./hooks/useFetch";
 import { TrashbinContext } from "./context/trashbinContext";
 
@@ -67,7 +68,9 @@ export function App() {
 					path="/data"
 					element={
 						<ProtectedRoute>
-							<AddPage />
+							<Suspense fallback={<div className="flex h-screen w-full items-center justify-center bg-[#f1f1f1]"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#216604]"></div></div>}>
+								<AddPage />
+							</Suspense>
 						</ProtectedRoute>
 					}
 				/>

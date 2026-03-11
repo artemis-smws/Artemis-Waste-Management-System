@@ -131,26 +131,26 @@ const AddWaste = () => {
 		<>
 			<Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
 				<Dialog.Trigger asChild>
-					<button className="bg-success text-white px-4 py-2 rounded shadow-sm hover:bg-green-700 transition font-medium">
-						Add Waste
+					<button className="bg-[#216604] text-white px-4 py-2 rounded-md shadow-sm hover:focus:bg-[#62A944] transition font-medium flex items-center justify-center">
+						<span className="text-sm">Add Waste</span>
 					</button>
 				</Dialog.Trigger>
 				<Dialog.Portal>
-					<Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-					<Dialog.Content className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-[512px] translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white shadow-lg duration-200 sm:rounded-lg overflow-hidden">
-						<div className="bg-[#216604] px-6 py-4 flex items-center">
-							<Dialog.Title className="text-xl font-medium text-white m-0 tracking-wide font-inter">
-								Add Waste
+					<Dialog.Overlay className="fixed inset-0 bg-black/45 z-50 flex items-center justify-center data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+					<Dialog.Content className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-0 border border-gray-200 bg-white shadow-panel duration-200 sm:rounded-lg overflow-hidden">
+						<div className="bg-[#216604] px-6 py-4 flex items-center justify-between">
+							<Dialog.Title className="text-lg font-semibold text-white m-0 tracking-tight font-sans">
+								Add Waste Record
 							</Dialog.Title>
 						</div>
-						<form className="bg-gray-100 flex flex-col p-6 space-y-6" onSubmit={handleSubmit}>
+						<form className="bg-white flex flex-col p-6 space-y-5" onSubmit={handleSubmit}>
 							
 							<div className="flex gap-4 w-full">
-								<div className="flex-1 space-y-2">
+								<div className="flex-1 space-y-1.5">
 									<label className="text-sm font-medium text-gray-700">Building</label>
 									<select
 										onChange={(e) => setBuilding(e.target.value)}
-										className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
+										className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#216604] focus:border-[#216604] sm:text-sm transition-colors text-gray-900"
 									>
 										{buildingList.map((bldg: string, idx: number) => (
 											<option key={idx} value={bldg}>{bldg}</option>
@@ -158,53 +158,54 @@ const AddWaste = () => {
 									</select>
 								</div>
 								
-								<div className="flex-1 space-y-2">
+								<div className="flex-1 space-y-1.5">
 									<label className="text-sm font-medium text-gray-700">Date</label>
 									<div className="relative w-full">
 										<DatePicker
 											selected={selectedDate}
 											onChange={handleDateChange}
-											className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
+											className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#216604] focus:border-[#216604] sm:text-sm transition-colors text-gray-900 bg-white"
+											placeholderText="Select date..."
 										/>
-										<span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
+										<span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
 											<LuCalendarDays />
 										</span>
 									</div>
 								</div>
 							</div>
 
-							<div className="flex flex-col space-y-2">
+							<div className="flex flex-col space-y-1.5">
 								<label className="text-sm font-medium text-gray-700">Type of Waste</label>
 								<select
 									onChange={(e) => setWasteType(e.target.value)}
-									className="w-[256px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
+									className="w-full sm:w-[256px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#216604] focus:border-[#216604] sm:text-sm transition-colors text-gray-900"
 								>
-									<option value="biodegradable">Biodegredable</option>
+									<option value="biodegradable">Biodegradable</option>
 									<option value="recyclable">Recyclable</option>
 									<option value="residual">Residual</option>
 									<option value="infectious">Infectious</option>
 								</select>
 							</div>
 
-							<div className="flex flex-col space-y-2">
-								<label className="text-sm font-medium text-gray-700">Weight</label>
+							<div className="flex flex-col space-y-1.5">
+								<label className="text-sm font-medium text-gray-700">Weight (kg)</label>
 								<input
 									min={0}
 									type="number"
-									className="w-[138px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
+									className="w-full sm:w-[138px] px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#216604] focus:border-[#216604] sm:text-sm transition-colors text-gray-900 font-mono"
 									value={weight}
 									onChange={handleWeightChange}
 								/>
 							</div>
 
-							<div className="flex justify-end gap-3 mt-4 w-full">
+							<div className="flex justify-end gap-3 pt-4 mt-2 border-t border-gray-100 w-full">
 								<Dialog.Close asChild>
-									<button type="button" className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition font-medium min-w-[80px]">
-										Close
+									<button type="button" className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors font-medium text-sm min-w-[80px]">
+										Cancel
 									</button>
 								</Dialog.Close>
-								<button type="submit" className="px-4 py-2 bg-success text-white rounded-md hover:bg-green-700 transition font-medium min-w-[80px]">
-									Confirm
+								<button type="submit" className="px-4 py-2 bg-[#216604] text-white rounded-md hover:bg-[#62A944] transition-colors font-medium text-sm min-w-[80px]">
+									Save Entry
 								</button>
 							</div>
 						</form>

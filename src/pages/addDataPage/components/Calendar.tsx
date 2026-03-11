@@ -1,4 +1,3 @@
-import '../styles/Calendar.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 import { LuCalendarDays } from 'react-icons/lu';
 import { useState, useEffect, useRef } from 'react';
@@ -35,16 +34,21 @@ const CalendarButton = () => {
     };
 
     return (
-        <div>
-            <button type="button" className="btn btn-primary bg-success border-0" onClick={toggleCalendar} ref={buttonRef}>
-                <LuCalendarDays />
+        <div className="relative">
+            <button 
+                type="button" 
+                className="flex items-center justify-center p-2.5 bg-white border border-gray-300 rounded-md hover:bg-gray-50 text-gray-700 shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-[#216604]" 
+                onClick={toggleCalendar} 
+                ref={buttonRef}
+            >
+                <LuCalendarDays className="text-lg" />
             </button>
             {calendarOpen && (
-                <div className="calendar-container" ref={calendarRef}>
+                <div className="absolute top-12 left-0 z-50 bg-white p-2 rounded-lg shadow-panel border border-gray-200" ref={calendarRef}>
                     <DatePicker
                         selected={new Date()}
                         onChange={() => {}}
-                        inline // This prop displays the calendar without the input field
+                        inline
                     />
                 </div>
             )}

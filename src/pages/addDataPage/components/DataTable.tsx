@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-import DataTable from "react-data-table-component";
+import DataTable, { TableStyles } from "react-data-table-component";
 import { TrashData } from "./TableData";
 import DeleteButton from "./DeleteButton";
 import CalendarButton from "./Calendar";
 import AddWaste from "./AddWaste";
 import useFetch from "../../../hooks/useFetch";
-import LoadingPage from "../../../components/loadingPage";
 import getBuidlingNames from "../../dashboardPage/utils/getBuildingNames";
 import getWeight from "../utils/getWeight";
 import { toast } from "react-toastify";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { BsThreeDotsVertical, BsFilterLeft } from "react-icons/bs";
+import { BsThreeDotsVertical, BsFilterLeft, BsSearch } from "react-icons/bs";
 
 interface DataRow {
 	Date: string;
@@ -175,6 +174,7 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			selector: (row: DataRow) => row.Weight,
 			sortable: true,
 			omit: hiddenColumns.includes("Weight"),
+			format: (row: DataRow) => <span className="font-mono">{row.Weight}</span>,
 		},
 		{
 			name: "Actions",
@@ -188,6 +188,42 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			},
 		},
 	];
+
+	const customTableStyles: TableStyles = {
+		headRow: {
+			style: {
+				backgroundColor: "var(--color-light)",
+				color: "var(--color-text-muted)",
+				fontSize: "0.75rem",
+				fontWeight: 600,
+				textTransform: "uppercase",
+				letterSpacing: "0.05em",
+				borderBottomWidth: "1px",
+				borderBottomColor: "var(--color-border)",
+				minHeight: "48px",
+			},
+		},
+		rows: {
+			style: {
+				fontSize: "0.875rem",
+				color: "var(--color-text-base)",
+				backgroundColor: "#ffffff",
+				minHeight: "56px",
+				'&:hover': {
+					backgroundColor: "#f9fafb",
+				},
+				borderBottomColor: "var(--color-border)",
+			},
+		},
+		pagination: {
+			style: {
+				borderTopWidth: "1px",
+				borderTopColor: "var(--color-border)",
+				backgroundColor: "#ffffff",
+				color: "var(--color-text-base)",
+			},
+		},
+	};
 
 	const [wasteData, setWasteData] = useState(Array<DataRow>);
 	const [loading, setLoading] = useState(false);
@@ -256,10 +292,8 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 			});
 	}, []);
 
-	return loading ? (
-		<LoadingPage />
-	) : (
-		<div className="flex flex-col relative h-full min-h-screen overflow-hidden">
+	return (
+		<div className="flex flex-col relative h-full w-full bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
 			<Header
 				isDeleteButtonVisible={isDeleteButtonVisible}
 				handleDelete={() => {
@@ -279,7 +313,20 @@ const TrashTable: React.FC<Table1Props> = ({ setIsDeleteButtonVisible }) => {
 					onSelectedRowsChange={handleChange}
 					pagination
 					paginationPerPage={20}
-					fixedHeader
+					customStyles={customTableStyles}
+					progressPending={loading}
+					progressComponent={
+						<div className="w-full h-96 flex flex-col justify-center gap-4 p-8">
+							{[...Array(5)].map((_, i) => (
+								<div key={i} className="flex gap-4">
+									<div className="h-8 bg-gray-200 rounded animate-pulse w-1/4"></div>
+									<div className="h-8 bg-gray-200 rounded animate-pulse w-1/4"></div>
+									<div className="h-8 bg-gray-200 rounded animate-pulse w-1/4"></div>
+									<div className="h-8 bg-gray-200 rounded animate-pulse w-1/4"></div>
+								</div>
+							))}
+						</div>
+					}
 				/>
 			</div>
 		</div>
@@ -308,54 +355,55 @@ const Header: React.FC<HeaderProps> = ({
 	};
 
 	return (
-		<div className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
-			<div className="flex justify-between items-center p-4 w-full">
-				<div className="flex gap-4 justify-between items-center w-full">
-					<div className="w-1/2 flex items-center gap-4">
-						<CalendarButton />
-						{isDeleteButtonVisible && (
-							<DeleteButton onClick={handleDelete} />
-						)}
-						<DropdownMenu.Root>
-							<DropdownMenu.Trigger asChild>
-								<button className="flex items-center gap-2 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-tertiary text-sm font-medium">
-									<BsFilterLeft className="text-lg" />
-									Toggle Columns
-								</button>
-							</DropdownMenu.Trigger>
-							<DropdownMenu.Portal>
-								<DropdownMenu.Content className="min-w-[150px] bg-white rounded-md shadow-lg border border-gray-200 p-2 flex flex-col gap-1 z-50">
-									{Object.keys(TrashData[0] || {})
-										.filter((column) => column !== "Number")
-										.map((column: string) => (
-											<label
-												key={column}
-												className="flex items-center gap-2 px-2 py-1.5 text-sm cursor-pointer hover:bg-gray-50 rounded"
-											>
-												<input
-													type="checkbox"
-													checked={!hiddenColumns.includes(column)}
-													onChange={() => toggleColumn(column)}
-													className="rounded border-gray-300 text-tertiary focus:ring-tertiary"
-												/>
-												{column}
-											</label>
-										))}
-								</DropdownMenu.Content>
-							</DropdownMenu.Portal>
-						</DropdownMenu.Root>
-						<form className="flex w-1/2" onSubmit={(e) => e.preventDefault()}>
-							<input
-								type="text"
-								placeholder="Search"
-								onChange={handleSearchChange}
-								className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
-							/>
-						</form>
-					</div>
-					<div>
-						<AddWaste />
-					</div>
+		<div className="z-10 bg-white border-b border-gray-200 p-4">
+			<div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center w-full">
+				<div className="flex items-center gap-3 w-full md:w-auto">
+					<form className="relative flex-1 md:w-64" onSubmit={(e) => e.preventDefault()}>
+						<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+							<BsSearch className="text-gray-400" />
+						</div>
+						<input
+							type="text"
+							placeholder="Search entries..."
+							onChange={handleSearchChange}
+							className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-[#216604] focus:border-[#216604] sm:text-sm transition-colors"
+						/>
+					</form>
+					<DropdownMenu.Root>
+						<DropdownMenu.Trigger asChild>
+							<button className="flex items-center gap-2 px-3 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#216604] text-sm font-medium text-gray-700 transition-colors shrink-0">
+								<BsFilterLeft className="text-lg text-gray-500" />
+								<span>Columns</span>
+							</button>
+						</DropdownMenu.Trigger>
+						<DropdownMenu.Portal>
+							<DropdownMenu.Content className="min-w-[180px] bg-white rounded-md shadow-panel border border-gray-200 p-2 flex flex-col gap-1 z-50 animate-in fade-in-80 slide-in-from-top-1">
+								{Object.keys(TrashData[0] || {})
+									.filter((column) => column !== "Number")
+									.map((column: string) => (
+										<label
+											key={column}
+											className="flex items-center gap-3 px-2 py-2 text-sm cursor-pointer hover:bg-gray-50 rounded select-none text-gray-700"
+										>
+											<input
+												type="checkbox"
+												checked={!hiddenColumns.includes(column)}
+												onChange={() => toggleColumn(column)}
+												className="rounded border-gray-300 text-[#216604] focus:ring-[#216604] h-4 w-4"
+											/>
+											{column}
+										</label>
+									))}
+							</DropdownMenu.Content>
+						</DropdownMenu.Portal>
+					</DropdownMenu.Root>
+					<CalendarButton />
+					{isDeleteButtonVisible && (
+						<DeleteButton onClick={handleDelete} />
+					)}
+				</div>
+				<div className="flex-shrink-0 w-full md:w-auto mt-4 md:mt-0 flex justify-end">
+					<AddWaste />
 				</div>
 			</div>
 		</div>

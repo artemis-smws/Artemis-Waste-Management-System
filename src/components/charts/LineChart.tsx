@@ -14,7 +14,7 @@ type LineChartProps = {
   data: { name: string; value: number }[];
 };
 
-const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
+const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-white border border-gray-200 rounded-lg shadow-md px-3 py-2">

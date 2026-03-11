@@ -18,7 +18,13 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({ onClick }) => {
 
     return (
         <div>
-            <button type="button" className="btn btn-danger" onClick={() => {onClick(); showNotice();}}>Delete</button>
+            <button 
+                type="button" 
+                className="px-3 py-2 bg-[#a21111] hover:bg-red-800 text-white rounded-md shadow-sm transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-red-500" 
+                onClick={() => {onClick(); showNotice();}}
+            >
+                Delete
+            </button>
             <div>
                 {notice && <DeleteMessage submit={closeNotice} />}
             </div>

@@ -1,20 +1,20 @@
-import WasteGenerated from "./components/wasteGenerated";
-import PercentagePerCampus from "./components/percentagePerCampus";
+import { useState, useEffect, lazy, Suspense } from "react";
 import Sidebar from "../../components/layout/sidebar";
-import { useState, useEffect } from "react";
-import AdminChartCard from "./components/adminChartCard";
-import WasteComposition from "./components/wasteComposition";
-import WasteGenerationBuilding from "./components/wasteGenerationBuilding";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../services/firebase";
 import DashboardPrint from "./components/printDashboard";
-import OverviewCard from "./components/overviewCard";
-import LoadingPage from "../../components/loadingPage";
 import { WasteDataContext } from "../../context/wasteDataContext";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { BsPrinter, BsChevronDown, BsClock } from "react-icons/bs";
 import useFetch from "../../hooks/useFetch";
 import calculateTotal from "./utils/calculateTotal";
+import { Skeleton } from "../../components/ui/skeleton";
+
+const WasteGenerated = lazy(() => import("./components/wasteGenerated"));
+const AdminChartCard = lazy(() => import("./components/adminChartCard"));
+const WasteComposition = lazy(() => import("./components/wasteComposition"));
+const WasteGenerationBuilding = lazy(() => import("./components/wasteGenerationBuilding"));
+const OverviewCard = lazy(() => import("./components/overviewCard"));
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type TimeFilter = {
@@ -52,6 +52,55 @@ function WasteTile({ label, value, color, bgColor, dotColor }: WasteTileProps) {
       <span className="text-xl font-bold font-mono group-hover:scale-105 transition-transform duration-300" style={{ color }}>
         {value} kg
       </span>
+    </div>
+  );
+}
+
+// ─── Skeletons ────────────────────────────────────────────────────────────────
+function DashboardSkeleton() {
+  return (
+    <div className="w-full animate-in fade-in duration-500 flex flex-col gap-6">
+      {/* Overview Card Skeleton */}
+      <Skeleton className="w-full h-[104px] rounded-xl" />
+
+      {/* Waste Generated & Composition Row */}
+      <section className="flex flex-col w-full">
+        {/* Header Skeleton */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <Skeleton className="w-1 h-5 rounded-full" />
+            <Skeleton className="w-40 h-6 rounded-md" />
+          </div>
+          <Skeleton className="w-32 h-9 rounded-lg" />
+        </div>
+
+        <div className="flex gap-5 w-full">
+          {/* Area Chart Skeleton */}
+          <div className="flex-[3] min-w-0 flex">
+            <Skeleton className="w-full min-h-[400px] rounded-lg" />
+          </div>
+
+          {/* Donut Chart & Tiles Skeleton */}
+          <div className="flex-[2] min-w-0 flex flex-col gap-4">
+            <Skeleton className="w-full h-[280px] rounded-lg" />
+            <div className="grid grid-cols-2 gap-3">
+              <Skeleton className="w-full h-[88px] rounded-lg" />
+              <Skeleton className="w-full h-[88px] rounded-lg" />
+              <Skeleton className="w-full h-[88px] rounded-lg" />
+              <Skeleton className="w-full h-[88px] rounded-lg" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bar Chart Skeleton */}
+      <section className="flex flex-col w-full mt-2">
+        <div className="flex items-center gap-2 mb-4">
+           <Skeleton className="w-1 h-5 rounded-full" />
+           <Skeleton className="w-64 h-6 rounded-md" />
+        </div>
+        <Skeleton className="w-full h-[430px] rounded-lg" />
+      </section>
     </div>
   );
 }
@@ -95,16 +144,13 @@ export default function Dashboard() {
 
   return (
     <WasteDataContext.Provider value={wasteData}>
-      {loading ? (
-        <LoadingPage />
-      ) : (
-        <div id="dashboard">
-          {/* ── App shell ─────────────────────────────────────────────── */}
-          <div className="flex hide-dashboard">
-            {/* Sidebar */}
-            <div className="hide-dashboard">
-              <Sidebar />
-            </div>
+      <div id="dashboard">
+        {/* ── App shell ─────────────────────────────────────────────── */}
+        <div className="flex hide-dashboard">
+          {/* Sidebar */}
+          <div className="hide-dashboard">
+            <Sidebar />
+          </div>
 
             {/* Main content area */}
             <div className="flex flex-col flex-1 min-w-0 h-screen overflow-hidden border-l border-gray-200">
@@ -140,10 +186,14 @@ export default function Dashboard() {
               {/* ── Page body ───────────────────────────────────────── */}
               <main className="flex-1 overflow-y-auto bg-gradient-to-br from-[#f1f1f1] to-gray-200/50 px-6 pt-6 pb-10">
 
-                {/* KPI Overview Strip */}
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both">
-                  <OverviewCard />
-                </div>
+                {loading ? (
+                  <DashboardSkeleton />
+                ) : (
+                  <Suspense fallback={<DashboardSkeleton />}>
+                    {/* KPI Overview Strip */}
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both">
+                      <OverviewCard />
+                    </div>
 
                 {/* ── Section: Waste Generated ───────────────────────── */}
                 <section className="flex flex-col w-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both" style={{ animationDelay: '150ms' }}>
@@ -270,6 +320,8 @@ export default function Dashboard() {
 
                 {/* Bottom spacer */}
                 <div className="h-6" />
+                  </Suspense>
+                )}
               </main>
             </div>
           </div>
@@ -277,7 +329,6 @@ export default function Dashboard() {
           {/* Print overlay */}
           {isPrinting && <DashboardPrint />}
         </div>
-      )}
     </WasteDataContext.Provider>
   );
 }

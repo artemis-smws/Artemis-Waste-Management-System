@@ -14,12 +14,12 @@ export default function AddPage() {
   const handleDelete = () => {};
   
   return (
-    <div className="flex h-screen w-full">
-      <div className="h-screen shrink-0">
+    <div className="flex min-h-screen w-full bg-[var(--color-light)]">
+      <div className="h-screen shrink-0 sticky top-0">
         <Sidebar />
       </div>
-      <div className="w-full h-full object-contain">
-        <div>
+      <div className="flex-1 w-full p-8 overflow-y-auto">
+        <div className="max-w-7xl mx-auto space-y-6">
           <TrashTable setIsDeleteButtonVisible={handleDeleteButtonVisibility} />
         </div>
       </div>
