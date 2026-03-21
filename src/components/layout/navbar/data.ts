@@ -1,24 +1,24 @@
 export const nav = {
-    nav_links : [
+    nav_links: [
         {
-            name : "dashboard",
-            reference : "#dashboard"
+            name: "Features",
+            reference: "#features"
         },
         {
-            name : "maps",
-            reference : "#maps"
+            name: "Ecosystem",
+            reference: "#ecosystem"
         },
         {
-            name : "features",
-            reference : "#features"
+            name: "Team",
+            reference: "#team"
         },
         {
-            name : "about us",
-            reference : "#about_us"
+            name: "Contact",
+            reference: "#contact"
         }
     ],
-    login : {
-        name : "login",
-        reference : "/login"
+    login: {
+        name: "login",
+        reference: "/login"
     }
 }

@@ -1,4 +1,11 @@
+import devFetch from "../api/devFetch";
+
+const DEV_MODE = import.meta.env.VITE_DEV_MODE === "true";
+
 export default async function useFetch(endpoint : string, name ?: string) {
+    if (DEV_MODE) {
+        return devFetch(endpoint, name);
+    }
     const data = await fetch(
         `${import.meta.env.VITE_API_URL}${endpoint}`,
         {
@@ -13,4 +20,4 @@ export default async function useFetch(endpoint : string, name ?: string) {
         localStorage.setItem(name, JSON.stringify(jsonData))
     }
     return jsonData
-}   
+}

@@ -5,10 +5,8 @@ import { deleteCookie } from "../../../utils/cookies";
 import {
   LayoutDashboard,
   MapPin,
-  Trash2,
   Database,
   LogOut,
-  Leaf,
   PanelLeftClose,
   PanelLeftOpen,
 } from "lucide-react";
@@ -66,12 +64,16 @@ function Sidebar() {
         isCollapsed ? "w-[80px] px-2" : "w-[280px] px-3"
       }`}
       style={{
-        background: "linear-gradient(180deg, #0b1a09 0%, #132611 40%, #1a3312 100%)",
+        background:
+          "linear-gradient(180deg, #0b1a09 0%, #132611 40%, #1a3312 100%)",
         boxShadow: "4px 0 24px rgba(0,0,0,0.35)",
       }}
     >
       {/* ── Logo & Toggle ── */}
-      <div className={`flex items-center mb-8 ${isCollapsed ? "justify-center" : "justify-between px-3"}`} id="Project-Logo">
+      <div
+        className={`flex items-center mb-8 ${isCollapsed ? "justify-center" : "justify-between px-3"}`}
+        id="Project-Logo"
+      >
         {!isCollapsed && (
           <Link
             to="/dashboard"
@@ -89,7 +91,11 @@ function Sidebar() {
           className="p-1.5 rounded-md hover:bg-white/10 text-white/70 hover:text-white transition-colors flex items-center justify-center shrink-0"
           title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
         >
-          {isCollapsed ? <PanelLeftOpen size={20} /> : <PanelLeftClose size={20} />}
+          {isCollapsed ? (
+            <PanelLeftOpen size={20} />
+          ) : (
+            <PanelLeftClose size={20} />
+          )}
         </button>
       </div>
 
@@ -104,7 +110,10 @@ function Sidebar() {
       )}
 
       {/* ── Nav Links ── */}
-      <nav className={`flex flex-col gap-1 flex-1 ${isCollapsed ? "px-1" : ""}`} id="Lists">
+      <nav
+        className={`flex flex-col gap-1 flex-1 ${isCollapsed ? "px-1" : ""}`}
+        id="Lists"
+      >
         {navItems
           .filter((item) => !item.disable)
           .map((item) => {
@@ -115,7 +124,9 @@ function Sidebar() {
                 to={item.route}
                 title={isCollapsed ? item.name : undefined}
                 className={`group relative flex items-center rounded-lg no-underline transition-all duration-200 ${
-                  isCollapsed ? "justify-center py-2.5 px-0" : "gap-3 px-3 py-2.5"
+                  isCollapsed
+                    ? "justify-center py-2.5 px-0"
+                    : "gap-3 px-3 py-2.5"
                 }`}
                 style={
                   active
@@ -164,7 +175,9 @@ function Sidebar() {
 
                 {/* Label */}
                 {!isCollapsed && (
-                  <span className="text-sm font-medium whitespace-nowrap">{item.name}</span>
+                  <span className="text-sm font-medium whitespace-nowrap">
+                    {item.name}
+                  </span>
                 )}
               </Link>
             );
@@ -178,14 +191,18 @@ function Sidebar() {
       />
 
       {/* ── Bottom section: branding pill + sign out ── */}
-      <div className={`flex flex-col gap-3 ${isCollapsed ? "px-0 items-center w-full" : "px-1"}`}>
+      <div
+        className={`flex flex-col gap-3 ${isCollapsed ? "px-0 items-center w-full" : "px-1"}`}
+      >
         {/* Sign out */}
         <button
           type="button"
           onClick={handleSignOut}
           title={isCollapsed ? "Sign Out" : undefined}
           className={`group flex items-center rounded-lg font-medium text-sm border-none cursor-pointer transition-all duration-200 ${
-            isCollapsed ? "justify-center p-2.5 w-full" : "gap-3 w-full px-3 py-2.5"
+            isCollapsed
+              ? "justify-center p-2.5 w-full"
+              : "gap-3 w-full px-3 py-2.5"
           }`}
           style={{
             background: "rgba(162,17,17,0.25)",

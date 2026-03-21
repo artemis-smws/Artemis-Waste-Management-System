@@ -1,0 +1,469 @@
+{
+  "trashbin": [
+    {
+      "id": "ALG-001",
+      "type": "Biodegradable",
+      "organization": "Alangilan - RGR Building Lobby",
+      "location": { "latitude": 13.7839, "longitude": 121.0741 },
+      "capacity": 82,
+      "frequency": 5
+    },
+    {
+      "id": "ALG-002",
+      "type": "Recyclable",
+      "organization": "Alangilan - RGR Building 2nd Floor",
+      "location": { "latitude": 13.7837, "longitude": 121.0741 },
+      "capacity": 47,
+      "frequency": 3
+    },
+    {
+      "id": "ALG-003",
+      "type": "Residual",
+      "organization": "Alangilan - CICS Building Entrance",
+      "location": { "latitude": 13.7843, "longitude": 121.0741 },
+      "capacity": 91,
+      "frequency": 6
+    },
+    {
+      "id": "ALG-004",
+      "type": "Biodegradable",
+      "organization": "Alangilan - CICS Building Ground Floor",
+      "location": { "latitude": 13.7848, "longitude": 121.0739 },
+      "capacity": 34,
+      "frequency": 4
+    },
+    {
+      "id": "ALG-005",
+      "type": "Recyclable",
+      "organization": "Alangilan - CEAFA Building Corridor",
+      "location": { "latitude": 13.7841, "longitude": 121.0741 },
+      "capacity": 61,
+      "frequency": 3
+    },
+    {
+      "id": "ALG-006",
+      "type": "Residual",
+      "organization": "Alangilan - CEAFA Building Workshop Area",
+      "location": { "latitude": 13.7840, "longitude": 121.0744 },
+      "capacity": 78,
+      "frequency": 5
+    },
+    {
+      "id": "ALG-007",
+      "type": "Infectious",
+      "organization": "Alangilan - University Clinic",
+      "location": { "latitude": 13.7849, "longitude": 121.0739 },
+      "capacity": 55,
+      "frequency": 4
+    },
+    {
+      "id": "ALG-008",
+      "type": "Biodegradable",
+      "organization": "Alangilan - Main Canteen",
+      "location": { "latitude": 13.7840, "longitude": 121.0741 },
+      "capacity": 93,
+      "frequency": 7
+    },
+    {
+      "id": "ALG-009",
+      "type": "Residual",
+      "organization": "Alangilan - Main Canteen Exit",
+      "location": { "latitude": 13.7839, "longitude": 121.0742 },
+      "capacity": 88,
+      "frequency": 6
+    },
+    {
+      "id": "ALG-010",
+      "type": "Recyclable",
+      "organization": "Alangilan - University Library Ground Floor",
+      "location": { "latitude": 13.7851, "longitude": 121.0740 },
+      "capacity": 42,
+      "frequency": 2
+    },
+    {
+      "id": "ALG-011",
+      "type": "Biodegradable",
+      "organization": "Alangilan - Gymnasium Entrance",
+      "location": { "latitude": 13.7852, "longitude": 121.0739 },
+      "capacity": 19,
+      "frequency": 3
+    },
+    {
+      "id": "ALG-012",
+      "type": "Residual",
+      "organization": "Alangilan - Gymnasium Courtyard",
+      "location": { "latitude": 13.7852, "longitude": 121.0741 },
+      "capacity": 67,
+      "frequency": 4
+    },
+    {
+      "id": "ALG-013",
+      "type": "Biodegradable",
+      "organization": "Alangilan - College of Engineering Technology Lobby",
+      "location": { "latitude": 13.7843, "longitude": 121.0743 },
+      "capacity": 52,
+      "frequency": 4
+    },
+    {
+      "id": "ALG-014",
+      "type": "Recyclable",
+      "organization": "Alangilan - Main Gate Area",
+      "location": { "latitude": 13.7838, "longitude": 121.0740 },
+      "capacity": 30,
+      "frequency": 5
+    },
+    {
+      "id": "ALG-015",
+      "type": "Residual",
+      "organization": "Alangilan - Student Plaza",
+      "location": { "latitude": 13.7845, "longitude": 121.0740 },
+      "capacity": 74,
+      "frequency": 6
+    },
+    {
+      "id": "PB1-001",
+      "type": "Biodegradable",
+      "organization": "Pablo Borbon - Jose Rizal Building Lobby",
+      "location": { "latitude": 13.7568, "longitude": 121.0579 },
+      "capacity": 76,
+      "frequency": 5
+    },
+    {
+      "id": "PB1-002",
+      "type": "Recyclable",
+      "organization": "Pablo Borbon - Jose Rizal Building 2nd Floor",
+      "location": { "latitude": 13.7570, "longitude": 121.0581 },
+      "capacity": 43,
+      "frequency": 3
+    },
+    {
+      "id": "PB1-003",
+      "type": "Biodegradable",
+      "organization": "Pablo Borbon - Emilio Aguinaldo Building Ground Floor",
+      "location": { "latitude": 13.7564, "longitude": 121.0585 },
+      "capacity": 85,
+      "frequency": 6
+    },
+    {
+      "id": "PB1-004",
+      "type": "Residual",
+      "organization": "Pablo Borbon - Emilio Aguinaldo Building 5th Floor",
+      "location": { "latitude": 13.7562, "longitude": 121.0587 },
+      "capacity": 38,
+      "frequency": 2
+    },
+    {
+      "id": "PB1-005",
+      "type": "Recyclable",
+      "organization": "Pablo Borbon - Administration Building Entrance",
+      "location": { "latitude": 13.7572, "longitude": 121.0575 },
+      "capacity": 59,
+      "frequency": 3
+    },
+    {
+      "id": "PB1-006",
+      "type": "Infectious",
+      "organization": "Pablo Borbon - Health Services Office",
+      "location": { "latitude": 13.7566, "longitude": 121.0572 },
+      "capacity": 48,
+      "frequency": 4
+    },
+    {
+      "id": "PB1-007",
+      "type": "Biodegradable",
+      "organization": "Pablo Borbon - University Canteen",
+      "location": { "latitude": 13.7558, "longitude": 121.0578 },
+      "capacity": 96,
+      "frequency": 8
+    },
+    {
+      "id": "PB1-008",
+      "type": "Residual",
+      "organization": "Pablo Borbon - Canteen Side Exit",
+      "location": { "latitude": 13.7557, "longitude": 121.0580 },
+      "capacity": 89,
+      "frequency": 7
+    },
+    {
+      "id": "PB1-009",
+      "type": "Recyclable",
+      "organization": "Pablo Borbon - Main Library 1st Floor",
+      "location": { "latitude": 13.7575, "longitude": 121.0583 },
+      "capacity": 27,
+      "frequency": 2
+    },
+    {
+      "id": "PB1-010",
+      "type": "Biodegradable",
+      "organization": "Pablo Borbon - Leviste Gymnasium Entrance",
+      "location": { "latitude": 13.7560, "longitude": 121.0591 },
+      "capacity": 15,
+      "frequency": 3
+    },
+    {
+      "id": "PB1-011",
+      "type": "Residual",
+      "organization": "Pablo Borbon - Leviste Gymnasium Courtyard",
+      "location": { "latitude": 13.7558, "longitude": 121.0594 },
+      "capacity": 62,
+      "frequency": 4
+    },
+    {
+      "id": "PB1-012",
+      "type": "Recyclable",
+      "organization": "Pablo Borbon - College of Teacher Education Hallway",
+      "location": { "latitude": 13.7577, "longitude": 121.0577 },
+      "capacity": 51,
+      "frequency": 3
+    },
+    {
+      "id": "PB1-013",
+      "type": "Biodegradable",
+      "organization": "Pablo Borbon - College of Law Corridor",
+      "location": { "latitude": 13.7574, "longitude": 121.0570 },
+      "capacity": 33,
+      "frequency": 3
+    },
+    {
+      "id": "PB1-014",
+      "type": "Residual",
+      "organization": "Pablo Borbon - Main Gate Entrance",
+      "location": { "latitude": 13.7554, "longitude": 121.0576 },
+      "capacity": 71,
+      "frequency": 6
+    },
+    {
+      "id": "PB1-015",
+      "type": "Infectious",
+      "organization": "Pablo Borbon - College of Health Sciences Lab",
+      "location": { "latitude": 13.7569, "longitude": 121.0589 },
+      "capacity": 44,
+      "frequency": 4
+    }
+  ],
+  "waste": [
+    {
+      "id": "2024-01-02-data", "createdAt": "2024-01-02T08:00:00Z",
+      "overall_weight": 275.0, "overall_biodegradable": 107.0, "overall_recyclable": 74.5, "overall_residual": 62.0, "overall_infectious": 31.5,
+      "RGRBuilding":            { "campus": "Alangilan",    "weight": { "biodegradable": 20.0, "recyclable": { "total": 15.0, "paper": 8.0,  "plastic": 7.0  }, "residual": 12.0, "infectious": 5.0, "total": 52.0  } },
+      "CICSBuilding":           { "campus": "Alangilan",    "weight": { "biodegradable": 18.0, "recyclable": { "total": 10.5, "paper": 5.0,  "plastic": 5.5  }, "residual": 9.0,  "infectious": 4.0, "total": 41.5  } },
+      "CEAFABuilding":          { "campus": "Alangilan",    "weight": { "biodegradable": 17.0, "recyclable": { "total": 13.0, "paper": 6.0,  "plastic": 7.0  }, "residual": 11.0, "infectious": 8.0, "total": 49.0  } },
+      "JoseRizalBuilding":      { "campus": "PabloBorbon", "weight": { "biodegradable": 19.0, "recyclable": { "total": 14.0, "paper": 7.5,  "plastic": 6.5  }, "residual": 11.5, "infectious": 6.5, "total": 51.0  } },
+      "EmilioAguinaldoBuilding":{ "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.5, "paper": 6.0,  "plastic": 5.5  }, "residual": 10.0, "infectious": 4.5, "total": 42.5  } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 10.5, "paper": 5.5,  "plastic": 5.0  }, "residual": 8.5,  "infectious": 3.5, "total": 39.0  } }
+    },
+    {
+      "id": "2024-01-03-data", "createdAt": "2024-01-03T08:00:00Z",
+      "overall_weight": 307.0, "overall_biodegradable": 120.5, "overall_recyclable": 81.0, "overall_residual": 68.5, "overall_infectious": 37.0,
+      "RGRBuilding":            { "campus": "Alangilan",    "weight": { "biodegradable": 23.0, "recyclable": { "total": 16.0, "paper": 9.0,  "plastic": 7.0  }, "residual": 13.0, "infectious": 7.0, "total": 59.0  } },
+      "CICSBuilding":           { "campus": "Alangilan",    "weight": { "biodegradable": 20.0, "recyclable": { "total": 12.0, "paper": 6.0,  "plastic": 6.0  }, "residual": 10.5, "infectious": 5.5, "total": 48.0  } },
+      "CEAFABuilding":          { "campus": "Alangilan",    "weight": { "biodegradable": 19.0, "recyclable": { "total": 13.0, "paper": 7.0,  "plastic": 6.0  }, "residual": 12.0, "infectious": 7.0, "total": 51.0  } },
+      "JoseRizalBuilding":      { "campus": "PabloBorbon", "weight": { "biodegradable": 22.5, "recyclable": { "total": 16.5, "paper": 9.0,  "plastic": 7.5  }, "residual": 13.5, "infectious": 8.0, "total": 60.5  } },
+      "EmilioAguinaldoBuilding":{ "campus": "PabloBorbon", "weight": { "biodegradable": 19.0, "recyclable": { "total": 12.5, "paper": 6.5,  "plastic": 6.0  }, "residual": 10.5, "infectious": 5.0, "total": 47.0  } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.0, "paper": 5.5,  "plastic": 5.5  }, "residual": 9.0,  "infectious": 4.5, "total": 41.5  } }
+    },
+    {
+      "id": "2024-01-04-data", "createdAt": "2024-01-04T08:00:00Z",
+      "overall_weight": 253.0, "overall_biodegradable": 98.0, "overall_recyclable": 67.5, "overall_residual": 55.5, "overall_infectious": 32.0,
+      "RGRBuilding":            { "campus": "Alangilan",    "weight": { "biodegradable": 18.0, "recyclable": { "total": 12.0, "paper": 6.0,  "plastic": 6.0  }, "residual": 10.0, "infectious": 6.5, "total": 46.5  } },
+      "CICSBuilding":           { "campus": "Alangilan",    "weight": { "biodegradable": 16.0, "recyclable": { "total": 10.5, "paper": 5.0,  "plastic": 5.5  }, "residual": 8.5,  "infectious": 6.0, "total": 41.0  } },
+      "CEAFABuilding":          { "campus": "Alangilan",    "weight": { "biodegradable": 16.0, "recyclable": { "total": 12.0, "paper": 5.5,  "plastic": 6.5  }, "residual": 9.5,  "infectious": 6.0, "total": 43.5  } },
+      "JoseRizalBuilding":      { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 13.0, "paper": 7.0,  "plastic": 6.0  }, "residual": 10.5, "infectious": 6.5, "total": 47.0  } },
+      "EmilioAguinaldoBuilding":{ "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.0, "paper": 5.5,  "plastic": 5.5  }, "residual": 9.5,  "infectious": 4.5, "total": 41.5  } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.5, "recyclable": { "total": 9.0,  "paper": 4.5,  "plastic": 4.5  }, "residual": 7.5,  "infectious": 2.5, "total": 33.5  } }
+    },
+    {
+      "id": "2024-01-05-data", "createdAt": "2024-01-05T08:00:00Z",
+      "overall_weight": 341.0, "overall_biodegradable": 133.0, "overall_recyclable": 90.5, "overall_residual": 76.0, "overall_infectious": 41.5,
+      "RGRBuilding":            { "campus": "Alangilan",    "weight": { "biodegradable": 25.0, "recyclable": { "total": 18.0, "paper": 10.0, "plastic": 8.0  }, "residual": 14.0, "infectious": 8.5,  "total": 65.5  } },
+      "CICSBuilding":           { "campus": "Alangilan",    "weight": { "biodegradable": 22.0, "recyclable": { "total": 14.0, "paper": 7.0,  "plastic": 7.0  }, "residual": 12.5, "infectious": 7.5,  "total": 56.0  } },
+      "CEAFABuilding":          { "campus": "Alangilan",    "weight": { "biodegradable": 21.0, "recyclable": { "total": 14.0, "paper": 7.5,  "plastic": 6.5  }, "residual": 12.0, "infectious": 7.0,  "total": 54.0  } },
+      "JoseRizalBuilding":      { "campus": "PabloBorbon", "weight": { "biodegradable": 24.0, "recyclable": { "total": 17.5, "paper": 9.5,  "plastic": 8.0  }, "residual": 14.5, "infectious": 9.0,  "total": 65.0  } },
+      "EmilioAguinaldoBuilding":{ "campus": "PabloBorbon", "weight": { "biodegradable": 22.0, "recyclable": { "total": 15.5, "paper": 8.0,  "plastic": 7.5  }, "residual": 13.5, "infectious": 6.5,  "total": 57.5  } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.0, "recyclable": { "total": 11.5, "paper": 6.0,  "plastic": 5.5  }, "residual": 9.5,  "infectious": 3.0,  "total": 43.0  } }
+    },
+    {
+      "id": "2024-01-06-data", "createdAt": "2024-01-06T08:00:00Z",
+      "overall_weight": 229.5, "overall_biodegradable": 88.5, "overall_recyclable": 61.0, "overall_residual": 51.0, "overall_infectious": 29.0,
+      "RGRBuilding":            { "campus": "Alangilan",    "weight": { "biodegradable": 17.0, "recyclable": { "total": 12.0, "paper": 6.0,  "plastic": 6.0  }, "residual": 10.0, "infectious": 6.0, "total": 45.0  } },
+      "CICSBuilding":           { "campus": "Alangilan",    "weight": { "biodegradable": 14.5, "recyclable": { "total": 9.5,  "paper": 4.5,  "plastic": 5.0  }, "residual": 8.0,  "infectious": 5.0, "total": 37.0  } },
+      "CEAFABuilding":          { "campus": "Alangilan",    "weight": { "biodegradable": 14.0, "recyclable": { "total": 10.0, "paper": 5.0,  "plastic": 5.0  }, "residual": 8.0,  "infectious": 5.0, "total": 37.0  } },
+      "JoseRizalBuilding":      { "campus": "PabloBorbon", "weight": { "biodegradable": 15.5, "recyclable": { "total": 11.5, "paper": 6.0,  "plastic": 5.5  }, "residual": 9.5,  "infectious": 6.5, "total": 43.0  } },
+      "EmilioAguinaldoBuilding":{ "campus": "PabloBorbon", "weight": { "biodegradable": 14.0, "recyclable": { "total": 10.5, "paper": 5.5,  "plastic": 5.0  }, "residual": 8.5,  "infectious": 3.5, "total": 36.5  } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 13.5, "recyclable": { "total": 7.5,  "paper": 4.0,  "plastic": 3.5  }, "residual": 7.0,  "infectious": 3.0, "total": 31.0  } }
+    },
+    {
+      "id": "2024-01-07-data", "createdAt": "2024-01-07T08:00:00Z",
+      "overall_weight": 316.0, "overall_biodegradable": 123.5, "overall_recyclable": 84.0, "overall_residual": 70.5, "overall_infectious": 38.0,
+      "RGRBuilding":            { "campus": "Alangilan",    "weight": { "biodegradable": 24.0, "recyclable": { "total": 17.0, "paper": 9.0,  "plastic": 8.0  }, "residual": 13.5, "infectious": 7.5, "total": 62.0  } },
+      "CICSBuilding":           { "campus": "Alangilan",    "weight": { "biodegradable": 20.5, "recyclable": { "total": 13.0, "paper": 7.0,  "plastic": 6.0  }, "residual": 11.5, "infectious": 7.0, "total": 52.0  } },
+      "CEAFABuilding":          { "campus": "Alangilan",    "weight": { "biodegradable": 19.0, "recyclable": { "total": 13.0, "paper": 6.5,  "plastic": 6.5  }, "residual": 11.0, "infectious": 6.0, "total": 49.0  } },
+      "JoseRizalBuilding":      { "campus": "PabloBorbon", "weight": { "biodegradable": 22.0, "recyclable": { "total": 16.5, "paper": 9.0,  "plastic": 7.5  }, "residual": 13.5, "infectious": 8.5, "total": 60.5  } },
+      "EmilioAguinaldoBuilding":{ "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 14.0, "paper": 7.5,  "plastic": 6.5  }, "residual": 12.5, "infectious": 5.5, "total": 52.5  } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 10.5, "paper": 5.5,  "plastic": 5.0  }, "residual": 8.5,  "infectious": 3.5, "total": 40.0  } }
+    },
+    {
+      "id": "2024-01-08-data", "createdAt": "2024-01-08T08:00:00Z",
+      "overall_weight": 287.5, "overall_biodegradable": 111.5, "overall_recyclable": 77.0, "overall_residual": 64.0, "overall_infectious": 35.0,
+      "RGRBuilding":            { "campus": "Alangilan",    "weight": { "biodegradable": 21.5, "recyclable": { "total": 15.5, "paper": 8.0,  "plastic": 7.5  }, "residual": 12.5, "infectious": 7.0, "total": 56.5  } },
+      "CICSBuilding":           { "campus": "Alangilan",    "weight": { "biodegradable": 18.5, "recyclable": { "total": 12.0, "paper": 6.0,  "plastic": 6.0  }, "residual": 10.5, "infectious": 6.0, "total": 47.0  } },
+      "CEAFABuilding":          { "campus": "Alangilan",    "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0, "paper": 6.0,  "plastic": 6.0  }, "residual": 10.0, "infectious": 5.5, "total": 45.0  } },
+      "JoseRizalBuilding":      { "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 16.0, "paper": 8.5,  "plastic": 7.5  }, "residual": 12.5, "infectious": 8.0, "total": 57.0  } },
+      "EmilioAguinaldoBuilding":{ "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.5, "paper": 6.5,  "plastic": 6.0  }, "residual": 10.5, "infectious": 5.0, "total": 45.5  } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.0, "recyclable": { "total": 9.0,  "paper": 4.5,  "plastic": 4.5  }, "residual": 8.0,  "infectious": 3.5, "total": 36.5  } }
+    }
+  ],
+
+  "waste_7days": [
+    {
+      "id": "2024-01-02-data",
+      "createdAt": "2024-01-02T08:00:00Z",
+      "overall_weight": 142.5,
+      "overall_biodegradable": 55.0,
+      "overall_recyclable": 38.5,
+      "overall_residual": 32.0,
+      "overall_infectious": 17.0,
+      "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.0, "recyclable": { "total": 15.0 }, "residual": 12.0, "infectious": 5.0, "total": 52.0 } },
+      "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.0, "recyclable": { "total": 10.5 }, "residual": 9.0, "infectious": 4.0, "total": 41.5 } },
+      "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 13.0 }, "residual": 11.0, "infectious": 8.0, "total": 49.0 } },
+      "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.0, "recyclable": { "total": 14.0 }, "residual": 11.5, "infectious": 6.5, "total": 51.0 } },
+      "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.5 }, "residual": 10.0, "infectious": 4.5, "total": 42.5 } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 10.5 }, "residual": 8.5, "infectious": 3.5, "total": 39.0 } }
+    },
+    {
+      "id": "2024-01-03-data",
+      "createdAt": "2024-01-03T08:00:00Z",
+      "overall_weight": 158.0,
+      "overall_biodegradable": 62.0,
+      "overall_recyclable": 41.0,
+      "overall_residual": 35.5,
+      "overall_infectious": 19.5,
+      "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 23.0, "recyclable": { "total": 16.0 }, "residual": 13.0, "infectious": 7.0, "total": 59.0 } },
+      "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.0, "recyclable": { "total": 12.0 }, "residual": 10.5, "infectious": 5.5, "total": 48.0 } },
+      "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.0, "recyclable": { "total": 13.0 }, "residual": 12.0, "infectious": 7.0, "total": 51.0 } },
+      "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 22.5, "recyclable": { "total": 16.5 }, "residual": 13.5, "infectious": 8.0, "total": 60.5 } },
+      "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.0, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 5.0, "total": 47.0 } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.0 }, "residual": 9.0, "infectious": 4.5, "total": 41.5 } }
+    },
+    {
+      "id": "2024-01-04-data",
+      "createdAt": "2024-01-04T08:00:00Z",
+      "overall_weight": 131.0,
+      "overall_biodegradable": 50.0,
+      "overall_recyclable": 34.5,
+      "overall_residual": 28.0,
+      "overall_infectious": 18.5,
+      "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.0, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 6.5, "total": 46.5 } },
+      "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 16.0, "recyclable": { "total": 10.5 }, "residual": 8.5, "infectious": 6.0, "total": 41.0 } },
+      "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 16.0, "recyclable": { "total": 12.0 }, "residual": 9.5, "infectious": 6.0, "total": 43.5 } },
+      "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 13.0 }, "residual": 10.5, "infectious": 6.5, "total": 47.0 } },
+      "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.0 }, "residual": 9.5, "infectious": 4.5, "total": 41.5 } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.5, "recyclable": { "total": 9.0 }, "residual": 7.5, "infectious": 2.5, "total": 33.5 } }
+    },
+    {
+      "id": "2024-01-05-data",
+      "createdAt": "2024-01-05T08:00:00Z",
+      "overall_weight": 175.5,
+      "overall_biodegradable": 68.0,
+      "overall_recyclable": 46.0,
+      "overall_residual": 38.5,
+      "overall_infectious": 23.0,
+      "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 25.0, "recyclable": { "total": 18.0 }, "residual": 14.0, "infectious": 8.5, "total": 65.5 } },
+      "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 22.0, "recyclable": { "total": 14.0 }, "residual": 12.5, "infectious": 7.5, "total": 56.0 } },
+      "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.0, "recyclable": { "total": 14.0 }, "residual": 12.0, "infectious": 7.0, "total": 54.0 } },
+      "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 24.0, "recyclable": { "total": 17.5 }, "residual": 14.5, "infectious": 9.0, "total": 65.0 } },
+      "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 22.0, "recyclable": { "total": 15.5 }, "residual": 13.5, "infectious": 6.5, "total": 57.5 } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.0, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 3.0, "total": 43.0 } }
+    },
+    {
+      "id": "2024-01-06-data",
+      "createdAt": "2024-01-06T08:00:00Z",
+      "overall_weight": 119.0,
+      "overall_biodegradable": 45.5,
+      "overall_recyclable": 31.5,
+      "overall_residual": 26.0,
+      "overall_infectious": 16.0,
+      "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 6.0, "total": 45.0 } },
+      "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 14.5, "recyclable": { "total": 9.5 }, "residual": 8.0, "infectious": 5.0, "total": 37.0 } },
+      "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 14.0, "recyclable": { "total": 10.0 }, "residual": 8.0, "infectious": 5.0, "total": 37.0 } },
+      "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 15.5, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 6.5, "total": 43.0 } },
+      "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.0, "recyclable": { "total": 10.5 }, "residual": 8.5, "infectious": 3.5, "total": 36.5 } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 13.5, "recyclable": { "total": 7.5 }, "residual": 7.0, "infectious": 3.0, "total": 31.0 } }
+    },
+    {
+      "id": "2024-01-07-data",
+      "createdAt": "2024-01-07T08:00:00Z",
+      "overall_weight": 163.0,
+      "overall_biodegradable": 63.5,
+      "overall_recyclable": 43.0,
+      "overall_residual": 36.0,
+      "overall_infectious": 20.5,
+      "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 24.0, "recyclable": { "total": 17.0 }, "residual": 13.5, "infectious": 7.5, "total": 62.0 } },
+      "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.5, "recyclable": { "total": 13.0 }, "residual": 11.5, "infectious": 7.0, "total": 52.0 } },
+      "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.0, "recyclable": { "total": 13.0 }, "residual": 11.0, "infectious": 6.0, "total": 49.0 } },
+      "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 22.0, "recyclable": { "total": 16.5 }, "residual": 13.5, "infectious": 8.5, "total": 60.5 } },
+      "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 14.0 }, "residual": 12.5, "infectious": 5.5, "total": 52.5 } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 10.5 }, "residual": 8.5, "infectious": 3.5, "total": 40.0 } }
+    },
+    {
+      "id": "2024-01-08-data",
+      "createdAt": "2024-01-08T08:00:00Z",
+      "overall_weight": 148.5,
+      "overall_biodegradable": 57.5,
+      "overall_recyclable": 39.5,
+      "overall_residual": 33.0,
+      "overall_infectious": 18.5,
+      "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.5, "recyclable": { "total": 15.5 }, "residual": 12.5, "infectious": 7.0, "total": 56.5 } },
+      "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.5, "recyclable": { "total": 12.0 }, "residual": 10.5, "infectious": 6.0, "total": 47.0 } },
+      "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 5.5, "total": 45.0 } },
+      "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 16.0 }, "residual": 12.5, "infectious": 8.0, "total": 57.0 } },
+      "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 5.0, "total": 45.5 } },
+      "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.0, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 3.5, "total": 36.5 } }
+    }
+  ],
+  "waste_30days": [
+    { "id": "2023-12-10-data", "createdAt": "2023-12-10T08:00:00Z", "overall_weight": 252.0, "overall_biodegradable": 97.0, "overall_recyclable": 66.0, "overall_residual": 57.0, "overall_infectious": 32.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.0, "recyclable": { "total": 12.0 }, "residual": 10.5, "infectious": 6.0, "total": 46.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 16.0, "recyclable": { "total": 11.0 }, "residual": 9.0, "infectious": 5.5, "total": 41.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 16.0, "recyclable": { "total": 11.0 }, "residual": 9.5, "infectious": 5.5, "total": 42.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 6.5, "total": 47.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 15.5, "recyclable": { "total": 10.5 }, "residual": 9.5, "infectious": 5.0, "total": 40.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.0, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 3.5, "total": 34.5 } } },
+    { "id": "2023-12-13-data", "createdAt": "2023-12-13T08:00:00Z", "overall_weight": 281.0, "overall_biodegradable": 108.5, "overall_recyclable": 74.5, "overall_residual": 62.0, "overall_infectious": 36.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.0, "recyclable": { "total": 14.5 }, "residual": 11.5, "infectious": 7.0, "total": 54.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.0, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 6.0, "total": 46.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 6.0, "total": 45.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.0, "recyclable": { "total": 14.5 }, "residual": 11.5, "infectious": 7.5, "total": 53.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0 }, "residual": 10.5, "infectious": 5.5, "total": 45.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 15.0, "recyclable": { "total": 9.5 }, "residual": 8.5, "infectious": 4.0, "total": 37.0 } } },
+    { "id": "2023-12-16-data", "createdAt": "2023-12-16T08:00:00Z", "overall_weight": 310.0, "overall_biodegradable": 120.0, "overall_recyclable": 82.0, "overall_residual": 67.5, "overall_infectious": 40.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 23.0, "recyclable": { "total": 16.0 }, "residual": 12.5, "infectious": 8.0, "total": 59.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.0, "recyclable": { "total": 13.0 }, "residual": 11.0, "infectious": 7.0, "total": 51.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.0, "recyclable": { "total": 13.0 }, "residual": 10.5, "infectious": 7.0, "total": 49.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 22.0, "recyclable": { "total": 16.0 }, "residual": 12.5, "infectious": 8.5, "total": 59.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.5, "recyclable": { "total": 13.5 }, "residual": 11.0, "infectious": 5.5, "total": 49.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 10.5 }, "residual": 10.0, "infectious": 4.5, "total": 41.5 } } },
+    { "id": "2023-12-19-data", "createdAt": "2023-12-19T08:00:00Z", "overall_weight": 237.0, "overall_biodegradable": 91.5, "overall_recyclable": 63.0, "overall_residual": 53.0, "overall_infectious": 29.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 6.0, "total": 45.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 15.0, "recyclable": { "total": 10.5 }, "residual": 8.5, "infectious": 5.0, "total": 39.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 14.5, "recyclable": { "total": 10.0 }, "residual": 8.5, "infectious": 5.0, "total": 38.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 6.5, "total": 44.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.5, "recyclable": { "total": 10.0 }, "residual": 8.5, "infectious": 4.0, "total": 37.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 13.5, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 3.0, "total": 33.5 } } },
+    { "id": "2023-12-22-data", "createdAt": "2023-12-22T08:00:00Z", "overall_weight": 300.0, "overall_biodegradable": 116.5, "overall_recyclable": 79.5, "overall_residual": 64.0, "overall_infectious": 40.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 22.0, "recyclable": { "total": 15.5 }, "residual": 12.0, "infectious": 8.0, "total": 57.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.0, "recyclable": { "total": 13.0 }, "residual": 10.5, "infectious": 6.5, "total": 49.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.0, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 6.5, "total": 48.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 21.5, "recyclable": { "total": 16.0 }, "residual": 12.5, "infectious": 9.0, "total": 59.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 18.0, "recyclable": { "total": 13.0 }, "residual": 10.5, "infectious": 5.5, "total": 47.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 9.5 }, "residual": 8.0, "infectious": 4.5, "total": 39.0 } } },
+    { "id": "2023-12-25-data", "createdAt": "2023-12-25T08:00:00Z", "overall_weight": 203.0, "overall_biodegradable": 78.0, "overall_recyclable": 53.5, "overall_residual": 45.5, "overall_infectious": 26.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 15.0, "recyclable": { "total": 10.0 }, "residual": 9.0, "infectious": 5.0, "total": 39.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 13.0, "recyclable": { "total": 9.0 }, "residual": 7.5, "infectious": 4.5, "total": 34.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 12.0, "recyclable": { "total": 8.5 }, "residual": 7.0, "infectious": 4.5, "total": 32.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.5, "recyclable": { "total": 10.5 }, "residual": 8.0, "infectious": 5.5, "total": 38.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 12.5, "recyclable": { "total": 8.5 }, "residual": 7.5, "infectious": 3.5, "total": 32.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 11.0, "recyclable": { "total": 7.0 }, "residual": 6.5, "infectious": 3.0, "total": 27.5 } } },
+    { "id": "2023-12-28-data", "createdAt": "2023-12-28T08:00:00Z", "overall_weight": 325.0, "overall_biodegradable": 126.0, "overall_recyclable": 86.5, "overall_residual": 72.5, "overall_infectious": 40.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 24.0, "recyclable": { "total": 17.0 }, "residual": 14.0, "infectious": 8.0, "total": 63.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.0, "recyclable": { "total": 14.0 }, "residual": 11.5, "infectious": 7.0, "total": 53.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.0, "recyclable": { "total": 13.5 }, "residual": 11.5, "infectious": 6.5, "total": 51.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 23.0, "recyclable": { "total": 17.5 }, "residual": 14.0, "infectious": 9.0, "total": 63.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.0, "recyclable": { "total": 14.5 }, "residual": 12.0, "infectious": 5.5, "total": 52.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 18.0, "recyclable": { "total": 10.0 }, "residual": 9.5, "infectious": 4.0, "total": 41.5 } } },
+    { "id": "2023-12-31-data", "createdAt": "2023-12-31T08:00:00Z", "overall_weight": 271.0, "overall_biodegradable": 104.5, "overall_recyclable": 71.5, "overall_residual": 59.5, "overall_infectious": 35.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.0, "recyclable": { "total": 14.0 }, "residual": 11.5, "infectious": 6.5, "total": 52.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.5 }, "residual": 10.0, "infectious": 6.0, "total": 44.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 5.5, "total": 43.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.5, "recyclable": { "total": 14.5 }, "residual": 11.5, "infectious": 8.0, "total": 53.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 5.5, "total": 43.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.0, "recyclable": { "total": 8.5 }, "residual": 7.5, "infectious": 4.0, "total": 34.0 } } },
+    { "id": "2024-01-02-data", "createdAt": "2024-01-02T08:00:00Z", "overall_weight": 275.0, "overall_biodegradable": 107.0, "overall_recyclable": 74.5, "overall_residual": 62.0, "overall_infectious": 31.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.0, "recyclable": { "total": 15.0 }, "residual": 12.0, "infectious": 5.0, "total": 52.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.0, "recyclable": { "total": 10.5 }, "residual": 9.0, "infectious": 4.0, "total": 41.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 13.0 }, "residual": 11.0, "infectious": 8.0, "total": 49.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.0, "recyclable": { "total": 14.0 }, "residual": 11.5, "infectious": 6.5, "total": 51.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.5 }, "residual": 10.0, "infectious": 4.5, "total": 42.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 10.5 }, "residual": 8.5, "infectious": 3.5, "total": 39.0 } } },
+    { "id": "2024-01-05-data", "createdAt": "2024-01-05T08:00:00Z", "overall_weight": 341.0, "overall_biodegradable": 133.0, "overall_recyclable": 90.5, "overall_residual": 76.0, "overall_infectious": 41.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 25.0, "recyclable": { "total": 18.0 }, "residual": 14.0, "infectious": 8.5, "total": 65.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 22.0, "recyclable": { "total": 14.0 }, "residual": 12.5, "infectious": 7.5, "total": 56.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.0, "recyclable": { "total": 14.0 }, "residual": 12.0, "infectious": 7.0, "total": 54.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 24.0, "recyclable": { "total": 17.5 }, "residual": 14.5, "infectious": 9.0, "total": 65.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 22.0, "recyclable": { "total": 15.5 }, "residual": 13.5, "infectious": 6.5, "total": 57.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.0, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 3.0, "total": 43.0 } } }
+  ],
+  "waste_90days": [
+    { "id": "2023-10-10-data", "createdAt": "2023-10-10T08:00:00Z", "overall_weight": 232.0, "overall_biodegradable": 89.5, "overall_recyclable": 61.5, "overall_residual": 52.5, "overall_infectious": 28.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 5.5, "total": 44.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 15.0, "recyclable": { "total": 10.0 }, "residual": 8.5, "infectious": 5.0, "total": 38.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 14.0, "recyclable": { "total": 10.0 }, "residual": 8.5, "infectious": 4.5, "total": 37.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.0, "recyclable": { "total": 11.0 }, "residual": 9.5, "infectious": 6.0, "total": 42.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.5, "recyclable": { "total": 9.5 }, "residual": 8.5, "infectious": 4.0, "total": 36.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 13.0, "recyclable": { "total": 9.0 }, "residual": 7.5, "infectious": 3.5, "total": 33.0 } } },
+    { "id": "2023-10-20-data", "createdAt": "2023-10-20T08:00:00Z", "overall_weight": 267.0, "overall_biodegradable": 103.0, "overall_recyclable": 70.5, "overall_residual": 59.5, "overall_infectious": 34.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.0, "recyclable": { "total": 14.0 }, "residual": 11.5, "infectious": 6.5, "total": 52.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 6.0, "total": 44.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 16.0, "recyclable": { "total": 11.0 }, "residual": 9.5, "infectious": 5.5, "total": 42.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.0, "recyclable": { "total": 13.5 }, "residual": 11.0, "infectious": 7.5, "total": 51.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.5 }, "residual": 10.0, "infectious": 5.0, "total": 43.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.0, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 3.5, "total": 34.5 } } },
+    { "id": "2023-10-30-data", "createdAt": "2023-10-30T08:00:00Z", "overall_weight": 294.5, "overall_biodegradable": 114.0, "overall_recyclable": 77.5, "overall_residual": 65.0, "overall_infectious": 38.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 22.0, "recyclable": { "total": 15.0 }, "residual": 12.5, "infectious": 7.5, "total": 57.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.0, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 6.5, "total": 48.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.0, "recyclable": { "total": 12.5 }, "residual": 10.0, "infectious": 6.0, "total": 46.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 21.0, "recyclable": { "total": 15.0 }, "residual": 12.0, "infectious": 8.5, "total": 56.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 18.5, "recyclable": { "total": 13.0 }, "residual": 11.0, "infectious": 5.5, "total": 48.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 15.5, "recyclable": { "total": 9.5 }, "residual": 9.0, "infectious": 4.0, "total": 38.0 } } },
+    { "id": "2023-11-09-data", "createdAt": "2023-11-09T08:00:00Z", "overall_weight": 246.0, "overall_biodegradable": 95.0, "overall_recyclable": 64.5, "overall_residual": 55.5, "overall_infectious": 31.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.0, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 6.0, "total": 47.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 16.0, "recyclable": { "total": 10.5 }, "residual": 9.0, "infectious": 5.0, "total": 40.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 15.0, "recyclable": { "total": 10.5 }, "residual": 9.0, "infectious": 5.0, "total": 39.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.5 }, "residual": 10.0, "infectious": 7.0, "total": 45.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 15.5, "recyclable": { "total": 10.5 }, "residual": 9.0, "infectious": 4.5, "total": 39.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 13.5, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 3.5, "total": 34.0 } } },
+    { "id": "2023-11-19-data", "createdAt": "2023-11-19T08:00:00Z", "overall_weight": 319.5, "overall_biodegradable": 124.0, "overall_recyclable": 85.0, "overall_residual": 71.0, "overall_infectious": 39.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 24.0, "recyclable": { "total": 16.5 }, "residual": 14.0, "infectious": 8.0, "total": 62.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.0, "recyclable": { "total": 13.5 }, "residual": 11.5, "infectious": 6.5, "total": 51.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.0, "recyclable": { "total": 13.5 }, "residual": 11.0, "infectious": 6.5, "total": 51.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 23.0, "recyclable": { "total": 17.0 }, "residual": 13.5, "infectious": 9.5, "total": 63.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.5, "recyclable": { "total": 14.0 }, "residual": 11.5, "infectious": 5.5, "total": 50.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 10.5 }, "residual": 9.5, "infectious": 3.5, "total": 41.0 } } },
+    { "id": "2023-11-29-data", "createdAt": "2023-11-29T08:00:00Z", "overall_weight": 277.0, "overall_biodegradable": 107.0, "overall_recyclable": 73.5, "overall_residual": 61.5, "overall_infectious": 35.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.5, "recyclable": { "total": 14.5 }, "residual": 12.0, "infectious": 7.0, "total": 54.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 5.5, "total": 44.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 6.0, "total": 45.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.0, "recyclable": { "total": 14.5 }, "residual": 11.5, "infectious": 7.5, "total": 53.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 5.5, "total": 45.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.5, "recyclable": { "total": 9.0 }, "residual": 8.5, "infectious": 3.5, "total": 35.5 } } },
+    { "id": "2023-12-09-data", "createdAt": "2023-12-09T08:00:00Z", "overall_weight": 307.0, "overall_biodegradable": 119.0, "overall_recyclable": 80.5, "overall_residual": 67.5, "overall_infectious": 40.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 23.0, "recyclable": { "total": 15.5 }, "residual": 13.0, "infectious": 8.0, "total": 59.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.5, "recyclable": { "total": 13.0 }, "residual": 11.0, "infectious": 6.5, "total": 50.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.0, "recyclable": { "total": 13.0 }, "residual": 10.5, "infectious": 6.5, "total": 49.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 22.0, "recyclable": { "total": 16.5 }, "residual": 13.0, "infectious": 9.5, "total": 61.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.5, "recyclable": { "total": 13.5 }, "residual": 11.5, "infectious": 5.5, "total": 50.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.0, "recyclable": { "total": 9.0 }, "residual": 8.5, "infectious": 4.0, "total": 37.5 } } },
+    { "id": "2023-12-19-data", "createdAt": "2023-12-19T08:00:00Z", "overall_weight": 237.0, "overall_biodegradable": 91.5, "overall_recyclable": 63.0, "overall_residual": 53.0, "overall_infectious": 29.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 6.0, "total": 45.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 15.0, "recyclable": { "total": 10.5 }, "residual": 8.5, "infectious": 5.0, "total": 39.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 14.5, "recyclable": { "total": 10.0 }, "residual": 8.5, "infectious": 5.0, "total": 38.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 6.5, "total": 44.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.5, "recyclable": { "total": 10.0 }, "residual": 8.5, "infectious": 4.0, "total": 37.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 13.5, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 3.0, "total": 33.5 } } },
+    { "id": "2023-12-29-data", "createdAt": "2023-12-29T08:00:00Z", "overall_weight": 286.5, "overall_biodegradable": 110.5, "overall_recyclable": 76.5, "overall_residual": 63.0, "overall_infectious": 36.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.5, "recyclable": { "total": 15.0 }, "residual": 12.0, "infectious": 7.0, "total": 55.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.0, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 6.0, "total": 47.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 6.0, "total": 45.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 15.5 }, "residual": 12.0, "infectious": 8.5, "total": 56.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 18.0, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 5.5, "total": 46.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 15.0, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 3.5, "total": 35.5 } } },
+    { "id": "2024-01-08-data", "createdAt": "2024-01-08T08:00:00Z", "overall_weight": 287.5, "overall_biodegradable": 111.5, "overall_recyclable": 77.0, "overall_residual": 64.0, "overall_infectious": 35.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.5, "recyclable": { "total": 15.5 }, "residual": 12.5, "infectious": 7.0, "total": 56.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.5, "recyclable": { "total": 12.0 }, "residual": 10.5, "infectious": 6.0, "total": 47.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 5.5, "total": 45.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 16.0 }, "residual": 12.5, "infectious": 8.0, "total": 57.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 5.0, "total": 45.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.0, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 3.5, "total": 36.5 } } }
+  ],
+  "waste_365days": [
+    { "id": "2023-01-15-data", "createdAt": "2023-01-15T08:00:00Z", "overall_weight": 213.0, "overall_biodegradable": 81.5, "overall_recyclable": 56.0, "overall_residual": 49.0, "overall_infectious": 26.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 16.0, "recyclable": { "total": 11.0 }, "residual": 9.0, "infectious": 5.0, "total": 41.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 13.0, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 4.5, "total": 34.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 13.0, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 4.5, "total": 34.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.5, "recyclable": { "total": 10.5 }, "residual": 8.5, "infectious": 5.5, "total": 39.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 13.0, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 4.0, "total": 34.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 12.0, "recyclable": { "total": 7.5 }, "residual": 7.5, "infectious": 3.0, "total": 30.0 } } },
+    { "id": "2023-02-15-data", "createdAt": "2023-02-15T08:00:00Z", "overall_weight": 242.0, "overall_biodegradable": 93.5, "overall_recyclable": 64.0, "overall_residual": 54.5, "overall_infectious": 30.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.0, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 6.0, "total": 47.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 15.0, "recyclable": { "total": 10.5 }, "residual": 9.0, "infectious": 5.0, "total": 39.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 15.0, "recyclable": { "total": 10.0 }, "residual": 8.5, "infectious": 5.0, "total": 38.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 12.0 }, "residual": 9.5, "infectious": 6.5, "total": 45.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 15.5, "recyclable": { "total": 10.5 }, "residual": 9.0, "infectious": 4.5, "total": 39.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 13.0, "recyclable": { "total": 8.5 }, "residual": 8.0, "infectious": 3.0, "total": 32.5 } } },
+    { "id": "2023-03-15-data", "createdAt": "2023-03-15T08:00:00Z", "overall_weight": 271.0, "overall_biodegradable": 104.5, "overall_recyclable": 71.5, "overall_residual": 60.5, "overall_infectious": 34.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.5, "recyclable": { "total": 14.0 }, "residual": 11.5, "infectious": 6.5, "total": 52.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.5 }, "residual": 10.0, "infectious": 5.5, "total": 44.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 6.0, "total": 43.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.5, "recyclable": { "total": 14.0 }, "residual": 11.0, "infectious": 7.5, "total": 52.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 11.5 }, "residual": 10.0, "infectious": 5.5, "total": 44.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 13.5, "recyclable": { "total": 9.0 }, "residual": 8.5, "infectious": 3.5, "total": 34.5 } } },
+    { "id": "2023-04-15-data", "createdAt": "2023-04-15T08:00:00Z", "overall_weight": 300.5, "overall_biodegradable": 116.5, "overall_recyclable": 79.5, "overall_residual": 65.5, "overall_infectious": 39.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 22.5, "recyclable": { "total": 15.5 }, "residual": 12.5, "infectious": 7.5, "total": 58.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.0, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 6.5, "total": 48.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.5, "recyclable": { "total": 13.0 }, "residual": 10.5, "infectious": 6.5, "total": 48.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 21.5, "recyclable": { "total": 15.5 }, "residual": 12.5, "infectious": 8.5, "total": 58.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 18.5, "recyclable": { "total": 13.5 }, "residual": 11.0, "infectious": 6.0, "total": 49.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 9.5 }, "residual": 8.5, "infectious": 4.0, "total": 38.5 } } },
+    { "id": "2023-05-15-data", "createdAt": "2023-05-15T08:00:00Z", "overall_weight": 313.5, "overall_biodegradable": 121.5, "overall_recyclable": 83.5, "overall_residual": 69.5, "overall_infectious": 39.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 23.5, "recyclable": { "total": 16.0 }, "residual": 13.5, "infectious": 8.0, "total": 61.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.5, "recyclable": { "total": 13.5 }, "residual": 11.0, "infectious": 6.5, "total": 50.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.5, "recyclable": { "total": 13.5 }, "residual": 11.0, "infectious": 6.5, "total": 50.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 22.5, "recyclable": { "total": 16.5 }, "residual": 13.5, "infectious": 8.5, "total": 61.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.5, "recyclable": { "total": 14.0 }, "residual": 11.5, "infectious": 5.5, "total": 50.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 10.0 }, "residual": 9.0, "infectious": 4.0, "total": 40.0 } } },
+    { "id": "2023-06-15-data", "createdAt": "2023-06-15T08:00:00Z", "overall_weight": 286.5, "overall_biodegradable": 110.5, "overall_recyclable": 76.5, "overall_residual": 62.5, "overall_infectious": 37.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.5, "recyclable": { "total": 15.0 }, "residual": 12.0, "infectious": 7.5, "total": 56.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.0, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 6.0, "total": 46.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.5 }, "residual": 10.0, "infectious": 6.0, "total": 46.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 15.0 }, "residual": 12.0, "infectious": 8.5, "total": 56.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.5 }, "residual": 10.0, "infectious": 5.5, "total": 45.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 15.5, "recyclable": { "total": 9.5 }, "residual": 8.5, "infectious": 3.5, "total": 37.0 } } },
+    { "id": "2023-07-15-data", "createdAt": "2023-07-15T08:00:00Z", "overall_weight": 329.5, "overall_biodegradable": 128.0, "overall_recyclable": 87.5, "overall_residual": 73.0, "overall_infectious": 41.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 25.0, "recyclable": { "total": 17.0 }, "residual": 14.0, "infectious": 8.5, "total": 64.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.0, "recyclable": { "total": 14.0 }, "residual": 12.0, "infectious": 7.0, "total": 54.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.0, "recyclable": { "total": 13.5 }, "residual": 11.5, "infectious": 6.5, "total": 51.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 23.5, "recyclable": { "total": 17.5 }, "residual": 14.0, "infectious": 9.5, "total": 64.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 14.5 }, "residual": 12.0, "infectious": 5.5, "total": 52.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 18.0, "recyclable": { "total": 11.0 }, "residual": 9.5, "infectious": 4.0, "total": 42.5 } } },
+    { "id": "2023-08-15-data", "createdAt": "2023-08-15T08:00:00Z", "overall_weight": 296.5, "overall_biodegradable": 114.5, "overall_recyclable": 78.5, "overall_residual": 65.5, "overall_infectious": 38.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 22.0, "recyclable": { "total": 15.5 }, "residual": 12.5, "infectious": 7.5, "total": 57.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.5, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 6.5, "total": 48.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.5, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 6.0, "total": 47.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 21.0, "recyclable": { "total": 15.5 }, "residual": 12.5, "infectious": 9.0, "total": 58.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 18.5, "recyclable": { "total": 13.0 }, "residual": 11.0, "infectious": 5.5, "total": 48.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.0, "recyclable": { "total": 9.5 }, "residual": 8.5, "infectious": 3.5, "total": 37.5 } } },
+    { "id": "2023-09-15-data", "createdAt": "2023-09-15T08:00:00Z", "overall_weight": 263.0, "overall_biodegradable": 101.5, "overall_recyclable": 69.5, "overall_residual": 58.5, "overall_infectious": 33.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.5, "recyclable": { "total": 13.5 }, "residual": 11.5, "infectious": 6.5, "total": 51.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 5.5, "total": 43.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.0 }, "residual": 9.0, "infectious": 5.5, "total": 42.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 18.5, "recyclable": { "total": 13.5 }, "residual": 10.5, "infectious": 8.0, "total": 50.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 11.5 }, "residual": 10.0, "infectious": 4.5, "total": 42.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.0, "recyclable": { "total": 8.5 }, "residual": 8.0, "infectious": 3.5, "total": 34.0 } } },
+    { "id": "2023-10-15-data", "createdAt": "2023-10-15T08:00:00Z", "overall_weight": 279.0, "overall_biodegradable": 107.5, "overall_recyclable": 74.5, "overall_residual": 61.0, "overall_infectious": 36.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.0, "recyclable": { "total": 14.5 }, "residual": 12.0, "infectious": 7.0, "total": 54.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 5.5, "total": 45.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 12.0 }, "residual": 9.5, "infectious": 6.0, "total": 44.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.0, "recyclable": { "total": 14.5 }, "residual": 11.5, "infectious": 8.5, "total": 54.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.5 }, "residual": 10.0, "infectious": 5.5, "total": 45.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 14.5, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 3.5, "total": 35.0 } } },
+    { "id": "2023-11-15-data", "createdAt": "2023-11-15T08:00:00Z", "overall_weight": 307.0, "overall_biodegradable": 119.5, "overall_recyclable": 81.5, "overall_residual": 66.5, "overall_infectious": 39.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 23.0, "recyclable": { "total": 16.0 }, "residual": 13.0, "infectious": 8.0, "total": 60.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.5, "recyclable": { "total": 13.0 }, "residual": 10.5, "infectious": 6.5, "total": 49.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.0, "recyclable": { "total": 13.0 }, "residual": 10.5, "infectious": 6.5, "total": 49.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 22.0, "recyclable": { "total": 16.5 }, "residual": 13.0, "infectious": 9.5, "total": 61.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.0, "recyclable": { "total": 13.5 }, "residual": 11.0, "infectious": 5.5, "total": 49.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 9.5 }, "residual": 8.5, "infectious": 3.5, "total": 38.5 } } },
+    { "id": "2023-12-15-data", "createdAt": "2023-12-15T08:00:00Z", "overall_weight": 284.5, "overall_biodegradable": 109.5, "overall_recyclable": 75.5, "overall_residual": 62.0, "overall_infectious": 37.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.5, "recyclable": { "total": 14.5 }, "residual": 12.0, "infectious": 7.5, "total": 55.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.5 }, "residual": 10.0, "infectious": 6.0, "total": 46.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 6.0, "total": 45.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 15.0 }, "residual": 11.5, "infectious": 9.0, "total": 56.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.5 }, "residual": 10.0, "infectious": 5.5, "total": 45.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 15.0, "recyclable": { "total": 9.0 }, "residual": 8.5, "infectious": 3.5, "total": 36.0 } } },
+    { "id": "2024-01-02-data", "createdAt": "2024-01-02T08:00:00Z", "overall_weight": 341.0, "overall_biodegradable": 132.0, "overall_recyclable": 90.5, "overall_residual": 75.5, "overall_infectious": 43.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 26.0, "recyclable": { "total": 18.5 }, "residual": 15.0, "infectious": 8.5, "total": 68.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 22.0, "recyclable": { "total": 14.5 }, "residual": 12.5, "infectious": 7.0, "total": 56.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.0, "recyclable": { "total": 14.0 }, "residual": 12.0, "infectious": 7.0, "total": 54.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 24.5, "recyclable": { "total": 18.0 }, "residual": 14.5, "infectious": 9.5, "total": 66.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 21.5, "recyclable": { "total": 14.5 }, "residual": 12.5, "infectious": 6.5, "total": 55.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.0 }, "residual": 9.0, "infectious": 4.5, "total": 41.5 } } },
+    { "id": "2024-01-03-data", "createdAt": "2024-01-03T08:00:00Z", "overall_weight": 318.5, "overall_biodegradable": 123.0, "overall_recyclable": 84.5, "overall_residual": 70.0, "overall_infectious": 41.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 24.0, "recyclable": { "total": 17.0 }, "residual": 14.0, "infectious": 8.0, "total": 63.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.5, "recyclable": { "total": 13.5 }, "residual": 11.5, "infectious": 7.0, "total": 52.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.5, "recyclable": { "total": 13.5 }, "residual": 11.0, "infectious": 6.5, "total": 50.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 23.0, "recyclable": { "total": 17.0 }, "residual": 13.5, "infectious": 9.5, "total": 63.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.0, "recyclable": { "total": 13.5 }, "residual": 11.5, "infectious": 6.0, "total": 51.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.0, "recyclable": { "total": 10.5 }, "residual": 8.5, "infectious": 4.0, "total": 39.0 } } },
+    { "id": "2024-01-04-data", "createdAt": "2024-01-04T08:00:00Z", "overall_weight": 302.0, "overall_biodegradable": 116.5, "overall_recyclable": 80.0, "overall_residual": 67.0, "overall_infectious": 38.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 22.5, "recyclable": { "total": 16.0 }, "residual": 13.5, "infectious": 7.5, "total": 59.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 19.0, "recyclable": { "total": 12.5 }, "residual": 11.0, "infectious": 6.5, "total": 49.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.5, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 6.0, "total": 47.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 21.5, "recyclable": { "total": 16.0 }, "residual": 12.5, "infectious": 8.5, "total": 58.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 18.5, "recyclable": { "total": 13.0 }, "residual": 11.0, "infectious": 5.5, "total": 48.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.5, "recyclable": { "total": 10.0 }, "residual": 8.5, "infectious": 4.5, "total": 39.5 } } },
+    { "id": "2024-01-05-data", "createdAt": "2024-01-05T08:00:00Z", "overall_weight": 355.0, "overall_biodegradable": 137.5, "overall_recyclable": 94.0, "overall_residual": 79.0, "overall_infectious": 44.5, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 27.0, "recyclable": { "total": 19.0 }, "residual": 16.0, "infectious": 9.0, "total": 71.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 23.0, "recyclable": { "total": 15.0 }, "residual": 13.0, "infectious": 7.5, "total": 58.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 22.0, "recyclable": { "total": 15.0 }, "residual": 12.5, "infectious": 7.5, "total": 57.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 25.5, "recyclable": { "total": 19.0 }, "residual": 15.0, "infectious": 10.0, "total": 69.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 22.5, "recyclable": { "total": 15.5 }, "residual": 12.5, "infectious": 6.0, "total": 56.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 11.5 }, "residual": 10.0, "infectious": 4.5, "total": 43.5 } } },
+    { "id": "2024-01-06-data", "createdAt": "2024-01-06T08:00:00Z", "overall_weight": 276.0, "overall_biodegradable": 106.5, "overall_recyclable": 73.0, "overall_residual": 61.5, "overall_infectious": 35.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.5, "recyclable": { "total": 14.5 }, "residual": 12.5, "infectious": 7.0, "total": 54.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 11.5 }, "residual": 10.0, "infectious": 5.5, "total": 44.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.0, "recyclable": { "total": 11.5 }, "residual": 9.5, "infectious": 5.5, "total": 43.5 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 19.5, "recyclable": { "total": 14.5 }, "residual": 11.5, "infectious": 8.0, "total": 53.5 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 5.0, "total": 44.0 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 15.0, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 4.0, "total": 36.0 } } },
+    { "id": "2024-01-07-data", "createdAt": "2024-01-07T08:00:00Z", "overall_weight": 331.0, "overall_biodegradable": 128.0, "overall_recyclable": 87.5, "overall_residual": 73.5, "overall_infectious": 42.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 25.0, "recyclable": { "total": 18.0 }, "residual": 14.5, "infectious": 8.5, "total": 66.0 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.5, "recyclable": { "total": 14.0 }, "residual": 12.0, "infectious": 7.0, "total": 54.5 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 20.5, "recyclable": { "total": 14.0 }, "residual": 11.5, "infectious": 7.0, "total": 53.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 23.5, "recyclable": { "total": 17.5 }, "residual": 13.5, "infectious": 9.5, "total": 64.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 14.0 }, "residual": 12.0, "infectious": 6.0, "total": 52.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.0, "recyclable": { "total": 10.0 }, "residual": 10.0, "infectious": 4.0, "total": 41.0 } } },
+    { "id": "2024-01-08-data", "createdAt": "2024-01-08T08:00:00Z", "overall_weight": 287.5, "overall_biodegradable": 111.5, "overall_recyclable": 77.0, "overall_residual": 64.0, "overall_infectious": 35.0, "RGRBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 21.5, "recyclable": { "total": 15.5 }, "residual": 12.5, "infectious": 7.0, "total": 56.5 } }, "CICSBuilding": { "campus": "Alangilan", "weight": { "biodegradable": 18.5, "recyclable": { "total": 12.0 }, "residual": 10.5, "infectious": 6.0, "total": 47.0 } }, "CEAFABuilding": { "campus": "Alangilan", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.0 }, "residual": 10.0, "infectious": 5.5, "total": 45.0 } }, "JoseRizalBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 20.5, "recyclable": { "total": 16.0 }, "residual": 12.5, "infectious": 8.0, "total": 57.0 } }, "EmilioAguinaldoBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 17.5, "recyclable": { "total": 12.5 }, "residual": 10.5, "infectious": 5.0, "total": 45.5 } }, "AdministrationBuilding": { "campus": "PabloBorbon", "weight": { "biodegradable": 16.0, "recyclable": { "total": 9.0 }, "residual": 8.0, "infectious": 3.5, "total": 36.5 } } }
+  ]
+}

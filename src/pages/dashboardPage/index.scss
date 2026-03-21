@@ -1,7 +1,39 @@
 /*
- * Dashboard page — print-only styles
+ * Dashboard page styles
  * All component styles are handled by Tailwind CSS utility classes.
  */
+
+/* ── Waste-type KPI tiles ─────────────────────────────────────────────────── */
+.waste-tile {
+  &__bar       { background-color: var(--tile-accent); }
+  &__dot       { background-color: var(--tile-accent-bg); }
+  &__dot-icon  { color: var(--tile-accent); }
+  &__value     { color: var(--tile-accent); }
+  &__chip      { background-color: var(--tile-accent); }
+
+  &--biodegradable {
+    --tile-accent:    #216604;
+    --tile-accent-bg: #2166041a;
+  }
+  &--residual {
+    --tile-accent:    #171717;
+    --tile-accent-bg: #1717171a;
+  }
+  &--recyclable {
+    --tile-accent:    #3b82f6;
+    --tile-accent-bg: #3b82f61a;
+  }
+  &--infectious {
+    --tile-accent:    #ef4444;
+    --tile-accent-bg: #ef44441a;
+  }
+}
+
+/* ── Section entrance animations ─────────────────────────────────────────── */
+.dash-section-1 { animation-delay: 100ms; }
+.dash-section-2 { animation-delay: 200ms; }
+.dash-section-3 { animation-delay: 300ms; }
+.dash-section-4 { animation-delay: 400ms; }
 
 @media print {
   .print-hidden {

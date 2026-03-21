@@ -1,30 +1,35 @@
-
-import About from "./about";
-import { useRef } from "react";
-import Features from "./features";
-import Contact from "./contact";
-import Home from "./home";
 import Navbar_ from "../../components/layout/navbar";
+import Home from "./home";
+import ProblemSection from "./sections/ProblemSection";
+import SolutionSection from "./sections/SolutionSection";
+import EcosystemSection from "./sections/EcosystemSection";
+import FeaturesSection from "./sections/FeaturesSection";
+import MarketSection from "./sections/MarketSection";
+import OfferSection from "./sections/OfferSection";
+import TeamSection from "./sections/TeamSection";
+import FaqSection from "./sections/FaqSection";
+import Contact from "./contact";
 
 export default function LandingPage() {
-  const layer: React.CSSProperties = {
-    height: "1000px",
-  };
-
-  const styles: React.CSSProperties = {
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-  };
-
-  const ref: any = useRef(null);
-
   return (
-    <>
+    <div className="selection:bg-[#216604] selection:text-white">
       <Navbar_ />
-      <Home />
-      {/* <About />
-      <Features />
-      <Contact /> */}
-    </>
+      <main>
+        <div id="home">
+          <Home />
+        </div>
+        <ProblemSection />
+        <SolutionSection />
+        <EcosystemSection />
+        <FeaturesSection />
+        <MarketSection />
+        <OfferSection />
+        {/* <TeamSection /> */}
+        <FaqSection />
+        <div id="contact">
+          <Contact />
+        </div>
+      </main>
+    </div>
   );
 }
