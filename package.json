@@ -55,7 +55,7 @@
     "@types/react-places-autocomplete": "^7.2.14",
     "@vitejs/plugin-react-swc": "^4.2.3",
     "autoprefixer": "^10.4.27",
-    "postcss": "^8.5.8",
+    "postcss": "^8.5.15",
     "prop-types": "^15.8.1",
     "sass-embedded": "^1.98.0",
     "tailwindcss": "^4.2.1",
